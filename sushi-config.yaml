@@ -5,8 +5,8 @@
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 id: hl7.at.fhir.elga.ediag.r4
 canonical: https://fhir.hl7.at/elga/ediag/r4
-name: ELGA e-Diagnose R4
-# title: Example Title
+name: ELGAeDiagnoseR4
+title: ELGA e-Diagnose R4 (Draft)
 # description: Example Implementation Guide for getting started with SUSHI
 status: draft # draft | active | retired | unknown
 version: 0.1.0
@@ -77,7 +77,10 @@ dependencies:
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 menu:
   Home: index.html
+  Table of Contents: toc.html
   Artifacts: artifacts.html
+  Terminologies: terminologies.html
+  Anwendungsfälle: anwendungsfaelle.html 
 
 # ╭───────────────────────────Less Common Implementation Guide Properties──────────────────────────╮
 # │  Uncomment the properties below to configure additional properties on the ImplementationGuide  │
