@@ -7,7 +7,7 @@ id: hl7.at.fhir.elga.ediag.r4
 canonical: https://fhir.hl7.at/elga/ediag/r4
 name: ELGAeDiagnoseR4
 title: ELGA e-Diagnose R4 (Draft)
-# description: Example Implementation Guide for getting started with SUSHI
+description: The FHIR® implementation guide ELGA e-Diagnose (R4)
 status: draft # draft | active | retired | unknown
 version: 0.1.0
 fhirVersion: 4.0.1 # https://www.hl7.org/fhir/valueset-FHIR-version.html
@@ -18,6 +18,12 @@ releaseLabel: ci-build
 publisher:
   name: ELGA GmbH
   url: http://elga.gv.at
+contact:
+  - name: ELGA GmbH
+    telecom:
+      - system: url
+        value: https://elga.gv.at
+        use: work
   # email: test@example.org
 
 # The dependencies property corresponds to IG.dependsOn. The key is the
@@ -25,6 +31,8 @@ publisher:
 # use cases, the value can be an object with keys for id, uri, and version.
 #
 dependencies:
+#  hl7.fhir.eu.mpd: 0.1.0-ballot
+#  hl7.at.fhir.core.r4: 2.0.0
   hl7.at.fhir.elga.aps.r4: current
 #   hl7.fhir.us.core: 3.1.0
 #   hl7.fhir.us.mcode:
@@ -44,15 +52,17 @@ dependencies:
 # with supported extensions (e.g., .md/.xml) will be treated as
 # sub-pages.
 #
-# pages:
-#   index.md:
-#     title: Example Home
-#   implementation.xml:
-#   examples.xml:
-#     title: Examples Overview
-#     simpleExamples.xml:
-#     complexExamples.xml:
-#
+pages:
+  index.md:
+    title: "Home"
+  anwendungsfaelle.md:
+    title: "Überblick Anwendungsfälle"
+    UC_eDiag_01.md:
+      title: "UC_eDiag_01 - Diagnosen lesen"
+    UC_eDiag_02.md:
+      title: "UC_eDiag_02 - Diagnosen schreiben"
+  terminologies.md:
+    title: Terminologien
 #
 # The parameters property represents IG.definition.parameter. Rather
 # than a list of code/value pairs (as in the ImplementationGuide
@@ -63,10 +73,10 @@ dependencies:
 # For parameters defined by the FHIR Tools IG see:
 # http://build.fhir.org/ig/FHIR/fhir-tools-ig/branches/master/CodeSystem-ig-parameters.html
 #
-# parameters:
-#   excludettl: true
+#arameters:
+#  excludettl: true
 #   validation: [allow-any-extensions, no-broken-links]
-#
+
 # ╭────────────────────────────────────────────menu.xml────────────────────────────────────────────╮
 # │ The menu property will be used to generate the input/menu.xml file. The menu is represented    │
 # │ as a simple structure where the YAML key is the menu item name and the value is the URL.       │
@@ -78,9 +88,14 @@ dependencies:
 menu:
   Home: index.html
   Table of Contents: toc.html
-  Artifacts: artifacts.html
+  Use Cases: 
+    Überblick: anwendungsfaelle.html
+    "UC_eDiag_01 Diagnosen lesen": UC_eDiag_01.html
+    "UC_eDiag_02 Diagnosen schreiben": UC_eDiag_02.html
   Terminologies: terminologies.html
-  Anwendungsfälle: anwendungsfaelle.html 
+  Artifacts: artifacts.html
+
+  
 
 # ╭───────────────────────────Less Common Implementation Guide Properties──────────────────────────╮
 # │  Uncomment the properties below to configure additional properties on the ImplementationGuide  │
