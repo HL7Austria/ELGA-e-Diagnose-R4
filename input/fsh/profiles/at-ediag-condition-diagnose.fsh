@@ -6,4 +6,13 @@ Description: "Das AT APS-Profil für die Condition-Ressource Diagnosen berücksi
 * ^status = #active
 * . ^short = "AT e-Diagnose Condition Diagnosen"
 * subject only Reference(AtEdiagPatient)
-* meta.tag from AtEDiagDiagnosenAcuteOrChronic (required)
+
+* meta.tag ^slicing.discriminator[+].type = #value
+* meta.tag ^slicing.discriminator[=].path = "tag"
+* meta.tag ^slicing.rules = #open
+//code -> required pattern
+//code.coding -> fixed value
+//code.coding.system-> fixed value
+//code.coding.code -> fixed value
+* meta.tag contains diagnosisType 1..1
+* meta.tag[diagnosisType] from AtEdiagDiagnosisType (required)
