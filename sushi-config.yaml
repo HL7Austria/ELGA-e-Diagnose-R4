@@ -73,7 +73,8 @@ pages:
 # For parameters defined by the FHIR Tools IG see:
 # http://build.fhir.org/ig/FHIR/fhir-tools-ig/branches/master/CodeSystem-ig-parameters.html
 #
-#arameters:
+parameters:
+  display-warnings: true
 #  excludettl: true
 #   validation: [allow-any-extensions, no-broken-links]
 

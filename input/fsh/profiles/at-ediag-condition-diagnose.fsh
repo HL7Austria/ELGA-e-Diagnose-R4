@@ -8,7 +8,7 @@ Description: "Das AT APS-Profil für die Condition-Ressource Diagnosen berücksi
 * subject only Reference(AtEdiagPatient)
 
 * meta.tag ^slicing.discriminator[+].type = #value
-* meta.tag ^slicing.discriminator[=].path = "tag"
+* meta.tag ^slicing.discriminator[=].path = "$this"
 * meta.tag ^slicing.rules = #open
 //code -> required pattern
 //code.coding -> fixed value
