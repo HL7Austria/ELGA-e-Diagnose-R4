@@ -6,56 +6,74 @@ Description: "Das AT APS-Profil für die Condition-Ressource Diagnosen berücksi
 * ^status = #active
 * . ^short = "AT e-Diagnose Condition Diagnosen"
 * identifier 0..0
-* identifier ^short = "Zuordnung für ein internes Dokumentensystem, wird nicht benötigt"
+* identifier ^short = "Zuordnung der Diagnose in einem internem Dokumentationssystem"
 
-* clinicalStatus 0..1
+* clinicalStatus 1..1
 * code only CodeableConcept
-* clinicalStatus ^short = "Klinischer Status der Diagnose - beispielsweise Status post."
+* clinicalStatus ^short = "Klinischer Status der Diagnose - Status post"
 
 * verificationStatus 1..1 
 * verificationStatus only CodeableConcept
-* verificationStatus ^short = "Status der Diagnose: vorläufig, differential, falsch. Beschreibt, ob die Diagnose bestätigt wurde oder nicht."
+* verificationStatus ^short = "Status der Diagnose: vorläufig, differential,..."
 
 * category 0..0
-* category ^short = "Differenzierung nach Kontext problem-list-item und encounter-diagnose, dies wird meta.tag gelöst"
+* category ^short = "Differenzierung nach Kontext - wird meta.tag gelöst"
 
-* severity 0..
-* severity ^short = "Schweregrad der Erkrankung, wird nicht benötigt"
+* severity 0..0
+* severity ^short = "Schweregrad der Erkrankung"
 
-* code 1..1 
+* code 1..1
 * code only CodeableConcept
-* code ^short = "Diagnosecode (Codierservice)."
+* code ^short = "Diagnosecode (Codierservice)"
+
+* code.text 0..0
+
+* code.coding 1..2
+
+* code.coding ^slicing.discriminator.type = #value
+* code.coding ^slicing.discriminator.path = "system"
+* code.coding ^slicing.rules = #open
+
+* code.coding contains
+    snomed 1..1 and
+    orphanet 0..1
+
+* code.coding[snomed].system 1..1
+* code.coding[snomed].system = "http://snomed.info/sct" (exactly)
+
+* code.coding[orphanet].system 1..1
+* code.coding[orphanet].system = "http://www.orpha.net" (exactly)
 
 * bodySite 0..0
-* bodySite ^short = "Zuordnung der DIagnose der Körper-Lokalisation, wird nicht benötigt"
+* bodySite ^short = "Zuordnung der Diagnose der Körper-Lokalisation"
 
 * subject 1..1
 * subject only Reference(AtEdiagPatient)
-* subject ^short = "Der Patient, auf den sich die Diagnose bezieht."
+* subject ^short = "Person, auf die sich die Diagnose bezieht"
 
 * encounter 0..0
-* encounter ^short = "Behandlungskontakt, wird nicht benötigt"
+* encounter ^short = "Behandlungskontakt"
 
 * onset[x] 0..1
-* onset[x] only dateTime or Age or Period or Range or string
-* onset[x] ^short = "Beginn der Erkrankung / Diagnosezeitpunkt. Optional, falls bekannt."
+* onset[x] only dateTime 
+* onset[x] ^short = "Beginn der Erkrankung/Diagnosezeitpunkt"
 
 * abatement[x] 0..1
-* abatement[x] only dateTime or Age or Period or Range or string 
-* abatement[x] ^short = "Ende der Erkrankung. Optional, akut/dauer differenziert."
+* abatement[x] only dateTime 
+* abatement[x] ^short = "Ende der Erkrankung"
 
 * recordedDate 1..1
 * recordedDate only dateTime
-* recordedDate ^short = "Zeitpunkt der Dokumentation der Diagnose."
+* recordedDate ^short = "Zeitpunkt der Diagnosendokumentation"
 
-* recorder 0..1
+* recorder 1..1
 * recorder only Reference (
     at-ediag-practitioner
     or at-aps-practitionerrole
     or at-ediag-patient
     or http://hl7.org/fhir/StructureDefinition/RelatedPerson
 )
-* recorder ^short = "Person, die die Symptome/Diagnose wahrgenommen hat. Kann Patient oder medizinisches Personal sein."
+* recorder ^short = "Person, die die Diagnose eingetragen hat"
 
 * asserter 0..1
 * asserter only Reference (
@@ -64,13 +82,13 @@ Description: "Das AT APS-Profil für die Condition-Ressource Diagnosen berücksi
     or at-ediag-patient
     or http://hl7.org/fhir/StructureDefinition/RelatedPerson
 )
-* asserter ^short = "Verantwortliche Person für die Diagnosestellung."
+* asserter ^short = "Person (fachliche Quelle), die die Diagnose bestätigt"
 
 * stage 0..0
-* stage ^short = "Stadium der Erkrankung, fachliche Klärung des Bedarfs"
+* stage ^short = "Stadium der Erkrankung"
 
 * evidence 0..0
-* evidence ^short = "Medizinischer Nachweis (Ergebnis, Labor, Befund), fachliche Klärung des Bedarfs"
+* evidence ^short = "Medizinischer Nachweis (Ergebnis, Labor, Befund)"
 
 * note 0..*
 * note only Annotation
