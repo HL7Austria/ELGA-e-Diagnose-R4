@@ -81,7 +81,7 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom AT APS Procedur
 * outcome ^short = "Ergebnis der Prozedur"
 
 * report 0..1
-* report ^short = "fachlich klären, ob OP Berichte angehängt werden sollen"
+* report ^short = "fachlich klären"
 
 * complication 0..0
 * complication ^short = "Komplikation/en während dem Eingriff"
