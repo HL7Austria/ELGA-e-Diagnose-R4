@@ -24,7 +24,7 @@ Description: "Das AT APS-Profil für die Condition-Ressource Diagnosen berücksi
 
 * code 1..1
 * code only CodeableConcept
-* code ^short = "Diagnosecode (Codierservice)"
+* code ^short = "Diagnosecode (Codierservice), Text verboten, Codesystem 1.SNOMED 2.Orphanet"
 
 * code.text 0..0
 
@@ -32,7 +32,8 @@ Description: "Das AT APS-Profil für die Condition-Ressource Diagnosen berücksi
 
 * code.coding ^slicing.discriminator.type = #value
 * code.coding ^slicing.discriminator.path = "system"
-* code.coding ^slicing.rules = #open
+* code.coding ^slicing.rules = #closed
+* code.coding ^slicing.ordered = false
 
 * code.coding contains
     snomed 1..1 and
@@ -40,9 +41,11 @@ Description: "Das AT APS-Profil für die Condition-Ressource Diagnosen berücksi
 
 * code.coding[snomed].system 1..1
 * code.coding[snomed].system = "http://snomed.info/sct" (exactly)
+* code.coding[snomed].code 1..1
 
 * code.coding[orphanet].system 1..1
-* code.coding[orphanet].system = "http://www.orpha.net" (exactly)
+* code.coding[orphanet].system = "http://www.orpha.net/ORDO" (exactly)
+* code.coding[orphanet].code 1..1
 
 * bodySite 0..0
 * bodySite ^short = "Zuordnung der Diagnose der Körper-Lokalisation"
@@ -87,10 +90,10 @@ Description: "Das AT APS-Profil für die Condition-Ressource Diagnosen berücksi
 * stage 0..0
 * stage ^short = "Stadium der Erkrankung"
 
-* evidence 0..0
+* evidence 0..1
 * evidence ^short = "Medizinischer Nachweis (Ergebnis, Labor, Befund)"
 
-* note 0..*
+* note 0..1
 * note only Annotation
 * note ^short = "Zusätzliche Informationen oder Freitext zur Diagnose."
 
@@ -102,4 +105,4 @@ Description: "Das AT APS-Profil für die Condition-Ressource Diagnosen berücksi
 //code.coding.system-> fixed value
 //code.coding.code -> fixed value
 * meta.tag contains diagnosisType 1..1
-* meta.tag[diagnosisType] from AtEdiagDiagnosisType (required)
+* meta.tag[diagnosisType] from AtEdiagDiagnosisTypeVS (required)
