@@ -90,7 +90,7 @@ Description: "Das AT APS-Profil für die Condition-Ressource Diagnosen berücksi
 * stage 0..0
 * stage ^short = "Stadium der Erkrankung"
 
-* evidence 0..1
+* evidence 0..*
 * evidence ^short = "Medizinischer Nachweis (Ergebnis, Labor, Befund)"
 
 * note 0..1
