@@ -87,13 +87,19 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AT APS
 * reaction.extension[reactionTime] ^short = "Zeitlicher Verlauf der Manifestation"
 
 * reaction.description 0..1
-* reaction.description = "Textbasierte Zusammenfassung der allergischen Reaktion"
+* reaction.description ^short = "Textbasierte Zusammenfassung der allergischen Reaktion"
+
+* reaction.onset 0..1
+* reaction.onset ^short = "Beginn der Reaktion, wenn nur eine Reaction dokumentiert wird, reicht ggf. onset oben"
 
 * reaction.severity 0..0
 * reaction.severity ^short = "Beschreibt ob die Reaktion mild, moderat,... war"
 
 * reaction.exposureRoute 0..0
 * reaction.exposureRoute ^short = "Art der Exposition der betroffenen Person gegenüber der Substanz"
+
+* reaction.note 0..0
+* reaction.note ^short = "Wird über Feld reaction.description abgebildet"
 
 
 

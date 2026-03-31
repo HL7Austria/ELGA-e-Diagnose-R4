@@ -15,9 +15,15 @@ Description: "Das AT e-Diagnose FlagAlert-Profil leitet sich vom AT APS FlagAler
 * category 0..0
 * category ^short = "Differenzierung nach Kontext - nach klinisch, administrativ"
 
+* code 1..1
+* code ^short = "Codiert oder Textinhalt des Alerts"
+
 * subject 1..1
 * subject only Reference(AtEdiagPatient)
 * subject ^short = "Person, auf die sich der Alert bezieht"
+
+* period 0..1
+* period ^short = "Periode, in der der Alert aktiv ist"
 
 * encounter 0..0
 * encounter ^short = "Behandlungskontakt, fachlich kären, ob dieses Feld benötigt wird (z.b. Durchgangssyndrom aufgrund eines Narkoseverfahrens)"

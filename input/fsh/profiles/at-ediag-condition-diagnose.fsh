@@ -70,10 +70,11 @@ Description: "Das AT APS-Profil für die Condition-Ressource Diagnosen berücksi
 * recordedDate ^short = "Zeitpunkt der Diagnosendokumentation"
 
 * recorder 1..1
+// GLE: Kann der Patient selbst etwas eintragen?
 * recorder only Reference (
     at-ediag-practitioner
     or at-aps-practitionerrole
-    or at-ediag-patient
+    or at-ediag-patient 
     or http://hl7.org/fhir/StructureDefinition/RelatedPerson
 )
 * recorder ^short = "Person, die die Diagnose eingetragen hat"
@@ -94,9 +95,11 @@ Description: "Das AT APS-Profil für die Condition-Ressource Diagnosen berücksi
 * evidence ^short = "Medizinischer Nachweis (Ergebnis, Labor, Befund)"
 
 * note 0..1
-* note only Annotation
+* note only Annotation // GLE: nicht notwendig, weil auch in der basis-ressource nur Annotation erlaubt (wenn wir annotation einschränken, dann müssten wir hier das profil angeben)
 * note ^short = "Zusätzliche Informationen oder Freitext zur Diagnose."
 
+// GLE: hätte ich ganz rauf geschoben, weil es in der reihenfolge der ressource-definition auch ganz am anfang kommt
+// GLE: ggf. als eigenes template anlegen, dass dann in condition und procedure eingebunden wird
 * meta.tag ^slicing.discriminator[+].type = #value
 * meta.tag ^slicing.discriminator[=].path = "$this"
 * meta.tag ^slicing.rules = #open
