@@ -15,6 +15,11 @@ Description: "Das AT e-Diagnose FlagAlert-Profil leitet sich vom AT APS FlagAler
 * category 0..0
 * category ^short = "Differenzierung nach Kontext - nach klinisch, administrativ"
 
+// codiert, damit es zu keinen verschiebungseffekten kommt (condition)
+// codierbar lassen
+// mehrwert codierung fraglich
+// für europäische patient summary, übersetzungen wäre es natürlich interessant zu codieren, für übersetzungen
+// wenn nur freitext, wäre eine limitierung ggf erforderlich?
 * code 1..1
 * code ^short = "Codiert oder Textinhalt des Alerts"
 
@@ -22,12 +27,15 @@ Description: "Das AT e-Diagnose FlagAlert-Profil leitet sich vom AT APS FlagAler
 * subject only Reference(AtEdiagPatient)
 * subject ^short = "Person, auf die sich der Alert bezieht"
 
-* period 0..1
+// hat keinen mehrwert
+* period 0..0
 * period ^short = "Periode, in der der Alert aktiv ist"
 
+// kontext von alert wird im freitext dokumentiert
 * encounter 0..0
 * encounter ^short = "Behandlungskontakt, fachlich kären, ob dieses Feld benötigt wird (z.b. Durchgangssyndrom aufgrund eines Narkoseverfahrens)"
 
+// patient und relatedperson noch wegprofilieren
 * author 1..1
 * author ^short = "Person, die diese Besonderheit (Alert) dokumentiert hat"
 
