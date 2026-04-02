@@ -21,15 +21,28 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom AT APS Procedur
 * partOf 0..0
 * partOf ^short = "Verweis der Ressource auf eine andere, übergreordnete Ressource"
 
+// es wird kein workflow abgebildet
+// bei therapien, die inprogress sein könnten - potentiell eher nicht
+// abgrenzung zu behandlungsplan / physiotherapie
+// es sollen stattgefundene procedures abgebildet werden
+// --> completed, entered-in-error
 * status 1..1
 * status ^short = "fachlich klären, welcher Status benötigt wird"
 
-* statusReason 1..1
+// korrekturvermerk ist noch in abstimmung in digimed, wird von dort dann übernommen
+// was ist korrigieren, stornieren, fachlich korrekturvermerk
+* statusReason 0..1
 * statusReason ^short = "fachlich klären, welcher Status benötigt wird"
 
+// wäre überkategorie von code, 
 * category 0..0
 * category ^short = "Kategorisierung nach Verfahren"
 
+// IPS Free Set enthält nur 983 konzepte
+// eigenes value set, um alle procedures abzudecken (mit ausnahme derer, die in IPS entfernt wruden)
+// 
+// Display-text des synonyms soll jedenfalls als display übernommen werden. nicht nur FSN
+// validierung von synonymen prüfen (in zusammenhang mit austrian extension)
 * code 1..1
 * code ^short = "Prozedurencode - klären - Text?"
 
@@ -40,18 +53,22 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom AT APS Procedur
 * encounter 0..0
 * encounter ^short = "Behandlungskontakt"
 
+// es kann sein, dass man es nicht mehr weiß
 * performed[x] 0..1
 * performed[x] only dateTime
 * performed[x] ^short = "Zeitpunkt der Durchführung"
 
+// recorder kann nur GDA sein
 * recorder 1..1
 * recorder only Reference (
     at-ediag-practitioner
     or at-aps-practitionerrole
-    or at-ediag-patient
-    or http://hl7.org/fhir/StructureDefinition/RelatedPerson
 )
 * recorder ^short = "Person, die die Prozedur eingetragen hat"
+
+// fremddiagnose
+// reported in R6 dazugekommen
+// forward extension -> EHE einfach überall eine extension für reported mit boolean
 
 * asserter 0..1
 * asserter only Reference (
@@ -62,27 +79,40 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom AT APS Procedur
 )
 * asserter ^short = "Person (fachliche Quelle), die die Prozedur bestätigt"
 
-* performer 0..1
+// soll erst in einer neuen version von e-diagnose berücksichtigt werden
+// in erster version noch nicht relevant
+* performer 0..0
 * performer ^short = "Diese Person hat die Prozedur durchgeführt"
 
-* location 0..1
+// soll erst in einer neuen version von e-diagnose berücksichtigt werden (e-befund neu)
+// in erster version noch nicht relevant
+* location 0..0
 * location ^short = "Durchführungsort"
 
+// potential für unbegrenzte komplexität
 * reasonCode 0..0
 * reasonCode ^short = "Code, des med. Grundes für die Durchführung der Prozedur"
 
+// potential für unbegrenzte komplexität
 * reasonReference 0..0
 * reasonReference ^short = "Begründung dass die Prozedur durchgeführt worden ist - Verweis auf eine andere R. wie Condition, Observation,..."
 
+// grundsätzlich interessant
+// potentielle überdeckung mit dem code
+// ggf. konsistenzproblem (code, bodysite), wenn mans codiert ists kompliziert
+// außer es kommen konkrete anforderungen; sonst als freitext
 * bodySite 0..0
 * bodySite ^short = "Betroffene Körperstelle"
 
 * outcome 0..0
 * outcome ^short = "Ergebnis der Prozedur"
 
-* report 0..1
+// vergleichbar mit evidence in condition
+// verlinkte entlassbriefe könnten ggf. mal nicht mehr erreichbar sein (20 jahre aufbehaltungspflicht)
+* report 0..*
 * report ^short = "fachlich klären"
 
+// e-diagnose ist keine op-berichts-dokumentationssystem
 * complication 0..0
 * complication ^short = "Komplikation/en während dem Eingriff"
 
