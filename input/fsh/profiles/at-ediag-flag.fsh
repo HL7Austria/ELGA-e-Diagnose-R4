@@ -27,6 +27,7 @@ Description: "Das AT e-Diagnose FlagAlert-Profil leitet sich vom AT APS FlagAler
 * subject only Reference(AtEdiagPatient)
 * subject ^short = "Person, auf die sich der Alert bezieht"
 
+
 // hat keinen mehrwert
 * period 0..0
 * period ^short = "Periode, in der der Alert aktiv ist"
