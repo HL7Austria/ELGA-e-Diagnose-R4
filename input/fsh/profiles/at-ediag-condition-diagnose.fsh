@@ -5,14 +5,21 @@ Title: "AT e-Diagnose Condition Diagnosen"
 Description: "Das AT APS-Profil für die Condition-Ressource Diagnosen berücksichtigt zum einen die österreichischen Vorgaben (z.B. Patient und zu verwendende Value-Sets) und stellt andererseits die Konformität gegenüber dem IPS-Profil sicher, indem die so genannte [`imposeProfile`](http://hl7.org/fhir/StructureDefinition/structuredefinition-imposeProfile)-Erweiterung verwendet wird."
 * ^status = #active
 * . ^short = "AT e-Diagnose Condition Diagnosen"
+
+// EHE einfach überall eine extension für reported mit boolean
+* extension contains AtReported named reported 0..1
+
+// SGR: für meta.tag neues template angelegt - ruleSet-at-ediag-meta-tag.fsh
+* insert MetaTagDiagnosisType
+
 * identifier 0..0
 * identifier ^short = "Zuordnung der Diagnose in einem internem Dokumentationssystem"
 
-* clinicalStatus 1..1
+* clinicalStatus 1..1 MS
 * code only CodeableConcept
 * clinicalStatus ^short = "Klinischer Status der Diagnose - Status post"
 
-* verificationStatus 1..1 
+* verificationStatus 1..1 MS
 * verificationStatus only CodeableConcept
 * verificationStatus ^short = "Status der Diagnose: vorläufig, differential,..."
 
@@ -22,7 +29,13 @@ Description: "Das AT APS-Profil für die Condition-Ressource Diagnosen berücksi
 * severity 0..0
 * severity ^short = "Schweregrad der Erkrankung"
 
-* code 1..1
+
+//"Condition.code.text wird 0..0 (es soll keinen Freitext zum Code geben)
+// Condition.code.coding wird 1..2
+// Condition.code.coding[1].system wird auf snomed fixiert
+// Condition.code.coding[2].system wird auf orphanet fixiert
+// https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"
+* code 1..1 MS
 * code only CodeableConcept
 * code ^short = "Diagnosecode (Codierservice), Text verboten, Codesystem 1.SNOMED 2.Orphanet"
 
@@ -50,7 +63,7 @@ Description: "Das AT APS-Profil für die Condition-Ressource Diagnosen berücksi
 * bodySite 0..0
 * bodySite ^short = "Zuordnung der Diagnose der Körper-Lokalisation"
 
-* subject 1..1
+* subject 1..1 MS
 * subject only Reference(AtEdiagPatient)
 * subject ^short = "Person, auf die sich die Diagnose bezieht"
 
@@ -65,11 +78,11 @@ Description: "Das AT APS-Profil für die Condition-Ressource Diagnosen berücksi
 * abatement[x] only dateTime 
 * abatement[x] ^short = "Ende der Erkrankung"
 
-* recordedDate 1..1
+* recordedDate 1..1 MS
 * recordedDate only dateTime
 * recordedDate ^short = "Zeitpunkt der Diagnosendokumentation"
 
-* recorder 1..1
+* recorder 1..1 MS
 // GLE: Kann der Patient selbst etwas eintragen?
 * recorder only Reference (
     at-ediag-practitioner
@@ -86,26 +99,24 @@ Description: "Das AT APS-Profil für die Condition-Ressource Diagnosen berücksi
     or at-ediag-patient
     or http://hl7.org/fhir/StructureDefinition/RelatedPerson
 )
-* asserter ^short = "Person (fachliche Quelle), die die Diagnose bestätigt"
+* asserter ^short = "Quelle der Information zur Diagnose (z. B. behandelnde Person, Patient oder Dritter)"
 
 * stage 0..0
 * stage ^short = "Stadium der Erkrankung"
 
+// muss profiliert werden für .detail (Reference) als Link auf 
+// ELGA-Befunde = Metadaten werden eingetragen
+// verlinkte entlassbriefe könnten ggf. mal nicht mehr erreichbar sein (20 jahre aufbehaltungspflicht)
+// SGR: Lösung mittels Slicing oder einem ELGABefund Profil abgeleitet von DiagnosticReport? Damit wir festlegen welche Befundtypen. Es werden nicht Labor und Bildgebung
+// interessant sein, sondern auch Arztbriefe 
 * evidence 0..*
-* evidence ^short = "Medizinischer Nachweis (Ergebnis, Labor, Befund)"
+//* evidence.detail only Reference(ELGABefund)
+* evidence ^short = "Verweis auf ELGA-Befunde als medizinische Evidenz"
 
+// Condition.note.autor und .time werden 0..0
+// Condition.note.text soll eine Zeichenbeschränkung bekommen (TBD)
 * note 0..1
-* note only Annotation // GLE: nicht notwendig, weil auch in der basis-ressource nur Annotation erlaubt (wenn wir annotation einschränken, dann müssten wir hier das profil angeben)
-* note ^short = "Zusätzliche Informationen oder Freitext zur Diagnose."
-
-// GLE: hätte ich ganz rauf geschoben, weil es in der reihenfolge der ressource-definition auch ganz am anfang kommt
-// GLE: ggf. als eigenes template anlegen, dass dann in condition und procedure eingebunden wird
-* meta.tag ^slicing.discriminator[+].type = #value
-* meta.tag ^slicing.discriminator[=].path = "$this"
-* meta.tag ^slicing.rules = #open
-//code -> required pattern
-//code.coding -> fixed value
-//code.coding.system-> fixed value
-//code.coding.code -> fixed value
-* meta.tag contains diagnosisType 1..1
-* meta.tag[diagnosisType] from AtEdiagDiagnosisTypeVS (required)
+* note.author[x] 0..0
+* note.time 0..0
+* note.text ^maxLength = 500
+* note ^short = "Freitext zur Diagnose für Zusatzinformation (ohne Autor und Zeitstempel)"

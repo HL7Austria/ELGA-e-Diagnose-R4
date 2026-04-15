@@ -6,6 +6,9 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AT APS
 * ^status = #active
 * . ^short = "AT e-Diagnose AllergyIntolerance"
 
+// EHE einfach überall eine extension für reported mit boolean
+* extension contains AtReported named reported 0..1
+
 * identifier 0..0
 * identifier ^short = "Zuordnung der Allergie in einem internem Dokumentationssystem"
 
@@ -83,7 +86,6 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AT APS
 * lastOccurrence ^short = "Letztes Auftreten der Symptomatik - siehe manifestation"
 
 * note 0..0
-* note only Annotation
 * note ^short = "Zusätzliche Informationen oder Freitext zur Allergie wird in reaction.description beschrieben oder ist ein zweites Textfeld nötig - fachlich klären"
 
 * reaction 1..1

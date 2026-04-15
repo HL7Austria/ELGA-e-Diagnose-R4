@@ -5,6 +5,12 @@ Title: "AT e-Diagnose Procedure"
 Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom AT APS Procedure-Profil ab und passt dieses für die Anforderungen der e-Diagnose an. Die IPS-Konformität bleibt über das abgeleitete Profil erhalten."
 * ^status = #active
 * . ^short = "AT e-Diagnose Procedure"
+ 
+// EHE einfach überall eine extension für reported mit boolean
+* extension contains AtReported named reported 0..1
+
+// SGR: für meta.tag neues template angelegt - ruleSet-at-ediag-meta-tag.fsh
+* insert MetaTagDiagnosisType
 
 * identifier 0..0
 * identifier ^short = "Zuordnung der Diagnose in einem internem Dokumentationssystem"
@@ -26,8 +32,11 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom AT APS Procedur
 // abgrenzung zu behandlungsplan / physiotherapie
 // es sollen stattgefundene procedures abgebildet werden
 // --> completed, entered-in-error
-* status 1..1
-* status ^short = "fachlich klären, welcher Status benötigt wird"
+
+//SGR: die Einschränkung erfolgt über ein eigenes ValueSet (procedure-status) und required binding
+* status 1..1 MS
+* status from AtEdiagProcedureStatus (required)
+* status ^short = "Nur tatsächlich durchgeführte oder irrtümlich dokumentierte Prozeduren"
 
 // korrekturvermerk ist noch in abstimmung in digimed, wird von dort dann übernommen
 // was ist korrigieren, stornieren, fachlich korrekturvermerk
@@ -40,13 +49,19 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom AT APS Procedur
 
 // IPS Free Set enthält nur 983 konzepte
 // eigenes value set, um alle procedures abzudecken (mit ausnahme derer, die in IPS entfernt wruden)
-// 
+
+// SGR: die Einschränkung erfolgt über ein eigenes ValueSet (procedure-codes) und required binding
+
 // Display-text des synonyms soll jedenfalls als display übernommen werden. nicht nur FSN
 // validierung von synonymen prüfen (in zusammenhang mit austrian extension)
-* code 1..1
-* code ^short = "Prozedurencode - klären - Text?"
 
-* subject 1..1
+// SGR: Das nicht nur der FSN übernommen werden kann, kann ich nicht im Profil lösen?
+
+* code 1..1 MS
+* code from AtEDiagProzedurenCodes (required)
+* code ^short = "Prozedurencode der durchgeführten Prozedur"
+
+* subject 1..1 MS
 * subject only Reference(AtEdiagPatient)
 * subject ^short = "Person, auf die sich die Prozedur bezieht"
 
@@ -59,12 +74,13 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom AT APS Procedur
 * performed[x] ^short = "Zeitpunkt der Durchführung"
 
 // recorder kann nur GDA sein
-* recorder 1..1
+// SGR: Erweiterung auf Organisation?
+* recorder 1..1 MS
 * recorder only Reference (
     at-ediag-practitioner
     or at-aps-practitionerrole
 )
-* recorder ^short = "Person, die die Prozedur eingetragen hat"
+* recorder ^short = "Gesundheitsdiensteanbieter, der die Prozedur eingetragen/dokumentiert hat"
 
 // fremddiagnose
 // reported in R6 dazugekommen
@@ -77,7 +93,7 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom AT APS Procedur
     or at-ediag-patient
     or http://hl7.org/fhir/StructureDefinition/RelatedPerson
 )
-* asserter ^short = "Person (fachliche Quelle), die die Prozedur bestätigt"
+* asserter ^short = "Quelle der Information zur Prozedur (z. B. behandelnde Person, Patient oder Dritter)"
 
 // soll erst in einer neuen version von e-diagnose berücksichtigt werden
 // in erster version noch nicht relevant
@@ -123,8 +139,12 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom AT APS Procedur
 * followUp ^short = "Nachkontrolle (Code)"
 
 * note 0..1
-* note only Annotation
-* note ^short = "Zusätzliche Informationen oder Freitext zur Prozedur"
+// note.autor und .time werden 0..0
+// note.text soll eine Zeichenbeschränkung bekommen (TBD)
+* note.author[x] 0..0
+* note.time 0..0
+* note.text ^maxLength = 500
+* note ^short = "Freitext zur Prozedur für Zusatzinformation (ohne Autor und Zeitstempel)"
 
 * focalDevice 0..0
 * focalDevice ^short = "Prozedurendurchführendes Gerät"

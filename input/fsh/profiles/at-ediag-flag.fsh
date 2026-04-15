@@ -6,10 +6,13 @@ Description: "Das AT e-Diagnose FlagAlert-Profil leitet sich vom AT APS FlagAler
 * ^status = #active
 * . ^short = "AT e-Diagnose FlagAlert"
 
+// EHE einfach überall eine extension für reported mit boolean
+* extension contains AtReported named reported 0..1
+
 * identifier 0..0
 * identifier ^short = "Zuordnung des Alerts in einem internem Dokumentationssystem"
 
-* status 1..1
+* status 1..1 MS
 * status ^short = "Ist der Alert aktiv, inaktiv,..."
 
 * category 0..0
@@ -37,8 +40,12 @@ Description: "Das AT e-Diagnose FlagAlert-Profil leitet sich vom AT APS FlagAler
 * encounter ^short = "Behandlungskontakt, fachlich kären, ob dieses Feld benötigt wird (z.b. Durchgangssyndrom aufgrund eines Narkoseverfahrens)"
 
 // patient und relatedperson noch wegprofilieren
-* author 1..1
-* author ^short = "Person, die diese Besonderheit (Alert) dokumentiert hat"
 
+* author 1..1
+* author only Reference(
+    at-ediag-practitioner
+    or at-aps-practitionerrole
+)
+* author ^short = "Person, die den Alert dokumentiert hat"
 
 
