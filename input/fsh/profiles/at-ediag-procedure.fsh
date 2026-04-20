@@ -9,9 +9,6 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom AT APS Procedur
 // EHE einfach überall eine extension für reported mit boolean
 * extension contains AtReported named reported 0..1
 
-// SGR: für meta.tag neues template angelegt - ruleSet-at-ediag-meta-tag.fsh
-* insert MetaTagDiagnosisType
-
 * identifier 0..0
 * identifier ^short = "Zuordnung der Diagnose in einem internem Dokumentationssystem"
 

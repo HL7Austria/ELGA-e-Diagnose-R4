@@ -15,6 +15,7 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AT APS
 // erfolgreiche desensibilisierung dokumentieren? oder selbst weggegangene allergien?
 // löschen von bereits dokumentierten eher nicht, sondern status setzen
 // invarianten in zshg mit verificationstatus sobald fachlich geklärt
+
 * clinicalStatus 0..1
 * code only CodeableConcept
 * clinicalStatus ^short = "Ist eine Allergie aktiv, inaktiv,.. - werden vergangene Allergien festgehalten, fachlich klären"
@@ -25,6 +26,7 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AT APS
 * verificationStatus 1..1 
 * verificationStatus only CodeableConcept
 * verificationStatus ^short = "Ist die Allergie bestätigt, unbestätigt, widerlegt"
+
 
 // ungenaue unterscheidung
 * type 0..0
@@ -48,6 +50,7 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AT APS
 * code.text 0..0
 
 * code.coding 1..1
+//* code.coding from AspListe (required)
 
 * patient 1..1
 * patient only Reference(AtEdiagPatient)
@@ -71,7 +74,7 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AT APS
     at-ediag-practitioner
     or at-aps-practitionerrole
 )
-* recorder ^short = "Person, die die Allergie eingetragen hat"
+* recorder ^short = "Gesundheitsdiensteanbieter, die die Allergie eingetragen hat"
 
 * asserter 0..1
 * asserter only Reference (
@@ -123,6 +126,10 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AT APS
 
 // referenz auf befund, laborbefund, etc wäre noch interessant - extension!
 
-
+// SGR verificationStatus ist refuted dann ist clinicalStatus inaktiv
+Invariant: allergy-verification-refuted-means-inactive
+Severity: #error
+Description: "Wenn der verificationStatus 'refuted' ist, muss der clinicalStatus 'inactive' sein."
+Expression: "verificationStatus.coding.where(code = 'refuted').exists() implies clinicalStatus.coding.where(code = 'inactive').exists()"
 
 
