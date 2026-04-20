@@ -1,5 +1,5 @@
 ValueSet: AtEdiagDiagnosisTypeVS
 Id: at-ediag-diagnosen-type
 Title: "AT e-Diagnose Typ"
-Description: "Dieses Value-Set legt fest, ob eine Diagnose akut oder dauerhaft ist."
+Description: "Dieses Value-Set legt fest, ob eine Diagnose currently relevant oder not currently relevant ist"
 * include codes from system AtEdiagDiagnosisType

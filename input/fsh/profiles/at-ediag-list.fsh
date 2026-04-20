@@ -7,7 +7,7 @@ Description: "Das AT e-Diagnose List-Profil leitet sich von der FHIR-Ressource L
 * . ^short = "AT e-Diagnose List"
 
 * identifier 0..1 MS
-* identifier ^short = "Logischer Identfier der Liste / des Medikationsplans. Verwendung zu prüfen."
+* identifier ^short = "Logischer Identfier der Liste."
 
 * status 1..1 MS
 //* status = #current  
@@ -16,13 +16,13 @@ Description: "Das AT e-Diagnose List-Profil leitet sich von der FHIR-Ressource L
 * mode 1..1 MS
 //* mode = #working
 * mode ^short = "Verpflichtende Angabe: working | snapshot | changes. https://hl7.org/fhir/R4/valueset-list-mode.html
-Der Medikationsplan ist ein laufend gepflegtes Dokument: working"
+Die Listen im Rahmen von e-Diagnose werden laufend gepflegt - Vorschlag: working"
 
 * title 0..0
 * title ^short = "Titel der Liste. Verwendung zu prüfen."
 
-* code ^short = "Code, der den Typ der Liste beschreibt. https://hl7.org/fhir/R4/valueset-list-example-codes.html. Zu prüfen, ob/wie in Medikationsplan verwendet."
 * code 1..1 MS
+* code ^short = "Code, der den Typ der Liste beschreibt. https://hl7.org/fhir/R4/valueset-list-example-codes.html. Zu prüfen, welche Codes für die e-Diagnose Listen in Frage kämen. 37341000000109 (Alert), 722446000 (Allergy), 404684003 (Clinical Finding), 71388002 (Procedure) oder LOINC-Codes (z.B. von IPS)"
 * code = $cs-sct#736378000 "Medikationsplan"
 
 * subject 1..1 MS
