@@ -22,56 +22,53 @@ Die Listen im Rahmen von e-Diagnose werden laufend gepflegt - Vorschlag: working
 * title ^short = "Titel der Liste. Verwendung zu prüfen."
 
 * code 1..1 MS
-* code ^short = "Code, der den Typ der Liste beschreibt. https://hl7.org/fhir/R4/valueset-list-example-codes.html. Zu prüfen, welche Codes für die e-Diagnose Listen in Frage kämen. 37341000000109 (Alert), 722446000 (Allergy), 404684003 (Clinical Finding), 71388002 (Procedure) oder LOINC-Codes (z.B. von IPS)"
-* code = $cs-sct#736378000 "Medikationsplan"
+* code ^short = "Code, der den Typ der Liste beschreibt. Zu prüfen, welche Codes für die e-Diagnose Listen in Frage kämen."
+* code from ElgaListCodeVS (required)
 
 * subject 1..1 MS
-//* subject only Reference(HL7ATCorePatient)
-* subject ^short = "Patient, für den der Medikationsplan erstellt werden soll, der über den 
-Zentralen Patientenindex identifizierbar und Teilnehmer von ELGA e-Medikation ist."
+* subject only Reference(AtApsPatient)
+* subject ^short = "Patient, für den die Liste erstellt werden soll, der über den 
+Zentralen Patientenindex identifizierbar und Teilnehmer von ELGA e-Diagnose ist."
 
 * encounter 0..0
 * encounter ^short = "Verwendung zu prüfen."
 
 * date 1..1 MS
-* date ^short = "Letzte Aktualisierung des Medikationsplans."
+* date ^short = "Letzte Aktualisierung der Liste."
 
 * source 1..1 MS
 //* source only Reference(HL7ATCorePractitioner or HL7ATCorePractitionerRole or Device or HL7ATCorePatient)
-* source ^short = "Arzt oder Ärztin, die den Medikationsplans erstellt und für den Inhalt verantwortlich ist. 
-Eindeutig identifiziert über den GDA-Index und berechtigt auf die ELGA e-Medikation 
-des Patienten zuzugreifen. Device nur für initiale Erstellung durch die Fachanwendung. Patient nur zur Änderung der Reihenfolge der Planeinträge oder nachdem er Einträge gelöscht hat."
+* source ^short = "Arzt oder Ärztin, die die Liste erstellt und für den Inhalt verantwortlich ist. 
+Eindeutig identifiziert über den GDA-Index und berechtigt auf die ELGA e-Diagnose 
+des Patienten zuzugreifen. Device nur für initiale Erstellung durch die Fachanwendung. Patient nur zur Änderung der Reihenfolge der Einträge oder nachdem er Einträge gelöscht hat."
 
 * orderedBy 1..1 MS
 * orderedBy from http://hl7.org/fhir/ValueSet/list-order 
 * orderedBy = #user
-* orderedBy ^short = "Die Reihenfolge der Einträge im Medikationsplan ist fachlich relevant und wird durch den Ersteller vorgegeben. 
+* orderedBy ^short = "Die Reihenfolge der Einträge ist fachlich relevant und wird durch den Ersteller vorgegeben. 
 Mögliche Codes: user | system | event-date | entry-date| priority | alphabetic | category | patient (TODO: nur user oder andere Reihenfolge ermöglichen?)"
 
-// note: Mögliches Kommentar auf Ebene des Medikationsplans
-* note 0..* MS
-* note ^short = "Freitextliche Anmerkungen zum Medikationsplan. TODO: prüfen, ob fachlich sinnvoll."
+// note: Mögliches Kommentar auf Ebene der Liste
+* note 0..0 MS
+* note ^short = "Freitextliche Anmerkungen zur Liste. TODO: prüfen, ob fachlich sinnvoll."
 
 // --- Entries ---
 * entry 0..* MS
 
 * entry.flag 1..1 MS
-* entry.flag from http://hl7.org/fhir/ValueSet/list-item-flag
-* entry.flag ^short = "Kennzeichnet die Art der Änderung des Medikationsplaneintrags: zB Unchanged | Changed | Cancelled | Prescribed | Ceased | Suspended."
+* entry.flag from ElgaListEntryFlagVS (required)
+* entry.flag ^short = "Kennzeichnet die Art der Änderung des Eintrags"
 
 * entry.deleted 0..1 MS
-* entry.deleted ^short = "Gibt an, ob der referenzierte Medikationsplaneintrag zur Entfernung markiert wurde. Unklar, ob Löschen so abgebildet werden soll oder einfach der Eintrag nicht mehr enthalten ist."
+* entry.deleted ^short = "Gibt an, ob der referenzierte Eintrag zur Entfernung markiert wurde. Unklar, ob Löschen so abgebildet werden soll oder einfach der Eintrag nicht mehr enthalten ist."
 
 * entry.date 0..1 MS
-* entry.date ^short = "Datum der Aufnahme des Medikationsplaneintrags. Fachlich zu klären."
+* entry.date ^short = "Datum der Aufnahme des Eintrags. Fachlich zu klären."
 
 * entry.item 1..1 MS
 //* entry.item only Reference(AtEmedMRPlaneintrag)
-* entry.item ^short = "Referenz auf einen Medikationsplaneintrag."
+* entry.item ^short = "Referenz auf einen Eintrag. Zu klären: reicht ein List-Profil oder braucht es jeweils eines für die integren Listen, die Gesamtliste, Liste für Allergien, Alerts?"
 
 * emptyReason 0..1 MS
-//* emptyReason from MedikationsplanEmptyReasonVS
-* emptyReason ^short = "Begründung, warum der Medikationsplan leer ist: 
-https://hl7.org/fhir/R4/valueset-list-empty-reason.html eingeschränkt auf: <vbr>
-    - notstarted: Intitalzustand <br>
-    - nilknown: Patient nimmt derzeit keine Medikamente ein"
+* emptyReason from ElgaListEmptyReasonVS (required)
+* emptyReason ^short = "Begründung, warum der Medikationsplan leer ist. Mögliche Ausprägungen: [notstarted |  nilknown] Bedeutung: notstarted: Intitalzustand - noch nie befüllt | nilknown: Patient nimmt derzeit keine Medikamente ein"
