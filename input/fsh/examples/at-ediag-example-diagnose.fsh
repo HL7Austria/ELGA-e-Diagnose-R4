@@ -8,7 +8,7 @@ Usage: #example
 
 * meta.tag[diagnosisType] = http://example.org/fhir/CodeSystem/at-ediag-diagnose-type#relevant "currently relevant"
 
-* extension[AtReported].valueBoolean = false
+* extension[AtReported].valueBoolean = true
 
 * clinicalStatus = http://terminology.hl7.org/CodeSystem/condition-clinical#active
 

@@ -17,11 +17,11 @@ Description: "Das AT APS-Profil für die Condition-Ressource Diagnosen berücksi
 
 * clinicalStatus 1..1 MS
 * code only CodeableConcept
-* clinicalStatus ^short = "Klinischer Status der Diagnose - Status post"
+* clinicalStatus ^short = "Klinischer Status der Diagnose (wie:Status post), mögliche Codes: active | recurrence | relapse | inactive | remission | resolved"
 
 * verificationStatus 1..1 MS
 * verificationStatus only CodeableConcept
-* verificationStatus ^short = "Status der Diagnose: vorläufig, differential,..."
+* verificationStatus ^short = "Status der Diagnose, mögliche Codes: unconfirmed | provisional | differential | confirmed | refuted | entered-in-error"
 
 * category 0..0
 * category ^short = "Differenzierung nach Kontext - wird meta.tag gelöst"
@@ -70,13 +70,16 @@ Description: "Das AT APS-Profil für die Condition-Ressource Diagnosen berücksi
 * encounter 0..0
 * encounter ^short = "Behandlungskontakt"
 
+// dateTime
 * onset[x] 0..1
 * onset[x] only dateTime 
 * onset[x] ^short = "Beginn der Erkrankung/Diagnosezeitpunkt"
 
+// dateTime
 * abatement[x] 0..1
 * abatement[x] only dateTime 
 * abatement[x] ^short = "Ende der Erkrankung"
+
 
 * recordedDate 1..1 MS
 * recordedDate only dateTime
@@ -90,8 +93,9 @@ Description: "Das AT APS-Profil für die Condition-Ressource Diagnosen berücksi
     or at-ediag-patient 
     or http://hl7.org/fhir/StructureDefinition/RelatedPerson
 )
-* recorder ^short = "Person, die die Diagnose eingetragen hat"
+* recorder ^short = "Gesundheitsdiensteanbieter, der die Diagnose eingetragen hat, ToDo: Soll der Patient selbst eintragen können?"
 
+// ob es sich um eine Fremddiagnose handelt wird durch extension für reported mit boolean gelöst
 * asserter 0..1
 * asserter only Reference (
     at-ediag-practitioner
@@ -107,11 +111,11 @@ Description: "Das AT APS-Profil für die Condition-Ressource Diagnosen berücksi
 // muss profiliert werden für .detail (Reference) als Link auf 
 // ELGA-Befunde = Metadaten werden eingetragen
 // verlinkte entlassbriefe könnten ggf. mal nicht mehr erreichbar sein (20 jahre aufbehaltungspflicht)
-// SGR: Lösung mittels Slicing oder einem ELGABefund Profil abgeleitet von DiagnosticReport? Damit wir festlegen welche Befundtypen. Es werden nicht Labor und Bildgebung
-// interessant sein, sondern auch Arztbriefe 
+// SGR: Lösung mittels Slicing oder einem ELGABefund Profil abgeleitet von DiagnosticReport für Labor und Composition/DocumentReference für Entlassungsbriefe?
+// Damit wir festlegen welche Befundtypen. Es werden nicht nur Labor und Bildgebung interessant sein, sondern auch Arztbriefe 
 * evidence 0..*
 //* evidence.detail only Reference(ELGABefund)
-* evidence ^short = "Verweis auf ELGA-Befunde als medizinische Evidenz"
+* evidence ^short = "Verweis auf ELGA-Befunde als medizinische Evidenz, ToDo: Klären bzgl. Aufbewahrungspflicht von Entlassungsbriefe, könnten ggf. mal nicht erreichbar sein"
 
 // Condition.note.autor und .time werden 0..0
 // Condition.note.text soll eine Zeichenbeschränkung bekommen (TBD)

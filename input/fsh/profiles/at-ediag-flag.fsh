@@ -13,7 +13,7 @@ Description: "Das AT e-Diagnose FlagAlert-Profil leitet sich vom AT APS FlagAler
 * identifier ^short = "Zuordnung des Alerts in einem internem Dokumentationssystem"
 
 * status 1..1 MS
-* status ^short = "Ist der Alert aktiv, inaktiv,..."
+* status ^short = "Mögliche Codes;	active | inactive | entered-in-error "
 
 * category 0..0
 * category ^short = "Differenzierung nach Kontext - nach klinisch, administrativ"
@@ -24,9 +24,9 @@ Description: "Das AT e-Diagnose FlagAlert-Profil leitet sich vom AT APS FlagAler
 // für europäische patient summary, übersetzungen wäre es natürlich interessant zu codieren, für übersetzungen
 // wenn nur freitext, wäre eine limitierung ggf erforderlich?
 * code 1..1
-* code ^short = "Codiert oder Textinhalt des Alerts"
+* code ^short = "ToDo: Codiert oder Textinhalt des Alerts"
 
-* subject 1..1
+* subject 1..1 MS
 * subject only Reference(AtEdiagPatient)
 * subject ^short = "Person, auf die sich der Alert bezieht"
 
@@ -40,7 +40,7 @@ Description: "Das AT e-Diagnose FlagAlert-Profil leitet sich vom AT APS FlagAler
 * encounter ^short = "Behandlungskontakt, fachlich kären, ob dieses Feld benötigt wird (z.b. Durchgangssyndrom aufgrund eines Narkoseverfahrens)"
 
 // patient und relatedperson noch wegprofilieren
-
+// SGR: nur GDA
 * author 1..1
 * author only Reference(
     at-ediag-practitioner

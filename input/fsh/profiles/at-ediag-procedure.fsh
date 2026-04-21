@@ -33,12 +33,12 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom AT APS Procedur
 //SGR: die Einschränkung erfolgt über ein eigenes ValueSet (procedure-status) und required binding
 * status 1..1 MS
 * status from AtEdiagProcedureStatus (required)
-* status ^short = "Nur tatsächlich durchgeführte oder irrtümlich dokumentierte Prozeduren"
+* status ^short = "Nur tatsächlich durchgeführte (completed) oder irrtümlich dokumentierte (entered-in-error) Prozeduren"
 
 // korrekturvermerk ist noch in abstimmung in digimed, wird von dort dann übernommen
 // was ist korrigieren, stornieren, fachlich korrekturvermerk
 * statusReason 0..1
-* statusReason ^short = "fachlich klären, welcher Status benötigt wird"
+* statusReason ^short = "ToDo: Korrekturvermerk wird von digimed übernommen, ist noch in Abstimmung"
 
 // wäre überkategorie von code, 
 * category 0..0
@@ -68,7 +68,7 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom AT APS Procedur
 // es kann sein, dass man es nicht mehr weiß
 * performed[x] 0..1
 * performed[x] only dateTime
-* performed[x] ^short = "Zeitpunkt der Durchführung"
+* performed[x] ^short = "Zeitpunkt der Durchführung ToDo, es kann sein, dass man es nicht mehr weiß, mögliche: dateTime | Period | string | Age | Range"
 
 // recorder kann nur GDA sein
 // SGR: Erweiterung auf Organisation?
@@ -77,7 +77,7 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom AT APS Procedur
     at-ediag-practitioner
     or at-aps-practitionerrole
 )
-* recorder ^short = "Gesundheitsdiensteanbieter, der die Prozedur eingetragen/dokumentiert hat"
+* recorder ^short = "Gesundheitsdiensteanbieter, der die Prozedur eingetragen/dokumentiert hat ToDo: Erweiterung auf Organisation"
 
 // fremddiagnose
 // reported in R6 dazugekommen
@@ -123,7 +123,7 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom AT APS Procedur
 // vergleichbar mit evidence in condition
 // verlinkte entlassbriefe könnten ggf. mal nicht mehr erreichbar sein (20 jahre aufbehaltungspflicht)
 * report 0..*
-* report ^short = "fachlich klären"
+* report ^short = "fachlich klären; ToDo: Klären bzgl. Aufbewahrungspflicht von Entlassungsbriefe, könnten ggf. mal nicht erreichbar sein"
 
 // e-diagnose ist keine op-berichts-dokumentationssystem
 * complication 0..0
