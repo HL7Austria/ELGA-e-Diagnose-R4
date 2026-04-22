@@ -6,8 +6,7 @@ Usage: #example
 
 * meta.profile = "https://fhir.hl7.at/elga/ediag/r4/StructureDefinition/at-ediag-procedure"
 
-* meta.tag[diagnosisType].system = "https://fhir.hl7.at/elga/ediag/r4/CodeSystem/at-ediag-diagnose-type"
-* meta.tag[diagnosisType].code = #relevant
+* meta.tag[diagnosisType] = https://fhir.hl7.at/elga/ediag/r4/CodeSystem/at-ediag-diagnose-type#relevant "currently relevant"
 
 * extension[reported].valueBoolean = false
 
