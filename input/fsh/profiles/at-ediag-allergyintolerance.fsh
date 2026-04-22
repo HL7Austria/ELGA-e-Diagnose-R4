@@ -65,12 +65,12 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AT APS
 * onset[x] only dateTime 
 * onset[x] ^short = "Erstes Aufzeichnungsdatum der Allergie(symptomatik)"
 
-* recordedDate 1..1
+* recordedDate 1..1 MS
 * recordedDate [x] only dateTime 
 * recordedDate ^short = "Dokumentationsdatum"
 
 // analog zu procedure, kein patient keine related person
-* recorder 1..1
+* recorder 1..1 MS
 * recorder only Reference (
     at-ediag-practitioner
     or at-aps-practitionerrole
@@ -92,7 +92,7 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AT APS
 * note 0..0
 * note ^short = "Zusätzliche Informationen oder Freitext zur Allergie wird in reaction.description beschrieben oder ist ein zweites Textfeld nötig - fachlich klären"
 
-* reaction 1..1
+* reaction 1..1 MS
 * reaction ^short = "Details über die Allergiereaktion, verlinkt zum Auslöser/Substanz -  bestätigt das Vorhandensein einer Allergie"
 
 * reaction.substance 0..0
@@ -114,7 +114,8 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AT APS
 * reaction.description ^short = "Textbasierte Zusammenfassung der allergischen Reaktion"
 
 * reaction.onset 0..1
-* reaction.onset ^short = "Beginn der Reaktion, wenn nur eine Reaction dokumentiert wird, reicht ggf. onset oben"
+* reaction.onset [x] only dateTime 
+* reaction.onset ^short = "Beginn der Reaktion"
 
 * reaction.severity 0..0
 * reaction.severity ^short = "Beschreibt ob die Reaktion mild, moderat,... war"
@@ -123,7 +124,7 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AT APS
 * reaction.exposureRoute ^short = "Art der Exposition der betroffenen Person gegenüber der Substanz"
 
 * reaction.note 0..0
-* reaction.note ^short = "Wird über Feld reaction.description abgebildet"
+* reaction.note ^short = "ToDo: Fraglich, ob wie bei den anderen es über note festgehalten wird, statt über reaction.description?"
 
 // referenz auf befund, laborbefund, etc wäre noch interessant - extension!
 // SGR: Siehe condition - evidence. 
