@@ -68,7 +68,7 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom AT APS Procedur
 // es kann sein, dass man es nicht mehr weiß
 * performed[x] 0..1
 * performed[x] only dateTime
-* performed[x] ^short = "Zeitpunkt der Durchführung ToDo, es kann sein, dass man es nicht mehr weiß, mögliche: dateTime | Period | string | Age | Range"
+* performed[x] ^short = "Zeitpunkt der Durchführung ToDo, es kann sein, dass man es nicht mehr weiß, möglich: dateTime | Period | string | Age | Range"
 
 // recorder kann nur GDA sein
 // SGR: Erweiterung auf Organisation?
@@ -123,7 +123,7 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom AT APS Procedur
 // vergleichbar mit evidence in condition
 // verlinkte entlassbriefe könnten ggf. mal nicht mehr erreichbar sein (20 jahre aufbehaltungspflicht)
 * report 0..*
-* report ^short = "fachlich klären; ToDo: Klären bzgl. Aufbewahrungspflicht von Entlassungsbriefe, könnten ggf. mal nicht erreichbar sein"
+* report ^short = "ToDo: Klären bzgl. Aufbewahrungspflicht von Entlassungsbriefe, könnten ggf. mal nicht erreichbar sein"
 
 // e-diagnose ist keine op-berichts-dokumentationssystem
 * complication 0..0

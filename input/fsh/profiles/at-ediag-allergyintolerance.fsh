@@ -15,17 +15,17 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AT APS
 // erfolgreiche desensibilisierung dokumentieren? oder selbst weggegangene allergien?
 // löschen von bereits dokumentierten eher nicht, sondern status setzen
 // invarianten in zshg mit verificationstatus sobald fachlich geklärt
-
+// SGR: invariante-Bsp siehe Ende Profil
 * clinicalStatus 0..1
 * code only CodeableConcept
-* clinicalStatus ^short = "Ist eine Allergie aktiv, inaktiv,.. - werden vergangene Allergien festgehalten, fachlich klären"
+* clinicalStatus ^short = "ToDo: erfolgreiche desensibilisierung dokumentieren? oder selbst weggegangene allergien? Möglicher Status; active | inactive | resolved"
 
 // "presumed" in R5 ist großer wunsch von MBU - wie könnte das abgebildet werden? MBU redet mit allergologen, ob wirklich notwendig
 // "refuted" ist laut MBU auch relevant
 // kardinalität von clinicalStatus & verificationStatus muss noch erarbeitet werden
-* verificationStatus 1..1 
+* verificationStatus 1..1 MS
 * verificationStatus only CodeableConcept
-* verificationStatus ^short = "Ist die Allergie bestätigt, unbestätigt, widerlegt"
+* verificationStatus ^short = "ToDo; kardinalität von clinicalStatus & verificationStatus muss noch erarbeitet werden. Möglicher Status; unconfirmed | confirmed | refuted | entered-in-error"
 
 
 // ungenaue unterscheidung
@@ -43,18 +43,18 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AT APS
 // kein text wird zugelassen, wie bei condition/procedure/etc.
 // substanz wird dokumentiert
 // konkrete medikamente findet man nicht, man muss nach substanzen suchen (ggf. könnte man auch ASP-Liste durchsuchbar machen)
-* code 1..1
+* code 1..1 MS
 * code only CodeableConcept
 * code ^short = "Allergiecode, Text verboten"
 
 * code.text 0..0
 
-* code.coding 1..1
+* code.coding 1..1 
 //* code.coding from AspListe (required)
 
-* patient 1..1
+* patient 1..1 MS
 * patient only Reference(AtEdiagPatient)
-* patient ^short = "Person, auf die sich die Allergie bezieht"
+* patient ^short = "Betroffene Person, auf die sich die Allergie bezieht"
 
 * encounter 0..0
 * encounter ^short = "Behandlungskontakt"
@@ -66,6 +66,7 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AT APS
 * onset[x] ^short = "Erstes Aufzeichnungsdatum der Allergie(symptomatik)"
 
 * recordedDate 1..1
+* recordedDate [x] only dateTime 
 * recordedDate ^short = "Dokumentationsdatum"
 
 // analog zu procedure, kein patient keine related person
@@ -74,7 +75,7 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AT APS
     at-ediag-practitioner
     or at-aps-practitionerrole
 )
-* recorder ^short = "Gesundheitsdiensteanbieter, die die Allergie eingetragen hat"
+* recorder ^short = "Gesundheitsdiensteanbieter, die die Allergie ins System erfasst/dokumentiert"
 
 * asserter 0..1
 * asserter only Reference (
@@ -83,7 +84,7 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AT APS
     or at-ediag-patient
     or http://hl7.org/fhir/StructureDefinition/RelatedPerson
 )
-* asserter ^short = "Person (fachliche Quelle), die die Allergie bestätigt"
+* asserter ^short = "Person (fachliche Quelle + related Person), die die Allergie bestätigt"
 
 * lastOccurrence 0..0
 * lastOccurrence ^short = "Letztes Auftreten der Symptomatik - siehe manifestation"
@@ -100,7 +101,7 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AT APS
 // ggf. pflicht in snomed
 * reaction.manifestation 1..*
 * reaction.manifestation only CodeableConcept
-* reaction.manifestation ^short = "Aufgezeichnete klinische allergische Symptome"
+* reaction.manifestation ^short = "ToDo: Pflichtfeld? Aufgezeichnete klinische allergische Symptome"
 
 // https://hub.kbv.de/spaces/ALDOK1X0X0/pages/375456332/Weitere+m%C3%B6gliche+Inhalte#Weiterem%C3%B6glicheInhalte-ArtderReaktion%2FzeitlicherVerlaufderReaktion
 // codes noch aktualisieren/anders benennen
@@ -125,8 +126,9 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AT APS
 * reaction.note ^short = "Wird über Feld reaction.description abgebildet"
 
 // referenz auf befund, laborbefund, etc wäre noch interessant - extension!
+// SGR: Siehe condition - evidence. 
 
-// SGR verificationStatus ist refuted dann ist clinicalStatus inaktiv
+// SGR verificationStatus = refuted dann clinicalStatus = inaktiv
 Invariant: allergy-verification-refuted-means-inactive
 Severity: #error
 Description: "Wenn der verificationStatus 'refuted' ist, muss der clinicalStatus 'inactive' sein."

@@ -13,7 +13,7 @@ Description: "Das AT e-Diagnose FlagAlert-Profil leitet sich vom AT APS FlagAler
 * identifier ^short = "Zuordnung des Alerts in einem internem Dokumentationssystem"
 
 * status 1..1 MS
-* status ^short = "Mögliche Codes;	active | inactive | entered-in-error "
+* status ^short = "ToDo: Mögliche Codes; active | inactive | entered-in-error "
 
 * category 0..0
 * category ^short = "Differenzierung nach Kontext - nach klinisch, administrativ"

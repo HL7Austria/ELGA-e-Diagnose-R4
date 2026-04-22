@@ -93,7 +93,7 @@ Description: "Das AT APS-Profil für die Condition-Ressource Diagnosen berücksi
     or at-ediag-patient 
     or http://hl7.org/fhir/StructureDefinition/RelatedPerson
 )
-* recorder ^short = "Gesundheitsdiensteanbieter, der die Diagnose eingetragen hat, ToDo: Soll der Patient selbst eintragen können?"
+* recorder ^short = "ToDo: Soll der Patient selbst eintragen können? Ansonsten Gesundheitsdiensteanbieter, der die Diagnose eingetragen hat"
 
 // ob es sich um eine Fremddiagnose handelt wird durch extension für reported mit boolean gelöst
 * asserter 0..1
@@ -112,10 +112,10 @@ Description: "Das AT APS-Profil für die Condition-Ressource Diagnosen berücksi
 // ELGA-Befunde = Metadaten werden eingetragen
 // verlinkte entlassbriefe könnten ggf. mal nicht mehr erreichbar sein (20 jahre aufbehaltungspflicht)
 // SGR: Lösung mittels Slicing oder einem ELGABefund Profil abgeleitet von DiagnosticReport für Labor und Composition/DocumentReference für Entlassungsbriefe?
-// Damit wir festlegen welche Befundtypen. Es werden nicht nur Labor und Bildgebung interessant sein, sondern auch Arztbriefe 
+// Damit wir festlegen welche Befundtypen. Es werden nicht nur Labor und Bildgebung interessant sein, sondern auch Arztbriefe. Oder andere Idee?
 * evidence 0..*
 //* evidence.detail only Reference(ELGABefund)
-* evidence ^short = "Verweis auf ELGA-Befunde als medizinische Evidenz, ToDo: Klären bzgl. Aufbewahrungspflicht von Entlassungsbriefe, könnten ggf. mal nicht erreichbar sein"
+* evidence ^short = "ToDo: Klären bzgl. Aufbewahrungspflicht von Entlassungsbriefe, könnten ggf. mal nicht erreichbar sein. Verweis auf ELGA-Befunde als medizinische Evidenz"
 
 // Condition.note.autor und .time werden 0..0
 // Condition.note.text soll eine Zeichenbeschränkung bekommen (TBD)
@@ -123,4 +123,4 @@ Description: "Das AT APS-Profil für die Condition-Ressource Diagnosen berücksi
 * note.author[x] 0..0
 * note.time 0..0
 * note.text ^maxLength = 500
-* note ^short = "Freitext zur Diagnose für Zusatzinformation (ohne Autor und Zeitstempel)"
+* note ^short = "ToDo: Zeichenbeschränkung 500? Freitext zur Diagnose für Zusatzinformation (ohne Autor und Zeitstempel)"
