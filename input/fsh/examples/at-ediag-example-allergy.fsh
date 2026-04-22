@@ -5,6 +5,8 @@ Description: "Beispielinstanz einer bestätigten Allergie"
 
 * meta.profile = "http://example.org/fhir/StructureDefinition/at-ediag-allergyintolerance"
 
+* meta.tag[diagnosisType] = http://example.org/fhir/CodeSystem/at-ediag-diagnose-type#relevant "currently relevant"
+
 * extension[reported].valueBoolean = false
 
 * clinicalStatus = http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical#active
@@ -38,7 +40,7 @@ Description: "Beispielinstanz einer bestätigten Allergie"
 * reaction.manifestation[1].coding.display = "Emesis"
 
 
-* reaction.extension[reactionTime].valueCodeableConcept = http://example.org/fhir/CodeSystem/at-ediag-reaction-time#acute "acute"
+* reaction.extension[reactionTime].valueCodeableConcept = http://example.org/fhir/CodeSystem/at-ediag-reaction-time#lt6h "<6 Stunden"
 
 * reaction.description = "Hautausschlag und Erbrechen nach Penicillin-Einnahme"
 

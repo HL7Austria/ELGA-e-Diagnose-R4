@@ -9,6 +9,9 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AT APS
 // EHE einfach überall eine extension für reported mit boolean
 * extension contains AtReported named reported 0..1
 
+// für meta.tag neues template angelegt - ruleSet-at-ediag-meta-tag.fsh
+* insert MetaTagDiagnosisType
+
 * identifier 0..0
 * identifier ^short = "Zuordnung der Allergie in einem internem Dokumentationssystem"
 
@@ -62,11 +65,10 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AT APS
 // beginn der allergie wohl nicht bekannt
 // beginn der reaction kann sehr wohl bekannt sein, wird deshalb nur reaction.onset dokumentiert
 * onset[x] 0..0
-* onset[x] only dateTime 
 * onset[x] ^short = "Erstes Aufzeichnungsdatum der Allergie(symptomatik)"
 
 * recordedDate 1..1 MS
-* recordedDate [x] only dateTime 
+* recordedDate only dateTime 
 * recordedDate ^short = "Dokumentationsdatum"
 
 // analog zu procedure, kein patient keine related person
@@ -114,7 +116,7 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AT APS
 * reaction.description ^short = "Textbasierte Zusammenfassung der allergischen Reaktion"
 
 * reaction.onset 0..1
-* reaction.onset [x] only dateTime 
+* reaction.onset only dateTime 
 * reaction.onset ^short = "Beginn der Reaktion"
 
 * reaction.severity 0..0

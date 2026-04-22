@@ -6,6 +6,8 @@ Usage: #example
 
 * meta.profile = "http://example.org/fhir/StructureDefinition/at-ediag-procedure"
 
+* meta.tag[diagnosisType] = http://example.org/fhir/CodeSystem/at-ediag-diagnose-type#relevant "currently relevant"
+
 * extension[reported].valueBoolean = false
 
 * status = http://hl7.org/fhir/CodeSystem/procedure-status#completed

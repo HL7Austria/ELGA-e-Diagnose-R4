@@ -7,9 +7,10 @@ Description: "Das AT APS-Profil für die Condition-Ressource Diagnosen berücksi
 * . ^short = "AT e-Diagnose Condition Diagnosen"
 
 // EHE einfach überall eine extension für reported mit boolean
+// ob es sich um eine Fremddiagnose handelt wird durch extension für reported mit boolean gelöst
 * extension contains AtReported named reported 0..1
 
-// SGR: für meta.tag neues template angelegt - ruleSet-at-ediag-meta-tag.fsh
+// für meta.tag neues template angelegt - ruleSet-at-ediag-meta-tag.fsh
 * insert MetaTagDiagnosisType
 
 * identifier 0..0
@@ -80,22 +81,18 @@ Description: "Das AT APS-Profil für die Condition-Ressource Diagnosen berücksi
 * abatement[x] only dateTime 
 * abatement[x] ^short = "Ende der Erkrankung"
 
-
 * recordedDate 1..1 MS
 * recordedDate only dateTime
 * recordedDate ^short = "Zeitpunkt der Diagnosendokumentation"
 
 * recorder 1..1 MS
-// GLE: Kann der Patient selbst etwas eintragen?
 * recorder only Reference (
     at-ediag-practitioner
     or at-aps-practitionerrole
-    or at-ediag-patient 
-    or http://hl7.org/fhir/StructureDefinition/RelatedPerson
 )
-* recorder ^short = "ToDo: Soll der Patient selbst eintragen können? Ansonsten Gesundheitsdiensteanbieter, der die Diagnose eingetragen hat"
+* recorder ^short = "Ansonsten Gesundheitsdiensteanbieter, der die Diagnose eingetragen hat"
 
-// ob es sich um eine Fremddiagnose handelt wird durch extension für reported mit boolean gelöst
+
 * asserter 0..1
 * asserter only Reference (
     at-ediag-practitioner
@@ -111,16 +108,16 @@ Description: "Das AT APS-Profil für die Condition-Ressource Diagnosen berücksi
 // muss profiliert werden für .detail (Reference) als Link auf 
 // ELGA-Befunde = Metadaten werden eingetragen
 // verlinkte entlassbriefe könnten ggf. mal nicht mehr erreichbar sein (20 jahre aufbehaltungspflicht)
-// SGR: Lösung mittels Slicing oder einem ELGABefund Profil abgeleitet von DiagnosticReport für Labor und Composition/DocumentReference für Entlassungsbriefe?
-// Damit wir festlegen welche Befundtypen. Es werden nicht nur Labor und Bildgebung interessant sein, sondern auch Arztbriefe. Oder andere Idee?
+// ToDo; muss noch erarbeitet werden
+
 * evidence 0..*
 //* evidence.detail only Reference(ELGABefund)
 * evidence ^short = "ToDo: Klären bzgl. Aufbewahrungspflicht von Entlassungsbriefe, könnten ggf. mal nicht erreichbar sein. Verweis auf ELGA-Befunde als medizinische Evidenz"
 
-// Condition.note.autor und .time werden 0..0
-// Condition.note.text soll eine Zeichenbeschränkung bekommen (TBD)
+
 * note 0..1
 * note.author[x] 0..0
 * note.time 0..0
-* note.text ^maxLength = 500
-* note ^short = "ToDo: Zeichenbeschränkung 500? Freitext zur Diagnose für Zusatzinformation (ohne Autor und Zeitstempel)"
+// https://www.hl7.org/fhir/elementdefinition-definitions.html#ElementDefinition.maxLength
+// * note.text ^maxLength = 500
+* note ^short = "ToDo: Vorschlag eine Zeichenbeschränkung von 500? Freitext zur Diagnose für Zusatzinformation (ohne Autor- und Zeitstempelangabe)"

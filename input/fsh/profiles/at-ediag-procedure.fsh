@@ -7,7 +7,12 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom AT APS Procedur
 * . ^short = "AT e-Diagnose Procedure"
  
 // EHE einfach überall eine extension für reported mit boolean
+// fremddiagnose
+// reported in R6 dazugekommen
+// forward extension -> EHE einfach überall eine extension für reported mit boolean
 * extension contains AtReported named reported 0..1
+
+* insert MetaTagDiagnosisType
 
 * identifier 0..0
 * identifier ^short = "Zuordnung der Diagnose in einem internem Dokumentationssystem"
@@ -47,12 +52,12 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom AT APS Procedur
 // IPS Free Set enthält nur 983 konzepte
 // eigenes value set, um alle procedures abzudecken (mit ausnahme derer, die in IPS entfernt wruden)
 
-// SGR: die Einschränkung erfolgt über ein eigenes ValueSet (procedure-codes) und required binding
+// SGR: die Einschränkung erfolgt über ein eigenes ValueSet (procedure-codes) und required binding 
+// ToDo: https://build.fhir.org/ig/HL7/fhir-ips/en/ValueSet-procedures-uv-ips.html
 
 // Display-text des synonyms soll jedenfalls als display übernommen werden. nicht nur FSN
 // validierung von synonymen prüfen (in zusammenhang mit austrian extension)
-
-// SGR: Das nicht nur der FSN übernommen werden kann, kann ich nicht im Profil lösen?
+// Pubhliser testen
 
 * code 1..1 MS
 * code from AtEDiagProzedurenCodes (required)
@@ -65,23 +70,20 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom AT APS Procedur
 * encounter 0..0
 * encounter ^short = "Behandlungskontakt"
 
-// es kann sein, dass man es nicht mehr weiß
+// Was ist wenn es der Patient nicht genau weiß? https://build.fhir.org/ig/hl7-eu/base/StructureDefinition-procedure-eu-core.html
+// Procedure (EU core) - HL7 Europe Base and Core FHIR IG v2.0.0
+ 
 * performed[x] 0..1
 * performed[x] only dateTime
-* performed[x] ^short = "Zeitpunkt der Durchführung ToDo, es kann sein, dass man es nicht mehr weiß, möglich: dateTime | Period | string | Age | Range"
+* performed[x] ^short = "ToDo; Ggf. ist das genaue Datum nicht bekannt. Evtl. Jahresangaben, wie vor 2 Jahren. Zeitpunkt der Durchführung"
 
-// recorder kann nur GDA sein
-// SGR: Erweiterung auf Organisation?
 * recorder 1..1 MS
 * recorder only Reference (
     at-ediag-practitioner
     or at-aps-practitionerrole
 )
-* recorder ^short = "Gesundheitsdiensteanbieter, der die Prozedur eingetragen/dokumentiert hat ToDo: Erweiterung auf Organisation"
+* recorder ^short = "Gesundheitsdiensteanbieter, der die Prozedur eingetragen/dokumentiert hat"
 
-// fremddiagnose
-// reported in R6 dazugekommen
-// forward extension -> EHE einfach überall eine extension für reported mit boolean
 
 * asserter 0..1
 * asserter only Reference (
@@ -140,8 +142,9 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom AT APS Procedur
 // note.text soll eine Zeichenbeschränkung bekommen (TBD)
 * note.author[x] 0..0
 * note.time 0..0
-* note.text ^maxLength = 500
-* note ^short = "Freitext zur Prozedur für Zusatzinformation (ohne Autor und Zeitstempel)"
+// https://www.hl7.org/fhir/elementdefinition-definitions.html#ElementDefinition.maxLength
+// * note.text ^maxLength = 500
+* note ^short = "ToDo: Vorschlag eine Zeichenbeschränkung von 500? Freitext zur Diagnose für Zusatzinformation (ohne Autor- und Zeitstempelangabe)"
 
 * focalDevice 0..0
 * focalDevice ^short = "Prozedurendurchführendes Gerät"
