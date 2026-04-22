@@ -5,7 +5,9 @@ Description: "Beispielinstanz einer bestätigten Allergie"
 
 * meta.profile = "http://example.org/fhir/StructureDefinition/at-ediag-allergyintolerance"
 
-* meta.tag[diagnosisType] = http://example.org/fhir/CodeSystem/at-ediag-diagnose-type#relevant "currently relevant"
+* meta.tag[diagnosisType].system = "http://example.org/fhir/CodeSystem/at-ediag-diagnose-type"
+* meta.tag[diagnosisType].code = #relevant
+* meta.tag[diagnosisType].display = "currently relevant"
 
 * extension[reported].valueBoolean = false
 
