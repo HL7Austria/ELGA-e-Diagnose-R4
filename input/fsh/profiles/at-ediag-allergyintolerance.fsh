@@ -9,15 +9,13 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AT APS
 // EHE einfach überall eine extension für reported mit boolean
 * extension contains AtReported named reported 0..1
 
-// für meta.tag neues template angelegt - ruleSet-at-ediag-meta-tag.fsh
-* insert MetaTagDiagnosisType
-
 * identifier 0..0
 * identifier ^short = "Zuordnung der Allergie in einem internem Dokumentationssystem"
 
 // erfolgreiche desensibilisierung dokumentieren? oder selbst weggegangene allergien?
 // löschen von bereits dokumentierten eher nicht, sondern status setzen
 // invarianten in zshg mit verificationstatus sobald fachlich geklärt
+
 // SGR: invariante-Bsp siehe Ende Profil
 * clinicalStatus 0..1
 * code only CodeableConcept
@@ -46,6 +44,7 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AT APS
 // kein text wird zugelassen, wie bei condition/procedure/etc.
 // substanz wird dokumentiert
 // konkrete medikamente findet man nicht, man muss nach substanzen suchen (ggf. könnte man auch ASP-Liste durchsuchbar machen)
+// derzeit dieses ValueSet https://hl7.org/fhir/R4/valueset-allergyintolerance-code.html
 * code 1..1 MS
 * code only CodeableConcept
 * code ^short = "Allergiecode, Text verboten"
@@ -86,16 +85,16 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AT APS
     or at-ediag-patient
     or http://hl7.org/fhir/StructureDefinition/RelatedPerson
 )
-* asserter ^short = "Person (fachliche Quelle + related Person), die die Allergie bestätigt"
+* asserter ^short = "Person (fachliche Quelle + related Person oder Patient selbst), die/der die Allergie bestätigt"
 
 * lastOccurrence 0..0
 * lastOccurrence ^short = "Letztes Auftreten der Symptomatik - siehe manifestation"
 
 * note 0..0
-* note ^short = "Zusätzliche Informationen oder Freitext zur Allergie wird in reaction.description beschrieben oder ist ein zweites Textfeld nötig - fachlich klären"
+* note ^short = "Zusätzliche Informationen oder Freitext zur Allergie wird in reaction beschrieben"
 
 * reaction 1..1 MS
-* reaction ^short = "Details über die Allergiereaktion, verlinkt zum Auslöser/Substanz -  bestätigt das Vorhandensein einer Allergie"
+* reaction ^short = "Details über die Allergiereaktion"
 
 * reaction.substance 0..0
 * reaction.substance ^short = "Spezifische Substanz die zur Allergie führt, wird in reaction gelöst"
@@ -103,7 +102,7 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AT APS
 // ggf. pflicht in snomed
 * reaction.manifestation 1..*
 * reaction.manifestation only CodeableConcept
-* reaction.manifestation ^short = "ToDo: Pflichtfeld? Aufgezeichnete klinische allergische Symptome"
+* reaction.manifestation ^short = "ToDo: fragliches Pflichtfeld? Aufgezeichnete klinische allergische Symptome"
 
 // https://hub.kbv.de/spaces/ALDOK1X0X0/pages/375456332/Weitere+m%C3%B6gliche+Inhalte#Weiterem%C3%B6glicheInhalte-ArtderReaktion%2FzeitlicherVerlaufderReaktion
 // codes noch aktualisieren/anders benennen
@@ -129,7 +128,7 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AT APS
 * reaction.note ^short = "ToDo: Fraglich, ob wie bei den anderen es über note festgehalten wird, statt über reaction.description?"
 
 // referenz auf befund, laborbefund, etc wäre noch interessant - extension!
-// SGR: Siehe condition - evidence. 
+// SGR: Siehe condition - evidence 
 
 // SGR verificationStatus = refuted dann clinicalStatus = inaktiv
 Invariant: allergy-verification-refuted-means-inactive

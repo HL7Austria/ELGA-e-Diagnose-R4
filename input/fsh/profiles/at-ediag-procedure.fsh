@@ -58,7 +58,7 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom AT APS Procedur
 
 // Display-text des synonyms soll jedenfalls als display übernommen werden. nicht nur FSN
 // validierung von synonymen prüfen (in zusammenhang mit austrian extension)
-// ToDo: am Publisher testen
+// ToDo: am Publisher testen - Wrong Display Name 'Coloskopie' for http://snomed.info/sct#73761001. Valid display is one of 6 choices: 'Colonoscopy' (en), 'Colonoscopy, NOS' (en), 'Endoscopy of colon, NOS' (en), 'Endoscopy of colon' (en), 'Endoscopic examination of colon' (en) or 'Colonoscopy (procedure)' (en) (for the language(s) 'en-US') (from https://tx.fhir.org/r4, see log, or see the servers logic)
 
 * code 1..1 MS
 * code from AtEDiagProzedurenCodes (required)
