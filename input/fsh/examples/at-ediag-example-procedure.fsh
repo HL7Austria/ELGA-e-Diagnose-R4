@@ -6,7 +6,7 @@ Usage: #example
 
 * meta.profile = "http://example.org/fhir/StructureDefinition/at-ediag-procedure"
 
-* meta.tag[diagnosisType].system = "http://example.org/fhir/CodeSystem/at-ediag-diagnose-type"
+* meta.tag[diagnosisType].system = "http://hl7.org/fhir/CodeSystem/at-ediag-diagnose-type"
 * meta.tag[diagnosisType].code = #relevant
 * meta.tag[diagnosisType].display = "currently relevant"
 
