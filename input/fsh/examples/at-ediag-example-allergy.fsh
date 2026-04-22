@@ -14,7 +14,7 @@ Description: "Beispielinstanz einer bestätigten Allergie"
 
 * code.coding.system = "http://snomed.info/sct"
 * code.coding.code = #294505008
-* code.coding.display = "Allergie gegen Amoxicillin"
+* code.coding.display = " Amoxicillin-Allergie"
 
 
 * patient = Reference(PatientExample)
