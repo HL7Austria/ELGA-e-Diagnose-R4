@@ -12,6 +12,7 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom AT APS Procedur
 // forward extension -> EHE einfach überall eine extension für reported mit boolean
 * extension contains AtReported named reported 0..1
 
+// für meta.tag neues template angelegt - ruleSet-at-ediag-meta-tag.fsh
 * insert MetaTagDiagnosisType
 
 * identifier 0..0
@@ -35,7 +36,7 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom AT APS Procedur
 // es sollen stattgefundene procedures abgebildet werden
 // --> completed, entered-in-error
 
-//SGR: die Einschränkung erfolgt über ein eigenes ValueSet (procedure-status) und required binding
+// Einschränkung erfolgt über ein eigenes ValueSet (procedure-status) und required binding
 * status 1..1 MS
 * status from AtEdiagProcedureStatus (required)
 * status ^short = "Nur tatsächlich durchgeführte (completed) oder irrtümlich dokumentierte (entered-in-error) Prozeduren"
@@ -53,11 +54,11 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom AT APS Procedur
 // eigenes value set, um alle procedures abzudecken (mit ausnahme derer, die in IPS entfernt wruden)
 
 // SGR: die Einschränkung erfolgt über ein eigenes ValueSet (procedure-codes) und required binding 
-// ToDo: https://build.fhir.org/ig/HL7/fhir-ips/en/ValueSet-procedures-uv-ips.html
+// - codes kommen von IPS siehe https://build.fhir.org/ig/HL7/fhir-ips/en/ValueSet-procedures-uv-ips.html und https://github.com/HL7/fhir-ips/blob/master/input/fsh/valuesets/ProceduresUvIps.fsh
 
 // Display-text des synonyms soll jedenfalls als display übernommen werden. nicht nur FSN
 // validierung von synonymen prüfen (in zusammenhang mit austrian extension)
-// Pubhliser testen
+// ToDo: am Publisher testen
 
 * code 1..1 MS
 * code from AtEDiagProzedurenCodes (required)
