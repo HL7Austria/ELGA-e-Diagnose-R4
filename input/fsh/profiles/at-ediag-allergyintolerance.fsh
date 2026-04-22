@@ -44,7 +44,7 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AT APS
 // kein text wird zugelassen, wie bei condition/procedure/etc.
 // substanz wird dokumentiert
 // konkrete medikamente findet man nicht, man muss nach substanzen suchen (ggf. könnte man auch ASP-Liste durchsuchbar machen)
-// derzeit dieses ValueSet https://hl7.org/fhir/R4/valueset-allergyintolerance-code.html
+
 * code 1..1 MS
 * code only CodeableConcept
 * code ^short = "Allergiecode, Text verboten"

@@ -7,4 +7,4 @@ Description: "Umfasst bestimmte Substanzen von Allergien oder Unverträglichkeit
 // https://hl7.org/fhir/R4/valueset-allergyintolerance-code.html
 
 * include codes from system http://snomed.info/sct 
-    where concept is-a #418038007"
+    where concept is-a #420134006
