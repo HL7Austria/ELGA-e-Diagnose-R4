@@ -26,7 +26,7 @@ Die Listen im Rahmen von e-Diagnose werden laufend gepflegt - Vorschlag: working
 
 // 
 * code 1..1 MS
-* code ^short = "Code, der den Typ der Liste beschreibt. Zu prüfen, welche Codes für die e-Diagnose Listen in Frage kämen."
+* code ^short = "TODO: Code, der den Typ der Liste beschreibt. Zu prüfen, welche Codes für die e-Diagnose Listen in Frage kämen."
 * code from ElgaListCodeVS (required)
 
 
@@ -86,4 +86,4 @@ Mögliche Codes: user | system | event-date | entry-date| priority | alphabetic 
 // es gibt nur 2 Gründe, fraglich wenn der Bürger die letzten 3 Versionen löscht, bin ich dann wieder notstarted (gesund) 
 * emptyReason 0..1 MS
 * emptyReason from ElgaListEmptyReasonVS (required)
-* emptyReason ^short = "Begründung, warum der Medikationsplan leer ist. Mögliche Ausprägungen: [notstarted |  nilknown] Bedeutung: notstarted: Intitalzustand - noch nie befüllt | nilknown: Patient nimmt derzeit keine Medikamente ein"
+* emptyReason ^short = "Begründung, warum der Medikationsplan leer ist. Mögliche Ausprägungen: [notstarted |  nilknown] Bedeutung: notstarted: Intitalzustand - noch nie befüllt | nilknown: Für Patient gibt es zurzeit keine Einträge"
