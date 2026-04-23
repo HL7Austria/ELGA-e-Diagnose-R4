@@ -39,8 +39,7 @@ Description: "Das AT e-Diagnose FlagAlert-Profil leitet sich vom AT APS FlagAler
 * encounter 0..0
 * encounter ^short = "Behandlungskontakt, fachlich kären, ob dieses Feld benötigt wird (z.b. Durchgangssyndrom aufgrund eines Narkoseverfahrens)"
 
-// patient und relatedperson noch wegprofilieren
-// SGR: nur GDA
+
 * author 1..1
 * author only Reference(
     at-ediag-practitioner

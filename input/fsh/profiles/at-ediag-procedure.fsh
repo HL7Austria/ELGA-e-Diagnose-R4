@@ -62,7 +62,7 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom AT APS Procedur
 
 * code 1..1 MS
 * code from AtEDiagProzedurenCodes (required)
-* code ^short = "Prozedurencode der durchgeführten Prozedur"
+* code ^short = "ToDo: Anzahl der Konzepte klären! Prozedurencode der durchgeführten Prozedur"
 
 * subject 1..1 MS
 * subject only Reference(AtEdiagPatient)
@@ -76,7 +76,7 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom AT APS Procedur
  
 * performed[x] 0..1
 * performed[x] only dateTime
-* performed[x] ^short = "ToDo; Ggf. ist das genaue Datum nicht bekannt. Evtl. Jahresangaben, wie vor 2 Jahren. Zeitpunkt der Durchführung"
+* performed[x] ^short = "ToDo; Ggf. ist das genaue Datum nicht bekannt. Evtl. Jahresangaben, wie vor 2 Jahren. Im EU- Core ist es ein Pflichtfeld. Zeitpunkt der Durchführung"
 
 * recorder 1..1 MS
 * recorder only Reference (
@@ -126,7 +126,7 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom AT APS Procedur
 // vergleichbar mit evidence in condition
 // verlinkte entlassbriefe könnten ggf. mal nicht mehr erreichbar sein (20 jahre aufbehaltungspflicht)
 * report 0..*
-* report ^short = "ToDo: Klären bzgl. Aufbewahrungspflicht von Entlassungsbriefe, könnten ggf. mal nicht erreichbar sein"
+* report ^short = "ToDo: Soll die Referenz eine URL sein oder ein Attachment? Verweis auf ELGA-Befunde als medizinische Evidenz"
 
 // e-diagnose ist keine op-berichts-dokumentationssystem
 * complication 0..0
@@ -145,7 +145,7 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom AT APS Procedur
 * note.time 0..0
 // https://www.hl7.org/fhir/elementdefinition-definitions.html#ElementDefinition.maxLength
 // * note.text ^maxLength = 500
-* note ^short = "ToDo: Vorschlag eine Zeichenbeschränkung von 500? Freitext zur Diagnose für Zusatzinformation (ohne Autor- und Zeitstempelangabe)"
+* note ^short = "ToDo: Vorschlag eine Zeichenbeschränkung von 500 und Einschränkung auf eine Note (ohne Autor- und Zeitstempelangabe)? Freitext zur Diagnose für Zusatzinformation"
 
 * focalDevice 0..0
 * focalDevice ^short = "Prozedurendurchführendes Gerät"

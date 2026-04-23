@@ -19,14 +19,15 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AT APS
 // SGR: invariante-Bsp siehe Ende Profil
 * clinicalStatus 0..1
 * code only CodeableConcept
-* clinicalStatus ^short = "ToDo: erfolgreiche desensibilisierung dokumentieren? oder selbst weggegangene allergien? Möglicher Status; active | inactive | resolved"
+* clinicalStatus ^short = "Status der Allergie; active | inactive | resolved"
 
 // "presumed" in R5 ist großer wunsch von MBU - wie könnte das abgebildet werden? MBU redet mit allergologen, ob wirklich notwendig
+// um das abzubilden, müssten wir unconfirmed auswählen und zusätzlich presumed um das abzubilden
 // "refuted" ist laut MBU auch relevant
 // kardinalität von clinicalStatus & verificationStatus muss noch erarbeitet werden
 * verificationStatus 1..1 MS
 * verificationStatus only CodeableConcept
-* verificationStatus ^short = "ToDo; kardinalität von clinicalStatus & verificationStatus muss noch erarbeitet werden. Möglicher Status; unconfirmed | confirmed | refuted | entered-in-error"
+* verificationStatus ^short = "ToDo; Presumed, gibt es hierzu aktuelle Infos? kardinalität von clinicalStatus & verificationStatus muss noch erarbeitet werden. Möglicher Status; unconfirmed | confirmed | refuted | entered-in-error"
 
 
 // ungenaue unterscheidung
@@ -52,7 +53,7 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AT APS
 * code.text 0..0
 
 * code.coding 1..1 
-//* code.coding from AspListe (required)
+
 
 * patient 1..1 MS
 * patient only Reference(AtEdiagPatient)
@@ -97,12 +98,12 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AT APS
 * reaction ^short = "Details über die Allergiereaktion"
 
 * reaction.substance 0..0
-* reaction.substance ^short = "Spezifische Substanz die zur Allergie führt, wird in reaction gelöst"
+* reaction.substance ^short = "Spezifische Substanz die zur Allergie führt, wird in allergyintoleranz.code gelöst"
 
 // ggf. pflicht in snomed
-* reaction.manifestation 1..*
+* reaction.manifestation 1..* MS
 * reaction.manifestation only CodeableConcept
-* reaction.manifestation ^short = "ToDo: fragliches Pflichtfeld? Aufgezeichnete klinische allergische Symptome"
+* reaction.manifestation ^short = "Aufgezeichnete klinische allergische Symptome"
 
 // https://hub.kbv.de/spaces/ALDOK1X0X0/pages/375456332/Weitere+m%C3%B6gliche+Inhalte#Weiterem%C3%B6glicheInhalte-ArtderReaktion%2FzeitlicherVerlaufderReaktion
 // codes noch aktualisieren/anders benennen
@@ -110,8 +111,8 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AT APS
 * reaction.extension contains AtEdiagReactionTime named reactionTime 1..1
 * reaction.extension[reactionTime] ^short = "Zeitlicher Verlauf der Manifestation"
 
-// Gedanken GLE: vielleicht reaction.note anstatt reaction.description, weil man in Annotation-Datentyp markdown hat anstatt nur string?
-* reaction.description 0..1
+
+* reaction.description 0..0
 * reaction.description ^short = "Textbasierte Zusammenfassung der allergischen Reaktion"
 
 * reaction.onset 0..1
@@ -124,8 +125,12 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AT APS
 * reaction.exposureRoute 0..0
 * reaction.exposureRoute ^short = "Art der Exposition der betroffenen Person gegenüber der Substanz"
 
-* reaction.note 0..0
-* reaction.note ^short = "ToDo: Fraglich, ob wie bei den anderen es über note festgehalten wird, statt über reaction.description?"
+* reaction.note 0..1
+* reaction.note.author[x] 0..0
+* reaction.note.time 0..0
+// https://www.hl7.org/fhir/elementdefinition-definitions.html#ElementDefinition.maxLength
+// * note.text ^maxLength = 500
+* reaction.note ^short = "ToDo: Vorschlag eine Zeichenbeschränkung von 500 und Einschränkung auf eine Note (ohne Autor- und Zeitstempelangabe)? Freitext zur Diagnose für Zusatzinformation"
 
 // referenz auf befund, laborbefund, etc wäre noch interessant - extension!
 // SGR: Siehe condition - evidence 

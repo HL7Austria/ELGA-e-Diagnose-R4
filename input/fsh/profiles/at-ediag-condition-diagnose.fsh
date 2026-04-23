@@ -112,7 +112,7 @@ Description: "Das AT APS-Profil für die Condition-Ressource Diagnosen berücksi
 
 * evidence 0..*
 //* evidence.detail only Reference(ELGABefund)
-* evidence ^short = "ToDo: Klären bzgl. Aufbewahrungspflicht von Entlassungsbriefe, könnten ggf. mal nicht erreichbar sein. Verweis auf ELGA-Befunde als medizinische Evidenz"
+* evidence ^short = "ToDo: Soll die Referenz eine URL sein oder ein Attachment? Verweis auf ELGA-Befunde als medizinische Evidenz"
 
 
 * note 0..1
@@ -120,4 +120,4 @@ Description: "Das AT APS-Profil für die Condition-Ressource Diagnosen berücksi
 * note.time 0..0
 // https://www.hl7.org/fhir/elementdefinition-definitions.html#ElementDefinition.maxLength
 // * note.text ^maxLength = 500
-* note ^short = "ToDo: Vorschlag eine Zeichenbeschränkung von 500? Freitext zur Diagnose für Zusatzinformation (ohne Autor- und Zeitstempelangabe)"
+* note ^short = "ToDo: Vorschlag eine Zeichenbeschränkung von 500 und Einschränkung auf eine Note (ohne Autor- und Zeitstempelangabe)? Freitext zur Diagnose für Zusatzinformation"

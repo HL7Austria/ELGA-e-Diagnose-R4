@@ -40,6 +40,6 @@ Description: "Beispielinstanz einer bestätigten Allergie"
 
 * reaction.extension[reactionTime].valueCodeableConcept = https://fhir.hl7.at/elga/ediag/r4/CodeSystem/at-ediag-reaction-time-cs#lt6h "<6 Stunden"
 
-* reaction.description = "Hautausschlag und Erbrechen nach Penicillin-Einnahme"
+* reaction.note.text = "Hautausschlag und Erbrechen nach Penicillin-Einnahme"
 
 * reaction.onset = "2025-03-15"
