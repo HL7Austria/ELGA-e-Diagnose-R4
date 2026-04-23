@@ -56,6 +56,8 @@ dependencies:
 pages:
   index.md:
     title: "Home"
+  interactions.md:
+    title: Zugriffsarten auf den Medikationsplan
   anwendungsfaelle.md:
     title: "Überblick Anwendungsfälle"
     UC_eDiag_01.md:
@@ -90,6 +92,8 @@ parameters:
 menu:
   Home: index.html
   Table of Contents: toc.html
+  Funktionales:
+    Zugriffsarten auf eine Liste: interactions.html
   Use Cases: 
     Überblick: anwendungsfaelle.html
     "UC_eDiag_01 Diagnosen lesen": UC_eDiag_01.html
