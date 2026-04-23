@@ -1,6 +1,6 @@
 Profile: AtEdiagAFlagAlert
 Parent: AtApsFlagAlert
-Id: at-ediag-flaglert
+Id: at-ediag-flagalert
 Title: "AT e-Diagnose FlagAlert"
 Description: "Das AT e-Diagnose FlagAlert-Profil leitet sich vom AT APS FlagAlert-Profil ab und passt dieses für die Anforderungen der e-Diagnose an. Die IPS-Konformität bleibt über das abgeleitete Profil erhalten."
 * ^status = #active
@@ -13,7 +13,7 @@ Description: "Das AT e-Diagnose FlagAlert-Profil leitet sich vom AT APS FlagAler
 * identifier ^short = "Zuordnung des Alerts in einem internem Dokumentationssystem"
 
 * status 1..1 MS
-* status ^short = "ToDo: Mögliche Codes; active | inactive | entered-in-error "
+* status ^short = "Möglicher Statuscode; active | inactive | entered-in-error "
 
 * category 0..0
 * category ^short = "Differenzierung nach Kontext - nach klinisch, administrativ"
@@ -23,8 +23,10 @@ Description: "Das AT e-Diagnose FlagAlert-Profil leitet sich vom AT APS FlagAler
 // mehrwert codierung fraglich
 // für europäische patient summary, übersetzungen wäre es natürlich interessant zu codieren, für übersetzungen
 // wenn nur freitext, wäre eine limitierung ggf erforderlich?
+
+// 2026_04_23 nur Text!! Kein ValueSet dass das abdeckt. Kein Coding
 * code 1..1
-* code ^short = "ToDo: Codiert oder Textinhalt des Alerts"
+* code ^short = "Textinhalt des Alerts"
 
 * subject 1..1 MS
 * subject only Reference(AtEdiagPatient)

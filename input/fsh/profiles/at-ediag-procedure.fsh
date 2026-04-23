@@ -60,9 +60,10 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom AT APS Procedur
 // validierung von synonymen prüfen (in zusammenhang mit austrian extension)
 // ToDo: am Publisher testen - Wrong Display Name 'Coloskopie' for http://snomed.info/sct#73761001. Valid display is one of 6 choices: 'Colonoscopy' (en), 'Colonoscopy, NOS' (en), 'Endoscopy of colon, NOS' (en), 'Endoscopy of colon' (en), 'Endoscopic examination of colon' (en) or 'Colonoscopy (procedure)' (en) (for the language(s) 'en-US') (from https://tx.fhir.org/r4, see log, or see the servers logic)
 
+// Terminolgen sollen es prüfen - evtl. gibt es nicht mehr präcodierte? 
 * code 1..1 MS
 * code from AtEDiagProzedurenCodes (required)
-* code ^short = "ToDo: Anzahl der Konzepte klären! Prozedurencode der durchgeführten Prozedur"
+* code ^short = "ToDo: Anzahl der Konzepte klären! Frage geht weiter an die Terminologen. Wie viel ist da prä- und postcodiert drinnen? Prozedurencode der durchgeführten Prozedur"
 
 * subject 1..1 MS
 * subject only Reference(AtEdiagPatient)
@@ -73,10 +74,10 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom AT APS Procedur
 
 // Was ist wenn es der Patient nicht genau weiß? https://build.fhir.org/ig/hl7-eu/base/StructureDefinition-procedure-eu-core.html
 // Procedure (EU core) - HL7 Europe Base and Core FHIR IG v2.0.0
- 
+// SGR: 2026_04_23_wir belassen es optional und schauen uns bis zum Ballot an, was die EU zu dem Zeitpunkt vorgibt
 * performed[x] 0..1
 * performed[x] only dateTime
-* performed[x] ^short = "ToDo; Ggf. ist das genaue Datum nicht bekannt. Evtl. Jahresangaben, wie vor 2 Jahren. Im EU- Core ist es ein Pflichtfeld. Zeitpunkt der Durchführung"
+* performed[x] ^short = "Zeitpunkt der Durchführung"
 
 * recorder 1..1 MS
 * recorder only Reference (
@@ -125,6 +126,7 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom AT APS Procedur
 
 // vergleichbar mit evidence in condition
 // verlinkte entlassbriefe könnten ggf. mal nicht mehr erreichbar sein (20 jahre aufbehaltungspflicht)
+// 2026_04_23_MBU URL, um einen Mehrwert zu haben. Damit der pdf-Friedhof aufhört, sondern eine saubere Lösung mittels URL, auf genau die DokuementenID 
 * report 0..*
 * report ^short = "ToDo: Soll die Referenz eine URL sein oder ein Attachment? Verweis auf ELGA-Befunde als medizinische Evidenz"
 
@@ -141,6 +143,7 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom AT APS Procedur
 * note 0..1
 // note.autor und .time werden 0..0
 // note.text soll eine Zeichenbeschränkung bekommen (TBD)
+// 2026_04_23 500 ausreichend. Es ist eine Freitextergänzung zum SNOMED Textes (schlecht eingestellter - zur Ergänzung zu DD) nicht * sondern nur 1 bei Bedarf
 * note.author[x] 0..0
 * note.time 0..0
 // https://www.hl7.org/fhir/elementdefinition-definitions.html#ElementDefinition.maxLength

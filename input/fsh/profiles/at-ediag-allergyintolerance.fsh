@@ -25,6 +25,9 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AT APS
 // um das abzubilden, müssten wir unconfirmed auswählen und zusätzlich presumed um das abzubilden
 // "refuted" ist laut MBU auch relevant
 // kardinalität von clinicalStatus & verificationStatus muss noch erarbeitet werden
+
+// 2026_04_23: MBU ist nicht geklärt. Wir machen R4 und keine andere Version. Wir glauben nicht der erfassenden Person, sondern zwingen sie zu einer genaueren Doku durch reaction
+// eigenen Termin zur Statustabelle - Anforderung geht an die Anwenungsmanager
 * verificationStatus 1..1 MS
 * verificationStatus only CodeableConcept
 * verificationStatus ^short = "ToDo; Presumed, gibt es hierzu aktuelle Infos? kardinalität von clinicalStatus & verificationStatus muss noch erarbeitet werden. Möglicher Status; unconfirmed | confirmed | refuted | entered-in-error"
