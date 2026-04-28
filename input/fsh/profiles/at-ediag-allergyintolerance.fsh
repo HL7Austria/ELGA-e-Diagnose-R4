@@ -133,10 +133,12 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AT APS
 * reaction.note.time 0..0
 // https://www.hl7.org/fhir/elementdefinition-definitions.html#ElementDefinition.maxLength
 // * note.text ^maxLength = 500
-* reaction.note ^short = "ToDo: Vorschlag eine Zeichenbeschränkung von 500 und Einschränkung auf eine Note (ohne Autor- und Zeitstempelangabe)? Freitext zur Diagnose für Zusatzinformation"
+// 2026_04_23 500 ausreichend. Es ist eine Freitextergänzung zum SNOMED Textes (schlecht eingestellter - zur Ergänzung zu DD) nicht * sondern nur 1 bei Bedarf
+* reaction.note ^short = "Freitext zur Diagnose für Zusatzinformation"
 
 // referenz auf befund, laborbefund, etc wäre noch interessant - extension!
 // SGR: Siehe condition - evidence 
+
 
 // SGR verificationStatus = refuted dann clinicalStatus = inaktiv
 Invariant: allergy-verification-refuted-means-inactive

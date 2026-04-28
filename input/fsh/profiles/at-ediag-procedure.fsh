@@ -60,10 +60,10 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom AT APS Procedur
 // validierung von synonymen prüfen (in zusammenhang mit austrian extension)
 // ToDo: am Publisher testen - Wrong Display Name 'Coloskopie' for http://snomed.info/sct#73761001. Valid display is one of 6 choices: 'Colonoscopy' (en), 'Colonoscopy, NOS' (en), 'Endoscopy of colon, NOS' (en), 'Endoscopy of colon' (en), 'Endoscopic examination of colon' (en) or 'Colonoscopy (procedure)' (en) (for the language(s) 'en-US') (from https://tx.fhir.org/r4, see log, or see the servers logic)
 
-// Terminolgen sollen es prüfen - evtl. gibt es nicht mehr präcodierte? 
+// Terminolgen sollen es prüfen - evtl. gibt es nicht mehr präcodierte? - https://jira-elga.atlassian.net/jira/software/c/projects/STD/boards/496?selectedIssue=STD-7659
 * code 1..1 MS
 * code from AtEDiagProzedurenCodes (required)
-* code ^short = "ToDo: Anzahl der Konzepte klären! Frage geht weiter an die Terminologen. Wie viel ist da prä- und postcodiert drinnen? Prozedurencode der durchgeführten Prozedur"
+* code ^short = "ToDo: Anzahl der Konzepte klären! Frage geht weiter an die Terminologen. Wie viel ist prä- und postcodiert? Prozedurencode der durchgeführten Prozedur"
 
 * subject 1..1 MS
 * subject only Reference(AtEdiagPatient)
@@ -127,8 +127,9 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom AT APS Procedur
 // vergleichbar mit evidence in condition
 // verlinkte entlassbriefe könnten ggf. mal nicht mehr erreichbar sein (20 jahre aufbehaltungspflicht)
 // 2026_04_23_MBU URL, um einen Mehrwert zu haben. Damit der pdf-Friedhof aufhört, sondern eine saubere Lösung mittels URL, auf genau die DokuementenID 
+// ToDo: Wie macht man das?
 * report 0..*
-* report ^short = "ToDo: Soll die Referenz eine URL sein oder ein Attachment? Verweis auf ELGA-Befunde als medizinische Evidenz"
+* report ^short = "Verweis auf ELGA-Befunde als medizinische Evidenz"
 
 // e-diagnose ist keine op-berichts-dokumentationssystem
 * complication 0..0
@@ -148,7 +149,7 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom AT APS Procedur
 * note.time 0..0
 // https://www.hl7.org/fhir/elementdefinition-definitions.html#ElementDefinition.maxLength
 // * note.text ^maxLength = 500
-* note ^short = "ToDo: Vorschlag eine Zeichenbeschränkung von 500 und Einschränkung auf eine Note (ohne Autor- und Zeitstempelangabe)? Freitext zur Diagnose für Zusatzinformation"
+* note ^short = "Freitext zur Diagnose für Zusatzinformation"
 
 * focalDevice 0..0
 * focalDevice ^short = "Prozedurendurchführendes Gerät"

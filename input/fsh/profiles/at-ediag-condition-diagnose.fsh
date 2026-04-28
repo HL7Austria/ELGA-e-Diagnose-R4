@@ -112,12 +112,13 @@ Description: "Das AT APS-Profil für die Condition-Ressource Diagnosen berücksi
 
 * evidence 0..*
 //* evidence.detail only Reference(ELGABefund)
-* evidence ^short = "ToDo: Soll die Referenz eine URL sein oder ein Attachment? Verweis auf ELGA-Befunde als medizinische Evidenz"
+* evidence ^short = "Verweis auf ELGA-Befunde als medizinische Evidenz"
 
 
+// https://www.hl7.org/fhir/elementdefinition-definitions.html#ElementDefinition.maxLength
+// * note.text ^maxLength = 500
+// 2026_04_23 500 ausreichend. Es ist eine Freitextergänzung zum SNOMED Textes (schlecht eingestellter - zur Ergänzung zu DD) nicht * sondern nur 1 bei Bedarf
 * note 0..1
 * note.author[x] 0..0
 * note.time 0..0
-// https://www.hl7.org/fhir/elementdefinition-definitions.html#ElementDefinition.maxLength
-// * note.text ^maxLength = 500
-* note ^short = "ToDo: Vorschlag eine Zeichenbeschränkung von 500 und Einschränkung auf eine Note (ohne Autor- und Zeitstempelangabe)? Freitext zur Diagnose für Zusatzinformation"
+* note ^short = "Freitext zur Diagnose für Zusatzinformation"

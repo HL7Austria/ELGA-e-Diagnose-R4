@@ -9,25 +9,27 @@ Description: "Das AT e-Diagnose List-Profil leitet sich von der FHIR-Ressource L
 * identifier 0..1 MS
 * identifier ^short = "Logischer Identfier der Liste."
 
-// 
+// SGR: entered-in-error, wird es benötigt? Siehe e-med? 
 * status 1..1 MS
-//* status = #current  
+//* status = #current 
 * status ^short = "Verpflichtende Angabe: current | retired | entered-in-error. https://hl7.org/fhir/R4/valueset-list-status.html"
 
+// https://hl7.org/fhir/R4/valueset-list-mode.html
 // ist immer ein working-mode, weil sie immer im Bearbeitungsmode ist
+// Die Listen im Rahmen von e-Diagnose werden laufend gepflegt - Vorschlag: working"
 * mode 1..1 MS
-//* mode = #working
-* mode ^short = "Verpflichtende Angabe: working | snapshot | changes. https://hl7.org/fhir/R4/valueset-list-mode.html
-Die Listen im Rahmen von e-Diagnose werden laufend gepflegt - Vorschlag: working"
+* mode = #working (exactly)
+* mode ^short = "Verpflichtende Angabe: working"
+* status = #active
 
-// 
 * title 0..0
-* title ^short = "Titel der Liste. Verwendung zu prüfen."
+* title ^short = "Titel der Liste"
 
-// 
 * code 1..1 MS
-* code ^short = "TODO: Code, der den Typ der Liste beschreibt. Zu prüfen, welche Codes für die e-Diagnose Listen in Frage kämen."
-* code from ElgaListCodeVS (required)
+* code = $cs-sct#439401001 "Diagnoseliste" (exactly)
+// falls wir es nicht nur auf Diagnosen einschränken wollen
+// * code from ElgaListCodeVS (required)
+* code ^short = "Code, der den Typ der Liste beschreibt (Diagnoseliste)."
 
 
 * subject 1..1 MS
@@ -59,7 +61,7 @@ des Patienten zuzugreifen. Device nur für initiale Erstellung durch die Fachanw
 Mögliche Codes: user | system | event-date | entry-date| priority | alphabetic | category | patient (TODO: nur user oder andere Reihenfolge ermöglichen?)"
 
 // note: Mögliches Kommentar auf Ebene der Liste
-* note 0..0 MS
+* note 0..0 
 * note ^short = "Freitextliche Anmerkungen zur Liste. TODO: prüfen, ob fachlich sinnvoll."
 
 // --- Entries ---
@@ -70,9 +72,6 @@ Mögliche Codes: user | system | event-date | entry-date| priority | alphabetic 
 * entry.flag from ElgaListEntryFlagVS (required)
 * entry.flag ^short = "Kennzeichnet die Art der Änderung des Eintrags"
 
-// wird durch removed gelöst
-* entry.deleted 0..0 
-* entry.deleted ^short = "Gibt an, ob der referenzierte Eintrag zur Entfernung markiert wurde. Unklar, ob Löschen so abgebildet werden soll oder einfach der Eintrag nicht mehr enthalten ist."
 
 // duplikat zu date oben - Andrea kurzschließen, ob wir was übersehen, da emed drinnen
 * entry.date 0..0

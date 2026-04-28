@@ -24,8 +24,11 @@ Description: "Das AT e-Diagnose FlagAlert-Profil leitet sich vom AT APS FlagAler
 // für europäische patient summary, übersetzungen wäre es natürlich interessant zu codieren, für übersetzungen
 // wenn nur freitext, wäre eine limitierung ggf erforderlich?
 
-// 2026_04_23 nur Text!! Kein ValueSet dass das abdeckt. Kein Coding
-* code 1..1
+// 2026_04_23 nur Text!! Kein ValueSet dass das abdeckt. Kein Coding!!!
+// https://r4.fhir.space/flag-definitions.html#Flag.code
+* code 1..1 MS
+* code only CodeableConcept
+* code.text 1..1
 * code ^short = "Textinhalt des Alerts"
 
 * subject 1..1 MS
