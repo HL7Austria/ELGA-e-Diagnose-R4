@@ -7,62 +7,43 @@ Description: "Das AT e-Diagnose List-Profil leitet sich von der FHIR-Ressource L
 * . ^short = "AT e-Diagnose List"
 
 * identifier 0..1 MS
-* identifier ^short = "Logischer Identfier der Liste."
+* identifier ^short = "Logischer Identfier der Liste zur Integritätsprüfung beim Schreibvorgang."
 
-// SGR: entered-in-error, wird es benötigt? Siehe e-med? 
 * status 1..1 MS
-//* status = #current 
-* status ^short = "Verpflichtende Angabe: current | retired | entered-in-error. https://hl7.org/fhir/R4/valueset-list-status.html"
+* status from ElgaListStatusVS (required)
+* status ^short = "Status des Liste."
 
-// https://hl7.org/fhir/R4/valueset-list-mode.html
-// ist immer ein working-mode, weil sie immer im Bearbeitungsmode ist
-// Die Listen im Rahmen von e-Diagnose werden laufend gepflegt - Vorschlag: working"
 * mode 1..1 MS
 * mode = #working (exactly)
-* mode ^short = "Verpflichtende Angabe: working"
-* status = #active
+* mode ^short = "Die Liste ist ein laufend gepflegtes Dokument. Fixer Wert: working."
+* mode ^definition = """Für die Liste wird der Modus "working" verwendet, weil sie laufend gepflegt wird. Insofern gibt es keine abgeschlossenen Versionen der Liste."""
 
 * title 0..0
 * title ^short = "Titel der Liste"
 
 * code 1..1 MS
-* code = $cs-sct#439401001 "Diagnoseliste" (exactly)
-// falls wir es nicht nur auf Diagnosen einschränken wollen
-// * code from ElgaListCodeVS (required)
-* code ^short = "Code, der den Typ der Liste beschreibt (Diagnoseliste)."
-
+* code from ElgaListCodeVS (required)
+* code ^short = "Code, der den Typ der Liste beschreibt. TODO: es wird noch ein Code für die Kombiliste benötigt, weil nur ein Code angegeben werden kann."
 
 * subject 1..1 MS
 * subject only Reference(AtApsPatient)
-* subject ^short = "Patient, für den die Liste erstellt werden soll, der über den 
-Zentralen Patientenindex identifizierbar und Teilnehmer von ELGA e-Diagnose ist."
+* subject ^short = "Patient, für den die Liste erstellt werden soll, der über den Zentralen Patientenindex identifizierbar und Teilnehmer von ELGA e-Diagnose ist."
 
-// 
 * encounter 0..0
-* encounter ^short = "Verwendung zu prüfen."
+* encounter ^short = "Patientenkontakt"
 
-// 
 * date 1..1 MS
 * date ^short = "Letzte Aktualisierung der Liste."
 
-// Arzt oder Ärztin die mit der writeoperation auf der liste geschrieben hat. Patient kann nur Einträge löschen
-// über Device nachdenken, ob?
 * source 1..1 MS
-//* source only Reference(HL7ATCorePractitioner or HL7ATCorePractitionerRole or Device or HL7ATCorePatient)
-* source ^short = "Arzt oder Ärztin, die die Liste erstellt und für den Inhalt verantwortlich ist. 
-Eindeutig identifiziert über den GDA-Index und berechtigt auf die ELGA e-Diagnose 
-des Patienten zuzugreifen. Device nur für initiale Erstellung durch die Fachanwendung. Patient nur zur Änderung der Reihenfolge der Einträge oder nachdem er Einträge gelöscht hat."
+* source only Reference(AtApsPractitioner or AtApsPractitionerRole or AtApsDevice or AtApsPatient)
+* source ^short = "Arzt oder Ärztin, die die Liste erstellt und für den Inhalt verantwortlich ist. Eindeutig identifiziert über den GDA-Index und berechtigt auf die ELGA e-Diagnose des Patienten zuzugreifen. Device nur für initiale Erstellung durch die Fachanwendung. Patient nur nachdem er Einträge gelöscht hat."
 
-// eine Reihung muss immer mitgegeben werden. Wir geben die Vorgabe weg per USER
-* orderedBy 1..1 MS
-* orderedBy from http://hl7.org/fhir/ValueSet/list-order 
-//* orderedBy = #user
-* orderedBy ^short = "Die Reihenfolge der Einträge ist fachlich relevant und wird durch den Ersteller vorgegeben. 
-Mögliche Codes: user | system | event-date | entry-date| priority | alphabetic | category | patient (TODO: nur user oder andere Reihenfolge ermöglichen?)"
+* orderedBy 0..0
+* orderedBy ^short = "Die Reihenfolge der Einträge in der Liste."
 
-// note: Mögliches Kommentar auf Ebene der Liste
 * note 0..0 
-* note ^short = "Freitextliche Anmerkungen zur Liste. TODO: prüfen, ob fachlich sinnvoll."
+* note ^short = "Freitextliche Anmerkungen zur Liste."
 
 // --- Entries ---
 * entry 0..* MS
@@ -72,10 +53,11 @@ Mögliche Codes: user | system | event-date | entry-date| priority | alphabetic 
 * entry.flag from ElgaListEntryFlagVS (required)
 * entry.flag ^short = "Kennzeichnet die Art der Änderung des Eintrags"
 
+* entry.deleted 0..0 
+* entry.deleted ^short = "Gibt an, ob der referenzierte Eintrag zur Entfernung markiert wurde. Wird durch Flag 'removed' gelöst."
 
-// duplikat zu date oben - Andrea kurzschließen, ob wir was übersehen, da emed drinnen
 * entry.date 0..0
-* entry.date ^short = "Datum der Aufnahme des Eintrags. Fachlich zu klären."
+* entry.date ^short = "Datum der Aufnahme des Eintrags in die Liste."
 
 // müssen wir uns noch fachlich anschauen, ob es 5 Profile sind---
 * entry.item 1..1 MS
