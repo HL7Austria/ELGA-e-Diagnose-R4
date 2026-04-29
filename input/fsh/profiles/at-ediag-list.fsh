@@ -6,9 +6,16 @@ Description: "Das AT e-Diagnose List-Profil leitet sich von der FHIR-Ressource L
 * ^status = #active
 * . ^short = "AT e-Diagnose List"
 
+<<<<<<< HEAD
 * identifier 0..1 MS
 * identifier ^short = "Logischer Identfier der Liste zur Integritätsprüfung beim Schreibvorgang."
 
+=======
+* identifier 1..1 MS
+* identifier ^short = "Logischer Identfier der Liste."
+
+// SGR: entered-in-error, wird es benötigt? Siehe e-med? raus
+>>>>>>> b138592 (update list and allergy profil)
 * status 1..1 MS
 * status from ElgaListStatusVS (required)
 * status ^short = "Status des Liste."
@@ -23,7 +30,12 @@ Description: "Das AT e-Diagnose List-Profil leitet sich von der FHIR-Ressource L
 
 * code 1..1 MS
 * code from ElgaListCodeVS (required)
+<<<<<<< HEAD
 * code ^short = "Code, der den Typ der Liste beschreibt. TODO: es wird noch ein Code für die Kombiliste benötigt, weil nur ein Code angegeben werden kann."
+=======
+* code ^short = "Code, der den Typ der Liste beschreibt"
+
+>>>>>>> b138592 (update list and allergy profil)
 
 * subject 1..1 MS
 * subject only Reference(AtApsPatient)
@@ -39,11 +51,23 @@ Description: "Das AT e-Diagnose List-Profil leitet sich von der FHIR-Ressource L
 * source only Reference(AtApsPractitioner or AtApsPractitionerRole or AtApsDevice or AtApsPatient)
 * source ^short = "Arzt oder Ärztin, die die Liste erstellt und für den Inhalt verantwortlich ist. Eindeutig identifiziert über den GDA-Index und berechtigt auf die ELGA e-Diagnose des Patienten zuzugreifen. Device nur für initiale Erstellung durch die Fachanwendung. Patient nur nachdem er Einträge gelöscht hat."
 
+<<<<<<< HEAD
 * orderedBy 0..0
 * orderedBy ^short = "Die Reihenfolge der Einträge in der Liste."
+=======
+// eine Reihung muss immer mitgegeben werden. Wir geben die Vorgabe weg per USER
+* orderedBy 1..1 MS
+* orderedBy from http://hl7.org/fhir/ValueSet/list-order 
+//* orderedBy = #user
+* orderedBy ^short = "Die Reihenfolge der Einträge ist fachlich relevant und wird durch den Ersteller vorgegeben. Mögliche Codes: user | system | event-date | entry-date| priority | alphabetic | category | patient"
+>>>>>>> b138592 (update list and allergy profil)
 
 * note 0..0 
+<<<<<<< HEAD
 * note ^short = "Freitextliche Anmerkungen zur Liste."
+=======
+* note ^short = "Freitextliche Anmerkungen zur Liste"
+>>>>>>> b138592 (update list and allergy profil)
 
 // --- Entries ---
 * entry 0..* MS
@@ -56,6 +80,10 @@ Description: "Das AT e-Diagnose List-Profil leitet sich von der FHIR-Ressource L
 * entry.deleted 0..0 
 * entry.deleted ^short = "Gibt an, ob der referenzierte Eintrag zur Entfernung markiert wurde. Wird durch Flag 'removed' gelöst."
 
+<<<<<<< HEAD
+=======
+// duplikat zu date oben - Andrea kurzschließen, ob wir was übersehen, wird in emed belassen
+>>>>>>> b138592 (update list and allergy profil)
 * entry.date 0..0
 * entry.date ^short = "Datum der Aufnahme des Eintrags in die Liste."
 

@@ -17,7 +17,8 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AT APS
 // invarianten in zshg mit verificationstatus sobald fachlich geklärt
 
 // SGR: invariante-Bsp siehe Ende Profil
-* clinicalStatus 0..1
+// 2026_04_29_ Status 1..1 gesetzt, synchrone zur Condition
+* clinicalStatus 1..1 MS
 * code only CodeableConcept
 * clinicalStatus ^short = "Status der Allergie; active | inactive | resolved"
 
