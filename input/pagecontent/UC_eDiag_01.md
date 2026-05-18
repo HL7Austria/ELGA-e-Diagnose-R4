@@ -1,1 +1,1 @@
-### AWF01 - Diagnosen lesen
+### AWF01 - GDA lesen

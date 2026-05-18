@@ -1,1 +1,1 @@
-### AWF02 - Diagnosen schreiben
+### AWF02 - GDA schreiben
