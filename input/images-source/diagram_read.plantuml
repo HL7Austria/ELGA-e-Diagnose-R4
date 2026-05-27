@@ -42,8 +42,8 @@ box "\n  GDA 1  " #9fbac4
   actor GDA_1 as "GDA 1"
 end box
 
-box "\n       e-Med Fachanwendung       " #C48778
-  participant eMed_FA as "e-Med FA"
+box "\n       e-Diag Fachanwendung       " #C48778
+  participant eDiag_FA as "eDiag_FA"
 end box
 
 box "\n    GDA 2  " #beaebe
@@ -59,21 +59,21 @@ autonumber
 
 == Read ==
 activate GDA_1
-GDA_1 ->> eMed_FA: GET CollectionBundle
+GDA_1 ->> eDiag_FA: GET CollectionBundle
 
-activate eMed_FA
-eMed_FA -> eMed_FA: Prüfung auf bestehenden\nMedikationsplan
+activate eDiag_FA
+eDiag_FA -> eDiag_FA: Prüfung auf bestehende\nDiagnosenliste
 
-alt kein Medikationsplan vorhanden
-  eMed_FA -->> GDA_1: leeres Ergebnis
-else Medikationsplan vorhanden
-  eMed_FA -->> GDA_1: CollectionBundle (Medikationsplan + Ressourcen) (unverändert)
+alt kein Diagnosenliste vorhanden
+  eDiag_FA -->> GDA_1: leeres Ergebnis
+else Diagnosenliste vorhanden
+  eDiag_FA -->> GDA_1: CollectionBundle (Diagnosenliste + Ressourcen) (unverändert)
   deactivate GDA_1
 end
-deactivate eMed_FA
+deactivate eDiag_FA
 
-note over GDA_1, eMed_FA
-Fachanwendung liefert Medikationsplan oder leeres Ergebnis zurück.
+note over GDA_1, eDiag_FA
+Fachanwendung liefert Diagnosenliste oder leeres Ergebnis zurück.
 end note
 
 center footer Read-only-Zugriff

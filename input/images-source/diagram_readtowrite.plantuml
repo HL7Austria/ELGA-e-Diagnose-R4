@@ -42,8 +42,8 @@ box "\n  GDA 1  " #9fbac4
   actor GDA_1 as "GDA 1"
 end box
 
-box "\n       e-Med Fachanwendung       " #C48778
-  participant eMed_FA as "e-Med FA"
+box "\n       e-Diag Fachanwendung       " #C48778
+  participant eDiag_FA as "eDiag_FA"
 end box
 
 box "\n    GDA 2  " #beaebe
@@ -60,31 +60,31 @@ autonumber
  
 == Read-to-Write ==
 
-GDA_1 ->> eMed_FA: POST $readtowrite
+GDA_1 ->> eDiag_FA: POST $readtowrite
 activate GDA_1
 
 note over GDA_1
-Medikationsplan abrufen, 
+Diagnosenliste abrufen, 
 mit der Intention zu schreiben
 end note
 
-activate eMed_FA
-eMed_FA -> eMed_FA: Prüfung auf bestehenden\nMedikationsplan
+activate eDiag_FA
+eDiag_FA -> eDiag_FA: Prüfung auf bestehende\nDiagnosenliste
 
-alt kein Medikationsplan vorhanden
-  eMed_FA -> eMed_FA: Kein Plan vorhanden:\nFachanwendung erzeugt leeren Medikationsplan\n mit emptyReason = "notstarted"
-  eMed_FA -->> GDA_1: Leerer Medikationsplan
+alt keine Diagnosenliste vorhanden
+  eDiag_FA -> eDiag_FA: Keine Liste vorhanden:\nFachanwendung erzeugt leere Diagnosenliste\n mit emptyReason = "notstarted"
+  eDiag_FA -->> GDA_1: Leere Diagnosenliste
 
-else Medikationsplan vorhanden
-  eMed_FA -> eMed_FA: Plan vorhanden:\nstellt Collection Bundle zur Auslieferung bereit:\n(inkl. neuem temporär gespeicherten List.identifier)\nBedingung für Read-to-Write Collection Bundle:\n- new|changed → unchanged\n- removed → entfernen
-  eMed_FA -->> GDA_1: Collection Bundle + List.identifier
-  deactivate eMed_FA
+else Diagnosenliste vorhanden
+  eDiag_FA -> eDiag_FA: Liste vorhanden:\nstellt Collection Bundle zur Auslieferung bereit:\n(inkl. neuem temporär gespeicherten List.identifier)\nBedingung für Read-to-Write Collection Bundle:\n- new|changed → unchanged\n- removed → entfernen
+  eDiag_FA -->> GDA_1: Collection Bundle + List.identifier
+  deactivate eDiag_FA
 end
 
 GDA_1 -> GDA_1: Einträge hinzufügen/ändern/entfernen
 
 note over GDA_1
-Medikationsplan bearbeiten.
+Diagnosenliste bearbeiten.
 Nach Fertigstellung kann ein Write-Zugriff erfolgen.
 end note
 

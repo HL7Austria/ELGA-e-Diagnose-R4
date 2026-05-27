@@ -2,7 +2,7 @@
 
 #### Status des List.entry.flags 
 
-Ein Diagnoseeintrag kann, abhängig vom jeweiligen Use Case, unterschiedliche Status einnehmen. Dieser Status wird sowohl in der Condition-Ressource selbst als auch auf List-Ebene im Element List.entry.flag dokumentiert.
+Ein Eintrag in die Liste kann, abhängig vom jeweiligen Use Case, einen unterschiedlichen Status einnehmen. Dieser Status wird sowohl beispielsweise in der Condition-Ressource selbst als auch auf List-Ebene im Element List.entry.flag dokumentiert.
 
 Das *flag*-Element eines Entries der List-Ressource beschreibt die **Art der Änderung eines Diagnoseeintrags auf Listenebene** und kann folgende Status einnehmen:<br>
 

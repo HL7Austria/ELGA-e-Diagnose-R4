@@ -43,7 +43,7 @@ box "\n  GDA 1  " #9fbac4
 end box
 
 box "\n       e-Diag Fachanwendung      " #C48778
-  participant eDiag_FA as "eDiag_FA"
+  participant eDiag_FA as "e-Med FA"
 end box
 
 box "\n    GDA 2  " #beaebe
@@ -57,37 +57,25 @@ end box
 
 autonumber
 
+== Read ==
 activate GDA_1
-
-note over GDA_1
-Vorbedingung: Nach einem Read-to-Write
-wurde die Diagnosenliste bearbeit
-end note
-
-== Write ==
-
-GDA_1 ->> eDiag_FA: POST $write (Transaction Bundle + List.identifier)
+GDA_1 ->> eDiag_FA: GET CollectionBundle
 
 activate eDiag_FA
-eDiag_FA -> eDiag_FA: List.identifier im TransactionBundle ==\ntemporär gespeicherter List.identifier?
+eDiag_FA -> eDiag_FA: Prüfung auf bestehenden\nMedikationsplan
 
-alt ungültig 
-  eDiag_FA -> eDiag_FA: Validierung der neuen Liste\n(keine unzulässigen Zustandsübergänge)
-  eDiag_FA -->> GDA_1: Fehler 
-  
-else gültig 
-  eDiag_FA -> eDiag_FA: Persistiert neue Version der\nDiagnosenliste
-
-  note over eDiag_FA
-  Neue Diagnosenliste gespeichert
-  end note
-
-  eDiag_FA -->> GDA_1: OK
+alt kein Medikationsplan vorhanden
+  eDiag_FA -->> GDA_1: leeres Ergebnis
+else Medikationsplan vorhanden
+  eDiag_FA -->> GDA_1: CollectionBundle (Medikationsplan + Ressourcen) (unverändert)
   deactivate GDA_1
-  deactivate eDiag_FA
 end
+deactivate eDiag_FA
 
-center footer Write-Zugriff
+note over GDA_1, eDiag_FA
+Fachanwendung liefert Medikationsplan oder leeres Ergebnis zurück.
+end note
 
+center footer Read-only-Zugriff
 
 @enduml

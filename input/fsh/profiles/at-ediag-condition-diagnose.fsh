@@ -16,9 +16,11 @@ Description: "Das AT APS-Profil für die Condition-Ressource Diagnosen berücksi
 * identifier 0..0
 * identifier ^short = "Zuordnung der Diagnose in einem internem Dokumentationssystem"
 
+// 2026_05_18_Begriff: Klinischer Status der Diagnose- bei Änderungen Anja Schwab Bescheid geben!!!
 * clinicalStatus 1..1 MS
 * code only CodeableConcept
-* clinicalStatus ^short = "Klinischer Status der Diagnose (wie:Status post), mögliche Codes: active | recurrence | relapse | inactive | remission | resolved"
+* clinicalStatus ^short = "Klinischer Status der Diagnose (wie:Status post), 
+mögliche Codes: active | recurrence | relapse | inactive | remission | resolved"
 
 * verificationStatus 1..1 MS
 * verificationStatus only CodeableConcept
@@ -65,7 +67,7 @@ Description: "Das AT APS-Profil für die Condition-Ressource Diagnosen berücksi
 * bodySite ^short = "Zuordnung der Diagnose der Körper-Lokalisation"
 
 * subject 1..1 MS
-* subject only Reference(AtEdiagPatient)
+* subject only Reference(AtApsPatient)
 * subject ^short = "Person, auf die sich die Diagnose bezieht"
 
 * encounter 0..0
@@ -87,7 +89,7 @@ Description: "Das AT APS-Profil für die Condition-Ressource Diagnosen berücksi
 
 * recorder 1..1 MS
 * recorder only Reference (
-    at-ediag-practitioner
+    at-aps-practitioner
     or at-aps-practitionerrole
 )
 * recorder ^short = "Ansonsten Gesundheitsdiensteanbieter, der die Diagnose eingetragen hat"
@@ -95,9 +97,9 @@ Description: "Das AT APS-Profil für die Condition-Ressource Diagnosen berücksi
 
 * asserter 0..1
 * asserter only Reference (
-    at-ediag-practitioner
+    at-aps-practitioner
     or at-aps-practitionerrole
-    or at-ediag-patient
+    or at-aps-patient
     or http://hl7.org/fhir/StructureDefinition/RelatedPerson
 )
 * asserter ^short = "Quelle der Information zur Diagnose (z. B. behandelnde Person, Patient oder Dritter)"

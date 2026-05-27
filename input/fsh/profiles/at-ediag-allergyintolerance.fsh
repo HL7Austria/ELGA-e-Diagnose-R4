@@ -61,7 +61,7 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AT APS
 
 
 * patient 1..1 MS
-* patient only Reference(AtEdiagPatient)
+* patient only Reference(AtApsPatient)
 * patient ^short = "Betroffene Person, auf die sich die Allergie bezieht"
 
 * encounter 0..0
@@ -79,16 +79,16 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AT APS
 // analog zu procedure, kein patient keine related person
 * recorder 1..1 MS
 * recorder only Reference (
-    at-ediag-practitioner
+    at-aps-practitioner
     or at-aps-practitionerrole
 )
 * recorder ^short = "Gesundheitsdiensteanbieter, die die Allergie ins System erfasst/dokumentiert"
 
 * asserter 0..1
 * asserter only Reference (
-    at-ediag-practitioner
+    at-aps-practitioner
     or at-aps-practitionerrole
-    or at-ediag-patient
+    or at-aps-patient
     or http://hl7.org/fhir/StructureDefinition/RelatedPerson
 )
 * asserter ^short = "Person (fachliche Quelle + related Person oder Patient selbst), die/der die Allergie bestätigt"

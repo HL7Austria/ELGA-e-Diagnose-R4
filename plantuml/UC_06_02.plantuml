@@ -43,7 +43,7 @@ box "\n  GDA 1  " #9fbac4
 end box
 
 box "\n       e-Diag Fachanwendung      " #C48778
-  participant eDiag_FA as "eDiag_FA"
+  participant eDiag_FA as "e-Med FA"
 end box
 
 box "\n    GDA 2  " #beaebe
@@ -57,37 +57,24 @@ end box
 
 autonumber
 
+GDA_1 ->> eDiag_FA: POST $readtowrite
 activate GDA_1
 
-note over GDA_1
-Vorbedingung: Nach einem Read-to-Write
-wurde die Diagnosenliste bearbeit
+note over GDA_1, eDiag_FA
+Medikationsplan abrufen,
+mit der Intention zu schreiben
 end note
 
-== Write ==
-
-GDA_1 ->> eDiag_FA: POST $write (Transaction Bundle + List.identifier)
-
 activate eDiag_FA
-eDiag_FA -> eDiag_FA: List.identifier im TransactionBundle ==\ntemporär gespeicherter List.identifier?
+eDiag_FA -> eDiag_FA: Prüfung auf bestehenden\nMedikationsplan
 
-alt ungültig 
-  eDiag_FA -> eDiag_FA: Validierung der neuen Liste\n(keine unzulässigen Zustandsübergänge)
-  eDiag_FA -->> GDA_1: Fehler 
-  
-else gültig 
-  eDiag_FA -> eDiag_FA: Persistiert neue Version der\nDiagnosenliste
+eDiag_FA -> eDiag_FA: Wenn Plan vorhanden +\nalle List.enty.flags im Medikationsplan = "removed":\nFachanwendung setzt List.emptyReason = "nilknown"
 
-  note over eDiag_FA
-  Neue Diagnosenliste gespeichert
-  end note
+eDiag_FA -->> GDA_1: Leerer Medikationsplan\n(emptyReason = "nilknown")
 
-  eDiag_FA -->> GDA_1: OK
-  deactivate GDA_1
-  deactivate eDiag_FA
-end
+deactivate eDiag_FA
+deactivate GDA_1
 
-center footer Write-Zugriff
-
+center footer Sub_UC_06_02 - Leerer Medikationsplan (keine Medikation einnehmen)
 
 @enduml

@@ -43,7 +43,7 @@ box "\n  GDA 1  " #9fbac4
 end box
 
 box "\n       e-Diag Fachanwendung      " #C48778
-  participant eDiag_FA as "eDiag_FA"
+  participant eDiag_FA as "e-Med FA"
 end box
 
 box "\n    GDA 2  " #beaebe
@@ -57,37 +57,38 @@ end box
 
 autonumber
 
+ 
+== Read-to-Write ==
+
+GDA_1 ->> eDiag_FA: POST $readtowrite
 activate GDA_1
 
 note over GDA_1
-Vorbedingung: Nach einem Read-to-Write
-wurde die Diagnosenliste bearbeit
+Medikationsplan abrufen, 
+mit der Intention zu schreiben
 end note
 
-== Write ==
-
-GDA_1 ->> eDiag_FA: POST $write (Transaction Bundle + List.identifier)
-
 activate eDiag_FA
-eDiag_FA -> eDiag_FA: List.identifier im TransactionBundle ==\ntemporär gespeicherter List.identifier?
+eDiag_FA -> eDiag_FA: Prüfung auf bestehenden\nMedikationsplan
 
-alt ungültig 
-  eDiag_FA -> eDiag_FA: Validierung der neuen Liste\n(keine unzulässigen Zustandsübergänge)
-  eDiag_FA -->> GDA_1: Fehler 
-  
-else gültig 
-  eDiag_FA -> eDiag_FA: Persistiert neue Version der\nDiagnosenliste
+alt kein Medikationsplan vorhanden
+  eDiag_FA -> eDiag_FA: Kein Plan vorhanden:\nFachanwendung erzeugt leeren Medikationsplan\n mit emptyReason = "notstarted"
+  eDiag_FA -->> GDA_1: Leerer Medikationsplan
 
-  note over eDiag_FA
-  Neue Diagnosenliste gespeichert
-  end note
-
-  eDiag_FA -->> GDA_1: OK
-  deactivate GDA_1
+else Medikationsplan vorhanden
+  eDiag_FA -> eDiag_FA: Plan vorhanden:\nstellt Collection Bundle zur Auslieferung bereit:\n(inkl. neuem temporär gespeicherten List.identifier)\nBedingung für Read-to-Write Collection Bundle:\n- new|changed → unchanged\n- removed → entfernen
+  eDiag_FA -->> GDA_1: Collection Bundle + List.identifier
   deactivate eDiag_FA
 end
 
-center footer Write-Zugriff
+GDA_1 -> GDA_1: Einträge hinzufügen/ändern/entfernen
+
+note over GDA_1
+Medikationsplan bearbeiten.
+Nach Fertigstellung kann ein Write-Zugriff erfolgen.
+end note
+
+center footer Read-to-Write-Zugriff
 
 
 @enduml

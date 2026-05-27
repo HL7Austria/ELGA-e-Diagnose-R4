@@ -32,7 +32,7 @@ Description: "Das AT e-Diagnose FlagAlert-Profil leitet sich vom AT APS FlagAler
 * code ^short = "Textinhalt des Alerts"
 
 * subject 1..1 MS
-* subject only Reference(AtEdiagPatient)
+* subject only Reference(AtApsPatient)
 * subject ^short = "Person, auf die sich der Alert bezieht"
 
 
@@ -47,7 +47,7 @@ Description: "Das AT e-Diagnose FlagAlert-Profil leitet sich vom AT APS FlagAler
 
 * author 1..1
 * author only Reference(
-    at-ediag-practitioner
+    at-aps-practitioner
     or at-aps-practitionerrole
 )
 * author ^short = "Gesundheitsdiensteanbieter, die den Alert dokumentiert hat"

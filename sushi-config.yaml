@@ -33,6 +33,7 @@ contact:
 dependencies:
 #  hl7.fhir.eu.mpd: 0.1.0-ballot
   hl7.fhir.uv.ips: 2.0.0
+  hl7.at.fhir.elga.core.r4: current
   # hl7.at.fhir.core.r4: 2.0.0
   hl7.at.fhir.elga.aps.r4: 1.0.0
 #   hl7.fhir.us.core: 3.1.0
@@ -57,7 +58,7 @@ pages:
   index.md:
     title: "Home"
   interactions.md:
-    title: Zugriffsarten auf den Medikationsplan
+    title: Zugriffsarten auf die Diagnosenliste
   anwendungsfaelle.md:
     title: "Überblick Anwendungsfälle"
     UC_eDiag_01.md:
