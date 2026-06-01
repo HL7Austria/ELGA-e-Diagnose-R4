@@ -66,7 +66,7 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom AT APS Procedur
 * code ^short = "ToDo: Anzahl der Konzepte klären! Frage geht weiter an die Terminologen. Wie viel ist prä- und postcodiert? Prozedurencode der durchgeführten Prozedur"
 
 * subject 1..1 MS
-* subject only Reference(AtEdiagPatient)
+* subject only Reference(AtApsPatient)
 * subject ^short = "Person, auf die sich die Prozedur bezieht"
 
 * encounter 0..0
@@ -81,17 +81,17 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom AT APS Procedur
 
 * recorder 1..1 MS
 * recorder only Reference (
-    at-ediag-practitioner
-    or at-aps-practitionerrole
+     AtApsPractitioner
+    or AtApsPractitionerRole
 )
 * recorder ^short = "Gesundheitsdiensteanbieter, der die Prozedur eingetragen/dokumentiert hat"
 
 
 * asserter 0..1
 * asserter only Reference (
-    at-ediag-practitioner
-    or at-aps-practitionerrole
-    or at-ediag-patient
+    AtApsPractitioner
+    or AtApsPractitionerRole
+    or AtApsPatient
     or http://hl7.org/fhir/StructureDefinition/RelatedPerson
 )
 * asserter ^short = "Quelle der Information zur Prozedur (z. B. behandelnde Person, Patient oder Dritter)"

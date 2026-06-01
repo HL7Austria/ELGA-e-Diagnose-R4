@@ -79,16 +79,16 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AT APS
 // analog zu procedure, kein patient keine related person
 * recorder 1..1 MS
 * recorder only Reference (
-    at-aps-practitioner
-    or at-aps-practitionerrole
+    
+    or AtApsPractitionerrole
 )
 * recorder ^short = "Gesundheitsdiensteanbieter, die die Allergie ins System erfasst/dokumentiert"
 
 * asserter 0..1
 * asserter only Reference (
-    at-aps-practitioner
-    or at-aps-practitionerrole
-    or at-aps-patient
+    AtApsPractitioner
+    or AtApsPractitionerrole
+    or AtApsPatient
     or http://hl7.org/fhir/StructureDefinition/RelatedPerson
 )
 * asserter ^short = "Person (fachliche Quelle + related Person oder Patient selbst), die/der die Allergie bestätigt"

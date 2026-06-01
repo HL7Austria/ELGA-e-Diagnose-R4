@@ -89,17 +89,20 @@ mögliche Codes: active | recurrence | relapse | inactive | remission | resolved
 
 * recorder 1..1 MS
 * recorder only Reference (
-    at-aps-practitioner
-    or at-aps-practitionerrole
+
+    AtEdiagPractitioner
+    or AtApsPractitionerRole
+
 )
 * recorder ^short = "Ansonsten Gesundheitsdiensteanbieter, der die Diagnose eingetragen hat"
 
 
 * asserter 0..1
 * asserter only Reference (
-    at-aps-practitioner
-    or at-aps-practitionerrole
-    or at-aps-patient
+
+    AtApsPractitioner
+    or AtApsPractitionerRole
+    or AtApsPatient
     or http://hl7.org/fhir/StructureDefinition/RelatedPerson
 )
 * asserter ^short = "Quelle der Information zur Diagnose (z. B. behandelnde Person, Patient oder Dritter)"

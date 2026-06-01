@@ -47,8 +47,10 @@ Description: "Das AT e-Diagnose FlagAlert-Profil leitet sich vom AT APS FlagAler
 
 * author 1..1
 * author only Reference(
-    at-aps-practitioner
-    or at-aps-practitionerrole
+
+    AtApsPractitioner
+    or AtApsPractitionerRole
+
 )
 * author ^short = "Gesundheitsdiensteanbieter, die den Alert dokumentiert hat"
 
