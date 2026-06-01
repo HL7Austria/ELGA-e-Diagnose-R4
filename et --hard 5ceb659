@@ -1,0 +1,62 @@
+[33m49e6c44[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m new input
+[33m3c5e24f[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m input images plantuml and content
+[33m5ceb659[m insert new pagecontent
+[33m0aa84e5[m fix merge conflict markers in list profile
+[33m391bafc[m update list and allergy profil
+[33m5d1cf29[m Add Jira-Ticket info
+[33md595662[m Remove mermaid
+[33m27cc326[m Update list
+[33m732f8ca[m Add build script
+[33m287f83c[m update profils
+[33me928509[m add requirements
+[33m2ea5cbb[m update list
+[33m12998b4[m update content list profil
+[33m0d61809[m update content
+[33m406edf4[m Update list, add sequence diagrams
+[33m61a057a[m update profil
+[33mbb3ee7b[m change to substance
+[33mbb280c1[m update new codesystem
+[33m9da9bde[m update new concept code
+[33m14e9900[m update vs allergy system
+[33m30a1749[m Rename files
+[33m9f767a9[m update VS and allergy profil
+[33m1016624[m new update example
+[33md23fa59[m update new metaprofile
+[33mf08e522[m update examples meta.tag
+[33m1ff1816[m Update procedurestatus
+[33mac1365c[m update examples
+[33m46aab5f[m update include experimental in all vs
+[33mab62dd7[m Update vs ListEntryFlag  caseSensitiv
+[33m969f53e[m update casesensitiv in codesystems
+[33m3159635[m update valueset procedurecode
+[33md74ab2b[m Uodate valueset procedurecode and profiles
+[33m14d4885[m update allergy profil
+[33mf5a56f1[m Update profiles
+[33m5fe7047[m Update  profile and examples
+[33me4d7707[m Update diagnosetyp
+[33m33045fe[m Update diagnoseTpe
+[33m825690f[m Add terminologies
+[33mb7c8e04[m insert examples for diagnose, procedure and allergy
+[33mda810d4[m Update profiles
+[33m801022c[m Update List resource
+[33m0139f99[m update profil
+[33m323122b[m Add new profile input handling
+[33me6db921[m Update info about alert
+[33m4cdbc37[m Update info about allergy
+[33m48dfc1f[m Update info about procedure
+[33mad53418[m Add some thoughts
+[33m3605a16[m update allergy, condition and flag
+[33me1dc8ec[m Update Profil Allergy
+[33md47466d[m Update Procedureprofil
+[33m68225dc[m Update Condition
+[33m757e9c6[m Update Condition profile
+[33med540b2[m Profilierung der Bedingung und Anpassung des Beispiels
+[33m446f2a2[m Update diagnosis artifacts; remove obsolete ValueSet
+[33mb5b6a03[m Update  profile conditation
+[33mf333266[m Create examples for acute and chronic diagnoses
+[33m55dfa56[m Removed separate acute and chronic Condition profiles
+[33mdb31ff1[m Update  template
+[33m3c1a0ca[m update and input  page content and input examples
+[33m12cff78[m Update page content and sushi configuration
+[33mcb3c4cf[m Add dependencie to APS
+[33m0227496[m Init repository
