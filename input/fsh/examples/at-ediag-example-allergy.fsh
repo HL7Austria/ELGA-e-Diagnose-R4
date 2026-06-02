@@ -37,8 +37,8 @@ Description: "Beispielinstanz einer bestätigten Allergie"
 * reaction.manifestation[1].coding.code = #422400008
 * reaction.manifestation[1].coding.display = "Emesis"
 
-
-* reaction.extension[reactionTime].valueCodeableConcept = https://fhir.hl7.at/elga/ediag/r4/CodeSystem/at-ediag-reaction-time-cs#lt6h "<6 Stunden"
+* reaction.extension[AtEdiagReactionTime].valueCodeableConcept =
+  https://fhir.hl7.at/elga/ediag/r4/CodeSystem/at-ediag-reaction-time-cs#lt6h "<6 Stunden"
 
 * reaction.note.text = "Hautausschlag und Erbrechen nach Penicillin-Einnahme"
 

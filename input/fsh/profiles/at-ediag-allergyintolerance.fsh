@@ -78,18 +78,18 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AT APS
 
 // analog zu procedure, kein patient keine related person
 * recorder 1..1 MS
-* recorder only Reference (
-    
-    or AtApsPractitionerrole
+* recorder only Reference(
+    AtApsPractitioner
+    or AtApsPractitionerRole
 )
 * recorder ^short = "Gesundheitsdiensteanbieter, die die Allergie ins System erfasst/dokumentiert"
 
 * asserter 0..1
-* asserter only Reference (
+* asserter only Reference(
     AtApsPractitioner
-    or AtApsPractitionerrole
+    or AtApsPractitionerRole
     or AtApsPatient
-    or http://hl7.org/fhir/StructureDefinition/RelatedPerson
+    or RelatedPerson
 )
 * asserter ^short = "Person (fachliche Quelle + related Person oder Patient selbst), die/der die Allergie bestätigt"
 
@@ -113,7 +113,7 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AT APS
 // https://hub.kbv.de/spaces/ALDOK1X0X0/pages/375456332/Weitere+m%C3%B6gliche+Inhalte#Weiterem%C3%B6glicheInhalte-ArtderReaktion%2FzeitlicherVerlaufderReaktion
 // codes noch aktualisieren/anders benennen
 // extension soll verpflichtend ausgefüllt werden
-* reaction.extension contains AtEdiagReactionTime named reactionTime 1..1
+* reaction.extension contains AtEdiagReactionTime named reactionTime 1..1 MS
 * reaction.extension[reactionTime] ^short = "Zeitlicher Verlauf der Manifestation"
 
 
