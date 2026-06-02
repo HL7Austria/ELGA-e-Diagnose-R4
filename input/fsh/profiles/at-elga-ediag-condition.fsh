@@ -1,6 +1,6 @@
 Profile: AtEdiagCondition
 Parent: Condition
-Id: at-ediag-condition
+Id: at-elga-ediag-condition
 Title: "AT e-Diagnose Condition Diagnosen"
 Description: "Das AT APS-Profil für die Condition-Ressource Diagnosen berücksichtigt zum einen die österreichischen Vorgaben (z.B. Patient und zu verwendende Value-Sets) und stellt andererseits die Konformität gegenüber dem IPS-Profil sicher, indem die so genannte [`imposeProfile`](http://hl7.org/fhir/StructureDefinition/structuredefinition-imposeProfile)-Erweiterung verwendet wird."
 * ^status = #active
@@ -89,10 +89,8 @@ mögliche Codes: active | recurrence | relapse | inactive | remission | resolved
 
 * recorder 1..1 MS
 * recorder only Reference (
-
-    AtEdiagPractitioner
+    AtElgaCorePractitioner
     or AtElgaCorePractitionerRole
-
 )
 * recorder ^short = "Ansonsten Gesundheitsdiensteanbieter, der die Diagnose eingetragen hat"
 
