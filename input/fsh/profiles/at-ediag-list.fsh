@@ -1,12 +1,12 @@
 Profile: AtEdiagList
-Parent: List
+Parent: AtElgaCoreList
 Id: at-ediag-list
 Title: "AT e-Diagnose List"
 Description: "Das AT e-Diagnose List-Profil leitet sich von der FHIR-Ressource List ab und dient der strukturierten Listung von Dauerdiagnosen gemäß der ärztlichen Priorisierung."
 * ^status = #active
 * . ^short = "AT e-Diagnose List"
 
-* identifier 0..1 MS
+* identifier 1..1 MS
 * identifier ^short = "Logischer Identfier der Liste zur Integritätsprüfung beim Schreibvorgang."
 
 * status 1..1 MS
