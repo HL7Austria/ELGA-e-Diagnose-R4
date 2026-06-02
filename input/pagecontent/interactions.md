@@ -41,7 +41,7 @@ Der Read-to-Write-Zugriff dient dem **Abruf der eDiagnosenliste und der Vorberei
 
 1. Der GDA führt ein [POST $readtowrite](interactions.html#custom-operations) auf das Collection Bundle aus, das die eDiagnosenliste mit allen zugehörigen relevanten Ressourcen enthält.
 2. Die Fachanwendung prüft, ob eineDiagnosenliste für den/die Patient:in existiert.
-3. Ist **keiner vorhanden**, wird dieser erstellt (siehe [UC_eDiag_02 - GDA schreiben](UC_eDiag_02.html#uc_eDiag_02---gda-schreiben)) und 
+3. Ist **keiner vorhanden**, wird dieser erstellt (siehe [UC_eDiag_02 - Diagnose schreiben](UC_eDiag_02.html#uc_eDiag_02---diagnose-schreiben)) und 
 4. eine leere eDiagnosenliste mit dem emptyReason *notstarted* wird zurückgeliefert.
 5. Existiert bereits eine eDiagnosenliste (d.h. es wurde bereits ein Collection Bundle persistiert), wird von der Fachanwendung aus diesem ein **Collection Bundle zur Auslieferung** bereitgestellt:<br>
 * mit einem neuen oder bereits temporär gespeicherten **List.identifier** (wird von der Fachanwendung zur späteren Integritätsprüfung beim Schreibvorgang verwaltet)<br>
