@@ -10,6 +10,6 @@ Alias: $cs-proc-relevance = http://example.org/fhir/CodeSystem/at-ediag-procedur
 
 Alias: $cs-list-empty-reason = http://terminology.hl7.org/CodeSystem/list-empty-reason
 
-Alias: $AtApsPatient = https://fhir.hl7.at/elga/aps/r4/StructureDefinition/at-aps-patient
-Alias: $AtApsPractitioner = https://fhir.hl7.at/elga/aps/r4/StructureDefinition/at-aps-practitioner
-Alias: $AtApsPractitionerRole = https://fhir.hl7.at/elga/aps/r4/StructureDefinition/at-aps-practitionerrole
+Alias: $AtElgaCorePatient = https://fhir.hl7.at/elga/aps/r4/StructureDefinition/at-aps-patient
+Alias: $AtElgaCorePractitioner = https://fhir.hl7.at/elga/aps/r4/StructureDefinition/at-aps-practitioner
+Alias: $AtElgaCorePractitionerRole = https://fhir.hl7.at/elga/aps/r4/StructureDefinition/at-aps-practitionerrole

@@ -26,7 +26,7 @@ Description: "Das AT e-Diagnose List-Profil leitet sich von der FHIR-Ressource L
 * code ^short = "Code, der den Typ der Liste beschreibt. TODO: es wird noch ein Code für die Kombiliste benötigt, weil nur ein Code angegeben werden kann."
 
 * subject 1..1 MS
-* subject only Reference(AtApsPatient)
+* subject only Reference(AtElgaCorePatient)
 * subject ^short = "Patient, für den die Liste erstellt werden soll, der über den Zentralen Patientenindex identifizierbar und Teilnehmer von ELGA e-Diagnose ist."
 
 * encounter 0..0
@@ -36,7 +36,7 @@ Description: "Das AT e-Diagnose List-Profil leitet sich von der FHIR-Ressource L
 * date ^short = "Letzte Aktualisierung der Liste."
 
 * source 1..1 MS
-* source only Reference(AtApsPractitioner or AtApsPractitionerRole or AtApsDevice or AtApsPatient)
+* source only Reference(AtElgaCorePractitioner or AtElgaCorePractitionerRole or AtElgaCorePatient)
 * source ^short = "Arzt oder Ärztin, die die Liste erstellt und für den Inhalt verantwortlich ist. Eindeutig identifiziert über den GDA-Index und berechtigt auf die ELGA e-Diagnose des Patienten zuzugreifen. Device nur für initiale Erstellung durch die Fachanwendung. Patient nur nachdem er Einträge gelöscht hat."
 
 * orderedBy 0..0

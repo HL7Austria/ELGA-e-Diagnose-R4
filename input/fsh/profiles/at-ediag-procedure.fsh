@@ -1,5 +1,5 @@
 Profile: AtEdiagProcedure
-Parent: AtApsProcedure
+Parent: Procedure
 Id: at-ediag-procedure
 Title: "AT e-Diagnose Procedure"
 Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom AT APS Procedure-Profil ab und passt dieses für die Anforderungen der e-Diagnose an. Die IPS-Konformität bleibt über das abgeleitete Profil erhalten."
@@ -66,7 +66,7 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom AT APS Procedur
 * code ^short = "ToDo: Anzahl der Konzepte klären! Frage geht weiter an die Terminologen. Wie viel ist prä- und postcodiert? Prozedurencode der durchgeführten Prozedur"
 
 * subject 1..1 MS
-* subject only Reference(AtApsPatient)
+* subject only Reference(AtElgaCorePatient)
 * subject ^short = "Person, auf die sich die Prozedur bezieht"
 
 * encounter 0..0
@@ -81,17 +81,17 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom AT APS Procedur
 
 * recorder 1..1 MS
 * recorder only Reference (
-     AtApsPractitioner
-    or AtApsPractitionerRole
+     AtElgaCorePractitioner
+    or AtElgaCorePractitionerRole
 )
 * recorder ^short = "Gesundheitsdiensteanbieter, der die Prozedur eingetragen/dokumentiert hat"
 
 
 * asserter 0..1
 * asserter only Reference (
-    AtApsPractitioner
-    or AtApsPractitionerRole
-    or AtApsPatient
+    AtElgaCorePractitioner
+    or AtElgaCorePractitionerRole
+    or AtElgaCorePatient
     or http://hl7.org/fhir/StructureDefinition/RelatedPerson
 )
 * asserter ^short = "Quelle der Information zur Prozedur (z. B. behandelnde Person, Patient oder Dritter)"

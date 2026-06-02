@@ -1,5 +1,5 @@
 Profile: AtEdiagAFlagAlert
-Parent: AtApsFlagAlert
+Parent: Flag
 Id: at-ediag-flagalert
 Title: "AT e-Diagnose FlagAlert"
 Description: "Das AT e-Diagnose FlagAlert-Profil leitet sich vom AT APS FlagAlert-Profil ab und passt dieses für die Anforderungen der e-Diagnose an. Die IPS-Konformität bleibt über das abgeleitete Profil erhalten."
@@ -34,7 +34,7 @@ Description: "Das AT e-Diagnose FlagAlert-Profil leitet sich vom AT APS FlagAler
 * code ^short = "Kodierter Alert-Typ"
 
 * subject 1..1 MS
-* subject only Reference(AtApsPatient)
+* subject only Reference(AtElgaCorePatient)
 * subject ^short = "Person, auf die sich der Alert bezieht"
 
 
@@ -50,8 +50,8 @@ Description: "Das AT e-Diagnose FlagAlert-Profil leitet sich vom AT APS FlagAler
 * author 1..1
 * author only Reference(
 
-    AtApsPractitioner
-    or AtApsPractitionerRole
+    AtElgaCorePractitioner
+    or AtElgaCorePractitionerRole
 
 )
 * author ^short = "Gesundheitsdiensteanbieter, die den Alert dokumentiert hat"

@@ -1,5 +1,5 @@
 Profile: AtEdiagCondition
-Parent: AtApsCondition
+Parent: Condition
 Id: at-ediag-condition
 Title: "AT e-Diagnose Condition Diagnosen"
 Description: "Das AT APS-Profil für die Condition-Ressource Diagnosen berücksichtigt zum einen die österreichischen Vorgaben (z.B. Patient und zu verwendende Value-Sets) und stellt andererseits die Konformität gegenüber dem IPS-Profil sicher, indem die so genannte [`imposeProfile`](http://hl7.org/fhir/StructureDefinition/structuredefinition-imposeProfile)-Erweiterung verwendet wird."
@@ -67,7 +67,7 @@ mögliche Codes: active | recurrence | relapse | inactive | remission | resolved
 * bodySite ^short = "Zuordnung der Diagnose der Körper-Lokalisation"
 
 * subject 1..1 MS
-* subject only Reference(AtApsPatient)
+* subject only Reference(AtElgaCorePatient)
 * subject ^short = "Person, auf die sich die Diagnose bezieht"
 
 * encounter 0..0
@@ -91,7 +91,7 @@ mögliche Codes: active | recurrence | relapse | inactive | remission | resolved
 * recorder only Reference (
 
     AtEdiagPractitioner
-    or AtApsPractitionerRole
+    or AtElgaCorePractitionerRole
 
 )
 * recorder ^short = "Ansonsten Gesundheitsdiensteanbieter, der die Diagnose eingetragen hat"
@@ -100,9 +100,9 @@ mögliche Codes: active | recurrence | relapse | inactive | remission | resolved
 * asserter 0..1
 * asserter only Reference (
 
-    AtApsPractitioner
-    or AtApsPractitionerRole
-    or AtApsPatient
+    AtElgaCorePractitioner
+    or AtElgaCorePractitionerRole
+    or AtElgaCorePatient
     or http://hl7.org/fhir/StructureDefinition/RelatedPerson
 )
 * asserter ^short = "Quelle der Information zur Diagnose (z. B. behandelnde Person, Patient oder Dritter)"

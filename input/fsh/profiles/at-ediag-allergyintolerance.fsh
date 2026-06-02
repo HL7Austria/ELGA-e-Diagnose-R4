@@ -1,5 +1,5 @@
 Profile: AtEdiagAllergyIntolerance
-Parent: AtApsAllergyIntolerance
+Parent: AllergyIntolerance
 Id: at-ediag-allergyintolerance
 Title: "AT e-Diagnose AllergyIntolerance"
 Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AT APS AllergyIntolerance-Profil ab und passt dieses für die Anforderungen der e-Diagnose an. Die IPS-Konformität bleibt über das abgeleitete Profil erhalten."
@@ -61,7 +61,7 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AT APS
 
 
 * patient 1..1 MS
-* patient only Reference(AtApsPatient)
+* patient only Reference(AtElgaCorePatient)
 * patient ^short = "Betroffene Person, auf die sich die Allergie bezieht"
 
 * encounter 0..0
@@ -79,16 +79,16 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AT APS
 // analog zu procedure, kein patient keine related person
 * recorder 1..1 MS
 * recorder only Reference(
-    AtApsPractitioner
-    or AtApsPractitionerRole
+    AtElgaCorePractitioner
+    or AtElgaCorePractitionerRole
 )
 * recorder ^short = "Gesundheitsdiensteanbieter, die die Allergie ins System erfasst/dokumentiert"
 
 * asserter 0..1
 * asserter only Reference(
-    AtApsPractitioner
-    or AtApsPractitionerRole
-    or AtApsPatient
+    AtElgaCorePractitioner
+    or AtElgaCorePractitionerRole
+    or AtElgaCorePatient
     or RelatedPerson
 )
 * asserter ^short = "Person (fachliche Quelle + related Person oder Patient selbst), die/der die Allergie bestätigt"
