@@ -1,1 +1,0 @@
-### AWF04.02 - Gesamte Listversion löschen (alt/aktuell)

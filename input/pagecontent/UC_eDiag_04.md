@@ -1,1 +1,0 @@
-### AWF04 - Patient löschen (write)
