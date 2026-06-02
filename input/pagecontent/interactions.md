@@ -24,9 +24,9 @@ Beim Read-only-Zugriff erfolgt **keine Veränderung** von Flags, Status oder Inh
 Der Zugriff dient ausschließlich der Anzeige bzw. Informationsabfrage von aktuellen bzw. historischen Planversionen.
 
 #### Sequenzdiagramm Read-only-Zugriff
-<!--<br>
+<br>
 <div>{% include_relative plantuml/diagram_read.svg %}</div>
-<br> -->
+<br> 
 
 **Beispiele für Zugriffe mittels Suchparameter:**
 * **Aktuelle Planversion** mit dem Suchparameter Patient abrufen: GET [base]/Bundle?type=collection&_count=1&_sort=-timestamp&list.subject={bPK-GH}
@@ -66,9 +66,9 @@ Der temporär gespeicherte List.identifier für die Integritätsprüfung beim Sc
 
 
 #### Sequenzdiagramm Read-to-Write-Zugriff
-<!--<br>
+<br>
 <div>{% include_relative plantuml/diagram_readtowrite.svg %}</div>
-<br> -->
+<br> 
 
 
 ### Write-Zugriff
@@ -96,9 +96,9 @@ Es muss erneut ein Read-to-Write ausgeführt werden und die Aktualisierungen üb
 
 
 #### Sequenzdiagramm Write-Zugriff
-<!--<br>
+<br>
 <div>{% include_relative plantuml/diagram_write.svg %}</div>
-<br>-->
+<br>
 
 <!-- TODO: Evtl. 2 Versionen: eine ungefiliterte Version (inkl. der seit dem letzten Speichern abgelaufener Einträge) und eine Version nur mit aktiven Einträgen/gültigem Behandlungszeitraum -->
 
@@ -131,8 +131,8 @@ Es muss erneut ein Read-to-Write ausgeführt werden und die Aktualisierungen üb
 
 
 #### Sequenzdiagramm Abgelehnter Write-Zugriff
-<!--<br>
+<br>
 <div>{% include_relative plantuml/diagram_write_error.svg %}</div>
-<br>-->
+<br>
 
 

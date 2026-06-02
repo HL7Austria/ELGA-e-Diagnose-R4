@@ -26,10 +26,12 @@ Description: "Das AT e-Diagnose FlagAlert-Profil leitet sich vom AT APS FlagAler
 
 // 2026_04_23 nur Text!! Kein ValueSet dass das abdeckt. Kein Coding!!!
 // https://r4.fhir.space/flag-definitions.html#Flag.code
+// 2026_05_20_MBU_es soll kein Text sondern nur Codes verwendet werden, kein Textfriedhof
 * code 1..1 MS
 * code only CodeableConcept
-* code.text 1..1
-* code ^short = "Textinhalt des Alerts"
+* code.text 0..0
+* code.coding 1..1
+* code ^short = "Kodierter Alert-Typ"
 
 * subject 1..1 MS
 * subject only Reference(AtApsPatient)
