@@ -2,7 +2,7 @@ Profile: AtEdiagCondition
 Parent: Condition
 Id: at-elga-ediag-condition
 Title: "AT e-Diagnose Condition Diagnosen"
-Description: "Das AT APS-Profil für die Condition-Ressource Diagnosen berücksichtigt zum einen die österreichischen Vorgaben (z.B. Patient und zu verwendende Value-Sets) und stellt andererseits die Konformität gegenüber dem IPS-Profil sicher, indem die so genannte [`imposeProfile`](http://hl7.org/fhir/StructureDefinition/structuredefinition-imposeProfile)-Erweiterung verwendet wird."
+Description: "Das AT e-Diagnose Condition-Profil leitet sich vom Condition-Profil ab und passt dieses für die Anforderungen der e-Diagnose an."
 * ^status = #active
 * . ^short = "AT e-Diagnose Condition Diagnosen"
 
