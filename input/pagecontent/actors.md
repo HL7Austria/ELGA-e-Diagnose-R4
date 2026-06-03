@@ -14,6 +14,5 @@ Weiters werden in einer Tabelle alle ELGA Rollen angeführt, die Zugriff auf die
 
 ### Rollen und Berechtigungen
 
-[![tabelle](ediag_zugriffsmatrix.png){: style="width: 85%"}](ediag_zugriffsmatrix.png)
+[![tabelle](ediag_zugriffsmatrix.png){: style="width: 60%"}](ediag_zugriffsmatrix.png)
 
-*Hinweis*: Schreiben impliziert lesenden Zugriff
