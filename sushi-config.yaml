@@ -94,11 +94,17 @@ parameters:
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 menu:
   Home: index.html
-  Table of Contents: toc.html
+  Inhaltsverzeichni: toc.html
+  Einleitung:
+    Umfang und Inhalt: scope_and_content.html
+    Hintergrund: background.html
+    Herausforderungen: challenges.html 
   Funktionales:
+    Akteure: actors.html
     Zugriffsarten auf eine Liste: interactions.html
   Use Cases: 
     Überblick: anwendungsfaelle.html
+    Patient Journey: patient_journey.html
     "UC_eDiag_01 Diagnosen lesen": UC_eDiag_01.html
     "UC_eDiag_02 Diagnosen schreiben": UC_eDiag_02.html
   Terminologies: terminologies.html

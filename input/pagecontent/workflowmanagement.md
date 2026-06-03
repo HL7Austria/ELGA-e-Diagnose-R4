@@ -4,14 +4,14 @@
 
 Ein Eintrag in die Liste kann, abhängig vom jeweiligen Use Case, einen unterschiedlichen Status einnehmen. Dieser Status wird sowohl beispielsweise in der Condition-Ressource selbst als auch auf List-Ebene im Element List.entry.flag dokumentiert.
 
-Das *flag*-Element eines Entries der List-Ressource beschreibt die **Art der Änderung eines Diagnoseeintrags auf Listenebene** und kann folgende Status einnehmen:<br>
+Das *flag*-Element eines Entries der List-Ressource beschreibt die **Art der Änderung eines Eintrags auf Listenebene** und kann folgende Status einnehmen:<br>
 
 | Status | Beschreibung |
 |--------|------|
-| **New** | Neuer Diagnoseeintrag wird der Liste hinzugefügt |
-| **Unchanged** | Bestehender Diagnoseeintrag wird beibehalten/zur Kenntnis genommen |
-|  **Changed**  | Bestehender Diagnoseeintrag wird geändert |
-|  **Removed**  | Bestehender Diagnoseeintrag wird entfernt |
+| **New** | Neuer Eintrag wird der Liste hinzugefügt |
+| **Unchanged** | Bestehender Eintrag wird beibehalten/zur Kenntnis genommen |
+|  **Changed**  | Bestehender Eintrag wird geändert |
+|  **Removed**  | Bestehender Eintrag wird entfernt |
 
 <br>
 <div>{% include_relative plantuml/stateDiagram_list_flag.svg %}</div>
@@ -19,7 +19,7 @@ Das *flag*-Element eines Entries der List-Ressource beschreibt die **Art der Än
 
 #### Auswirkung der Zugriffsart auf List.entry.flags und Bundle-Inhalte
 
-Je nach Zugriffsart (Read-only, Read-to-Write oder Write) ergeben sich unterschiedliche Auswirkungen auf die Verarbeitung dieser Status sowie auf die enthaltenen Ressourcen in den jeweiligen Bundles (siehe [Zugriffsarten auf Diagnoseneinträge](interactions.html#zugriffsarten-auf-den-medikationsplan)). ToDo: Begrifflichkeiten anpassen!!!
+Je nach Zugriffsart (Read-only, Read-to-Write oder Write) ergeben sich unterschiedliche Auswirkungen auf die Verarbeitung dieser Status sowie auf die enthaltenen Ressourcen in den jeweiligen Bundles (siehe [Zugriffsarten auf Diagnoseneinträge](interactions.html#zugriffsarten-auf-die-ediagnose-liste)). ToDo: Begrifflichkeiten anpassen!!! 
 <br>
 
 | Status | Read-only-Zugriff | Read-to-Write-Zugriff | Write-Zugriff |
