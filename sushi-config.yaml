@@ -57,12 +57,22 @@ dependencies:
 pages:
   index.md:
     title: "Home"
+  scope_and_content.md:
+    title: Umfang und Inhalt
+  background.md:
+    title: Hintergrund
+  challenges.md:
+    title: Herausforderungen 
   interactions.md:
     title: "Zugriffsarten auf die Diagnosenliste"
   actors.md:
     title: Akteure
+  workflowmanagement.md:
+    title: Workflowmanagement
   anwendungsfaelle.md:
     title: "Überblick Anwendungsfälle"
+    patient_journey.md:
+      title: Patient Journey
     UC_eDiag_01.md:
       title: "UC_eDiag_01 - Diagnosen lesen"
     UC_eDiag_02.md:
