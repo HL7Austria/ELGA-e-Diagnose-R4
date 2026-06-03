@@ -1,7 +1,7 @@
 Profile: AtEdiagCondition
 Parent: Condition
 Id: at-elga-ediag-condition
-Title: "AT e-Diagnose Condition Diagnosen"
+Title: "AT ELGA e-Diagnose Condition Diagnosen"
 Description: "Das AT e-Diagnose Condition-Profil leitet sich vom Condition-Profil ab und passt dieses für die Anforderungen der e-Diagnose an."
 * ^status = #active
 * . ^short = "AT e-Diagnose Condition Diagnosen"

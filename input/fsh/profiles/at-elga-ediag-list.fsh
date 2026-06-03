@@ -1,7 +1,7 @@
 Profile: AtEdiagList
 Parent: AtElgaCoreList
 Id: at-elga-ediag-list
-Title: "AT e-Diagnose List"
+Title: "AT ELGA e-Diagnose List"
 Description: "Das AT e-Diagnose List-Profil leitet sich vom HL7-AT-Core-R4-Profil ab und dient der strukturierten Listung von Dauerdiagnosen gemäß der ärztlichen Priorisierung."
 
 * ^status = #active

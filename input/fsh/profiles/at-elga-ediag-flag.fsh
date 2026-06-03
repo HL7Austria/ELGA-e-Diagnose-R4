@@ -1,7 +1,7 @@
 Profile: AtEdiagAFlagAlert
 Parent: Flag
 Id: at-elga-ediag-flagalert
-Title: "AT e-Diagnose FlagAlert"
+Title: "AT ELGA e-Diagnose FlagAlert"
 Description: "Das AT e-Diagnose FlagAlert-Profil leitet sich vom FlagA-Profil ab und passt dieses für die Anforderungen der e-Diagnose an."
 * ^status = #active
 * . ^short = "AT e-Diagnose FlagAlert"
