@@ -59,6 +59,8 @@ pages:
     title: "Home"
   interactions.md:
     title: "Zugriffsarten auf die Diagnosenliste"
+  actors.md:
+    title: Akteure
   anwendungsfaelle.md:
     title: "Überblick Anwendungsfälle"
     UC_eDiag_01.md:
