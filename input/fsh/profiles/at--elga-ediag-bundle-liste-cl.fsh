@@ -1,10 +1,11 @@
-Profile: AtEmedBundleMedikationsplan
+Profile: AtEdiagBundleListeCl
 Parent: Bundle
-Id: at-emed-bundle-medikationsplan
-Title: "ELGA e-Med Medikationsplan Collection Bundle"
+Id: at-elga-ediag-bundle-liste-cl
+Title: "ELGA e-Diagnose Liste Collection Bundle"
 Description: "Das Bundle vom Typ Collection bestehend aus: 
-- 1..1 Medikationsplan (List): Liste mit Referenzen auf Medikationsplaneinträge und zur Abbildung von Reihenfolge und Änderungsstatus) 
-- 0..* Medikationsplaneinträge (MedicationRequests): Medikation und Dosierung"
+- 1..1 List: Liste mit Referenzen auf Listeinträge und zur Abbildung von Reihenfolge und Änderungsstatus) 
+- 0..* Listeinträge: je nach Kontext Diagnose, Prozedure, Allergien und Intoleranzen oder Alerts"
+
 
 //* identifier 0..1 MS
 //* identifier ^short = "Persistenter Identifikator für das Bundle. Verwendung prüfen."
