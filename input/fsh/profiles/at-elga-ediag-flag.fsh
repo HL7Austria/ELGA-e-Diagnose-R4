@@ -1,10 +1,10 @@
-Profile: AtEdiagAFlagAlert
+Profile: AtEdiagFlag
 Parent: Flag
-Id: at-elga-ediag-flagalert
-Title: "AT ELGA e-Diagnose FlagAlert"
-Description: "Das AT e-Diagnose FlagAlert-Profil leitet sich vom FlagA-Profil ab und passt dieses für die Anforderungen der e-Diagnose an."
+Id: at-elga-ediag-flag
+Title: "AT ELGA e-Diagnose Flag"
+Description: "Das AT e-Diagnose Flag-Profil leitet sich vom Flag-Profil ab und passt dieses für die Anforderungen der e-Diagnose an."
 * ^status = #active
-* . ^short = "AT e-Diagnose FlagAlert"
+* . ^short = "AT e-Diagnose Flag"
 
 // EHE einfach überall eine extension für reported mit boolean
 * extension contains AtReported named reported 0..1

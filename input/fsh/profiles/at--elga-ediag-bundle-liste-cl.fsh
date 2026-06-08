@@ -19,12 +19,12 @@ Description: "Das Bundle vom Typ Collection bestehend aus List und klinischen Ko
 //* link ^short = "Verweise auf weiterführende Informationen zum Bundle. Verwendung prüfen." 
 
 // Slicing legt fest, welche Entries erlaubt sind -> Unterscheidung der Slices anhand von Pfad und Typ 
-* entry ^slicing.discriminator[+].type = #type   
-* entry ^slicing.discriminator[=].path = "resource"
-* entry ^slicing.rules = #closed  
-* entry ^slicing.ordered = true  
+* entry ^slicing.discriminator.type = #type
+* entry ^slicing.discriminator.path = "resource"
+* entry ^slicing.rules = #closed
+* entry ^slicing.ordered = true
 
-* entry contains 
+* entry contains
     list 1..1 and
     condition 0..* and
     procedure 0..* and
@@ -36,8 +36,7 @@ Description: "Das Bundle vom Typ Collection bestehend aus List und klinischen Ko
 * entry[condition].resource only AtEdiagCondition
 * entry[procedure].resource only AtEdiagProcedure
 * entry[allergyIntolerance].resource only AtEdiagAllergyIntolerance
-* entry[alert].resource only AtEdiagAFlagAlert
-
+* entry[flag].resource only AtEdiagFlag
 //* entry.link 0..0
 //* entry.link ^short = "Verweise auf weiterführende Informationen zu diesem Entry. Verwendung prüfen."
 
