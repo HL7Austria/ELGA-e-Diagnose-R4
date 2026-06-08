@@ -1,6 +1,6 @@
 Extension: AtReported
 Id: at-elga-ediag-reported
-Title: "Reported (Fremdangabe)"
+Title: "AT ELGA Reported (Fremdangabe)"
 Description: "Kennzeichnet, ob eine Information fremdberichtet ist (z. B. vom Patienten oder Dritten)."
 
-* value[x] only boolean
+* value[x] only booleanS

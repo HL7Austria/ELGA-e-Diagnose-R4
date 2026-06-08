@@ -112,6 +112,7 @@ menu:
   Funktionales:
    Akteure: actors.html
    Zugriffsarten auf eine Liste: interactions.html
+   Workflowmanagement: workflowmanagement.html
   Use Cases: 
    Überblick: anwendungsfaelle.html
    Patient Journey: patient_journey.html

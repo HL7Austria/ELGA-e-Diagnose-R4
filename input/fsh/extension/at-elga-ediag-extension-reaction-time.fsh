@@ -1,6 +1,6 @@
 Extension: AtEdiagReactionTime
 Id: at-elga-ediag-reaction-time
-Title: "Reaktionszeit"
+Title: "AT ELGA SReaktionszeit"
 Description: "Zeitlicher Verlauf der Manifestation (<6h, 6-24h, >24h, unknown)"
 
 * ^status = #active
