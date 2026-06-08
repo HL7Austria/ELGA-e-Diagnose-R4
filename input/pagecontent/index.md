@@ -1,4 +1,4 @@
-# e-Diagnose
+# e-Diagnose (DRAFT)
 
 Dieser Leitfaden beschreibt die Einführung der ELGA-Anwendung **e-Diagnose**, die eine standardisierte Erfassung, Dokumentation und Verwaltung von Diagnosen, Prozeduren, Allergien, Intoleranzen und Warnungen in Österreich ermöglicht.
 
