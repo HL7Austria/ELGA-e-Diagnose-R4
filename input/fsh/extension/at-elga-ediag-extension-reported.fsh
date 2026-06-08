@@ -3,4 +3,4 @@ Id: at-elga-ediag-reported
 Title: "AT ELGA Reported (Fremdangabe)"
 Description: "Kennzeichnet, ob eine Information fremdberichtet ist (z. B. vom Patienten oder Dritten)."
 
-* value[x] only booleanS
+* value[x] only boolean
