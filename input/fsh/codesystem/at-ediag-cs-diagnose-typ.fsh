@@ -7,3 +7,9 @@ Description: "Zuordnung in currently relevant und not currently relevant"
 * ^caseSensitive = true
 * #relevant "currently relevant"
 * #notrelevant "not currently relevant"
+
+ValueSet: ElgaListEntryFlagVS
+Title: "ELGA List.entry.flag Value Set"
+Description: "ValueSet für zulässige Ausprägungen Ausprägungen des Flags eines List.Entries in ELGA."
+* ^experimental = true
+* include codes from system ElgaListEntryFlagCS
