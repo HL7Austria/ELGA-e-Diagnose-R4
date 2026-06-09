@@ -5,4 +5,4 @@ erweitern und verändern. Neben Diagnosen werden auch Prozeduren, Allergien/Into
 ### 1.3.2026: Erstvorstellung beim Arzt
 Dr. Musterärztin sieht den Patienten Max Mustermann erstmals in ihrer Ordination. Zur besseren klinischen Einschätzung ruft sie die vorhandenen medizinischen Informationen aus der e-Diagnose ab.
 
-Da für Herrn Mustermann bisher noch keine strukturierte e-Dagnose-Zusammenstellung existiert, wird automatisch ein initialer leerer klinischer Status erzeugt. Dieser enthält lediglich den [Patienten](PatientExample.html), die erstellende Fachanwendung ([Device](DeviceExample.html)) sowie das Erstellungsdatum und der Grund, warum der Plan noch leer ist (EmptyReason *notstarted*).
+Da für Herrn Mustermann bisher noch keine strukturierte e-Dagnose-Zusammenstellung existiert, wird automatisch ein initialer leerer klinischer Status erzeugt. Dieser enthält lediglich den [Patienten](Patient-PatientExample.html), die erstellende Fachanwendung ([Device](Device-DeviceExample.html)) sowie das Erstellungsdatum und der Grund, warum der Plan noch leer ist (EmptyReason *notstarted*).
