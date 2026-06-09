@@ -1,4 +1,4 @@
-Instance: ListExample
+Instance: ListExample01
 InstanceOf: AtEdiagList
 Title: "Beispiel einer leeren e-Diagnose-Liste"
 Description: "Initiale e-Diagnose-Liste ohne Diagnosen, Prozeduren Allergien oder Alerts."
