@@ -1,6 +1,6 @@
 Profile: AtEdiagBundleListeTx
 Parent: Bundle
-Id: at--elga-ediag-bundle-liste-tx
+Id: at-elga-ediag-bundle-liste-tx
 Title: "AT ELGA e-Diagnose Liste Transaction Bundle"
 Description: "Das Bundle vom Typ Transaction dient dem schreibenden Zugriff auf die Liste bestehend aus: 
  - 1..1 List: Liste mit Referenzen auf Listeinträge und zur Abbildung von Reihenfolge und Änderungsstatus
