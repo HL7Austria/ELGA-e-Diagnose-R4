@@ -7,7 +7,8 @@ Usage: #example
 * identifier.value = "123"
 * status = #current
 * mode = #working
-* code = $cs-sct#736378000
+// Problem List / general clinical items
+* code = $cs-loinc#11450-4
 * subject = Reference(PatientExample)
 * date = "2026-03-01T08:00:00+00:00"
 * source = Reference(PractitionerExample)

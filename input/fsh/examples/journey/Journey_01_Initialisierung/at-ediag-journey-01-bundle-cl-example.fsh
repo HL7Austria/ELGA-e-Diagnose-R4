@@ -1,4 +1,4 @@
-Instance: At-Ediag-Journey-01-Bundle-Liste
+Instance: At-Ediag-Journey-01-Bundle-Liste-Cl
 InstanceOf: AtEdiagBundleListeCl
 Title: "Beispiel Journey 01: Collection Bundle"
 Description: "Beispiel eines Collection Bundles mit leerer e-Diagnose-Liste (referenziert List-Ressource ohne Einträge)."

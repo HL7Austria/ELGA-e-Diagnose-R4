@@ -1,12 +1,12 @@
-Instance: DiagnoseExample
+Instance: DiagnoseNotCurrentlyRelevantExample
 InstanceOf: AtEdiagCondition
-Title: "Beispiel Diagnose"
-Description: "Beispielinstanz einer Diagnose"
+Title: "Beispiel Diagnose not currently relevant"
+Description: "Beispielinstanz einer Diagnose - not currently relevant"
 Usage: #example
 
 * meta.profile = "http://example.org/fhir/StructureDefinition/at-ediag-condition"
 
-* meta.tag[diagnosisType] = https://fhir.hl7.at/elga/ediag/r4/CodeSystem/at-ediag-diagnose-type#relevant "currently relevant"
+* meta.tag[diagnosisType] = https://fhir.hl7.at/elga/ediag/r4/CodeSystem/at-ediag-diagnose-type#notrelevant "not currently relevant"
 
 * extension[AtReported].valueBoolean = true
 
@@ -15,17 +15,18 @@ Usage: #example
 * verificationStatus = http://terminology.hl7.org/CodeSystem/condition-ver-status#confirmed
 
 * code.coding[snomed].system = "http://snomed.info/sct"
-* code.coding[snomed].code = #44054006
-* code.coding[snomed].display = "Diabetes mellitus type 2"
+* code.coding[snomed].code = #719590007
+
+* code.coding[snomed].display = "Saisonale Grippe"
 
 * subject = Reference(PatientExample)
 
-* recordedDate = "2026-04-20T10:15:00+02:00"
+* recordedDate = "2026-03-01T00:00:00+00:00"
 
 * recorder = Reference(PractitionerExample)
 
 * asserter = Reference(PractitionerExample)
 
-* onsetDateTime = "2024-06-01"
+* onsetDateTime = "2026-02-28"
 
-* note.text = "Patient berichtet über bekannte Stoffwechselerkrankung seit 2024, aktuell gut eingestellt."
+* note.text = "Temperatur >38.5, Gliederschmerzen"
