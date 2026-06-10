@@ -1,10 +1,10 @@
 Profile: AtEdiagCondition
 Parent: Condition
 Id: at-elga-ediag-condition
-Title: "AT ELGA e-Diagnose Condition Diagnosen"
+Title: "AT ELGA e-Diagnose Condition"
 Description: "Das AT e-Diagnose Condition-Profil leitet sich vom Condition-Profil ab und passt dieses für die Anforderungen der e-Diagnose an."
 * ^status = #active
-* . ^short = "AT e-Diagnose Condition Diagnosen"
+* . ^short = "AT e-Diagnose Condition"
 
 // EHE einfach überall eine extension für reported mit boolean
 // ob es sich um eine Fremddiagnose handelt wird durch extension für reported mit boolean gelöst

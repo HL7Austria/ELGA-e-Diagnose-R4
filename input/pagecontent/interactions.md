@@ -8,7 +8,7 @@ Im Folgenden werden standardisierte Interaktionen für den lesenden und schreibe
 [![diagram](ediag_api.png){: style="width: 100%"}](ediag_api.png)
 <br>
 
-ToDo: Grafik ändern - keine Kombiliste
+ToDo: Grafik ändern - keine Kombiliste und Alerts
 
 ### Read-only-Zugriff
 

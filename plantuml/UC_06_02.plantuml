@@ -61,7 +61,7 @@ GDA_1 ->> eDiag_FA: POST $readtowrite
 activate GDA_1
 
 note over GDA_1, eDiag_FA
-Medikationsplan abrufen,
+Liste abrufen,
 mit der Intention zu schreiben
 end note
 
