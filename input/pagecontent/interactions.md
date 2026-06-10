@@ -4,6 +4,11 @@
 
 Im Folgenden werden standardisierte Interaktionen für den lesenden und schreibenden Zugriff auf die Diagnosenliste eines Patienten bzw. einer Patientin erläutert, die für alle technischen Use Cases relevant sind.
 
+<br>
+[![diagram](ediag_api.png){: style="width: 100%"}](ediag_api.png)
+<br>
+
+ToDo: Grafik ändern - keine Kombiliste
 
 ### Read-only-Zugriff
 
@@ -13,7 +18,7 @@ Beim Read-only-Zugriff stellt die Fachanwendung **die aktuelle oder historische 
 #### Ablauf
 
 1. Der GDA führt ein **GET** auf das Collection Bundle aus.
-2. Die Fachanwendung **prüft auf Existenz** einer Diagnosenliste.
+2. Die Fachanwendung **prüft auf Existenz** einer Liste.
 3. Ist **nichts vorhanden**, wird ein **leeres Ergebnis** zurückgegeben.
 4. Ist eine Liste vorhanden, wird das zuletzt gespeicherte Collection Bundle zurückgeliefert. <br>
 Das **Collection Bundle** enthält:<br>
