@@ -1,7 +1,7 @@
 Profile: AtEdiagBundleListeCl
 Parent: Bundle
 Id: at-elga-ediag-bundle-liste-cl
-Title: "AT ELGA e-Diagnose Liste Collection Bundle"
+Title: "AT ELGA e-Diagnose Collection Bundle"
 Description: "Das Bundle vom Typ Collection bestehend aus List und klinischen Kontextressourcen"
 
 

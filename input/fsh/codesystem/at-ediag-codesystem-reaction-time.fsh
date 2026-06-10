@@ -1,5 +1,5 @@
 CodeSystem: AtEdiagReactionTimeCS
-Id: at-ediag-reaction-time-cs
+Id: at-ediag-codesystem-reaction-time-cs
 Title: "Reaktionszeit Codes"
 Description: "Zeitlicher Verlauf der Manifestation"
 * ^status = #active
