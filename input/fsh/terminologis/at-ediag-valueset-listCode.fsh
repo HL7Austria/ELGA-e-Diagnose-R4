@@ -10,5 +10,3 @@ Description: "ValueSet für zulässige Ausprägungen des Flags eines List.Entrie
 * $cs-loinc#47519-4
 // Allergies
 * $cs-loinc#48765-2
-// Alerts
-* $cs-loinc#104605-1

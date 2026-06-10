@@ -28,15 +28,14 @@ Description: "Das Bundle vom Typ Collection bestehend aus List und klinischen Ko
     list 1..1 and
     condition 0..* and
     procedure 0..* and
-    allergyIntolerance 0..* and
-    flag 0..*
+    allergyIntolerance 0..* 
 
 // Liste
 * entry[list].resource only AtEdiagList
 * entry[condition].resource only AtEdiagCondition
 * entry[procedure].resource only AtEdiagProcedure
 * entry[allergyIntolerance].resource only AtEdiagAllergyIntolerance
-* entry[flag].resource only AtEdiagFlag
+
 //* entry.link 0..0
 //* entry.link ^short = "Verweise auf weiterführende Informationen zu diesem Entry. Verwendung prüfen."
 

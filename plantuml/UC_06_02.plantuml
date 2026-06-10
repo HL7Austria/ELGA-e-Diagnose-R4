@@ -43,7 +43,7 @@ box "\n  GDA 1  " #9fbac4
 end box
 
 box "\n       e-Diag Fachanwendung      " #C48778
-  participant eDiag_FA as "e-Med FA"
+  participant eDiag_FA as "e-Diag FA"
 end box
 
 box "\n    GDA 2  " #beaebe
@@ -66,15 +66,15 @@ mit der Intention zu schreiben
 end note
 
 activate eDiag_FA
-eDiag_FA -> eDiag_FA: Prüfung auf bestehenden\nMedikationsplan
+eDiag_FA -> eDiag_FA: Prüfung auf bestehende Liste
 
-eDiag_FA -> eDiag_FA: Wenn Plan vorhanden +\nalle List.enty.flags im Medikationsplan = "removed":\nFachanwendung setzt List.emptyReason = "nilknown"
+eDiag_FA -> eDiag_FA: Wenn Liste vorhanden +\nalle List.enty.flags in der Liste = "removed":\nFachanwendung setzt List.emptyReason = "nilknown"
 
-eDiag_FA -->> GDA_1: Leerer Medikationsplan\n(emptyReason = "nilknown")
+eDiag_FA -->> GDA_1: Leere Liste\n(emptyReason = "nilknown")
 
 deactivate eDiag_FA
 deactivate GDA_1
 
-center footer Sub_UC_06_02 - Leerer Medikationsplan (keine Medikation einnehmen)
+center footer Sub_UC_06_02 - Leere Liste
 
 @enduml
