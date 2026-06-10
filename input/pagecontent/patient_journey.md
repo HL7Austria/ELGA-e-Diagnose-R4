@@ -13,3 +13,5 @@ Da für Herrn Mustermann bisher noch keine strukturierte e-Dagnose-Zusammenstell
 Herr Mustermann stellt sich mit einem aktuellen grippalen Infekt vor. Im Rahmen der Anamnese wird als relevante Vorerkrankung eine Hypothyreose erhoben. 
 Der Patient berichtet eine bestehende Dauermedikation mit L-Thyroxin 75mg. Für den grippalen Infekt wird eine symptomatische Therapie eingeleitet, unter anderem mit Ibuprofen bei Bedarf zur Fiebersenkung und Schmerzreduktion.
 
+   * **Diagnoseeinträge hinzufügen:**
+     * [Transaction Bundle](Bundle-At-Ediag-Journey-01-Bundle-Liste-Tx.html)

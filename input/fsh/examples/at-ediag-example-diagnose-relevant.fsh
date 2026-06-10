@@ -28,4 +28,4 @@ Usage: #example
 
 * onsetDateTime = "2024-06-01"
 
-* note.text = "Patient berichtet über bekannte Stoffwechselerkrankung seit 2024, aktuell gut eingestellt."
+* note.text = "Patient berichtet über bekannte Schilddrüsenerkrankung seit 2024, aktuell gut eingestellt."
