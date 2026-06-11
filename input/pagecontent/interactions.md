@@ -73,8 +73,7 @@ Der temporär gespeicherte List.identifier für die Integritätsprüfung beim Sc
 
 #### Sequenzdiagramm Read-to-Write-Zugriff
 <br>
-<div>{% include_re
-lative plantuml/diagram_readtowrite.svg %}</div>
+<div>{% include_relative plantuml/diagram_readtowrite.svg %}</div>
 <br> 
 
 
