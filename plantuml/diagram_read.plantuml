@@ -42,7 +42,7 @@ box "\n  GDA 1  " #9fbac4
   actor GDA_1 as "GDA 1"
 end box
 
-box "\n       e-Diag Fachanwendung      " #C48778
+box "\n       e-Diagnose Fachanwendung      " #C48778
   participant eDiag_FA as "e-Diagnose FA"
 end box
 
