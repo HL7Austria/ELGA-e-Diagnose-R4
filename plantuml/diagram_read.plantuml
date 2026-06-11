@@ -43,7 +43,7 @@ box "\n  GDA 1  " #9fbac4
 end box
 
 box "\n       e-Diag Fachanwendung      " #C48778
-  participant eDiag_FA as "e-Med FA"
+  participant eDiag_FA as "e-Diagnose FA"
 end box
 
 box "\n    GDA 2  " #beaebe
@@ -62,18 +62,18 @@ activate GDA_1
 GDA_1 ->> eDiag_FA: GET CollectionBundle
 
 activate eDiag_FA
-eDiag_FA -> eDiag_FA: Prüfung auf bestehenden\nMedikationsplan
+eDiag_FA -> eDiag_FA: Prüfung auf bestehende Liste
 
-alt kein Medikationsplan vorhanden
+alt keine Einträge vorhanden
   eDiag_FA -->> GDA_1: leeres Ergebnis
-else Medikationsplan vorhanden
-  eDiag_FA -->> GDA_1: CollectionBundle (Medikationsplan + Ressourcen) (unverändert)
+else Einträge vorhanden
+  eDiag_FA -->> GDA_1: CollectionBundle (Liste + Ressourcen) (unverändert)
   deactivate GDA_1
 end
 deactivate eDiag_FA
 
 note over GDA_1, eDiag_FA
-Fachanwendung liefert Medikationsplan oder leeres Ergebnis zurück.
+Fachanwendung liefert Liste oder leeres Ergebnis zurück.
 end note
 
 center footer Read-only-Zugriff
