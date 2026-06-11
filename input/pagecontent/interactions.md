@@ -9,6 +9,7 @@ Im Folgenden werden standardisierte Interaktionen für den lesenden und schreibe
 <br>
 
 ToDo: Grafik ändern - keine Kombiliste und Alerts
+ToDo: Wording Liste, eDiagnosenliste,...
 
 ### Read-only-Zugriff
 
@@ -18,7 +19,7 @@ Beim Read-only-Zugriff stellt die Fachanwendung **die aktuelle oder historische 
 #### Ablauf
 
 1. Der GDA führt ein **GET** auf das Collection Bundle aus.
-2. Die Fachanwendung **prüft auf Existenz** einer Liste.
+2. Die Fachanwendung **prüft auf Existenz** der Liste.
 3. Ist **nichts vorhanden**, wird ein **leeres Ergebnis** zurückgegeben.
 4. Ist eine Liste vorhanden, wird das zuletzt gespeicherte Collection Bundle zurückgeliefert. <br>
 Das **Collection Bundle** enthält:<br>
@@ -54,7 +55,7 @@ Der Read-to-Write-Zugriff dient dem **Abruf der eDiagnosenliste und der Vorberei
     * Falls der vorherige GDA neue Einträge hinzugefügt oder bestehende geändert hat (List.entry.flag haben den Wert **new** oder **changed**), werden diese auf **unchanged** gesetzt.<br>
     * Falls der vorherige GDA Einträge beendet hat (deren List.entry.flag haben den Wert **removed**), werden diese Einträge aus der Liste **entfernt**.<br>
     * Falls der vorherige GDA **alle vorhandenen Einträge** mit removed gekennzeichnet hat, wird List.emptyReason mit *nilknown* zurückgeliefert, um nachfolgenden GDA zu signalisieren, dass der Patient zum Zeitpunkt des letzten Schreibens keine Einträge hatte.<br>
-    * Einträge mit abgelaufenem Behandlungszeitraum bleiben erhalten.<br>
+    * Einträge mit abgelaufenem Behandlungszeitraum bleiben erhalten. - ToDo: ist ehr nur für eMed<br>
     <!-- * fachlich zu prüfen (TODO): Einträge mit abgelaufenem Behandlungszeitraum und courseOfTherapyType **acute** automatisch entfernen -->
 6. Die Fachanwendung liefert das **Collection Bundle** an den GDA:<br>
 * inkl. List und aller referenzierten Ressourcen (inline)<br>
@@ -72,7 +73,8 @@ Der temporär gespeicherte List.identifier für die Integritätsprüfung beim Sc
 
 #### Sequenzdiagramm Read-to-Write-Zugriff
 <br>
-<div>{% include_relative plantuml/diagram_readtowrite.svg %}</div>
+<div>{% include_re
+lative plantuml/diagram_readtowrite.svg %}</div>
 <br> 
 
 
