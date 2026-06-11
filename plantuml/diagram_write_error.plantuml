@@ -42,8 +42,8 @@ box "\n  GDA 1  " #9fbac4
   actor GDA_1 as "GDA 1"
 end box
 
-box "\n       e-Diag Fachanwendung      " #C48778
-  participant eDiag_FA as "e-Med FA"
+box "\n       e-Diagnose Fachanwendung      " #C48778
+  participant eDiag_FA as "e-Diag FA"
 end box
 
 box "\n    GDA 2  " #beaebe
@@ -63,7 +63,7 @@ activate GDA_1
 GDA_1 ->> eDiag_FA: POST $readtowrite
 
 activate eDiag_FA
-eDiag_FA -> eDiag_FA: Annahme: Prüfung auf bestehenden\nMedikationsplan erfolgreich
+eDiag_FA -> eDiag_FA: Annahme: Prüfung auf bestehende Liste erfolgreich
 eDiag_FA -> eDiag_FA: Collection Bundle zur Auslieferung erstellt\n(inkl. temporärem List.identifier "123")
 
 eDiag_FA -->> GDA_1: Collection Bundle + List.identifier "123"
@@ -72,7 +72,7 @@ deactivate eDiag_FA
 GDA_1 -> GDA_1: Einträge hinzufügen/ändern/entfernen
 
 note over GDA_1
-GDA 1 bearbeitet Medikationsplan
+GDA 1 bearbeitet Liste
 end note
 
 == Read-to-Write durch GDA 2 ==
@@ -81,7 +81,7 @@ GDA_2 ->> eDiag_FA: POST $readtowrite
 activate GDA_2
 
 activate eDiag_FA
-eDiag_FA -> eDiag_FA: Annahme: Prüfung auf bestehenden\nMedikationsplan erfolgreich
+eDiag_FA -> eDiag_FA: Annahme: Prüfung auf bestehende Einträge in der Liste erfolgreich
 eDiag_FA -> eDiag_FA: Collection Bundle zur Auslieferung erstellt\n(inkl. temporärem List.identifier "123")
 
 eDiag_FA -->> GDA_2: Collection Bundle + List.identifier "123"
@@ -90,7 +90,7 @@ deactivate eDiag_FA
 GDA_2 -> GDA_2: Einträge hinzufügen/ändern/entfernen
 
 note over GDA_2
-GDA 2 bearbeitet Medikationsplan
+GDA 2 bearbeitet Liste
 end note
 
 == Write durch GDA 2 ==
@@ -99,14 +99,14 @@ GDA_2 ->> eDiag_FA: POST $write (Transaction Bundle + List.identifier "123")
 
 activate eDiag_FA
 eDiag_FA -> eDiag_FA: List.identifier "123" im Transaction Bundle ==\ntemporär gespeicherter List.identifier "123"
-eDiag_FA -> eDiag_FA: Validierung des neuen Plans\n(keine unzulässigen Zustandsübergänge)
-eDiag_FA -> eDiag_FA: Persistiert neue Version des\nMedikationsplans mit List.identifier "123"
+eDiag_FA -> eDiag_FA: Validierung der neuen Liste (keine unzulässigen Zustandsübergänge)
+eDiag_FA -> eDiag_FA: Persistiert neue Version der Liste mit List.identifier "123"
 eDiag_FA -> eDiag_FA: Löscht temporären List.identifier "123"
 eDiag_FA -->> GDA_2: OK 
 deactivate GDA_2
 
 note over eDiag_FA
-Medikationsplan wurde durch GDA 2 aktualisiert.
+Liste wurde durch GDA 2 aktualisiert.
 end note
 
 deactivate eDiag_FA
@@ -121,7 +121,7 @@ eDiag_FA -> eDiag_FA: Fachanwendung lehnt Speichern ab
 eDiag_FA -->> GDA_1: Fehler (Konflikt)
 deactivate GDA_1
 note over eDiag_FA, GDA_1
-Speichern des Medikationsplans wurde abgelehnt, der GDA 1 muss ein neues Read-to-Write ausführen.
+Speichern der Liste wurde abgelehnt, der GDA 1 muss ein neues Read-to-Write ausführen.
 end note
 
 deactivate eDiag_FA

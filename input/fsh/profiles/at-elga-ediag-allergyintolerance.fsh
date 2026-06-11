@@ -30,6 +30,7 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom Allerg
 
 // 2026_04_23: MBU ist nicht geklärt. Wir machen R4 und keine andere Version. Wir glauben nicht der erfassenden Person, sondern zwingen sie zu einer genaueren Doku durch reaction
 // eigenen Termin zur Statustabelle - Anforderung geht an die Anwenungsmanager
+// 2026-06_ToDo: Klären der Kardinalität? Optional?
 * verificationStatus 1..1 MS
 * verificationStatus only CodeableConcept
 * verificationStatus ^short = "ToDo; Presumed, gibt es hierzu aktuelle Infos? kardinalität von clinicalStatus & verificationStatus muss noch erarbeitet werden. Möglicher Status; unconfirmed | confirmed | refuted | entered-in-error"

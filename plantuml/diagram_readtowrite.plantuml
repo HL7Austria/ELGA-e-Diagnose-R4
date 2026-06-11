@@ -42,8 +42,8 @@ box "\n  GDA 1  " #9fbac4
   actor GDA_1 as "GDA 1"
 end box
 
-box "\n       e-Diag Fachanwendung      " #C48778
-  participant eDiag_FA as "e-Med FA"
+box "\n       e-Diagnose Fachanwendung      " #C48778
+  participant eDiag_FA as "e-Diagnose FA"
 end box
 
 box "\n    GDA 2  " #beaebe
@@ -64,19 +64,19 @@ GDA_1 ->> eDiag_FA: POST $readtowrite
 activate GDA_1
 
 note over GDA_1
-Medikationsplan abrufen, 
+Liste abrufen, 
 mit der Intention zu schreiben
 end note
 
 activate eDiag_FA
-eDiag_FA -> eDiag_FA: Prüfung auf bestehenden\nMedikationsplan
+eDiag_FA -> eDiag_FA: Prüfung auf bestehende Liste
 
-alt kein Medikationsplan vorhanden
-  eDiag_FA -> eDiag_FA: Kein Plan vorhanden:\nFachanwendung erzeugt leeren Medikationsplan\n mit emptyReason = "notstarted"
-  eDiag_FA -->> GDA_1: Leerer Medikationsplan
+alt keine Liste vorhanden
+  eDiag_FA -> eDiag_FA: Keine Liste vorhanden:\nFachanwendung erzeugt leere Liste mit emptyReason = "notstarted"
+  eDiag_FA -->> GDA_1: Leere Liste
 
-else Medikationsplan vorhanden
-  eDiag_FA -> eDiag_FA: Plan vorhanden:\nstellt Collection Bundle zur Auslieferung bereit:\n(inkl. neuem temporär gespeicherten List.identifier)\nBedingung für Read-to-Write Collection Bundle:\n- new|changed → unchanged\n- removed → entfernen
+else Liste vorhanden
+  eDiag_FA -> eDiag_FA: Liste vorhanden:\nstellt Collection Bundle zur Auslieferung bereit:\n(inkl. neuem temporär gespeicherten List.identifier)\nBedingung für Read-to-Write Collection Bundle:\n- new|changed → unchanged\n- removed → entfernen
   eDiag_FA -->> GDA_1: Collection Bundle + List.identifier
   deactivate eDiag_FA
 end
@@ -84,7 +84,7 @@ end
 GDA_1 -> GDA_1: Einträge hinzufügen/ändern/entfernen
 
 note over GDA_1
-Medikationsplan bearbeiten.
+Listeneinträge bearbeiten.
 Nach Fertigstellung kann ein Write-Zugriff erfolgen.
 end note
 

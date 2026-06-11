@@ -22,6 +22,7 @@ Description: "Das AT e-Diagnose Condition-Profil leitet sich vom Condition-Profi
 * clinicalStatus ^short = "Klinischer Status der Diagnose (wie:Status post), 
 mögliche Codes: active | recurrence | relapse | inactive | remission | resolved"
 
+// 2026_06_ToDo: Klären der Kardinalität? optional? 
 * verificationStatus 1..1 MS
 * verificationStatus only CodeableConcept
 * verificationStatus ^short = "Status der Diagnose, mögliche Codes: unconfirmed | provisional | differential | confirmed | refuted | entered-in-error"
