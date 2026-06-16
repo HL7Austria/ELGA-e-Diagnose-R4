@@ -5,6 +5,8 @@ Description: "Beispielinstanz einer bestätigten Allergie"
 
 * meta.profile = "https://fhir.hl7.at/elga/ediag/r4/StructureDefinition/at-ediag-allergyintolerance"
 
+* meta.tag[diagnosisType] = https://fhir.hl7.at/elga/ediag/r4/CodeSystem/at-ediag-diagnose-type#relevant "currently relevant"
+
 * extension[reported].valueBoolean = false
 
 * clinicalStatus = http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical#active

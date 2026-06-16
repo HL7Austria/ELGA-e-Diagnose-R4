@@ -147,9 +147,9 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom Allerg
 
 
 // SGR verificationStatus = refuted dann clinicalStatus = inaktiv
-Invariant: allergy-verification-refuted-means-inactive
-Severity: #error
-Description: "Wenn der verificationStatus 'refuted' ist, muss der clinicalStatus 'inactive' sein."
-Expression: "verificationStatus.coding.where(code = 'refuted').exists() implies clinicalStatus.coding.where(code = 'inactive').exists()"
+//Invariant: allergy-verification-refuted-means-inactive
+//Severity: #error
+//Description: "Wenn der verificationStatus 'refuted' ist, muss der clinicalStatus 'inactive' sein."
+//Expression: "verificationStatus.coding.where(code = 'refuted').exists() implies clinicalStatus.coding.where(code = 'inactive').exists()"
 
 
