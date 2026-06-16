@@ -1,10 +1,10 @@
 @startuml
 title List.entry.flag
 
-(*) -d-> [Neuen Planeintrag\nhinzufügen] new
+(*) -d-> [Neuen Eintrag\nhinzufügen] new
 new --> [Automatisch bei\nRead-to-Write-Zugriff\n(durch Fachanwendung)] unchanged
 changed --> [Automatisch bei\nRead-to-Write-Zugriff\n(durch Fachanwendung)] unchanged
-unchanged --> [Planeintrag\nändern] changed
-unchanged -d-> [Planeintrag\nentfernen] removed
+unchanged --> [Eintrag\nändern] changed
+unchanged -d-> [Eintrag\nentfernen] removed
 removed  -d-> (*)
 @enduml

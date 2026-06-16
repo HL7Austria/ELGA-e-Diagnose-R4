@@ -42,8 +42,8 @@ box "\n  GDA 1  " #9fbac4
   actor GDA_1 as "GDA 1"
 end box
 
-box "\n       e-Diag Fachanwendung      " #C48778
-  participant eDiag_FA as "e-Med FA"
+box "\n       e-Diagnose Fachanwendung      " #C48778
+  participant eDiag_FA as "e-Diag FA"
 end box
 
 box "\n    GDA 2  " #beaebe
@@ -61,7 +61,7 @@ activate GDA_1
 
 note over GDA_1
 Vorbedingung: Nach einem Read-to-Write
-wurde der Medikationsplan bearbeit
+wurde die Liste bearbeit
 end note
 
 == Write ==
@@ -76,10 +76,10 @@ alt ungültig
   eDiag_FA -->> GDA_1: Fehler 
   
 else gültig 
-  eDiag_FA -> eDiag_FA: Persistiert neue Version des\nMedikationsplans
+  eDiag_FA -> eDiag_FA: Persistiert neue Version der Liste
 
   note over eDiag_FA
-  Neuer Medikationsplan gespeichert
+  Neue Liste gespeichert
   end note
 
   eDiag_FA -->> GDA_1: OK
