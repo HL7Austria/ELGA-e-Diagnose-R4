@@ -1,7 +1,7 @@
 ValueSet: AtEDiagProzedurenCodes
 Id: at-ediag-prozeduren-codes
-Title: "AT e-Diagnose Prozeduren Codes"
-Description: "Umfasst alle SNOMED CT Prozeduren (is-a Procedure). Dient als vollständige Alternative zum eingeschränkten IPS ValueSet."
+Title: "AT e-Diagnose Procedures Value Set"
+Description: "ValueSet mit SNOMED CT Prozeduren (is-a Procedure). Dient als vollständige Alternative zum eingeschränkten IPS ValueSet."
 * ^status = #active
 * ^experimental = true
 // https://build.fhir.org/ig/HL7/fhir-ips/en/ValueSet-procedures-uv-ips.html

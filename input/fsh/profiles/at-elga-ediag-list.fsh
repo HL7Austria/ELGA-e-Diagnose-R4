@@ -7,8 +7,8 @@ Description: "Das AT e-Diagnose List-Profil leitet sich vom HL7-AT-Core-R4-Profi
 * ^status = #active
 * . ^short = "AT e-Diagnose List"
 
-//* identifier 1..1 MS
-//* identifier ^short = "Logischer Identfier der Liste zur Integritätsprüfung beim Schreibvorgang."
+* identifier 1..1 MS
+* identifier ^short = "Logischer Identfier der Liste zur Integritätsprüfung beim Schreibvorgang."
 
 //* status 1..1 MS
 //* status from ElgaListStatusVS (required)

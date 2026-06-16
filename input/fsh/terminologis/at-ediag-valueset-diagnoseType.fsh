@@ -1,7 +1,7 @@
 ValueSet: AtEdiagDiagnosisTypeVS
 Id: at-ediag-diagnosen-type
-Title: "AT e-Diagnose Typ"
-Description: "Dieses Value-Set legt fest, ob eine Diagnose currently relevant oder not currently relevant ist"
+Title: "AT e-Diagnose Diagnosis Type Value Set"
+Description: "ValueSet zur Unterscheidung, ob eine Diagnose aktuell relevant oder nicht aktuell relevant ist."
 * ^status = #active
 * ^experimental = true
 * include codes from system AtEdiagDiagnosisType
