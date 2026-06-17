@@ -64,7 +64,7 @@ pages:
   challenges.md:
     title: Herausforderungen 
   interactions.md:
-    title: "Zugriffsarten auf die eDiagnosenliste"
+    title: "Zugriffsarten auf die Diagnosenliste"
   actors.md:
     title: Akteure
   workflowmanagement.md:
