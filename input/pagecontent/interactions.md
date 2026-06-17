@@ -68,7 +68,7 @@ Der temporär gespeicherte List.identifier für die Integritätsprüfung beim Sc
 
 #### Custom Operations
 
-[$readtowrite](OperationDefinition-AtEmed.List.Readtowrite.html)
+<!-- [$readtowrite](OperationDefinition-AtEmed.List.Readtowrite.html) -->
 
 
 #### Sequenzdiagramm Read-to-Write-Zugriff
@@ -98,7 +98,7 @@ Es muss erneut ein Read-to-Write ausgeführt werden und die Aktualisierungen üb
 
 #### Custom Operations
 
-[$write](OperationDefinition-AtEmed.List.Write.html)
+<!--[$write](OperationDefinition-AtEmed.List.Write.html)-->
 
 
 #### Sequenzdiagramm Write-Zugriff
