@@ -4,5 +4,6 @@ Title: "AT e-Diagnose Procedure Status Value Set"
 Description: "ValueSet zur Kennzeichnung, ob eine Prozedur durchgeführt oder irrtümlich dokumentiert wurde."
 * ^status = #active
 * ^experimental = true
-* http://hl7.org/fhir/event-status#completed "abgeschlossen"
-* http://hl7.org/fhir/event-status#entered-in-error "irrtümlich eingegeben"
+
+* include http://hl7.org/fhir/event-status#completed
+* include http://hl7.org/fhir/event-status#entered-in-error

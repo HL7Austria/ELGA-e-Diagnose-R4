@@ -10,7 +10,7 @@ Usage: #example
 
 * extension[reported].valueBoolean = false
 
-* status = http://hl7.org/fhir/event-status#completed
+* status = #completed
 
 // Coloskopie 
 * code = http://snomed.info/sct#73761001 "Coloskopie"
