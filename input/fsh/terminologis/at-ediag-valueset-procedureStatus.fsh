@@ -5,4 +5,5 @@ Description: "ValueSet zur Kennzeichnung, ob eine Prozedur durchgeführt oder ir
 * ^status = #active
 * ^experimental = true
 
-* include codes from system http://hl7.org/fhir/event-status
+* include http://hl7.org/fhir/event-status#completed
+* include http://hl7.org/fhir/event-status#entered-in-error

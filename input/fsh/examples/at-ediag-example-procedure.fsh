@@ -1,12 +1,10 @@
 Instance: ProcedureExample
-InstanceOf: AtEdiagProcedure
+InstanceOf: AtEdiagProcedure 
 Title: "Beispiel Prozedur"
 Description: "Beispielinstanz einer Prozedur"
 Usage: #example
 
-* meta.profile = "https://fhir.hl7.at/elga/ediag/r4/StructureDefinition/at-ediag-procedure"
-
-* meta.tag[diagnosisType] = https://fhir.hl7.at/elga/ediag/r4/CodeSystem/at-ediag-diagnose-type#relevant "currently relevant"
+* meta.tag[diagnosisType] = AtEdiagDiagnosisType#relevant "currently relevant"
 
 * extension[reported].valueBoolean = false
 

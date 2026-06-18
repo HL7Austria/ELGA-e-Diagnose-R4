@@ -8,6 +8,7 @@ Alias: $cs-condition-category = http://terminology.hl7.org/CodeSystem/condition-
 Alias: $condition-clinical = http://terminology.hl7.org/CodeSystem/condition-clinical
 Alias: $cs-proc-relevance = http://example.org/fhir/CodeSystem/at-ediag-procedure-relevance
 
+
 // list
 Alias: $cs-list-empty-reason = http://terminology.hl7.org/CodeSystem/list-empty-reason
 Alias: $list-status = http://hl7.org/fhir/list-status

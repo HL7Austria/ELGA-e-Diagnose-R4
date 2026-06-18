@@ -4,13 +4,11 @@ Title: "Beispiel Diagnose currently relevant"
 Description: "Beispielinstanz einer Diagnose - currently relevant"
 Usage: #example
 
-* meta.profile = "http://example.org/fhir/StructureDefinition/at-ediag-condition"
-
-* meta.tag[diagnosisType] = https://fhir.hl7.at/elga/ediag/r4/CodeSystem/at-ediag-diagnose-type#relevant "currently relevant"
+* meta.tag[diagnosisType] = AtEdiagDiagnosisType#relevant "currently relevant"
 
 * extension[AtReported].valueBoolean = false
 
-* clinicalStatus = http://terminology.hl7.org/CodeSystem/condition-clinical#active
+* clinicalStatus = $condition-clinical#active
 
 * verificationStatus = http://terminology.hl7.org/CodeSystem/condition-ver-status#confirmed
 

@@ -4,13 +4,11 @@ Title: "Beispiel Diagnose not currently relevant"
 Description: "Beispielinstanz einer Diagnose - not currently relevant"
 Usage: #example
 
-* meta.profile = "http://example.org/fhir/StructureDefinition/at-ediag-condition"
-
-* meta.tag[diagnosisType] = https://fhir.hl7.at/elga/ediag/r4/CodeSystem/at-ediag-diagnose-type#notrelevant "not currently relevant"
+* meta.tag[diagnosisType] = AtEdiagDiagnosisType#notrelevant "not currently relevant"
 
 * extension[AtReported].valueBoolean = true
 
-* clinicalStatus = http://terminology.hl7.org/CodeSystem/condition-clinical#active
+* clinicalStatus = $condition-clinical#active
 
 * verificationStatus = http://terminology.hl7.org/CodeSystem/condition-ver-status#confirmed
 
