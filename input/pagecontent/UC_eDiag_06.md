@@ -25,8 +25,8 @@ Die e-Diagnose Fachanwendung unterstützt das Laden, Erfassen, Bearbeiten, Storn
 #### Sub_UC_eDiag_06_06 - Bestehende Einträge aus der Gesamtansicht in eine Liste übernehmen
 #### Sub_UC_eDiag_06_07 - Einträge innerhalb einer Liste stornieren
 
-#### Interaktionen mit fachlichen Einzelressourcen 
-### Sub_UC_eDiag_06_08 - Diagnosen, Prozeduren sowie Allergien und Intoleranzen erfassen
-### Sub_UC_eDiag_06_09 - Diagnosen, Prozeduren sowie Allergien und Intoleranzen bearbeiten
-### Sub_UC_eDiag_06_10 - Diagnosen, Prozeduren sowie Allergien und Intoleranzen stornieren
-### Sub_UC_eDiag_06_11 - Diagnosen, Prozeduren sowie Allergien und Intoleranzen löschen
+### Interaktionen mit fachlichen Einzelressourcen 
+#### Sub_UC_eDiag_06_08 - Diagnosen, Prozeduren sowie Allergien und Intoleranzen erfassen
+#### Sub_UC_eDiag_06_09 - Diagnosen, Prozeduren sowie Allergien und Intoleranzen bearbeiten
+#### Sub_UC_eDiag_06_10 - Diagnosen, Prozeduren sowie Allergien und Intoleranzen stornieren
+#### Sub_UC_eDiag_06_11 - Diagnosen, Prozeduren sowie Allergien und Intoleranzen löschen
