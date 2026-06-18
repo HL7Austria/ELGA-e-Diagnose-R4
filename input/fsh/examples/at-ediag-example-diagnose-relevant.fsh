@@ -16,7 +16,7 @@ Usage: #example
 
 * code.coding[snomed].system = "http://snomed.info/sct"
 * code.coding[snomed].code = #40930008
-* code.coding[snomed].display = "Hypothyreose"
+* code.coding[snomed].display = "Hypothyroidism"
 
 * subject = Reference(PatientExample)
 
