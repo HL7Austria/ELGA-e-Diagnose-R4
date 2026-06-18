@@ -1,1 +1,1 @@
-### AWF01 - Diagnose lesen
+### Diagnose lesen

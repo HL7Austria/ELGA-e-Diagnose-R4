@@ -69,14 +69,14 @@ pages:
     title: Akteure
   workflowmanagement.md:
     title: Workflowmanagement
-  anwendungsfaelle.md:
-    title: "Überblick Anwendungsfälle"
+  technische_use_cases.md:
+    title: "Technische Use Cases"
     patient_journey.md:
       title: Patient Journey
     UC_eDiag_01.md:
-      title: "UC_eDiag_01 - Diagnosen lesen"
+      title: "Technischer Use Cases für Diagnosen lesen"
     UC_eDiag_02.md:
-      title: "UC_eDiag_02 - Diagnosen schreiben"
+      title: "Technische Use Cases für Diagnosen schreiben, bearbeiten, korrigieren"
   terminologies.md:
     title: Terminologien
 #
@@ -114,10 +114,8 @@ menu:
    Zugriffsarten auf eine Liste: interactions.html
    Workflowmanagement: workflowmanagement.html
   Use Cases: 
-   Überblick: anwendungsfaelle.html
+   Technische Use Cases: technische_use_cases.html
    Patient Journey: patient_journey.html
-   "UC_eDiag_01 Diagnosen lesen": UC_eDiag_01.html
-   "UC_eDiag_02 Diagnosen schreiben": UC_eDiag_02.html
   Terminologies: terminologies.html
   Artifacts: artifacts.html
 
