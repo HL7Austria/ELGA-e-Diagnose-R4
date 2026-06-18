@@ -10,6 +10,34 @@ Die **e-Diagnose** ermöglicht die Verwaltung von Diagnosen, Prozeduren, Allergi
 
 [![diagram](ediag_kategorie.png){: style="width: 60%"}](ediag_kategorie.png)
 
-### Interaktionen mit der List-Ressource
 
-### Interaktionen mit Einzelressourcen
+
+### Sub_UC_eDiag_06_01 - Bestehende Listen laden
+#### Aktuelle Listen relevanter Einträge laden
+#### Zugehöroge Einzelressourcen laden
+
+
+### Sub_UC_eDiag_06_02 - Liste relevanter Einträge bearbeiten
+#### Neuen Eintrag in die Liste aufnehmen
+#### Bestehenden Eintrag fachlich bearbeiten
+#### Reihenfolge der Einträge ändern
+#### Eintrag aus der Liste entfernen
+#### Bestehenden Eintrag aus der Gesamtansicht in die Liste übernehmen
+#### Eintrag stornieren
+
+### Sub_UC_eDiag_06_03 - Einzelressource erfassen
+#### Neue Diagnose erfassen
+#### Neue Prozedur erfassen
+#### Neue Allergie oder Intoleranz erfassen
+
+
+### Sub_UC_eDiag_06_04 - Einzelressource bearbeiten
+#### Diagnose bearbeiten
+#### Prozedur bearbeiten
+#### Allergie oder Intoleranz bearbeiten
+
+
+### Sub_UC_eDiag_06_05 - Einzelressource stornieren
+#### Diagnose stornieren
+#### Prozedur stornieren
+#### Allergie oder Intoleranz stornieren
