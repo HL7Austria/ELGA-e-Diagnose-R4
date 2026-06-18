@@ -10,6 +10,6 @@ Für jeden Use Case werden im Kapitel *Relevante Elemente* die wichtigsten Eleme
 
 ### Liste der Technischen Use Cases
 
-- [Technische Use Cases zu Diagnosen schreiben, bearbeiten, korrigieren](UC_eDiag_02.html)
+- [Technische Use Cases zu Diagnosen schreiben, bearbeiten, korrigieren](UC_eDiag_06.html)
 
 

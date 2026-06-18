@@ -71,9 +71,9 @@ pages:
     title: Workflowmanagement
   technische_use_cases.md:
     title: "Technische Use Cases"
-    patient_journey.md:
+  patient_journey.md:
       title: Patient Journey
-    UC_eDiag_06.md:
+  UC_eDiag_06.md:
       title: "Technische Use Cases für Diagnosen schreiben, bearbeiten, korrigieren"
   terminologies.md:
     title: Terminologien
@@ -111,9 +111,9 @@ menu:
    Akteure: actors.html
    Zugriffsarten auf eine Liste: interactions.html
    Workflowmanagement: workflowmanagement.html
-  Use Cases: 
-   Technische Use Cases: technische_use_cases.html
+  Anwendungsfälle: 
    Patient Journey: patient_journey.html
+   Technische Use Cases: technische_use_cases.html
   Terminologies: terminologies.html
   Artifacts: artifacts.html
 
