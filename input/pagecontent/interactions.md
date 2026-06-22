@@ -13,8 +13,9 @@ ToDo: Wording Liste, eDiagnosenliste,...
 
 
 
-### History Read Only (ToDo: Klären ob; sind laut Grafi zwei unterschiedliche Lesearten)
+### History Read Only 
 
+ToDo: Klären ob; sind laut Grafik zwei unterschiedliche Lesearten, ob beide benötigt werden?
 Der History Read dient ausschließlich der Anzeige historischer Versionen einer Liste. Die Fachanwendung stellt bereits persistierte historische Collection Bundles unverändert bereit. Der Zugriff erfolgt lesend und ermöglicht keine nachfolgende Bearbeitung der Liste.
 
 #### Ablauf
@@ -39,7 +40,7 @@ Beim List Read stellt die Fachanwendung **die aktuelle oder historische Versione
 3. Ist keine Liste vorhanden, wird ein  **leeres Ergebnis** zurückgegeben.
 4. Ist eine Liste vorhanden, wird das aktuelle oder angeforderte historische **Collection Bundle** zurückgeliefert. <br>
 
-Das **Collection Bundle** enthält:<br>
+Das **Collection Bundle** enthält:
 * die List-Ressource <br>
 * alle referenzierten Ressourcen 
 
