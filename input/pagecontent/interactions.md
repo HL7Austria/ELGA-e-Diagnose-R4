@@ -10,7 +10,7 @@ Im Folgenden werden standardisierte Interaktionen für den lesenden und schreibe
 
 ToDo: Grafik ändern - keine Kombiliste und Alerts
 ToDo: Wording Liste, eDiagnosenliste,...
-ToDo: Inhaltliche Anpassungen 
+ToDo: Images der Sequenzdiagramme anpassen!!!!
 
 
 ### List History Read  
@@ -18,10 +18,18 @@ Der History Read dient ausschließlich der Anzeige historischer Versionen einer 
 
 #### Ablauf
 
-1. Der GDA fürht ein **GET** auf die Liste aus.
-2. Die Fachanwendung liefert historische Version/en.
+1. Der GDA fürht ein **GET** auf das Collection Bunlde der Liste aus.
+2. Die Fachanwendung prüft, on eine Liste vorhanden ist.
 3. Ist keine List-Version vorhanden, wird ein leeres Ergebnis zurückgeliefert.
-3. Keine Bearbeitung möglich. 
+4. Ist eine Liste vorhanden, wird das aktuelle oder angeforderte historische **Collection Bundle** zurückgeliefert. <br>
+Das **Collection Bundle** enthält:
+* die List-Ressource <br>
+* alle referenzierten Ressourcen 
+
+Beim List History Read erfolgt **keine Veränderung** von Flags, Status oder Inhalten durch die Fachanwendung.<br>
+Der Zugriff dient ausschließlich der Anzeige bzw. Informationsabfrage von aktueller oder historischer Listversionen.<br>
+
+#### Sequenzdiagramm List History Read
 
 **Beispiele für Zugriffe mittels Suchparameter:**
 * **Aktuelle Listversion** mit dem Suchparameter Patient abrufen: GET [base]/Bundle?type=collection&_count=1&_sort=-timestamp&list.subject={bPK-GH}
@@ -29,22 +37,21 @@ Der History Read dient ausschließlich der Anzeige historischer Versionen einer 
 
 ### List Read
 
-Beim List Read stellt die Fachanwendung **die aktuelle oder historische Versionen** einer Liste als persistierte Collection Bundle inklusive aller referenzierten Ressourcen **unverändert** bereit.
+List Read dient dem **Abruf der Liste und der Vorbereitung einer nachfolgenden Änderung**.
 
 
 #### Ablauf
 
-1. Der GDA führt einen **POST $ListRead** auf die Liste aus.
+1. Der GDA führt einen **POST $ListRead** auf das Collection Bundle aus, dass die Liste mit allen zugehörigen relevanten Ressourcen enthält. 
 2. Die Fachanwendung **prüft auf Existenz** der Liste für die angegebene Patientin bzw. den angegebenen Patienten.
-3. Ist keine Liste vorhanden, wird ein  **leeres Ergebnis** zurückgegeben.
-4. Ist eine Liste vorhanden, wird das aktuelle oder angeforderte historische **Collection Bundle** zurückgeliefert. <br>
-
-Das **Collection Bundle** enthält:
-* die List-Ressource <br>
-* alle referenzierten Ressourcen 
-
-Beim List-Read erfolgt **keine Veränderung** von Flags, Status oder Inhalten durch die Fachanwendung.<br>
-Der Zugriff dient ausschließlich der Anzeige bzw. Informationsabfrage von aktueller oder historischer Listversionen.<br>
+3. Ist keine Liste vorhanden, wird dieser erstellt (siehe Sub_UC_eDiag_06_01 - Liste initialisieren) und 
+4. eine leere Liste mit dem emptyReason notstarted wird zurückgeliefert.
+5. Existiert bereits eine Liste, wird von der Fachanwendung aus diesem ein Collection Bundle zur Auslieferung bereitgestellt. Die Inhalte werden von der Fachanwendung wie folgt aufbereitet: 
+* Falls der vorherige GDA neue Listeneinträge hinzugefügt oder bestehende geändert hat (List.entry.flag haben den Wert **new** oder **changed**), werden diese auf **unchanged** gesetzt.<br>
+* Falls der vorherige GDA Listenneinträge beendet hat (deren List.entry.flag haben den Wert **removed**), werden diese Einträge aus der Liste **entfernt**.<br>
+* Falls der vorherige GDA **alle vorhandenen Einträge** mit removed gekennzeichnet hat, wird List.emptyReason mit *nilknown* zurückgeliefert, um nachfolgenden GDA zu signalisieren, dass der Patient zum Zeitpunkt des letzten Schreibens keine Einträge hatte.<br>
+6. Die Fachanwendung liefert an den GDA die Liste und alle referenzierten Ressourcen.
+7. Ziel ist ein neutraler, weiterbearbeitbarer Zustand für den abrufenden GDA.
 
 #### Sequenzdiagramm List Read
 <br>
