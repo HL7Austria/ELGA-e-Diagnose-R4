@@ -55,7 +55,7 @@ Der Zugriff dient ausschließlich der Anzeige bzw. Informationsabfrage von aktue
 
 ### List Write
 
-List Write ist eine eigenständige Operation, die ausschließlich im Kontext eines **zuvor ausgeführten** [List-Read](interactions.html#read-to-read) erfolgen darf.
+List Write ist eine eigenständige Operation, die ausschließlich im Kontext eines **zuvor ausgeführten** [List-Read](interactions.html#list-read) erfolgen darf.
 Der beim List Read erhaltene **List.identifier** dient als Versionsreferenz für den nachfolgenden Schreibvorgang. <br>
 
 #### Ablauf

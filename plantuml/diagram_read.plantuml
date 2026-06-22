@@ -59,7 +59,7 @@ autonumber
 
 == Read ==
 activate GDA_1
-GDA_1 ->> eDiag_FA: GET CollectionBundle
+GDA_1 ->> eDiag_FA: POST $ListRead
 
 activate eDiag_FA
 eDiag_FA -> eDiag_FA: Prüfung auf bestehende Liste
@@ -76,6 +76,6 @@ note over GDA_1, eDiag_FA
 Fachanwendung liefert Liste oder leeres Ergebnis zurück.
 end note
 
-center footer Read-only-Zugriff
+center footer List Read
 
 @enduml
