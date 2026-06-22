@@ -43,7 +43,7 @@ box "\n  GDA 1  " #9fbac4
 end box
 
 box "\n       e-Diagnose Fachanwendung      " #C48778
-  participant eDiag_FA as "e-Diag FA"
+  participant eDiag_FA as "e-Diagnose FA"
 end box
 
 box "\n    GDA 2  " #beaebe
@@ -60,13 +60,12 @@ autonumber
 activate GDA_1
 
 note over GDA_1
-Vorbedingung: Nach einem Read-to-Write
-wurde die Liste bearbeit
+Vorbedingung: List-Read
 end note
 
 == Write ==
 
-GDA_1 ->> eDiag_FA: POST $write (Transaction Bundle + List.identifier)
+GDA_1 ->> eDiag_FA: POST $ListWrite (Transaction Bundle + List.identifier)
 
 activate eDiag_FA
 eDiag_FA -> eDiag_FA: List.identifier im TransactionBundle ==\ntemporär gespeicherter List.identifier?
@@ -87,7 +86,7 @@ else gültig
   deactivate eDiag_FA
 end
 
-center footer Write-Zugriff
+center footer List-Write
 
 
 @enduml

@@ -10,18 +10,17 @@ Im Folgenden werden standardisierte Interaktionen für den lesenden und schreibe
 
 ToDo: Grafik ändern - keine Kombiliste und Alerts
 ToDo: Wording Liste, eDiagnosenliste,...
+ToDo: Inhaltliche Anpassungen 
 
 
-
-### History Read Only 
-
-ToDo: Klären ob; sind laut Grafik zwei unterschiedliche Lesearten, ob beide benötigt werden?
+### List History Read  
 Der History Read dient ausschließlich der Anzeige historischer Versionen einer Liste. Die Fachanwendung stellt bereits persistierte historische Collection Bundles unverändert bereit. Der Zugriff erfolgt lesend und ermöglicht keine nachfolgende Bearbeitung der Liste.
 
 #### Ablauf
 
 1. Der GDA fürht ein **GET** auf die Liste aus.
 2. Die Fachanwendung liefert historische Version/en.
+3. Ist keine List-Version vorhanden, wird ein leeres Ergebnis zurückgeliefert.
 3. Keine Bearbeitung möglich. 
 
 **Beispiele für Zugriffe mittels Suchparameter:**
