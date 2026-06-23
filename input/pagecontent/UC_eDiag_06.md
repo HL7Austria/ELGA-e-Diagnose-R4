@@ -45,26 +45,31 @@ Hierfür führt dieser GDA ein $list-read aus und bearbeitet das von der Fachanw
 * Im Anschluss übermittlet der GDA mittels **POST $ListWrite** die aktualsiierte Liste in einem Transaction Bundle-
 
 #### Ablauf
-
 <div>{% include_relative plantuml/diagram_uc_06_02.svg %}</div>
    
 
 #### Sub_UC_eDiag_06_03 - Bestehende Einträge innerhalb einer Liste fachlich bearbeiten
-
+Der GDA kann Einträge in einer Liste fachlich bearbeiten.
 #### Ablauf
 <div>{% include_relative plantuml/diagram_uc_06_03.svg %}</div>
 
-#### Sub_UC_eDiag_06_04 - Reihenfolge von Einträgen innerhalb einer Liste ändern
 
+#### Sub_UC_eDiag_06_04 - Reihenfolge von Einträgen innerhalb einer Liste ändern
+Der GDA kann die Reihenfolge der Listeinträge ändern. Die Einträge selbst bleiben dabei unverändert.
 #### Ablauf
+<div>{% include_relative plantuml/diagram_uc_06_04.svg %}</div>
+
 
 #### Sub_UC_eDiag_06_05 - Einträge aus einer Liste entfernen
+ToDo:Wird der Eintrag nur aus der List-Ressource entfernt oder wird die referenzierte Ressource (Condition, Procedure, AllergyIntolerance) ebenfalls gelöscht/inaktiviert?
 
 #### Ablauf
+List.entry wird entfernt, die referenzierte Ressource bleibt bestehen.
+<div>{% include_relative plantuml/diagram_uc_06_05.svg %}</div>
 
 #### Sub_UC_eDiag_06_06 - Bestehende Einträge aus der Gesamtansicht in eine Liste übernehmen
+ToDo: Workflow aus einem nicht-relevanten Eintrag einen relevanten zu machen. 
 
-#### Ablauf
 
 #### Sub_UC_eDiag_06_08 - Eintrag innerhalb einer Liste durch ELGA-Teilnehmer:in löschen 
 ToDo: Aus Liste entfernen, Ressource bleibt bestehen, verliert nur Listzugehörigkeit oder Löschen - Ressource wird vollständig entfernt
@@ -75,10 +80,16 @@ ToDo: fachliche Auswirkungen klären; gesamte List-Ressouce löschen, alle Refer
 ### Interaktionen mit fachlichen Einzelressourcen 
 #### Sub_UC_eDiag_06_10 Diagnosen, Prozeduren sowie Allergien und Intoleranzen erfassen
 #### Ablauf
+<div>{% include_relative plantuml/diagram_uc_06_10.svg %}</div>
+
 #### Sub_UC_eDiag_06_11- Diagnosen, Prozeduren sowie Allergien und Intoleranzen bearbeiten
 #### Ablauf
+<div>{% include_relative plantuml/diagram_uc_06_11.svg %}</div>
+
 #### Sub_UC_eDiag_06_12 - Diagnosen, Prozeduren sowie Allergien und Intoleranzen stornieren
 #### Ablauf
+<div>{% include_relative plantuml/diagram_uc_06_12.svg %}</div>
+
 #### Sub_UC_eDiag_06_13 - Diagnosen, Prozeduren sowie Allergien und Intoleranzen löschen
 ToDo: Aus Liste entfernen, Ressource bleibt bestehen, verliert nur Listzugehörigkeit oder Löschen - Ressource wird vollständig entfernt
 
