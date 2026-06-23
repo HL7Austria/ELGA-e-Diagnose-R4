@@ -75,8 +75,6 @@ pages:
       title: Patient Journey
   UC_eDiag_06.md:
       title: "Technische Use Cases für Diagnosen schreiben, bearbeiten, korrigieren"
-  terminologies.md:
-    title: Terminologien
 #
 # The parameters property represents IG.definition.parameter. Rather
 # than a list of code/value pairs (as in the ImplementationGuide
@@ -114,7 +112,6 @@ menu:
   Anwendungsfälle: 
    Patient Journey: patient_journey.html
    Technische Use Cases: technische_use_cases.html
-  Terminologies: terminologies.html
   Artifacts: artifacts.html
 
   

@@ -19,7 +19,32 @@ Die e-Diagnose Fachanwendung unterstützt das Laden, Erfassen, Bearbeiten, Storn
 ###  Interaktionen mit Listenressourcen
 
 #### Sub_UC_eDiag_06_01 - Liste initialisieren
+Die in initiale Erstellung einer Liste erfolgt durch die e-Diagnose-Fachanwendung.
+
+Ruft ein GDA die Liste eines Patienten zum Zweck der Bearbeitung ab ($list-read), prüft die Fachanwendung, ob bereits eine Liste vorhanden ist: existiert noch keine Liste, wird dieser im Hintergrund automatisch initial angelegt (siehe [List-Read](interactions.html#list-read)).
+
+Der GDA erhält in diesem Fall ein Collection Bundle mit einer leeren Liste (List) mit **emptyReason** ***notstarted*** zurück. Der enthaltene list.identifer dient der zur späteren Integritätsprüfung beim Schreibvorgang.
+
+Dieser Status *emptyReason* **kennzeichnet ausschließlich den Initialzustand** (keine Einträge in der Liste) und trifft keine Aussage darüber, ob die Person eine Diagnose, Prozedur, Allergie oder eine Intoleranz hat.
+
+##### Ablauf
+
+<div>{% include_relative plantuml/diagram_uc_06_01.svg %}</div>
+
+
 #### Sub_UC_eDiag_06_02 - Neue Einträge in einer Liste erstellen
+Ein GDA kann einen oder mehrere neue Einträge in der Liste von Diagnosen, Prozeduren, Allergien und Intoleranzen erfassen.
+Hierfür führt dieser GDA ein $list-read aus und bearbeitet das von der Fachanwendung übermittelte Collection Bundle:
+* Im Element **List.source** wird der aktuelle GDA dokumentiert, das Element **List.date** wird auf den aktuellen Zeitpunkt aktualisiert.
+* Die entsprechende Ressource (**Condition, Procedure oder AllergyIntolerance**) wird neu erstellt und in der **List-Ressource** referenziert.
+* Das **List.entry.flag** der referenzierten Ressource erhält den Wert **new**.
+* Die Ressource erhält die für den jeweiligen Ressourcentyp zulässigen Statuswert (siehe [Statustabelle](worflowmanagement.html#statustabelle)).
+* Die Ressource enthält die fachlich erforderlichen Informationen gemäß Ressourcentyp (siehe )
+   
+
+
+
+
 #### Sub_UC_eDiag_06_03 - Bestehende Einträge innerhalb einer Liste fachlich bearbeiten
 #### Sub_UC_eDiag_06_04 - Reihenfolge von Einträgen innerhalb einer Liste ändern
 #### Sub_UC_eDiag_06_05 - Einträge aus einer Liste entfernen
