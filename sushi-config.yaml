@@ -64,7 +64,7 @@ pages:
   challenges.md:
     title: Herausforderungen 
   interactions.md:
-    title: "Zugriffsarten auf die Diagnosenliste"
+    title: "Interaktionen"
   actors.md:
     title: Akteure
   workflowmanagement.md:
@@ -107,7 +107,7 @@ menu:
    Herausforderungen: challenges.html 
   Funktionales:
    Akteure: actors.html
-   Zugriffsarten auf eine Liste: interactions.html
+   Interaktionen: interactions.html
    Workflowmanagement: workflowmanagement.html
   Anwendungsfälle: 
    Patient Journey: patient_journey.html
