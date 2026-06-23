@@ -1,6 +1,6 @@
 {% include styleheader.md %}
 
-<!-- Zugriffsarten auf die eDiagnosen-Liste -->
+<!-- Transaktionen -->
 
 Im Folgenden werden standardisierte Interaktionen für den lesenden und schreibenden Zugriff auf die Diagnosenliste eines Patienten bzw. einer Patientin erläutert, die für alle technischen Use Cases relevant sind.
 
@@ -30,6 +30,11 @@ Beim List History Read erfolgt **keine Veränderung** von Flags, Status oder Inh
 Der Zugriff dient ausschließlich der Anzeige bzw. Informationsabfrage von aktueller oder historischer Listversionen.<br>
 
 #### Sequenzdiagramm List History Read
+
+<br>
+<div>{% include_relative plantuml/diagram_planhistoryread.svg %}</div>
+<br> 
+
 
 **Beispiele für Zugriffe mittels Suchparameter:**
 * **Aktuelle Listversion** mit dem Suchparameter Patient abrufen: GET [base]/Bundle?type=collection&_count=1&_sort=-timestamp&list.subject={bPK-GH}

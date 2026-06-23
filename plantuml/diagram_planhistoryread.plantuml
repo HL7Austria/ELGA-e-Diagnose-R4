@@ -1,5 +1,5 @@
 @startuml
-title ListRead
+title Plan-History-Read
 
 skinparam borderColor #000000
 skinparam backgroundColor #f5f5f5
@@ -8,15 +8,19 @@ skinparam roundCorner 10
 skinparam defaultFontName "Arial"
 skinparam defaultFontSize 14
 skinparam defaultFontColor #000000
+skinparam HyperlinkColor #0000EE
+skinparam HyperlinkUnderline false
+skinparam BoxPadding 20
+skinparam BoxBorderColor #555555
 
 skinparam note {
   BackgroundColor #e0e5f0-#d1d9e6
   BorderColor #8b95a5
   BorderThickness 1
-  RoundCorner 8
+  RoundCorner 0
   Padding 6
   FontColor #111827
-  Shadowing true
+  Shadowing false
 }
 
 skinparam HyperlinkColor #0000EE
@@ -56,28 +60,30 @@ box "\n Patient  " #bac38b
   actor Patient as "Patient"
 end box
 
-
 autonumber
 
-== Read ==
+== Liste lesen ==
+
 activate GDA_1
-GDA_1 ->> eDiag_FA: POST $ListRead
+GDA_1 ->> eDiag_FA: GET Liste-Collection-Bundle
 
-activate eDiag_FA
-eDiag_FA -> eDiag_FA: Prüfung auf bestehende Liste
 
-alt keine Einträge vorhanden
+activate eDiag_FA 
+eDiag_FA -> eDiag_FA: Prüfung auf bestehende/n\nListe/n
+
+alt Liste vorhanden
+  eDiag_FA -->> GDA_1: Liste-Collection-Bundle
+else keine Liste vorhanden
   eDiag_FA -->> GDA_1: leeres Ergebnis
-else Einträge vorhanden
-  eDiag_FA -->> GDA_1: CollectionBundle (Liste + Ressourcen) (unverändert)
   deactivate GDA_1
+  deactivate eDiag_FA
 end
-deactivate eDiag_FA
 
 note over GDA_1, eDiag_FA
-Fachanwendung liefert Liste oder leeres Ergebnis zurück.
+Die Fachanwendung liefert die zuletzt gespeicherte Liste 
+(unverändert, inkl. aller referenzierten Ressourcen) oder ein leeres
+Ergebnis zurück.
 end note
 
-center footer List Read
-
+center footer List History Read
 @enduml

@@ -17,6 +17,7 @@ Die folgende Darstellung gibt einen Überblick über die in der e-Diagnose verwa
 Die e-Diagnose Fachanwendung unterstützt das Laden, Erfassen, Bearbeiten, Stornieren und Löschen von Diagnosen, Prozeduren, Allergien und Intoleranzen sowie die Verwaltung in der Gesamtansicht. Die nachfolgenden Sub-Use-Cases beschreiben die dafür erforderlichen Interaktionen und Transaktionen.
 
 ###  Interaktionen mit Listenressourcen
+
 #### Sub_UC_eDiag_06_01 - Liste initialisieren
 #### Sub_UC_eDiag_06_02 - Neue Einträge in einer Liste erstellen
 #### Sub_UC_eDiag_06_03 - Bestehende Einträge innerhalb einer Liste fachlich bearbeiten
@@ -32,4 +33,4 @@ Die e-Diagnose Fachanwendung unterstützt das Laden, Erfassen, Bearbeiten, Storn
 #### Sub_UC_eDiag_06_11- Diagnosen, Prozeduren sowie Allergien und Intoleranzen bearbeiten
 #### Sub_UC_eDiag_06_12 - Diagnosen, Prozeduren sowie Allergien und Intoleranzen stornieren
 #### Sub_UC_eDiag_06_13 - Diagnosen, Prozeduren sowie Allergien und Intoleranzen löschen
-#### Sub_UC_eDiag_06_14 - Diagnosen, Prozeduren sowie Allergien und Intoleranzen durch ELGA-Teilnehmer:in ausblenden (ToDo: fachliche Entscheidung noch offen) 
+#### Sub_UC_eDiag_06_14 - Diagnosen, Prozeduren sowie Allergien und Intoleranzen durch ELGA-Teilnehmer:in ausblenden (ToDo: fachliche Entscheidung) 
