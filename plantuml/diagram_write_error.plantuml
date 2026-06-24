@@ -52,59 +52,44 @@ box "\n    GDA 2  " #beaebe
   actor GDA_2 as "GDA 2"
 end box
 
-box "\n Patient  " #bac38b
-  actor Patient as "Patient"
-end box
-
-
 autonumber
 
- 
-== Read-to-Write durch GDA 1 ==
+ == List-Read durch GDA 1 ==
+
+GDA_1 -> eDiag_FA: POST /Condition/$list-read
 activate GDA_1
-GDA_1 ->> eDiag_FA: POST $readtowrite
 
 activate eDiag_FA
-eDiag_FA -> eDiag_FA: Annahme: Prüfung auf bestehende Liste erfolgreich
-eDiag_FA -> eDiag_FA: Collection Bundle zur Auslieferung erstellt\n(inkl. temporärem List.identifier "123")
-
-eDiag_FA -->> GDA_1: Collection Bundle + List.identifier "123"
+eDiag_FA --> GDA_1: Collection Bundle + ETag "123"
 deactivate eDiag_FA
-
-GDA_1 -> GDA_1: Einträge hinzufügen/ändern/entfernen
 
 note over GDA_1
 GDA 1 bearbeitet Liste
+(Einträge hinzufügen/ändern/entfernen)
 end note
 
-== Read-to-Write durch GDA 2 ==
+== List-Read durch GDA 2 ==
 
-GDA_2 ->> eDiag_FA: POST $readtowrite
+GDA_2 -> eDiag_FA: POST /Condition/$list-read
 activate GDA_2
 
 activate eDiag_FA
-eDiag_FA -> eDiag_FA: Annahme: Prüfung auf bestehende Einträge in der Liste erfolgreich
-eDiag_FA -> eDiag_FA: Collection Bundle zur Auslieferung erstellt\n(inkl. temporärem List.identifier "123")
 
-eDiag_FA -->> GDA_2: Collection Bundle + List.identifier "123"
+eDiag_FA --> GDA_2: Collection Bundle + ETag "123"
 deactivate eDiag_FA
-
-GDA_2 -> GDA_2: Einträge hinzufügen/ändern/entfernen
 
 note over GDA_2
 GDA 2 bearbeitet Liste
+(Einträge hinzufügen/ändern/entfernen)
 end note
 
-== Write durch GDA 2 ==
+== List-Write durch GDA 2 ==
 
-GDA_2 ->> eDiag_FA: POST $write (Transaction Bundle + List.identifier "123")
+GDA_2 -> eDiag_FA: POST /Condition/$list-write (Transaction Bundle + ETag "123")
 
 activate eDiag_FA
-eDiag_FA -> eDiag_FA: List.identifier "123" im Transaction Bundle ==\ntemporär gespeicherter List.identifier "123"
-eDiag_FA -> eDiag_FA: Validierung der neuen Liste (keine unzulässigen Zustandsübergänge)
-eDiag_FA -> eDiag_FA: Persistiert neue Version der Liste mit List.identifier "123"
-eDiag_FA -> eDiag_FA: Löscht temporären List.identifier "123"
-eDiag_FA -->> GDA_2: OK 
+eDiag_FA -> eDiag_FA: ETag "123" im Header ==\nETag der Fachanwendung "123"
+eDiag_FA --> GDA_2: 200 OK 
 deactivate GDA_2
 
 note over eDiag_FA
@@ -113,21 +98,22 @@ end note
 
 deactivate eDiag_FA
 
-== Write-Error für GDA 1 ==
+== List-Write-Error für GDA 1 ==
 
-GDA_1 ->> eDiag_FA: POST $write (Transaction Bundle + List.identifier "123")
+GDA_1 -> eDiag_FA: POST /Condition/$list-write (Transaction Bundle + ETag "123")
 
 activate eDiag_FA
-eDiag_FA -> eDiag_FA: List.identifier "123" im TransactionBundle stimmt nicht\nmit temporär gespeicherten List.identifier überein\n(kein Eintrag vorhanden)
-eDiag_FA -> eDiag_FA: Fachanwendung lehnt Speichern ab
-eDiag_FA -->> GDA_1: Fehler (Konflikt)
+eDiag_FA -> eDiag_FA: ETag im Header "123" stimmt nicht\nmit ETag der Fachanwendung\nüberein, da er bereits zum Schreiben\nverwendet wurde
+note over eDiag_FA
+Fachanwendung lehnt Speichern ab
+end note
+eDiag_FA --> GDA_1: OperationOutcome
 deactivate GDA_1
 note over eDiag_FA, GDA_1
-Speichern der Liste wurde abgelehnt, der GDA 1 muss ein neues Read-to-Write ausführen.
+Speichern der Liste wurde abgelehnt,
+der GDA 1 muss ein neues List-Read ausführen.
 end note
 
 deactivate eDiag_FA
-
-center footer Write-Error
 
 @enduml

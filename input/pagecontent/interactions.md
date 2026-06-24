@@ -13,14 +13,14 @@ ToDo: Wording Liste, eDiagnosenliste,...
 
 
 
-### List History Read  
+### List-History-Read  
 Der History Read dient ausschließlich der Anzeige historischer Versionen einer Liste. Die Fachanwendung stellt bereits persistierte historische Collection Bundles unverändert bereit. Der Zugriff erfolgt lesend und ermöglicht keine nachfolgende Bearbeitung der Liste.
 
 #### Ablauf
 
-1. Der GDA fürht ein **GET** auf das Collection Bunlde der Liste aus.
-2. Die Fachanwendung prüft, on eine Liste vorhanden ist.
-3. Ist keine List-Version vorhanden, wird ein leeres Ergebnis zurückgeliefert.
+1. Der GDA fürht ein **GET** auf das persistierte Collection Bundle der Liste aus.
+2. Die Fachanwendung prüft, on die Liste vorhanden ist.
+3. Ist keine Liste vorhanden, wird ein leeres Ergebnis zurückgeliefert.
 4. Ist eine Liste vorhanden, wird das aktuelle oder angeforderte historische **Collection Bundle** zurückgeliefert. <br>
 Das **Collection Bundle** enthält:
 * die List-Ressource <br>
@@ -36,11 +36,12 @@ Der Zugriff dient ausschließlich der Anzeige bzw. Informationsabfrage von aktue
 <br> 
 
 
+<!-- TODO: Mit diesen Beispielen, kann man nicht direkt Listen abrufen. Bei diesen Requests bekommt man search-Bundles zurück -->
 **Beispiele für Zugriffe mittels Suchparameter:**
 * **Aktuelle Listversion** mit dem Suchparameter Patient abrufen: GET [base]/Bundle?type=collection&_count=1&_sort=-timestamp&list.subject={bPK-GH}
 * **Alle Listversionen** mit dem Suchparameter Patient abrufen: GET [base]/Bundle?type=collection&_sort=-timestamp&list.subject={bPK-GH}
 
-### List Read
+### List-Read
 
 List Read dient dem **Abruf der Liste und der Vorbereitung einer nachfolgenden Änderung**.
 
@@ -63,9 +64,7 @@ List Read dient dem **Abruf der Liste und der Vorbereitung einer nachfolgenden �
 <div>{% include_relative plantuml/diagram_read.svg %}</div>
 <br> 
 
-
-
-### List Write
+### List-Write
 
 List Write ist eine eigenständige Operation, die ausschließlich im Kontext eines **zuvor ausgeführten** [List-Read](interactions.html#list-read) erfolgen darf.
 Der beim List Read erhaltene **List.identifier** dient als Versionsreferenz für den nachfolgenden Schreibvorgang. <br>

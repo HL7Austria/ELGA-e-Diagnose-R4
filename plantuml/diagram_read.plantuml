@@ -1,5 +1,5 @@
 @startuml
-title ListRead
+title List-Read
 
 skinparam borderColor #000000
 skinparam backgroundColor #f5f5f5
@@ -48,36 +48,38 @@ box "\n       e-Diagnose Fachanwendung      " #C48778
   participant eDiag_FA as "e-Diagnose FA"
 end box
 
-box "\n    GDA 2  " #beaebe
-  actor GDA_2 as "GDA 2"
-end box
-
-box "\n Patient  " #bac38b
-  actor Patient as "Patient"
-end box
-
-
 autonumber
 
-== Read ==
+== Liste abrufen ==
+
+GDA_1 -> eDiag_FA: POST /[Condition|Procedure|AllergyIntolerance]/$list-read
+
 activate GDA_1
-GDA_1 ->> eDiag_FA: POST $ListRead
 
-activate eDiag_FA
-eDiag_FA -> eDiag_FA: Prüfung auf bestehende Liste
-
-alt keine Einträge vorhanden
-  eDiag_FA -->> GDA_1: leeres Ergebnis
-else Einträge vorhanden
-  eDiag_FA -->> GDA_1: CollectionBundle (Liste + Ressourcen) (unverändert)
-  deactivate GDA_1
-end
-deactivate eDiag_FA
-
-note over GDA_1, eDiag_FA
-Fachanwendung liefert Liste oder leeres Ergebnis zurück.
+note over GDA_1
+Liste abrufen, 
+mit der Intention zu schreiben
 end note
 
-center footer List Read
+activate eDiag_FA
+
+eDiag_FA -> eDiag_FA: Prüfung auf bestehende Liste
+
+alt Liste vorhanden
+  eDiag_FA -> eDiag_FA: Stellt Collection-Bundle bereit:\nBedingung:\n- new|changed → unchanged\n- removed → entfernen
+  eDiag_FA -> GDA_1: Collection-Bundle\n+ ETag für Optimistic Locking
+else keine Liste vorhanden
+  eDiag_FA -> eDiag_FA: Erzeugt leere Liste\n mit List.emptyReason = "notstarted"
+  eDiag_FA -> GDA_1: Collection-Bundle (leere Liste)\n+ ETag für Optimistic Locking
+  deactivate eDiag_FA
+end
+
+GDA_1 -> GDA_1: Einträge hinzufügen/ändern/entfernen
+
+note over GDA_1
+Nach der Bearbeitung der
+Liste kann ein 
+$list-write erfolgen.
+end note
 
 @enduml

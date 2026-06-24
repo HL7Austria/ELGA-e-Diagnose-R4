@@ -1,5 +1,5 @@
 @startuml
-title Plan-History-Read
+title List-History-Read
 
 skinparam borderColor #000000
 skinparam backgroundColor #f5f5f5
@@ -52,38 +52,28 @@ box "\n       e-Diagnose Fachanwendung      " #C48778
   participant eDiag_FA as "e-Diagnose FA"
 end box
 
-box "\n    GDA 2  " #beaebe
-  actor GDA_2 as "GDA 2"
-end box
-
-box "\n Patient  " #bac38b
-  actor Patient as "Patient"
-end box
-
 autonumber
 
 == Liste lesen ==
 
 activate GDA_1
-GDA_1 ->> eDiag_FA: GET Liste-Collection-Bundle
+GDA_1 -> eDiag_FA: GET /Bundle/[id]
 
 
 activate eDiag_FA 
-eDiag_FA -> eDiag_FA: Prüfung auf bestehende/n\nListe/n
+eDiag_FA -> eDiag_FA: Prüfung auf bestehende\nListe
 
 alt Liste vorhanden
-  eDiag_FA -->> GDA_1: Liste-Collection-Bundle
+  eDiag_FA --> GDA_1: Collection-Bundle
 else keine Liste vorhanden
-  eDiag_FA -->> GDA_1: leeres Ergebnis
+  eDiag_FA --> GDA_1: OperationOutcome (404 Not Found)
   deactivate GDA_1
   deactivate eDiag_FA
 end
 
 note over GDA_1, eDiag_FA
-Die Fachanwendung liefert die zuletzt gespeicherte Liste 
-(unverändert, inkl. aller referenzierten Ressourcen) oder ein leeres
-Ergebnis zurück.
+Die Fachanwendung liefert die gespeicherte Liste 
+(unverändert, inkl. aller referenzierten Ressourcen) oder ein OperationOutcome zurück.
 end note
 
-center footer List History Read
 @enduml

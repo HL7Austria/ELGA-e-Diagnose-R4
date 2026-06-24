@@ -1,5 +1,5 @@
 @startuml
-title ListWrite
+title List-Write
 
 skinparam borderColor #000000
 skinparam backgroundColor #f5f5f5
@@ -48,47 +48,37 @@ box "\n       e-Diagnose Fachanwendung      " #C48778
   participant eDiag_FA as "e-Diagnose FA"
 end box
 
-box "\n    GDA 2  " #beaebe
-  actor GDA_2 as "GDA 2"
-end box
-
-box "\n Patient  " #bac38b
-  actor Patient as "Patient"
-end box
-
-
 autonumber
 
 activate GDA_1
 
 note over GDA_1
-Vorbedingung: List-Read
+Vorbedingung: Nach einem List-Read
+wird die Liste bearbeit.
 end note
 
-== Write ==
+== Liste schreiben ==
 
-GDA_1 ->> eDiag_FA: POST $ListWrite (Transaction Bundle + List.identifier)
+GDA_1 -> eDiag_FA: POST /[Condition|Procedure|AllergyIntolerance]/$list-write (Transaction Bundle + ETag)
 
 activate eDiag_FA
-eDiag_FA -> eDiag_FA: List.identifier im TransactionBundle ==\ntemporär gespeicherter List.identifier?
+eDiag_FA -> eDiag_FA: ETag im Header ==\nETag der Fachanwendung?
 
-alt ungültig 
-  eDiag_FA -> eDiag_FA: Validierung des neuen Plans\n(keine unzulässigen Zustandsübergänge)
-  eDiag_FA -->> GDA_1: Fehler 
-  
-else gültig 
-  eDiag_FA -> eDiag_FA: Persistiert neue Version der Liste
+alt gültig 
+  eDiag_FA -> eDiag_FA: Validierung der neuen Liste\n(keine unzulässigen Zustandsübergänge)
+  eDiag_FA -> eDiag_FA: Persistiert neue Version der\nListe
 
   note over eDiag_FA
   Neue Liste gespeichert
   end note
 
-  eDiag_FA -->> GDA_1: OK
+  eDiag_FA --> GDA_1: 200 OK
+  
+else ungültig 
+
+  eDiag_FA --> GDA_1: OperationOutcome
   deactivate GDA_1
   deactivate eDiag_FA
 end
-
-center footer List-Write
-
 
 @enduml
