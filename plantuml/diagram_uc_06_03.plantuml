@@ -85,12 +85,12 @@ GDA_1 -> GDA_1 : List.entry bleibt bestehen\n(keine Neuerstellung)
 
 == Persistieren der Änderungen ==
 
-ref over GDA_1, eDiag_FA : $list-write
-
 note over GDA_1
 List.source = aktueller GDA
 List.date = aktueller Zeitpunkt
 end note
+
+ref over GDA_1, eDiag_FA : $list-write
 
 note over eDiag_FA
 Änderungen erfolgreich persistiert

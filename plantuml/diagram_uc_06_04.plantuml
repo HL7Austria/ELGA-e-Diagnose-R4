@@ -74,28 +74,14 @@ end note
 
 GDA_1 -> GDA_1 : List.entry Reihenfolge anpassen
 
-GDA_1 -> GDA_1 : List.source = aktueller GDA
-GDA_1 -> GDA_1 : List.date = aktueller Zeitpunkt
-
 == Persistieren der neuen Reihenfolge ==
-
-ref over GDA_1, eDiag_FA : $list-write
-
-GDA_1 -> eDiag_FA : Transaction Bundle (Liste mit neuer Entry-Reihenfolge)
 
 note over GDA_1
 Unveränderte Ressourcen werden NICHT übertragen,
 sondern nur über List.entry referenziert
 end note
 
-note over eDiag_FA
-Server verarbeitet Transaction Bundle
-(Reihenfolge der List.entry wird übernommen)
-end note
-
-== Post-Write ==
-
-eDiag_FA --> GDA_1 : TransactionResponse Bundle (aktualisierte Liste + OperationOutcome)
+ref over GDA_1, eDiag_FA : $list-write
 
 note over eDiag_FA
 Reihenfolge erfolgreich aktualisiert
