@@ -37,29 +37,29 @@ skinparam sequence {
   GroupBorderThickness 2
 }
 
-skinparam BoxPadding 20
-skinparam BoxBorderColor #555555
+!define COLOR_GDA_1    #0078D460
+!define COLOR_GDA_2    #8764B860
+!define COLOR_PATIENT  #00950560
+!define COLOR_APO      #00B7C360
+!define COLOR_DIAG_FA  #f5a40360
+!define COLOR_E_REZEPT #E7485660
 
-box "\n  GDA 1  " #9fbac4
-  actor GDA_1 as "GDA 1"
-end box
+!define COLOR_OK       #50E6FF25
+!define COLOR_ERROR    #FF8C0035
 
-box "\n       e-Diagnose Fachanwendung      " #C48778
-  participant eDiag_FA as "e-Diag FA"
-end box
+actor GDA_1 as "GDA 1" COLOR_GDA_1
+participant eDiag_FA as "e-Diagnose Fachanwendung" COLOR_DIAG_FA
+actor GDA_2 as "GDA 2" COLOR_GDA_2 
 
-box "\n    GDA 2  " #beaebe
-  actor GDA_2 as "GDA 2"
-end box
 
 autonumber
 
  == List-Read durch GDA 1 ==
 
 GDA_1 -> eDiag_FA: POST /Condition/$list-read
-activate GDA_1
+activate GDA_1 COLOR_GDA_1
 
-activate eDiag_FA
+activate eDiag_FA COLOR_DIAG_FA
 eDiag_FA --> GDA_1: Collection Bundle + ETag "123"
 deactivate eDiag_FA
 
@@ -71,9 +71,9 @@ end note
 == List-Read durch GDA 2 ==
 
 GDA_2 -> eDiag_FA: POST /Condition/$list-read
-activate GDA_2
+activate GDA_2 COLOR_GDA_2 
 
-activate eDiag_FA
+activate eDiag_FA COLOR_DIAG_FA
 
 eDiag_FA --> GDA_2: Collection Bundle + ETag "123"
 deactivate eDiag_FA
@@ -87,7 +87,7 @@ end note
 
 GDA_2 -> eDiag_FA: POST /Condition/$list-write (Transaction Bundle + ETag "123")
 
-activate eDiag_FA
+activate eDiag_FA COLOR_DIAG_FA
 eDiag_FA -> eDiag_FA: ETag "123" im Header ==\nETag der Fachanwendung "123"
 eDiag_FA --> GDA_2: 200 OK 
 deactivate GDA_2
@@ -102,7 +102,7 @@ deactivate eDiag_FA
 
 GDA_1 -> eDiag_FA: POST /Condition/$list-write (Transaction Bundle + ETag "123")
 
-activate eDiag_FA
+activate eDiag_FA COLOR_DIAG_FA
 eDiag_FA -> eDiag_FA: ETag im Header "123" stimmt nicht\nmit ETag der Fachanwendung\nüberein, da er bereits zum Schreiben\nverwendet wurde
 note over eDiag_FA
 Fachanwendung lehnt Speichern ab

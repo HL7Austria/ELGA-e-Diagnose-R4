@@ -72,7 +72,6 @@ end note
 GDA_1 -> GDA_1: Neue Ressource (Condition/Procedure/AllergyIntolerance) erstellen
 GDA_1 -> GDA_1: List.entry hinzufügen (flag = "new", reference = Ressource)
 
-GDA_1 -> eDiag_FA : Transaction Bundle (List + Resources)
 
 note over GDA_1
 Neuer Listeintrag hinzufügen
@@ -82,9 +81,7 @@ end note
 
 ref over GDA_1, eDiag_FA : $list-write
 
-== Post-Write ==
 
-eDiag_FA --> GDA_1 : TransactionResponse Bundle (List + Resources + OperationOutcome)
 
 note over eDiag_FA
 Neue Einträge in einer Liste erstellt.

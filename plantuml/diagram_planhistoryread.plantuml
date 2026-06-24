@@ -41,26 +41,28 @@ skinparam sequence {
   GroupBorderThickness 2
 }
 
-skinparam BoxPadding 20
-skinparam BoxBorderColor #555555
+!define COLOR_GDA_1    #0078D460
+!define COLOR_GDA_2    #8764B860
+!define COLOR_PATIENT  #00950560
+!define COLOR_APO      #00B7C360
+!define COLOR_DIAG_FA  #f5a40360
+!define COLOR_E_REZEPT #E7485660
 
-box "\n  GDA 1  " #9fbac4
-  actor GDA_1 as "GDA 1"
-end box
+!define COLOR_OK       #50E6FF25
+!define COLOR_ERROR    #FF8C0035
 
-box "\n       e-Diagnose Fachanwendung      " #C48778
-  participant eDiag_FA as "e-Diagnose FA"
-end box
+actor GDA_1 as "GDA 1" COLOR_GDA_1
+participant eDiag_FA as "e-Diagnose Fachanwendung" COLOR_DIAG_FA
 
 autonumber
+activate GDA_1 COLOR_GDA_1
 
 == Liste lesen ==
 
-activate GDA_1
+
 GDA_1 -> eDiag_FA: GET /Bundle/[id]
 
-
-activate eDiag_FA 
+activate eDiag_FA COLOR_DIAG_FA
 eDiag_FA -> eDiag_FA: Prüfung auf bestehende\nListe
 
 alt Liste vorhanden

@@ -48,10 +48,16 @@ Hierfür führt dieser GDA ein $list-read aus und bearbeitet das von der Fachanw
 <div>{% include_relative plantuml/diagram_uc_06_02.svg %}</div>
    
 
+ToDo: eigener UC wenn die Liste leer bleibt - keine Diagnose -mit nilknown
+
+
+
 #### Sub_UC_eDiag_06_03 - Bestehende Einträge innerhalb einer Liste fachlich bearbeiten
 Der GDA kann Einträge in einer Liste fachlich bearbeiten.
 #### Ablauf
 <div>{% include_relative plantuml/diagram_uc_06_03.svg %}</div>
+
+
 
 
 #### Sub_UC_eDiag_06_04 - Reihenfolge von Einträgen innerhalb einer Liste ändern

@@ -87,21 +87,10 @@ GDA_1 -> GDA_1 : List.entry bleibt bestehen\n(keine Neuerstellung)
 
 ref over GDA_1, eDiag_FA : $list-write
 
-GDA_1 -> eDiag_FA : Transaction Bundle (List + Resources)
-
 note over GDA_1
 List.source = aktueller GDA
 List.date = aktueller Zeitpunkt
 end note
-
-note over eDiag_FA
-Server verarbeitet Transaction Bundle
-(atomare Persistierung aller Änderungen)
-end note
-
-== Post-Write ==
-
-eDiag_FA --> GDA_1 : TransactionResponse Bundle (List + Resources + OperationOutcome)
 
 note over eDiag_FA
 Änderungen erfolgreich persistiert

@@ -36,7 +36,7 @@ Der Zugriff dient ausschließlich der Anzeige bzw. Informationsabfrage von aktue
 <br> 
 
 
-<!-- TODO: Mit diesen Beispielen, kann man nicht direkt Listen abrufen. Bei diesen Requests bekommt man search-Bundles zurück -->
+<!-- TODO: Mit diesen Beispielen, kann man nicht direkt Listen abrufen. Bei diesen Requests bekommt man search-Bundles zurück; es ist noch zu kläre, ob man mit der id des collection-bundles drauf zugreifen soll oder nicht?-->
 **Beispiele für Zugriffe mittels Suchparameter:**
 * **Aktuelle Listversion** mit dem Suchparameter Patient abrufen: GET [base]/Bundle?type=collection&_count=1&_sort=-timestamp&list.subject={bPK-GH}
 * **Alle Listversionen** mit dem Suchparameter Patient abrufen: GET [base]/Bundle?type=collection&_sort=-timestamp&list.subject={bPK-GH}
