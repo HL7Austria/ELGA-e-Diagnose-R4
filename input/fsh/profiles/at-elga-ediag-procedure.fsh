@@ -63,7 +63,11 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom Procedure-Profi
 // Terminolgen sollen es prüfen - evtl. gibt es nicht mehr präcodierte? - https://jira-elga.atlassian.net/jira/software/c/projects/STD/boards/496?selectedIssue=STD-7659
 * code 1..1 MS
 * code from AtEDiagProzedurenCodes (required)
-* code ^short = "ToDo: Anzahl der Konzepte klären! Frage geht weiter an die Terminologen. Wie viel ist prä- und postcodiert? Prozedurencode der durchgeführten Prozedur"
+* code ^short = "Prozedurencode der durchgeführten Prozedur"
+* code.text 0..0
+
+
+
 
 * subject 1..1 MS
 * subject only Reference(AtElgaCorePatient)
