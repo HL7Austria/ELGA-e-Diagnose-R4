@@ -67,7 +67,8 @@ Der GDA kann die Reihenfolge der Listeinträge ändern. Die Einträge selbst ble
 
 
 #### Sub_UC_eDiag_06_05 - Einträge aus einer Liste entfernen
-ToDo:Wird der Eintrag nur aus der List-Ressource entfernt oder wird die referenzierte Ressource (Condition, Procedure, AllergyIntolerance) ebenfalls gelöscht/inaktiviert?
+ToDo:Wird der Eintrag nur aus der List-Ressource entfernt oder wird die referenzierte Ressource (Condition, Procedure, AllergyIntolerance) ebenfalls gelöscht/inaktiviert? 
+Dieser Fall tritt ein, wenn ein relevanter Eintrag aus der relevanten Liste zu einem nicht-relevanten Eintrag in der Gesamtansicht wird. Und in diesem müssen wir auf den Sub_UC_eDiag_06_11 verweisen. Denn es muss auch das flag geändert werden. Weil in der Gesamtansicht es bestehen bleibt. 
 
 #### Ablauf
 List.entry wird entfernt, die referenzierte Ressource bleibt bestehen.

@@ -10,7 +10,7 @@ Im Folgenden werden standardisierte Interaktionen für den lesenden und schreibe
 
 
 ToDo: Wording Liste, eDiagnosenliste,...
-
+<!--$PatientWrite wäre das Löschen der gesamten Ressource (nicht nur die Listenbeteiligung) und das $PatientDelete wäre das Löschen der Ressource in der Historie -->
 
 
 ### List-History-Read  

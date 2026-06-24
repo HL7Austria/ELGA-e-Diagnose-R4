@@ -58,7 +58,8 @@ autonumber
 
 activate GDA_1 COLOR_GDA_1
 
-ref over GDA_1, eDiag_FA : $list-read
+ref over GDA_1, eDiag_FA : [[interactions.html#list-write List-Write]]
+
 
 note over GDA_1
 GDA erhält die aktuelle Liste
@@ -75,38 +76,26 @@ end note
 GDA_1 -> GDA_1 : List.entry auswählen
 GDA_1 -> GDA_1 : List.entry aus der Liste entfernen
 
-note over GDA_1
-Die referenzierte Ressource
-bleibt unverändert bestehen
-end note
-
-GDA_1 -> GDA_1 : List.source = aktueller GDA
-GDA_1 -> GDA_1 : List.date = aktueller Zeitpunkt
 
 == Persistieren der Änderungen ==
 
-ref over GDA_1, eDiag_FA : $list-write
-
-GDA_1 -> eDiag_FA : Transaction Bundle (aktualisierte Liste)
+== Persistieren der Änderungen ==
 
 note over GDA_1
 Unveränderte Ressourcen werden
 nicht übertragen, sondern nur
-über Referenzen adressiert
+über Referenzen adressiert.
 end note
 
-note over eDiag_FA
-Server/FA verarbeitet Transaction Bundle
-(entfernter Listeneintrag wird übernommen)
-end note
+ref over GDA_1, eDiag_FA : [[interactions.html#list-write List-Write]]
 
-== Post-Write ==
+ref over GDA_1, eDiag_FA : [[uc-e-diag-06.html#sub-uc-e-diag-06-11-Diagnosen-Prozeduren-sowie-Allergien-und-Intoleranzen-bearbeiten Diagnosen, Prozeduren sowie Allergien und Intoleranzen bearbeiten]]
 
-eDiag_FA --> GDA_1 : TransactionResponse Bundle (aktualisierte Liste + OperationOutcome)
+GDA_1 -> eDiag_FA : Transaction Bundle (aktualisierte Liste)
 
 note over eDiag_FA
-Listeneintrag erfolgreich entfernt
-Liste konsistent gespeichert
+Listeneintrag erfolgreich entfernt.
+Liste konsistent gespeichert.
 end note
 
 @enduml
