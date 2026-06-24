@@ -52,16 +52,11 @@ box "\n    GDA 2  " #beaebe
   actor GDA_2 as "GDA 2"
 end box
 
-box "\n Patient  " #bac38b
-  actor Patient as "Patient"
-end box
-
-
 autonumber
 
  == List-Read durch GDA 1 ==
 
-GDA_1 -> eDiag_FA: POST /[Condition|Procedure|AllergyIntolerance]/$list-read
+GDA_1 -> eDiag_FA: POST /Condition/$list-read
 activate GDA_1
 
 activate eDiag_FA
@@ -75,7 +70,7 @@ end note
 
 == List-Read durch GDA 2 ==
 
-GDA_2 -> eDiag_FA: POST /[Condition|Procedure|AllergyIntolerance]/$list-read
+GDA_2 -> eDiag_FA: POST /Condition/$list-read
 activate GDA_2
 
 activate eDiag_FA
@@ -90,7 +85,7 @@ end note
 
 == List-Write durch GDA 2 ==
 
-GDA_2 -> eDiag_FA: POST /[Condition|Procedure|AllergyIntolerance]/$list-write (Transaction Bundle + ETag "123")
+GDA_2 -> eDiag_FA: POST /Condition/$list-write (Transaction Bundle + ETag "123")
 
 activate eDiag_FA
 eDiag_FA -> eDiag_FA: ETag "123" im Header ==\nETag der Fachanwendung "123"
@@ -105,7 +100,7 @@ deactivate eDiag_FA
 
 == List-Write-Error für GDA 1 ==
 
-GDA_1 -> eDiag_FA: POST /[Condition|Procedure|AllergyIntolerance]/$list-write (Transaction Bundle + ETag "123")
+GDA_1 -> eDiag_FA: POST /Condition/$list-write (Transaction Bundle + ETag "123")
 
 activate eDiag_FA
 eDiag_FA -> eDiag_FA: ETag im Header "123" stimmt nicht\nmit ETag der Fachanwendung\nüberein, da er bereits zum Schreiben\nverwendet wurde

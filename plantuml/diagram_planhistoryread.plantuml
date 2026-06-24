@@ -61,7 +61,7 @@ GDA_1 -> eDiag_FA: GET /Bundle/[id]
 
 
 activate eDiag_FA 
-eDiag_FA -> eDiag_FA: Prüfung auf bestehende\nListe/n
+eDiag_FA -> eDiag_FA: Prüfung auf bestehende\nListe
 
 alt Liste vorhanden
   eDiag_FA --> GDA_1: Collection-Bundle
@@ -72,9 +72,8 @@ else keine Liste vorhanden
 end
 
 note over GDA_1, eDiag_FA
-Die Fachanwendung liefert die zuletzt (GKL: zuletzt?) gespeicherte Liste 
-(unverändert, inkl. aller referenzierten Ressourcen) oder ein leeres
-Ergebnis (OperationOutcome) zurück.
+Die Fachanwendung liefert die gespeicherte Liste 
+(unverändert, inkl. aller referenzierten Ressourcen) oder ein OperationOutcome zurück.
 end note
 
 @enduml

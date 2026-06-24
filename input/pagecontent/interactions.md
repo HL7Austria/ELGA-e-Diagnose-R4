@@ -41,7 +41,7 @@ Der Zugriff dient ausschließlich der Anzeige bzw. Informationsabfrage von aktue
 * **Aktuelle Listversion** mit dem Suchparameter Patient abrufen: GET [base]/Bundle?type=collection&_count=1&_sort=-timestamp&list.subject={bPK-GH}
 * **Alle Listversionen** mit dem Suchparameter Patient abrufen: GET [base]/Bundle?type=collection&_sort=-timestamp&list.subject={bPK-GH}
 
-### List Read
+### List-Read
 
 List Read dient dem **Abruf der Liste und der Vorbereitung einer nachfolgenden Änderung**.
 
@@ -64,7 +64,7 @@ List Read dient dem **Abruf der Liste und der Vorbereitung einer nachfolgenden �
 <div>{% include_relative plantuml/diagram_read.svg %}</div>
 <br> 
 
-### List Write
+### List-Write
 
 List Write ist eine eigenständige Operation, die ausschließlich im Kontext eines **zuvor ausgeführten** [List-Read](interactions.html#list-read) erfolgen darf.
 Der beim List Read erhaltene **List.identifier** dient als Versionsreferenz für den nachfolgenden Schreibvorgang. <br>
