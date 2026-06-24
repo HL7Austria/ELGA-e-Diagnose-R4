@@ -1,6 +1,6 @@
 @startuml
 
-title Diagnosen, Prozeduren sowie Allergien und Intoleranzen erfassen
+title Diagnosen, Prozeduren sowie Allergien und Intoleranzen bearbeiten
 
 skinparam borderColor #000000
 skinparam backgroundColor #f5f5f5
@@ -55,26 +55,29 @@ participant eDiag_FA as "e-Diagnose Fachanwendung" COLOR_DIAG_FA
 autonumber
 activate GDA_1 COLOR_GDA_1
 
-==  Einzelressourcen erfassen ==
+== Einzelressourcen abrufen ==
 
-GDA_1 -> GDA_1 : Neue Ressource erstellen
-GDA_1 -> GDA_1 : Fachliche Informationen erfassen
+GDA_1 -> eDiag_FA : Ressource lesen
+
+eDiag_FA --> GDA_1 : Condition / Procedure / AllergyIntolerance
+
+== Einzelressourcen bearbeiten ==
+
+GDA_1 -> GDA_1 : Fachliche Änderungen durchführen
 
 note over GDA_1
-Erfassung einer
-Condition, Procedure oder
-AllergyIntolerance
+z. B. Status,
+Schweregrad,
+Beschreibung,usw.
 end note
-
-GDA_1 -> GDA_1 : Status gemäß Ressourcentyp setzen
 
 == Persistieren ==
 
-GDA_1 -> eDiag_FA : Transaction Bundle (neue Ressource)
+GDA_1 -> eDiag_FA : Transaction Bundle (aktualisierte Ressource)
 
 note over eDiag_FA
-Server/FA validiert und speichert
-die neue Ressource
+Server validiert und speichert
+die Änderungen
 end note
 
 == Post-Write ==
@@ -82,7 +85,7 @@ end note
 eDiag_FA --> GDA_1 : TransactionResponse Bundle + OperationOutcome
 
 note over eDiag_FA
-Ressource erfolgreich erstellt
+Änderungen erfolgreich persistiert
 end note
 
 @enduml

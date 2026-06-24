@@ -1,6 +1,6 @@
 @startuml
 
-title Diagnosen, Prozeduren sowie Allergien und Intoleranzen bearbeiten
+title Diagnosen, Prozeduren sowie Allergien und Intoleranzen stornieren
 
 skinparam borderColor #000000
 skinparam backgroundColor #f5f5f5
@@ -61,14 +61,15 @@ GDA_1 -> eDiag_FA : Ressource lesen
 
 eDiag_FA --> GDA_1 : Condition / Procedure / AllergyIntolerance
 
-== Einzelressourcen bearbeiten ==
+== Stornierung durchführen ==
 
-GDA_1 -> GDA_1 : Fachliche Änderungen durchführen
+GDA_1 -> GDA_1 : Ressource stornieren
 
 note over GDA_1
-z. B. Status,
-Schweregrad,
-Beschreibung,usw.
+Status auf den
+ressourcenspezifischen
+Stornierungsstatus setzen
+(entered-in-error)
 end note
 
 == Persistieren ==
@@ -77,7 +78,7 @@ GDA_1 -> eDiag_FA : Transaction Bundle (aktualisierte Ressource)
 
 note over eDiag_FA
 Server validiert und speichert
-die Änderungen
+die Stornierung
 end note
 
 == Post-Write ==
@@ -85,7 +86,7 @@ end note
 eDiag_FA --> GDA_1 : TransactionResponse Bundle + OperationOutcome
 
 note over eDiag_FA
-Änderungen erfolgreich persistiert
+Ressource erfolgreich storniert
 end note
 
 @enduml
