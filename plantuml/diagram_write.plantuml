@@ -68,9 +68,9 @@ GDA_1 -> eDiag_FA: POST /[Condition|Procedure|AllergyIntolerance]/$list-write (T
 
 activate eDiag_FA COLOR_DIAG_FA
 eDiag_FA -> eDiag_FA: ETag im Header ==\nETag der Fachanwendung?
+eDiag_FA -> eDiag_FA: Validierung der neuen Liste\n(keine unzulässigen Zustandsübergänge)
 
-alt gültig 
-  eDiag_FA -> eDiag_FA: Validierung der neuen Liste\n(keine unzulässigen Zustandsübergänge)
+alt Validierung erfolgreich 
   eDiag_FA -> eDiag_FA: Persistiert neue Version der\nListe
 
   note over eDiag_FA
@@ -79,7 +79,7 @@ alt gültig
 
   eDiag_FA --> GDA_1: 200 OK
   
-else ungültig 
+else Validierung fehlgeschlagen
 
   eDiag_FA --> GDA_1: OperationOutcome
   deactivate GDA_1
