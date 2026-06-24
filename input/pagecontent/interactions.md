@@ -5,12 +5,12 @@
 Im Folgenden werden standardisierte Interaktionen für den lesenden und schreibenden Zugriff auf die Diagnosenliste eines Patienten bzw. einer Patientin erläutert, die für alle technischen Use Cases relevant sind.
 
 <br>
-[![diagram](ediag_api.png){: style="width: 100%"}](ediag_api.png)
+[![diagram](ediag_interaction.png){: style="width: 100%"}](ediag_interaction.png)
 <br>
 
-ToDo: Grafik ändern - keine Kombiliste und Alerts
+
 ToDo: Wording Liste, eDiagnosenliste,...
-ToDo: Images der Sequenzdiagramme anpassen!!!!
+
 
 
 ### List History Read  
