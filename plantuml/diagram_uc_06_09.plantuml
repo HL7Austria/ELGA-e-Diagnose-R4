@@ -70,19 +70,27 @@ GDA_1 -> GDA_1 : Status gemäß Ressourcentyp setzen
 
 == Persistieren ==
 
-GDA_1 -> eDiag_FA : POST 
+GDA_1 -> eDiag_FA: POST /[Condition|Procedure|AllergyIntolerance]/$list-write (Transaction Bundle + ETag)
 
-note over eDiag_FA
-Server/FA validiert und speichert
-die neue Ressource
-end note
+activate eDiag_FA COLOR_DIAG_FA
+eDiag_FA -> eDiag_FA: ETag im Header ==\nETag der Fachanwendung?
+eDiag_FA -> eDiag_FA: Validierung der neuen Liste\n(keine unzulässigen Zustandsübergänge)
 
-== Post-Write ==
+alt Validierung erfolgreich 
+  eDiag_FA -> eDiag_FA: Persistiert neue Version der\nListe
 
-eDiag_FA --> GDA_1 : TransactionResponse Bundle + OperationOutcome
+  note over eDiag_FA
+  Neuer Eintrag gespeichert
+  end note
 
-note over eDiag_FA
-Ressource erfolgreich erstellt
-end note
+  eDiag_FA --> GDA_1: 200 OK
+  
+else Validierung fehlgeschlagen
+
+  eDiag_FA --> GDA_1: OperationOutcome
+  deactivate GDA_1
+  deactivate eDiag_FA
+end
 
 @enduml
+
