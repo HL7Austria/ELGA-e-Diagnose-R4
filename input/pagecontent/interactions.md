@@ -33,8 +33,8 @@ Der Zugriff dient ausschließlich der Anzeige bzw. Informationsabfrage von aktue
 
 <!-- TODO: Es muss noch definiert werden, wie zwischen den Listen von Conditions, Procedures, AllergyIntolerances unterschieden wird. -->
 **Beispiele für Zugriffe mittels Suchparameter:**
-* **Aktuelle Listversion** mit dem Suchparameter Patient abrufen: GET [base]/Bundle?type=collection&_count=1&_sort=-timestamp&list.subject={bPK-GH}
-* **Alle Listversionen** mit dem Suchparameter Patient abrufen: GET [base]/Bundle?type=collection&_sort=-timestamp&list.subject={bPK-GH}
+* **Aktuelle Listenversion** der relevanten Diagnosen (Conditions) mit dem Suchparameter Patient abrufen: `GET [base]/Bundle?type=collection&_count=1&_sort=-timestamp&list.subject={bPK-GH}&list.code=http://loinc.org|11450-4`
+* **Alle Listenversionen** der relevanten Operationen (Procedures) mit dem Suchparameter Patient abrufen: `GET [base]/Bundle?type=collection&_sort=-timestamp&list.subject={bPK-GH}&list.code=http://loinc.org|47519-4`
 
 ### List-Read
 
@@ -43,7 +43,7 @@ List Read dient dem **Abruf der Liste und der Vorbereitung einer nachfolgenden �
 
 #### Ablauf
 
-1. Der GDA führt einen **POST $ListRead** auf das Collection Bundle aus, dass die Liste mit allen zugehörigen relevanten Ressourcen enthält. 
+1. Der GDA führt einen **POST $list-read** auf das Collection Bundle aus, dass die Liste mit allen zugehörigen relevanten Ressourcen enthält. 
 2. Die Fachanwendung **prüft auf Existenz** der Liste für die angegebene Patientin bzw. den angegebenen Patienten.
 3. Ist keine Liste vorhanden, wird dieser erstellt siehe Liste-initialisieren und 
 4. eine leere Liste mit dem emptyReason notstarted wird zurückgeliefert.
@@ -62,7 +62,6 @@ List Read dient dem **Abruf der Liste und der Vorbereitung einer nachfolgenden �
 ### List-Write
 
 List Write ist eine eigenständige Operation, die ausschließlich im Kontext eines **zuvor ausgeführten** [List-Read](interactions.html#list-read) erfolgen darf.
-Der beim List Read erhaltene **List.identifier** dient als Versionsreferenz für den nachfolgenden Schreibvorgang. <br>
 
 #### Ablauf
 
@@ -83,8 +82,6 @@ Es muss erneut ein List Read ausgeführt werden. Die Änderungen sind anschließ
 <br>
 <div>{% include_relative plantuml/diagram_write.svg %}</div>
 <br>
-
-
 
 #### Abgelehnter List Write
 
