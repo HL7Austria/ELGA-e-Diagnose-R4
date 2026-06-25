@@ -4,9 +4,6 @@
 
 Im Folgenden werden standardisierte Interaktionen für den lesenden und schreibenden Zugriff auf die Diagnosenliste eines Patienten bzw. einer Patientin erläutert, die für alle technischen Use Cases relevant sind.
 
-<br>
-[![diagram](ediag_interaction.png){: style="width: 100%"}](ediag_interaction.png)
-<br>
 
 ToDo: Wording Liste, eDiagnosenliste,...
 <!--$PatientWrite wäre das Löschen der gesamten Ressource (nicht nur die Listenbeteiligung) und das $PatientDelete wäre das Löschen der Ressource in der Historie -->
