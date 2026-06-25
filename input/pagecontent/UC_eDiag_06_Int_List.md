@@ -4,23 +4,9 @@
 
 ###  Interaktionen mit Listenressourcen
 
-#### Sub_UC_eDiag_06_00 - Nach Initialisierung leere Liste bestätigen
+#### Sub_UC_eDiag_06_01 - Nach Initialisierung leere Liste bestätigen
 
 <div>{% include_relative plantuml/diagram_uc_06_00.svg %}</div>
-
-#### Sub_UC_eDiag_06_01 - Liste initialisieren
-Die initiale Erstellung einer Liste erfolgt durch die e-Diagnose-Fachanwendung.
-
-Ruft ein GDA die Liste eines Patienten zum Zweck der Bearbeitung ab ($list-read), prüft die Fachanwendung, ob bereits eine Liste vorhanden ist: existiert noch keine Liste, wird dieser im Hintergrund automatisch initial angelegt (siehe [List-Read](interactions.html#list-read)).
-
-Der GDA erhält in diesem Fall ein Collection Bundle mit einer leeren Liste (List) mit **emptyReason** ***notstarted*** zurück. Der enthaltene list.identifer dient der zur späteren Integritätsprüfung beim Schreibvorgang.
-
-Dieser Status *emptyReason* **kennzeichnet ausschließlich den Initialzustand** (keine Einträge in der Liste) und trifft keine Aussage darüber, ob die Person eine Diagnose, Prozedur, Allergie oder eine Intoleranz hat.
-
-##### Ablauf
-
-<div>{% include_relative plantuml/diagram_uc_06_01.svg %}</div>
-
 
 #### Sub_UC_eDiag_06_02 - Neue Einträge in einer Liste erstellen
 Ein GDA kann einen oder mehrere neue Einträge in der Liste von Diagnosen, Prozeduren, Allergien und Intoleranzen erfassen.
