@@ -57,32 +57,46 @@ activate GDA_1 COLOR_GDA_1
 
 GDA_1 -> eDiag_FA: POST /[Condition|Procedure|AllergyIntolerance]/$list-read
 
-activate GDA_1
-
-note over GDA_1
-Liste abrufen, 
-mit der Intention zu schreiben
-end note
-
 activate eDiag_FA COLOR_DIAG_FA
 
-eDiag_FA -> eDiag_FA: Prüfung auf bestehende Liste
+eDiag_FA -> eDiag_FA: Ermittlung des aktuellen Listenzustands
 
-alt Liste vorhanden
-  eDiag_FA -> eDiag_FA: Stellt Collection-Bundle bereit:\nBedingung:\n- new|changed → unchanged\n- removed → entfernen
-  eDiag_FA -> GDA_1: Collection-Bundle\n+ ETag für Optimistic Locking
-else keine Liste vorhanden
-  eDiag_FA -> eDiag_FA: Erzeugt leere Liste\n mit List.emptyReason = "notstarted"
-  eDiag_FA -> GDA_1: Collection-Bundle (leere Liste)\n+ ETag für Optimistic Locking
-  deactivate eDiag_FA
+alt Liste enthält Einträge
+
+note over eDiag_FA
+Mindestens ein Listeneintrag vorhanden
+end note
+
+eDiag_FA -> eDiag_FA: Aufbereitung der Listeneinträge\nnew|changed → unchanged\nremoved → entfernen
+
+eDiag_FA -> eDiag_FA: Prüfung auf verbleibende Einträge
+
+alt Keine Einträge mehr vorhanden
+eDiag_FA -> eDiag_FA: Setzt List.emptyReason = nilknown
+eDiag_FA -> GDA_1: Collection-Bundle (leer)\nemptyReason = nilknown\n+ ETag für Optimistic Locking
+
+else Einträge vorhanden
+eDiag_FA -> GDA_1: Collection-Bundle\nmit Listeneinträgen\n+ ETag für Optimistic Locking
 end
 
-GDA_1 -> GDA_1: Einträge hinzufügen/ändern/entfernen
+else Liste leer
+
+alt emptyReason = notstarted
+eDiag_FA -> GDA_1: Collection-Bundle (leer)\nemptyReason = notstarted\n+ ETag für Optimistic Locking
+
+else emptyReason = nilknown
+eDiag_FA -> GDA_1: Collection-Bundle (leer)\nemptyReason = nilknown\n+ ETag für Optimistic Locking
+end
+
+end
+
+deactivate eDiag_FA
+
+GDA_1 -> GDA_1: Listeneinträge hinzufügen,\nändern oder entfernen
 
 note over GDA_1
-Nach der Bearbeitung der
-Liste kann ein 
-$list-write erfolgen.
+Die Liste kann anschließend
+mittels $list-write persistiert werden.
 end note
 
 @enduml
