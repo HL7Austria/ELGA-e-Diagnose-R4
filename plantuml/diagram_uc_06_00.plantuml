@@ -1,0 +1,91 @@
+@startuml
+
+title Nach Initialisierung leere Liste bestätigen
+
+skinparam borderColor #000000
+skinparam backgroundColor #f5f5f5
+skinparam shadowing false
+skinparam roundCorner 10
+skinparam defaultFontName "Arial"
+skinparam defaultFontSize 14
+skinparam defaultFontColor #000000
+skinparam HyperlinkColor #0000EE
+skinparam HyperlinkUnderline false
+skinparam BoxPadding 20
+skinparam BoxBorderColor #555555
+
+skinparam note {
+  BackgroundColor #e0e5f0-#d1d9e6
+  BorderColor #8b95a5
+  BorderThickness 1
+  RoundCorner 0
+  Padding 6
+  FontColor #111827
+  Shadowing false
+}
+
+skinparam sequence {
+  ParticipantBorderColor #555555
+  ParticipantBackgroundColor #ffffff
+  ParticipantFontColor #000000
+  ParticipantFontSize 14
+  ParticipantPadding 20
+  ArrowColor #111827
+  ArrowThickness 1
+  ArrowFontColor #000000
+  ArrowFontSize 13
+  GroupBorderColor #111827
+  GroupBackgroundColor #eef2ff
+  GroupBorderThickness 2
+}
+
+!define COLOR_GDA_1    #0078D460
+!define COLOR_GDA_2    #8764B860
+!define COLOR_PATIENT  #00950560
+!define COLOR_APO      #00B7C360
+!define COLOR_DIAG_FA  #f5a40360
+!define COLOR_E_REZEPT #E7485660
+
+!define COLOR_OK       #50E6FF25
+!define COLOR_ERROR    #FF8C0035
+
+actor GDA_1 as "GDA 1" COLOR_GDA_1
+participant eDiag_FA as "e-Diagnose Fachanwendung" COLOR_DIAG_FA
+
+autonumber
+ 
+activate GDA_1 COLOR_GDA_1
+activate eDiag_FA COLOR_DIAG_FA
+
+ref over GDA_1, eDiag_FA : $list-read
+
+alt List.emptyReason == notstarted
+  note over GDA_1
+  GDA erhält das von der FA
+  übermittelte Collection-Bundle
+  und bestätigt, dass keine Einträge
+  (Condition/Procedure/AllergyIntolerance)
+  dokumentiert werden müssen.
+  end note
+
+  GDA_1 -> GDA_1: List.emptyReason=#nilknown
+
+  note over GDA_1
+  List.source = aktueller GDA
+  List.date = aktueller Zeitpunkt
+  end note
+
+  ref over GDA_1, eDiag_FA : $list-write
+
+  note over eDiag_FA
+  Persistierung erfolgreich abgeschlossen.
+  end note
+end
+
+
+
+
+
+
+
+@enduml

@@ -4,6 +4,10 @@
 
 ###  Interaktionen mit Listenressourcen
 
+#### Sub_UC_eDiag_06_00 - Nach Initialisierung leere Liste bestätigen
+
+<div>{% include_relative plantuml/diagram_uc_06_00.svg %}</div>
+
 #### Sub_UC_eDiag_06_01 - Liste initialisieren
 Die initiale Erstellung einer Liste erfolgt durch die e-Diagnose-Fachanwendung.
 
