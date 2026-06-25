@@ -1,20 +1,6 @@
 {% include styleheader.md %}
 
-<!-- Technische Use Cases - Diagnosen schreiben, bearbeiten, korrigieren -->
-
-Die e-Diagnose ermöglicht die Verwaltung von Diagnosen, Prozeduren sowie Allergien und Intoleranzen für ELGA-Teilnehmer:innen.
-
-Zur Bearbeitung der e-Diagnose werden zwei Arten von Interaktionen unterstützt:
-- Interaktionen auf Ebene der Listen (List-Ressourcen)
-- Interaktionen auf Ebene der fachlichen Einzelressourcen (z. B. Condition, Procedure, AllergyIntolerance)
-
-Vor der Durchführung von Änderungen werden die aktuellen Datenbestände geladen. Anschließend können Listen bearbeitet sowie fachliche Einzelressourcen erfasst, geändert, storniert oder gelöscht werden.
-
-Die folgende Darstellung gibt einen Überblick über die in der e-Diagnose verwalteten Kategorien sowie die möglichen Interaktionen auf Listen- und Einzelressourcenebene.
-
-[![diagram](ediag_kategorie.png){: style="width: 60%"}](ediag_kategorie.png)
-
-Die e-Diagnose Fachanwendung unterstützt das Laden, Erfassen, Bearbeiten, Stornieren und Löschen von Diagnosen, Prozeduren, Allergien und Intoleranzen sowie die Verwaltung in der Gesamtansicht. Die nachfolgenden Sub-Use-Cases beschreiben die dafür erforderlichen Interaktionen und Transaktionen.
+<!-- Interaktionen mit Listenressourcen -->
 
 ###  Interaktionen mit Listenressourcen
 
@@ -84,21 +70,3 @@ ToDo: Aus Liste entfernen, Ressource bleibt bestehen, verliert nur Listzugehöri
 #### Sub_UC_eDiag_06_08 - Liste durch ELGA-Teilnehmer:in löschen 
 ToDo: fachliche Auswirkungen klären; gesamte List-Ressouce löschen, alle Referenzen - alle enthaltenen Diagnosen?
 
-### Interaktionen mit fachlichen Einzelressourcen 
-#### Sub_UC_eDiag_06_09 - Diagnosen, Prozeduren sowie Allergien und Intoleranzen erfassen
-#### Ablauf
-<div>{% include_relative plantuml/diagram_uc_06_10.svg %}</div>
-
-#### Sub_UC_eDiag_06_10 - Diagnosen, Prozeduren sowie Allergien und Intoleranzen bearbeiten
-#### Ablauf
-<div>{% include_relative plantuml/diagram_uc_06_11.svg %}</div>
-
-#### Sub_UC_eDiag_06_11 - Diagnosen, Prozeduren sowie Allergien und Intoleranzen stornieren
-#### Ablauf
-<div>{% include_relative plantuml/diagram_uc_06_12.svg %}</div>
-
-#### Sub_UC_eDiag_06_12 - Diagnosen, Prozeduren sowie Allergien und Intoleranzen löschen
-ToDo: Aus Liste entfernen, Ressource bleibt bestehen, verliert nur Listzugehörigkeit oder Löschen - Ressource wird vollständig entfernt
-
-#### Sub_UC_eDiag_06_13 - Diagnosen, Prozeduren sowie Allergien und Intoleranzen durch ELGA-Teilnehmer:in ausblenden (ToDo: fachliche Entscheidung) 
-ToDo: fachliche Auswirkungen klären; gesamte List-Ressouce löschen, alle Referenzen - alle enthaltenen Diagnosen?

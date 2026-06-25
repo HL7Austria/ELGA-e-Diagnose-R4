@@ -8,7 +8,6 @@ Im Folgenden werden standardisierte Interaktionen für den lesenden und schreibe
 [![diagram](ediag_interaction.png){: style="width: 100%"}](ediag_interaction.png)
 <br>
 
-
 ToDo: Wording Liste, eDiagnosenliste,...
 <!--$PatientWrite wäre das Löschen der gesamten Ressource (nicht nur die Listenbeteiligung) und das $PatientDelete wäre das Löschen der Ressource in der Historie -->
 
@@ -49,7 +48,7 @@ List Read dient dem **Abruf der Liste und der Vorbereitung einer nachfolgenden �
 
 1. Der GDA führt einen **POST $ListRead** auf das Collection Bundle aus, dass die Liste mit allen zugehörigen relevanten Ressourcen enthält. 
 2. Die Fachanwendung **prüft auf Existenz** der Liste für die angegebene Patientin bzw. den angegebenen Patienten.
-3. Ist keine Liste vorhanden, wird dieser erstellt (siehe Sub_UC_eDiag_06_01 - Liste initialisieren) und 
+3. Ist keine Liste vorhanden, wird dieser erstellt siehe Liste-initialisieren und 
 4. eine leere Liste mit dem emptyReason notstarted wird zurückgeliefert.
 5. Existiert bereits eine Liste, wird von der Fachanwendung aus diesem ein Collection Bundle zur Auslieferung bereitgestellt. Die Inhalte werden von der Fachanwendung wie folgt aufbereitet: 
 * Falls der vorherige GDA neue Listeneinträge hinzugefügt oder bestehende geändert hat (List.entry.flag haben den Wert **new** oder **changed**), werden diese auf **unchanged** gesetzt.<br>

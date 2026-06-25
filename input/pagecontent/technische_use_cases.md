@@ -4,12 +4,21 @@
 
 Im folgenden Kapiteln werden die fachlichen Anwendungsfälle der e-Diagnose in Form technischer Use Cases beschrieben. Die zugehörigen Sequenzdiagramme veranschaulichen die beteiligten Akteure sowie die jeweiligen Abläufe.
 
-Für jeden Use Case werden im Kapitel *Relevante Elemente* die wichtigsten Elemente der verwendeten Profile beschrieben. Dies ermöglicht eine kompakte Übersicht über die erforderlichen Anpassungen der Ressourcen im Kontext des jeweiligen Anwendungsfalls.
+### Technische Use Cases - Diagnosen schreiben, bearbeiten, korrigieren
+Die e-Diagnose ermöglicht die Verwaltung von Diagnosen, Prozeduren sowie Allergien und Intoleranzen für ELGA-Teilnehmer:innen. Die Fachanwendung unterstützt das Laden, Erfassen, Bearbeiten, Stornieren und Löschen von Diagnosen, Prozeduren, Allergien und Intoleranzen sowie die Verwaltung in der Gesamtansicht. Die nachfolgenden Sub-Use-Cases beschreiben die dafür erforderlichen Interaktionen und Transaktionen.
 
-<br clear="all"/>
+Die nachfolgend beschriebenen Use Cases basieren auf zwei Arten von Interaktionen:
 
-### Liste der Technischen Use Cases
+- [Interaktionen mit Listenressourcen](UC_eDiag_06_Int_List.html)
+- [Interaktionen mit Listenressourcen](UC_eDiag_06_Int_Res.html)
 
-- [Technische Use Cases zu Diagnosen schreiben, bearbeiten, korrigieren](UC_eDiag_06.html)
+
+Vor der Durchführung von Änderungen werden die aktuellen Datenbestände geladen. Anschließend können Listen bearbeitet sowie fachliche Einzelressourcen (z. B. Condition, Procedure, AllergyIntolerance) erfasst, geändert, storniert oder gelöscht werden.
+Die folgende Darstellung gibt einen Überblick über die in der e-Diagnose verwalteten Kategorien sowie deren Zuordnung auf den jeweiligen Listen- und Einzelressourcenebene.
+
+[![diagram](ediag_kategorie.png){: style="width: 60%"}](ediag_kategorie.png)
+
+
+
 
 

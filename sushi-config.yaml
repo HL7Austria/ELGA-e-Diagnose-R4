@@ -73,9 +73,11 @@ pages:
     title: "Technische Use Cases"
   patient_journey.md:
       title: Patient Journey
-  UC_eDiag_06.md:
-      title: "Technische Use Cases für Diagnosen schreiben, bearbeiten, korrigieren"
-#
+  UC_eDiag_06_Int_List.md:
+      title: "Interaktionen mit Listenressourcen"
+  UC_eDiag_06_Int_Res.md:
+      title: "Interaktionen mit Listenressourcen"
+
 # The parameters property represents IG.definition.parameter. Rather
 # than a list of code/value pairs (as in the ImplementationGuide
 # resource), the code is the YAML key. If a parameter allows repeating
