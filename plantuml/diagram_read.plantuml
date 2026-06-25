@@ -59,8 +59,9 @@ GDA_1 -> eDiag_FA: POST /[Condition|Procedure|AllergyIntolerance]/$list-read
 
 activate eDiag_FA COLOR_DIAG_FA
 
+eDiag_FA -> eDiag_FA: Prüfung auf bestehende Liste
+alt Liste vorhanden
 eDiag_FA -> eDiag_FA: Ermittlung des aktuellen Listenzustands
-
 alt Liste enthält Einträge
 
 note over eDiag_FA
@@ -81,15 +82,17 @@ end
 
 else Liste leer
 
-alt emptyReason = notstarted
+alt list.emptyReason = notstarted
 eDiag_FA -> GDA_1: Collection-Bundle (leer)\nemptyReason = notstarted\n+ ETag für Optimistic Locking
 
-else emptyReason = nilknown
+else list.emptyReason = nilknown
 eDiag_FA -> GDA_1: Collection-Bundle (leer)\nemptyReason = nilknown\n+ ETag für Optimistic Locking
 end
-
 end
-
+else Liste nicht vorhanden
+eDiag_FA -> eDiag_FA: Erzeugt leere Liste mit List.emptyReason = notstarted
+eDiag_FA -> GDA_1: Collection-Bundle (leer)\nemptyReason = notstarted\n+ ETag für Optimistic Locking
+end
 deactivate eDiag_FA
 
 GDA_1 -> GDA_1: Listeneinträge hinzufügen,\nändern oder entfernen
