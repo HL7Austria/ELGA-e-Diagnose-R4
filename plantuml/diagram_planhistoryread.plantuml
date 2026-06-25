@@ -60,15 +60,17 @@ activate GDA_1 COLOR_GDA_1
 == Liste lesen ==
 
 
-GDA_1 -> eDiag_FA: GET /Bundle?searchparam
+GDA_1 -> eDiag_FA: GET /Bundle?parameter(s)
 
 activate eDiag_FA COLOR_DIAG_FA
-eDiag_FA -> eDiag_FA: Prüfung auf bestehende\nListe
+eDiag_FA -> eDiag_FA: Prüfung auf bestehende\nListe(n)
 
-alt Liste vorhanden
-  eDiag_FA --> GDA_1: Bundle (type=searchset)
-else keine Liste vorhanden
-  eDiag_FA --> GDA_1: OperationOutcome (404 Not Found)
+alt Liste(n) entsprechend der Suchparametern vorhanden
+  eDiag_FA --> GDA_1: Bundle (type=searchset) mit zumindest einem Collection-Bundle
+else keine Liste entsprechend der Suchparameter vorhanden
+  eDiag_FA --> GDA_1: leeres Bundle (type=searchset)
+else Fehler
+  eDiag_FA --> GDA_1: OperationOutcome
   deactivate GDA_1
   deactivate eDiag_FA
 end
