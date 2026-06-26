@@ -73,9 +73,9 @@ pages:
     title: "Technische Use Cases"
   patient_journey.md:
       title: Patient Journey
-  uc_ediag_06_int_list.md:
+  uc_ediag_06_int_list__.md:
       title: "Interaktionen mit Listenressourcen"
-  uc_ediag_06_int_res.md:
+  uc_ediag_06_int_res__.md:
       title: "Interaktionen mit fachlichen Einzelressourcen"
 
 # The parameters property represents IG.definition.parameter. Rather
