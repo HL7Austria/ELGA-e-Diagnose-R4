@@ -51,55 +51,56 @@ actor GDA_1 as "GDA 1" COLOR_GDA_1
 participant eDiag_FA as "e-Diagnose Fachanwendung" COLOR_DIAG_FA
 
 autonumber
-activate GDA_1 COLOR_GDA_1
 
 == Liste abrufen ==
 
-GDA_1 -> eDiag_FA: POST /[Condition|Procedure|AllergyIntolerance]/$list-read
+note over GDA_1
+  TODO Endpunkt klären
+end note
 
+GDA_1 -> eDiag_FA: POST /[Condition|Procedure|AllergyIntolerance]/$list-read
+activate GDA_1 COLOR_GDA_1
 activate eDiag_FA COLOR_DIAG_FA
 
 eDiag_FA -> eDiag_FA: Prüfung auf bestehende Liste
-alt Liste vorhanden
-eDiag_FA -> eDiag_FA: Ermittlung des aktuellen Listenzustands
-alt Liste enthält Einträge
 
-note over eDiag_FA
-Mindestens ein Listeneintrag vorhanden
-end note
+group alt: Liste vorhanden? [Liste vorhanden]
 
-eDiag_FA -> eDiag_FA: Aufbereitung der Listeneinträge\nnew|changed → unchanged\nremoved → entfernen
+  eDiag_FA -> eDiag_FA: Prüfen ob List.emptyReason vorhanden ist
+  
+  group alt: List.emptyReason vorhanden? [nein]
 
-eDiag_FA -> eDiag_FA: Prüfung auf verbleibende Einträge
+    eDiag_FA -> eDiag_FA: Aufbereitung der Listeneinträge\nnew|changed → unchanged\nremoved → entfernen
+    eDiag_FA -> eDiag_FA: Zählen der Listeneinträge
 
-alt Keine Einträge mehr vorhanden
-eDiag_FA -> eDiag_FA: Setzt List.emptyReason = nilknown
-eDiag_FA -> GDA_1: Collection-Bundle (leer)\nemptyReason = nilknown\n+ ETag für Optimistic Locking
+    group alt: Anzahl Einträge? [zumindest ein Eintrag]
 
-else Einträge vorhanden
-eDiag_FA -> GDA_1: Collection-Bundle\nmit Listeneinträgen\n+ ETag für Optimistic Locking
-end
+      eDiag_FA -> GDA_1: Collection-Bundle\nmit Listeneinträgen\n+ ETag für Optimistic Locking
 
-else Liste leer
+    else Liste leer
+      
+      eDiag_FA -> eDiag_FA: Setzt List.emptyReason = nilknown
+      eDiag_FA -> GDA_1: Collection-Bundle (leer)\n+ ETag für Optimistic Locking
 
-alt list.emptyReason = notstarted
-eDiag_FA -> GDA_1: Collection-Bundle (leer)\nemptyReason = notstarted\n+ ETag für Optimistic Locking
+    end
 
-else list.emptyReason = nilknown
-eDiag_FA -> GDA_1: Collection-Bundle (leer)\nemptyReason = nilknown\n+ ETag für Optimistic Locking
-end
-end
+  else ja
+
+    note over eDiag_FA
+      List.emptyReason kann den Wert "notstarted" oder 
+      "nilknown" haben.
+    end note
+    eDiag_FA -> GDA_1: Collection-Bundle (leer)\n+ ETag für Optimistic Locking
+
+  end
 else Liste nicht vorhanden
-eDiag_FA -> eDiag_FA: Erzeugt leere Liste mit List.emptyReason = notstarted
-eDiag_FA -> GDA_1: Collection-Bundle (leer)\nemptyReason = notstarted\n+ ETag für Optimistic Locking
+  
+  eDiag_FA -> eDiag_FA: Erzeugt leere Liste mit List.emptyReason = notstarted
+  eDiag_FA -> GDA_1: Collection-Bundle (leer)\n+ ETag für Optimistic Locking
+  deactivate eDiag_FA
+
 end
-deactivate eDiag_FA
 
-GDA_1 -> GDA_1: Listeneinträge hinzufügen,\nändern oder entfernen
-
-note over GDA_1
-Die Liste kann anschließend
-mittels $list-write persistiert werden.
-end note
+deactivate GDA_1
 
 @enduml
