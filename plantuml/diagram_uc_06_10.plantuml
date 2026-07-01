@@ -1,6 +1,6 @@
 @startuml
 
-title Diagnosen, Prozeduren sowie Allergien und Intoleranzen bearbeiten
+title Diagnosen, Prozeduren sowie Allergien und Intoleranzen stornieren
 
 skinparam borderColor #000000
 skinparam backgroundColor #f5f5f5
@@ -39,12 +39,11 @@ skinparam sequence {
   GroupBorderThickness 2
 }
 
-!define COLOR_GDA_1    #0078D460
-!define COLOR_GDA_2    #8764B860
-!define COLOR_PATIENT  #00950560
-!define COLOR_APO      #00B7C360
-!define COLOR_DIAG_FA  #f5a40360
-!define COLOR_E_REZEPT #E7485660
+!define COLOR_GDA_1    #15608280
+!define COLOR_GDA_2    #96607D80
+!define COLOR_PATIENT  #196B2480
+!define COLOR_DIAG_FA  #E9713280
+
 
 !define COLOR_OK       #50E6FF25
 !define COLOR_ERROR    #FF8C0035
@@ -61,40 +60,48 @@ GDA_1 -> eDiag_FA : Ressource lesen
 
 eDiag_FA --> GDA_1 : Condition / Procedure / AllergyIntolerance
 
-== Einzelressourcen bearbeiten ==
+== Stornierung durchführen ==
 
-GDA_1 -> GDA_1 : Fachliche Änderungen durchführen
+GDA_1 -> GDA_1 : Ressource stornieren
 
 note over GDA_1
-z. B. Status,
-Schweregrad,
-Beschreibung,usw.
+Status auf den
+ressourcenspezifischen
+Stornierungsstatus setzen
+(entered-in-error)
 end note
 
 == Persistieren ==
 
-GDA_1 -> eDiag_FA: POST /[Condition|Procedure|AllergyIntolerance]/$list-write (Transaction Bundle + ETag)
+GDA_1 -> eDiag_FA : POST /[Condition|Procedure|AllergyIntolerance]/{id}/$storno
 
 activate eDiag_FA COLOR_DIAG_FA
-eDiag_FA -> eDiag_FA: ETag im Header ==\nETag der Fachanwendung?
-eDiag_FA -> eDiag_FA: Validierung der neuen Liste\n(keine unzulässigen Zustandsübergänge)
 
-alt Validierung erfolgreich 
-  eDiag_FA -> eDiag_FA: Persistiert neue Version der\nListe
+eDiag_FA -> eDiag_FA : Validierung der Stornierung
 
-  note over eDiag_FA
-  Änderungen erfolgreich persistiert
-  end note
+group Prüfung der Stornierung
 
-  eDiag_FA --> GDA_1: 200 OK
-  
-else Validierung fehlgeschlagen
+    alt COLOR_OK Validierung erfolgreich
 
-  eDiag_FA --> GDA_1: OperationOutcome
-  deactivate GDA_1
-  deactivate eDiag_FA
+        eDiag_FA -> eDiag_FA : Ressource als storniert markieren
+
+        note over eDiag_FA
+        Ressource erfolgreich storniert.
+        Sie bleibt historisch erhalten,
+        wird aber nicht mehr aktiv verwendet.
+        end note
+
+        eDiag_FA --> GDA_1 : 200 OK
+
+    else COLOR_ERROR Validierung fehlgeschlagen
+
+        eDiag_FA --> GDA_1 : OperationOutcome
+
+    end
+
 end
 
+deactivate eDiag_FA
+deactivate GDA_1
+
 @enduml
-
-

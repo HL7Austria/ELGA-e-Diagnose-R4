@@ -74,7 +74,7 @@ activate eDiag_FA COLOR_DIAG_FA
 
 eDiag_FA -> eDiag_FA: Validierung der Ressource
 
-group Prüfung der Ressourcenvalidierung
+group Prüfung der Ressourcenvalidierung: 
 
     alt COLOR_OK Validierung erfolgreich
 
