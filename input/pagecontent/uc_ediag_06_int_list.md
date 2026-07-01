@@ -1,7 +1,8 @@
 {% include styleheader.md %}
 
 <!-- Interaktionen mit Listenressourcen -->
-Listenressourcen bilden die organisatorische Struktur der e-Diagnose und dienen der Zusammenfassung fachlicher Einzelressourcen zu den Kategorien Diagnosen, Prozeduren sowie Allergien und Intoleranzen. Die nachfolgenden Sub-Use-Cases beschreiben die Initialisierung, Verwaltung und Pflege dieser Listen, einschließlich des Hinzufügens, Bearbeitens, Umordnens und Entfernens von Einträgen sowie der Übernahme von Einträgen aus der Gesamtansicht.
+Listenressourcen bilden die organisatorische Struktur der e-Diagnose und dienen der Zusammenstellung fachlicher Einzelressourcen zu den Kategorien Diagnosen, Prozeduren sowie Allergien und Intoleranzen. Die Zugehörigkeit zu einer Liste bestimmt die fachliche Relevanz einer Ressource (meta.tag=relevant). Die nachfolgenden Sub-Use-Cases beschreiben die Initialisierung und Verwaltung dieser Listen sowie das Aufnehmen, Entfernen und Umordnen von Einträgen. 
+ToDo: Fachliche Änderungen an Diagnosen, Prozeduren sowie Allergien und Intoleranzen erfolgen ausschließlich über die jeweiligen Einzelressourcen. - korrekt?
 
 ###  Interaktionen mit Listenressourcen
 
@@ -9,17 +10,9 @@ Listenressourcen bilden die organisatorische Struktur der e-Diagnose und dienen 
 
 <div>{% include_relative plantuml/diagram_uc_06_00.svg %}</div>
 
-### Sub_UC_eDiag_06_02 - Neue Einträge in einer Liste erstellen
-Ein GDA kann einen oder mehrere neue Einträge in der Liste von Diagnosen, Prozeduren, Allergien und Intoleranzen erfassen.
-Hierfür führt dieser GDA ein $list-read aus und bearbeitet das von der Fachanwendung übermittelte Collection Bundle:
+### Sub_UC_eDiag_06_02 - Neue Einträge in einer Liste aufnehmen
+Nach dem Erfassen einer neuen medizinischen Ressource [Sub_UC_eDiag_06_09](uc_ediag_06_int_res.html#sub-uc-ediag-06-09) kann diese in eine Liste aufgenommen werden. Durch die Listeninteraktion wird die Ressource der entsprechenden List-Ressource hinzugefügt. Die Fachanwendung kennzeichnet die Ressource anschließend als relevant (meta.tag = relevant).
 
-* Im Element **List.source** wird der aktuelle GDA dokumentiert, das Element **List.date** wird auf den aktuellen Zeitpunkt aktualisiert.
-* Die entsprechende Ressource (**Condition, Procedure oder AllergyIntolerance**) wird neu erstellt und in der **List-Ressource** referenziert.
-* Das **List.entry.flag** der referenzierten Ressource erhält den Wert **new**.
-* Die Ressource erhält die für den jeweiligen Ressourcentyp zulässigen Statuswert (siehe [Statustabelle](workflowmanagement.html#statustabelle)).
-* Die Ressource enthält die fachlich erforderlichen Informationen gemäß Ressourcentyp (siehe [ResourceProfiles](artifacts.html#structures_resource_profil)).
-* Der **Meta-Tag der Ressource** kennzeichnet die Zugehörigkeit zur Liste Diagnosen, Prozeduren bzw. Allergien und Intoleranzen.
-* Im Anschluss übermittlet der GDA mittels **POST $ListWrite** die aktualsiierte Liste in einem Transaction Bundle-
 
 #### Ablauf
 <div>{% include_relative plantuml/diagram_uc_06_02.svg %}</div>
@@ -33,7 +26,7 @@ noch nicht befüllten Liste zu unterscheiden.
 
 
 
-### Sub_UC_eDiag_06_03 - Bestehende Einträge innerhalb einer Liste fachlich bearbeiten
+### Sub_UC_eDiag_06_03 - Bestehende Listeinträge fachlich bearbeiten
 Der GDA kann Einträge in einer Liste fachlich bearbeiten.
 #### Ablauf
 <div>{% include_relative plantuml/diagram_uc_06_03.svg %}</div>
@@ -41,22 +34,21 @@ Der GDA kann Einträge in einer Liste fachlich bearbeiten.
 
 
 
-### Sub_UC_eDiag_06_04 - Reihenfolge von Einträgen innerhalb einer Liste ändern
+### Sub_UC_eDiag_06_04 - Reihenfolge von Listeinträge ändern
 Der GDA kann die Reihenfolge der Listeinträge ändern. Die Einträge selbst bleiben dabei unverändert.
 #### Ablauf
 <div>{% include_relative plantuml/diagram_uc_06_04.svg %}</div>
 
 
 ### Sub_UC_eDiag_06_05 - Einträge aus einer Liste entfernen
-ToDo:Wird der Eintrag nur aus der List-Ressource entfernt oder wird die referenzierte Ressource (Condition, Procedure, AllergyIntolerance) ebenfalls gelöscht/inaktiviert? 
-Dieser Fall tritt ein, wenn ein relevanter Eintrag aus der relevanten Liste zu einem nicht-relevanten Eintrag in der Gesamtansicht wird. Und in diesem müssen wir auf den Sub_UC_eDiag_06_11 verweisen. Denn es muss auch das flag geändert werden. Weil in der Gesamtansicht es bestehen bleibt. 
+Entfernt die Relevanz (meta.tag=relevant), löscht aber keine Ressource
 
 #### Ablauf
 List.entry wird entfernt, die referenzierte Ressource bleibt bestehen.
 <div>{% include_relative plantuml/diagram_uc_06_05.svg %}</div>
 
 ### Sub_UC_eDiag_06_06 - Bestehende Einträge aus der Gesamtansicht in eine Liste übernehmen
-ToDo: Workflow aus einem nicht-relevanten Eintrag einen relevanten zu machen. 
+ToDo: Brauchen wir diesen UC noch, oder reicht dafür 02 eue Einträge in einer Liste aufnehmen? Voraussetzung ist, die Ressource existiert bereits
 
 
 ### Sub_UC_eDiag_06_07 - Eintrag innerhalb einer Liste durch ELGA-Teilnehmer:in löschen 
