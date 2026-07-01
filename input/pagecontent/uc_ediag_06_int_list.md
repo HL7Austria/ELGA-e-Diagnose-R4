@@ -4,14 +4,14 @@
 Listenressourcen bilden die organisatorische Struktur der e-Diagnose und dienen der Zusammenstellung fachlicher Einzelressourcen zu den Kategorien Diagnosen, Prozeduren sowie Allergien und Intoleranzen. Die Zugehörigkeit zu einer Liste bestimmt die fachliche Relevanz einer Ressource (meta.tag=relevant). Die nachfolgenden Sub-Use-Cases beschreiben die Initialisierung und Verwaltung dieser Listen sowie das Aufnehmen, Entfernen und Umordnen von Einträgen. 
 ToDo: Fachliche Änderungen an Diagnosen, Prozeduren sowie Allergien und Intoleranzen erfolgen ausschließlich über die jeweiligen Einzelressourcen. - korrekt?
 
-###  Interaktionen mit Listenressourcen
+###  Interaktionen mit Listenressourcen 
 
 #### Sub_UC_eDiag_06_01 - Nach Initialisierung leere Liste bestätigen
 
 <div>{% include_relative plantuml/diagram_uc_06_00.svg %}</div>
 
 ### Sub_UC_eDiag_06_02 - Neue Einträge in einer Liste aufnehmen
-Nach dem Erfassen einer neuen medizinischen Ressource [Sub_UC_eDiag_06_09](uc_ediag_06_int_res.html#sub-uc-ediag-06-09) kann diese in eine Liste aufgenommen werden. Durch die Listeninteraktion wird die Ressource der entsprechenden List-Ressource hinzugefügt. Die Fachanwendung kennzeichnet die Ressource anschließend als relevant (meta.tag = relevant).
+Nach dem Erfassen einer neuen medizinischen Ressource [Sub_UC_eDiag_06_09](uc_ediag_06_int_res.html#sub-uc-ediag-06-09) kann diese in eine Liste aufgenommen werden. Die Fachanwendung kennzeichnet die Ressource anschließend als relevant (meta.tag = relevant).
 
 
 #### Ablauf
@@ -27,7 +27,7 @@ noch nicht befüllten Liste zu unterscheiden.
 
 
 ### Sub_UC_eDiag_06_03 - Bestehende Listeinträge fachlich bearbeiten
-Der GDA kann Einträge in einer Liste fachlich bearbeiten.
+TODo: Der GDA kann Einträge in einer Liste fachlich bearbeiten - stimmt nicht mehr?
 #### Ablauf
 <div>{% include_relative plantuml/diagram_uc_06_03.svg %}</div>
 
@@ -41,14 +41,14 @@ Der GDA kann die Reihenfolge der Listeinträge ändern. Die Einträge selbst ble
 
 
 ### Sub_UC_eDiag_06_05 - Einträge aus einer Liste entfernen
-Entfernt die Relevanz (meta.tag=relevant), löscht aber keine Ressource
+Die Referenz auf die Ressource wird aus der Liste entfernt. Die referenzierte Ressource bleibt unverändert bestehen. Die Fachanwendung entfernt die Kennzeichnung als relevant (meta.tag = relevant).
 
 #### Ablauf
 List.entry wird entfernt, die referenzierte Ressource bleibt bestehen.
 <div>{% include_relative plantuml/diagram_uc_06_05.svg %}</div>
 
 ### Sub_UC_eDiag_06_06 - Bestehende Einträge aus der Gesamtansicht in eine Liste übernehmen
-ToDo: Brauchen wir diesen UC noch, oder reicht dafür 02 eue Einträge in einer Liste aufnehmen? Voraussetzung ist, die Ressource existiert bereits
+ToDo: Brauchen wir diesen UC noch, oder reicht dafür 02 neue Einträge in einer Liste aufnehmen? Voraussetzung ist, die Ressource existiert bereits
 
 
 ### Sub_UC_eDiag_06_07 - Eintrag innerhalb einer Liste durch ELGA-Teilnehmer:in löschen 
