@@ -7,10 +7,11 @@ ToDo: Fachliche Änderungen an Diagnosen, Prozeduren sowie Allergien und Intoler
 ###  Interaktionen mit Listenressourcen 
 
 #### Sub_UC_eDiag_06_01 - Nach Initialisierung leere Liste bestätigen
+ToDo: Die Überprüfung aus diesem UC wird bereits bei List-Read durchgeführt.
 
 <div>{% include_relative plantuml/diagram_uc_06_00.svg %}</div>
 
-### Sub_UC_eDiag_06_02 - Neue Einträge in einer Liste aufnehmen
+### Sub_UC_eDiag_06_02 - Bestehende Ressource in eine Liste aufnehmen
 Nach dem Erfassen einer neuen medizinischen Ressource [Sub_UC_eDiag_06_09](uc_ediag_06_int_res.html#sub-uc-ediag-06-09) kann diese in eine Liste aufgenommen werden. Die Fachanwendung kennzeichnet die Ressource anschließend als relevant (meta.tag = relevant).
 
 

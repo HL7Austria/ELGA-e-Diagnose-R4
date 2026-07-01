@@ -1,6 +1,6 @@
 @startuml
 
-title Neue Einträge in einer Liste erstellen
+title Bestehende Ressource in eine Liste aufnehmen
 
 skinparam borderColor #000000
 skinparam backgroundColor #f5f5f5
@@ -39,12 +39,11 @@ skinparam sequence {
   GroupBorderThickness 2
 }
 
-!define COLOR_GDA_1    #0078D460
-!define COLOR_GDA_2    #8764B860
-!define COLOR_PATIENT  #00950560
-!define COLOR_APO      #00B7C360
-!define COLOR_DIAG_FA  #f5a40360
-!define COLOR_E_REZEPT #E7485660
+!define COLOR_GDA_1    #15608280
+!define COLOR_GDA_2    #96607D80
+!define COLOR_PATIENT  #196B2480
+!define COLOR_DIAG_FA  #E9713280
+
 
 !define COLOR_OK       #50E6FF25
 !define COLOR_ERROR    #FF8C0035
@@ -54,12 +53,11 @@ participant eDiag_FA as "e-Diagnose Fachanwendung" COLOR_DIAG_FA
 
 autonumber
 
- 
 == Liste abrufen ==
 
 activate GDA_1 COLOR_GDA_1
 
-ref over GDA_1, eDiag_FA : $list-read
+ref over GDA_1, eDiag_FA : [[interactions.html#$list-read List-Read]]
 
 note over GDA_1
 GDA erhält und bearbeitet
@@ -67,25 +65,32 @@ das von der FA
 übermittelte Collection-Bundle
 end note
 
-== Listeneintrag vorbereiten und schreiben ==
+== Ressource in Liste aufnehmen ==
 
-GDA_1 -> GDA_1: Neue Ressource (Condition/Procedure/AllergyIntolerance) erstellen
-GDA_1 -> GDA_1: List.entry hinzufügen (flag = "new", reference = Ressource)
+GDA_1 -> GDA_1: Bestehende Ressource auswählen
+GDA_1 -> GDA_1: List.entry hinzufügen 
 
 
 note over GDA_1
-Neuer Listeintrag hinzufügen
-List.source = aktueller GDA
-List.date = aktueller Zeitpunkt
+Die ausgewählte Ressource
+wird als neuer Listeneintrag
+aufgenommen.
 end note
 
-ref over GDA_1, eDiag_FA : $list-write
+ref over GDA_1, eDiag_FA : [[interactions.html#$list-write List-Write]] 
 
+activate eDiag_FA COLOR_DIAG_FA
+
+eDiag_FA -> eDiag_FA : meta.tag = relevant setzen
 
 
 note over eDiag_FA
-Neue Einträge in einer Liste erstellt.
-Persistierung erfolgreich abgeschlossen.
+Die Ressource wurde in die Liste
+aufgenommen und als relevant
+gekennzeichnet.
 end note
+
+deactivate eDiag_FA
+deactivate GDA_1
 
 @enduml
