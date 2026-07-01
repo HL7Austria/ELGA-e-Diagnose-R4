@@ -39,12 +39,11 @@ skinparam sequence {
   GroupBorderThickness 2
 }
 
-!define COLOR_GDA_1    #0078D460
-!define COLOR_GDA_2    #8764B860
-!define COLOR_PATIENT  #00950560
-!define COLOR_APO      #00B7C360
-!define COLOR_DIAG_FA  #f5a40360
-!define COLOR_E_REZEPT #E7485660
+!define COLOR_GDA_1    #15608280
+!define COLOR_GDA_2    #96607D80
+!define COLOR_PATIENT  #196B2480
+!define COLOR_DIAG_FA  #E9713280
+
 
 !define COLOR_OK       #50E6FF25
 !define COLOR_ERROR    #FF8C0035
@@ -60,37 +59,43 @@ activate GDA_1 COLOR_GDA_1
 GDA_1 -> GDA_1 : Neue Ressource erstellen
 GDA_1 -> GDA_1 : Fachliche Informationen erfassen
 
+
 note over GDA_1
 Erfassung einer
 Condition, Procedure oder
 AllergyIntolerance
 end note
 
-GDA_1 -> GDA_1 : Status gemäß Ressourcentyp setzen
-
 == Persistieren ==
 
-GDA_1 -> eDiag_FA: POST /[Condition|Procedure|AllergyIntolerance]/$list-write (Transaction Bundle + ETag)
+GDA_1 -> eDiag_FA: POST /[Condition|Procedure|AllergyIntolerance]
 
 activate eDiag_FA COLOR_DIAG_FA
-eDiag_FA -> eDiag_FA: ETag im Header ==\nETag der Fachanwendung?
-eDiag_FA -> eDiag_FA: Validierung der neuen Liste\n(keine unzulässigen Zustandsübergänge)
 
-alt Validierung erfolgreich 
-  eDiag_FA -> eDiag_FA: Persistiert neue Version der\nListe
+eDiag_FA -> eDiag_FA: Validierung der Ressource
 
-  note over eDiag_FA
-  Neuer Eintrag gespeichert
-  end note
+group Prüfung der Ressourcenvalidierung
 
-  eDiag_FA --> GDA_1: 200 OK
-  
-else Validierung fehlgeschlagen
+    alt COLOR_OK Validierung erfolgreich
 
-  eDiag_FA --> GDA_1: OperationOutcome
-  deactivate GDA_1
-  deactivate eDiag_FA
+        eDiag_FA -> eDiag_FA: Neue Ressource persistieren
+
+        note over eDiag_FA
+        Neue Ressource gespeichert.
+        Die Ressource ist zunächst nicht relevant.
+        end note
+
+        eDiag_FA --> GDA_1: 201 Created
+
+    else COLOR_ERROR Validierung fehlgeschlagen
+
+        eDiag_FA --> GDA_1: OperationOutcome
+
+    end
+
 end
+
+deactivate eDiag_FA
 
 @enduml
 

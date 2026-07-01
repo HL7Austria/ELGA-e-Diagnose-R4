@@ -9,6 +9,7 @@ ToDo: Wording Liste, eDiagnosenliste,...
 <!--$PatientWrite wäre das Löschen der gesamten Ressource (nicht nur die Listenbeteiligung) und das $PatientDelete wäre das Löschen der Ressource in der Historie -->
 
 
+
 ### List-History-Read  
 Der History Read dient ausschließlich der Anzeige historischer Versionen einer Liste. Die Fachanwendung stellt bereits persistierte historische Collection Bundles unverändert bereit. Der Zugriff erfolgt lesend und ermöglicht keine nachfolgende Bearbeitung der Liste.
 
@@ -39,7 +40,7 @@ Der Zugriff dient ausschließlich der Anzeige bzw. Informationsabfrage von aktue
 ### List-Read
 
 List Read dient dem **Abruf der Liste und der Vorbereitung einer nachfolgenden Änderung**.
-
+<!-- -->
 
 #### Ablauf
 
