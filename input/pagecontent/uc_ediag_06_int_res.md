@@ -8,16 +8,16 @@ Mittels POST und meta.tag = notrelevant
 
 ### Sub_UC_eDiag_06_10 - Diagnosen, Prozeduren sowie Allergien und Intoleranzen stornieren
 #### Ablauf
+
 <div>{% include_relative plantuml/diagram_uc_06_10.svg %}</div>
 
 ### Diagnosen, Prozeduren sowie Allergien und Intoleranzen lesen
 ToDo: Klären, ob hier oder in einen eigenen UC-lesen, weil hier schreiben ist? 
 
-### Diagnosen, Prozeduren sowie Allergien und Intoleranzen bearbeiten
-Kein update - nur STORNO
+
 
 ### Diagnosen, Prozeduren sowie Allergien und Intoleranzen löschen
-Kein delete - nur STORNO
 
-### Diagnosen, Prozeduren sowie Allergien und Intoleranzen durch ELGA-Teilnehmer:in ausblenden (ToDo: fachliche Entscheidung) 
+
+### Diagnosen, Prozeduren sowie Allergien und Intoleranzen durch ELGA-Teilnehmer:in ausblenden (löschen) 
 ToDo: fachliche Auswirkungen klären; gesamte List-Ressouce löschen, alle Referenzen - alle enthaltenen Diagnosen?
