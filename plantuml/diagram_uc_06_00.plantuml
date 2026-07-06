@@ -59,7 +59,7 @@ activate eDiag_FA COLOR_DIAG_FA
 
 ref over GDA_1, eDiag_FA : $list-read
 
-alt List.emptyReason == notstarted
+group alt: List.emptyReason == notstarted
   note over GDA_1
   GDA erhält das von der FA
   übermittelte Collection-Bundle
@@ -68,8 +68,7 @@ alt List.emptyReason == notstarted
   dokumentiert werden müssen.
   end note
 
-  GDA_1 -> GDA_1: List.emptyReason=#nilknown
-
+  GDA_1 -> GDA_1: List.emptyReason = nilknown
   
   ref over GDA_1, eDiag_FA : $list-write
 
