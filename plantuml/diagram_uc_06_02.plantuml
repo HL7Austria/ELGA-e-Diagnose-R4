@@ -56,41 +56,35 @@ autonumber
 == Liste abrufen ==
 
 activate GDA_1 COLOR_GDA_1
+activate eDiag_FA COLOR_DIAG_FA
 
 ref over GDA_1, eDiag_FA : [[interactions.html#$list-read List-Read]]
 
 note over GDA_1
-GDA erhält und bearbeitet
-das von der FA
-übermittelte Collection-Bundle
+  GDA erhält und bearbeitet
+  das von der FA
+  übermittelte Collection-Bundle
 end note
 
 == Ressource in Liste aufnehmen ==
 
 GDA_1 -> GDA_1: Bestehende Ressource auswählen
-GDA_1 -> GDA_1: List.entry hinzufügen 
-
+GDA_1 -> GDA_1: List.entry hinzufügen (List.entry.flag = new)
 
 note over GDA_1
-Die ausgewählte Ressource
-wird als neuer Listeneintrag
-aufgenommen.
+  Die ausgewählte Ressource
+  wird als neuer Listeneintrag
+  aufgenommen.
 end note
 
 ref over GDA_1, eDiag_FA : [[interactions.html#$list-write List-Write]] 
 
-activate eDiag_FA COLOR_DIAG_FA
-
 eDiag_FA -> eDiag_FA : meta.tag = relevant setzen
 
-
 note over eDiag_FA
-Die Ressource wurde in die Liste
-aufgenommen und als relevant
-gekennzeichnet.
+  Die Ressource in der Liste
+  mit List.entry.flag = new wurde
+  als relevant gekennzeichnet.
 end note
-
-deactivate eDiag_FA
-deactivate GDA_1
 
 @enduml
