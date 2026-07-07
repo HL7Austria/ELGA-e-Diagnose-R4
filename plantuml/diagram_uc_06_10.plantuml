@@ -73,7 +73,7 @@ end note
 
 == Persistieren ==
 
-GDA_1 -> eDiag_FA : POST /[Condition|Procedure|AllergyIntolerance]/{id}/$storno
+GDA_1 -> eDiag_FA : POST /[Condition|Procedure|AllergyIntolerance]/$storno
 
 activate eDiag_FA COLOR_DIAG_FA
 
