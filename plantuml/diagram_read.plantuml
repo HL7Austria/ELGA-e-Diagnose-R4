@@ -73,11 +73,11 @@ group alt: Liste vorhanden? [Liste vorhanden]
     eDiag_FA -> eDiag_FA: Aufbereitung der Listeneinträge\nnew|changed → unchanged\nremoved → entfernen
     eDiag_FA -> eDiag_FA: Zählen der Listeneinträge
 
-    group alt: Anzahl Einträge? [zumindest ein Eintrag]
+    group COLOR_OK alt: Anzahl Einträge? [zumindest ein Eintrag]
 
       eDiag_FA -> GDA_1: Collection-Bundle\nmit Listeneinträgen\n+ ETag für Optimistic Locking
 
-    else Liste leer
+    else COLOR_ERROR Liste leer
       
       eDiag_FA -> eDiag_FA: Setzt List.emptyReason = nilknown
       eDiag_FA -> GDA_1: Collection-Bundle (leer)\n+ ETag für Optimistic Locking
