@@ -79,9 +79,7 @@ activate eDiag_FA COLOR_DIAG_FA
 
 eDiag_FA -> eDiag_FA : Validierung der Stornierung
 
-group Prüfung der Stornierung
-
-    alt COLOR_OK Validierung erfolgreich
+group COLOR_OK alt: Prüfung der Stornierung [Validierung erfolgreich]
 
         eDiag_FA -> eDiag_FA : Ressource als storniert markieren
 
@@ -96,8 +94,6 @@ group Prüfung der Stornierung
     else COLOR_ERROR Validierung fehlgeschlagen
 
         eDiag_FA --> GDA_1 : OperationOutcome
-
-    end
 
 end
 

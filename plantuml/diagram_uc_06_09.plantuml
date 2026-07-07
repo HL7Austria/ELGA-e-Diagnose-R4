@@ -74,9 +74,7 @@ activate eDiag_FA COLOR_DIAG_FA
 
 eDiag_FA -> eDiag_FA: Validierung der Ressource
 
-group Prüfung der Ressourcenvalidierung: 
-
-    alt COLOR_OK Validierung erfolgreich
+group COLOR_OK alt: Prüfung der Ressourcenvalidierung [Validierung erfolgreich] 
 
         eDiag_FA -> eDiag_FA: Neue Ressource persistieren
 
@@ -92,8 +90,6 @@ group Prüfung der Ressourcenvalidierung:
         eDiag_FA --> GDA_1: OperationOutcome
 
     end
-
-end
 
 deactivate eDiag_FA
 
