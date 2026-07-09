@@ -58,7 +58,7 @@ autonumber
 activate GDA_1 COLOR_GDA_1
 activate eDiag_FA COLOR_DIAG_FA
 
-ref over GDA_1, eDiag_FA : [[interactions.html#$list-read List-Read]]
+ref over GDA_1, eDiag_FA : [[uc_ediag_06_int_list.html#$list-read List-Read]]
 
 note over GDA_1
   GDA erhält und bearbeitet
@@ -77,7 +77,7 @@ note over GDA_1
   aufgenommen.
 end note
 
-ref over GDA_1, eDiag_FA : [[interactions.html#$list-write List-Write]] 
+ref over GDA_1, eDiag_FA : [[uc_ediag_06_int_list.html#$list-write List-Write]] 
 
 eDiag_FA -> eDiag_FA : meta.tag = relevant setzen
 

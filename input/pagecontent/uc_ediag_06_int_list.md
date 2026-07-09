@@ -129,8 +129,8 @@ Nach dem Erfassen einer neuen medizinischen Ressource [Sub_UC_eDiag_06_09](uc_ed
    
 
 
-### Sub_UC_eDiag_06_03 - Bestehende Listeinträge fachlich bearbeiten
-TODo: Der GDA kann Einträge in einer Liste fachlich bearbeiten - stimmt nicht mehr? 1. Schritt, ich erstelle eine neue poten: 2 Schritt: Will ich sie verknüpfen, muss ich auf die bestehenden Ressourcen zugreifen mit dem Identifier 123, der muss vom Client zwischengespeichert werden, damit dieser an die FA mitgesendet werden kann. 
+### Sub_UC_eDiag_06_03 - Bestehende relevante Listeinträge fachlich bearbeiten
+TODo: Der GDA kann Einträge in einer Liste fachlich bearbeiten - stimmt nicht mehr? 1. Schritt, ich erstelle eine neue 2 Schritt: Will ich sie verknüpfen, muss ich auf die bestehenden Ressourcen zugreifen mit dem Identifier 123, der muss vom Client zwischengespeichert werden, damit dieser an die FA mitgesendet werden kann. 
 #### Ablauf
 <div>{% include_relative plantuml/diagram_uc_06_03.svg %}</div>
 
