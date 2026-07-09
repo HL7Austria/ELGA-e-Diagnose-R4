@@ -63,8 +63,8 @@ pages:
     title: Hintergrund
   challenges.md:
     title: Herausforderungen 
-  interactions.md:
-    title: "Interaktionen"
+  transaction.md:
+    title: "Transaktionen"
   actors.md:
     title: Akteure
   workflowmanagement.md:
@@ -109,7 +109,7 @@ menu:
    Herausforderungen: challenges.html 
   Funktionales:
    Akteure: actors.html
-   Interaktionen: interactions.html
+   Transaktionen: transaction.html
    Workflowmanagement: workflowmanagement.html
   Anwendungsfälle: 
    Patient Journey: patient_journey.html
