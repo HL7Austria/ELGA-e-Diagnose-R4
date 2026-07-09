@@ -44,18 +44,6 @@ left to right direction
 
 title REST-Schnittstellen: https://[server]
 
-interface "/Patient/[id]/MedicationRequest/" as IMedicationRequest {
-  «POST» $prescription-write [GDA]
-  «POST» $prescription-discard [GDA]
-  «POST» $plan-read [GDA, PAT]
-  «POST» $plan-write [GDA]
-  «POST» $patient-plan-write [PAT]
-  «POST» $plan-delete [PAT]
-  «GET» ?category=GeplAbgabe [GDA, PAT]
-  «GET» ?category=Planeintrag [GDA, PAT] 
-  «DELETE» (delete) [PAT]
-} 
-
 
 interface "/" as IEdiag {
   «POST» $list-history-read [GDA, PAT] 
@@ -73,12 +61,10 @@ interface "/Patient/[id]/Condition/" as ICondition {
 ' --- SYSTEMKOMPONENTE (ZENTRALER SERVER) ---
 
 component "ELGA\ne-Diagnose" as Server {
-  port "MedicationRequest\n(Planeinträge und\nGeplante Abgaben)" as p4
   port "e-Diagnose" as p1
   port "Condition" as p2
 }
 
-p4 -up- IMedicationRequest
 p1 -up- IEdiag
 p2 -up- ICondition
 

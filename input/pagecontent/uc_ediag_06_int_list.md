@@ -6,6 +6,8 @@ Fachliche Änderungen an Diagnosen, Prozeduren sowie Allergien und Intoleranzen 
 
 ###  Interaktionen mit Listenressourcen 
 
+ToDo: History Read, usw
+
 #### Sub_UC_eDiag_06_01 - Nach Initialisierung leere Liste bestätigen
 ToDo: Die Überprüfung aus diesem UC wird bereits bei List-Read durchgeführt. Teil des ELGA Core. emptyReason #nilknown. Im eDiag wir müssen zusätzlich angeben welcher ListType es ist. Eine leere Liste mit dem Wert **emptyReason = nilknown** bedeutet, dass für den Patienten derzeit keine relevanten Einträge vorliegen. Der Status dokumentiert somit explizit das Fehlen von relevanten Einträgen und ist von einer
 noch nicht befüllten Liste zu unterscheiden.

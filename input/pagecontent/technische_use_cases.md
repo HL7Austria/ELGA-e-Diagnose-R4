@@ -4,7 +4,11 @@
 
 Im folgenden Kapiteln werden die fachlichen Anwendungsfälle der e-Diagnose in Form technischer Use Cases beschrieben. Die zugehörigen Sequenzdiagramme veranschaulichen die beteiligten Akteure sowie die jeweiligen Abläufe.
 
-[![diagram](ediag_interaction.png){: style="width: 100%"}](ediag_interaction.png)
+<div>{% include_relative plantuml/diagram_interaction.svg %}</div>
+
+
+### Diagnosen, Prozeduren sowie Allergien und Intoleranzen lesen
+ToDo: Klären, ob hier oder in einen eigenen UC-lesen, weil hier schreiben ist? Ist die Standardoperation plan.read - get.search mit suchparameter? Wir brauchen einen Standardfall lesen und ich habe den Fall dass ich einen tiefgang machen möchte und diese lesen will. 
 
 
 ### Technische Use Cases - Diagnosen schreiben, bearbeiten, korrigieren
