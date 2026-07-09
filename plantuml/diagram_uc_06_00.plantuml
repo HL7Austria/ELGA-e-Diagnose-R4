@@ -43,7 +43,7 @@ skinparam sequence {
 !define COLOR_GDA_2    #8764B860
 !define COLOR_PATIENT  #00950560
 !define COLOR_APO      #00B7C360
-!define COLOR_DIAG_FA  #f5a40360
+!define COLOR_DIAG_FA  #E9713280
 !define COLOR_E_REZEPT #E7485660
 
 !define COLOR_OK       #50E6FF25
