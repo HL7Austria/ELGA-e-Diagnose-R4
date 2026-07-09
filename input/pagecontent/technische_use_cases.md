@@ -1,20 +1,10 @@
 {% include styleheader.md %}
 
-<!-- Technische Use Cases -->
+Die nachfolgenden Kapitel beschreiben die fachlichen Anwendungsfälle der e-Diagnose in Form technischer Use Cases. Die zugehörigen Sequenzdiagramme stellen die beteiligten Akteure, Schnittstellen und Prozessabläufe dar.
 
-Im folgenden Kapiteln werden die fachlichen Anwendungsfälle der e-Diagnose in Form technischer Use Cases beschrieben. Die zugehörigen Sequenzdiagramme veranschaulichen die beteiligten Akteure sowie die jeweiligen Abläufe.
+Die e-Diagnose dient der Verwaltung von Diagnosen, Prozeduren, Allergien und Intoleranzen für ELGA-Teilnehmer. Die Fachanwendung ermöglicht das Laden, Erfassen, Bearbeiten, Stornieren und Löschen der entsprechenden Daten. Darüber hinaus unterstützt sie die Verwaltung dieser Informationen in einer Gesamtansicht.
 
-<div>{% include_relative plantuml/diagram_interaction.svg %}</div>
-
-
-### Diagnosen, Prozeduren sowie Allergien und Intoleranzen lesen
-ToDo: Klären, ob hier oder in einen eigenen UC-lesen, weil hier schreiben ist? Ist die Standardoperation plan.read - get.search mit suchparameter? Wir brauchen einen Standardfall lesen und ich habe den Fall dass ich einen tiefgang machen möchte und diese lesen will. 
-
-
-### Technische Use Cases - Diagnosen schreiben, bearbeiten, korrigieren
-Die e-Diagnose ermöglicht die Verwaltung von Diagnosen, Prozeduren sowie Allergien und Intoleranzen für ELGA-Teilnehmer:innen. Die Fachanwendung unterstützt das Laden, Erfassen, Bearbeiten, Stornieren und Löschen von Diagnosen, Prozeduren, Allergien und Intoleranzen sowie die Verwaltung in der Gesamtansicht. Die nachfolgenden Sub-Use-Cases beschreiben die dafür erforderlichen Interaktionen und Transaktionen.
-
-Die nachfolgend beschriebenen Use Cases basieren auf zwei Arten von Interaktionen:
+Die nachfolgend beschriebenen Sub-Use-Cases definieren die erforderlichen Interaktionen und Transaktionen zur Umsetzung dieser fachlichen Funktionen. Sie basieren auf den folgenden Interaktionsarten:
 
 - [Interaktionen mit Listenressourcen](uc_ediag_06_int_list.html)
 - [Interaktionen mit fachlichen Einzelressourcen ](uc_ediag_06_int_res.html)
