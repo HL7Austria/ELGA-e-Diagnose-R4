@@ -61,20 +61,16 @@ ref over GDA_1, eDiag_FA : $list-read
 
 group alt: List.emptyReason == notstarted
   note over GDA_1
-  GDA erhält das von der FA
-  übermittelte Collection-Bundle
-  und bestätigt, dass keine Einträge
-  (Condition/Procedure/AllergyIntolerance)
-  dokumentiert werden müssen.
+    GDA erhält das von der FA
+    übermittelte Collection-Bundle
+    und bestätigt, dass keine Einträge
+    (Condition/Procedure/AllergyIntolerance)
+    dokumentiert werden müssen.
   end note
 
   GDA_1 -> GDA_1: List.emptyReason = nilknown
   
   ref over GDA_1, eDiag_FA : $list-write
-
-  note over eDiag_FA
-  Persistierung erfolgreich abgeschlossen.
-  end note
 end
 
 @enduml
