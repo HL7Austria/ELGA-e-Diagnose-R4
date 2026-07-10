@@ -82,13 +82,6 @@ group COLOR_OK alt: Liste(n) vorhanden? [Liste(n) vorhanden]
 
   else COLOR_ERROR ja
 
-    note over eDiag_FA
-      List.emptyReason kann den Wert "notstarted" oder 
-      "nilknown" haben.
-
-      TODO: Abklären, ob List mit "notstarted" persistiert wird.
-    end note
-
     eDiag_FA --> GDA_1: Collection-Bundle (List ohne Einträge) +\nETag für Optimistic Locking
 
   end

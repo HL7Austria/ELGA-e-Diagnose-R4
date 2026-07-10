@@ -1,5 +1,5 @@
 @startuml
-title Vergangene Versionen der Liste abrufen
+title Vergangene Versionen einer Liste abrufen
 
 skinparam borderColor #000000
 skinparam backgroundColor #f5f5f5

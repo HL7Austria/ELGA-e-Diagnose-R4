@@ -62,6 +62,9 @@ note over GDA_1
   wurde die Liste bearbeitet.
 end note
 
+GDA_1 -> GDA_1 : List.source = aktueller GDA
+GDA_1 -> GDA_1 : List.date = aktueller Zeitpunkt
+
 GDA_1 -> eDiag_FA: POST /[Condition|Procedure|AllergyIntolerance]/$list-write (List + ETag)
 
 activate eDiag_FA COLOR_DIAG_FA
