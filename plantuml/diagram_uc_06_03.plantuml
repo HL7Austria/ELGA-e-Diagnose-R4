@@ -1,6 +1,6 @@
 @startuml
 
-title Bestehende Einträge innerhalb einer Liste fachlich bearbeiten
+title Bestehenden Eintrag innerhalb einer Liste fachlich bearbeiten
 
 skinparam borderColor #000000
 skinparam backgroundColor #f5f5f5
@@ -54,47 +54,28 @@ participant eDiag_FA as "e-Diagnose Fachanwendung" COLOR_DIAG_FA
 
 autonumber
 
-== Liste abrufen ==
-
 activate GDA_1 COLOR_GDA_1
 
 ref over GDA_1, eDiag_FA : $list-read
 
 note over GDA_1
-GDA erhält die aktuelle Liste
-im Auslieferungs-Bundle
-end note
-
-== Bestehenden Eintrag fachlich bearbeiten ==
-
-note over GDA_1
-GDA wählt bestehenden Listeneintrag aus
-und bearbeitet die referenzierte Ressource
+  GDA wählt bestehenden Eintrag
+  (Condition/Procedure/AllergyIntolerance) aus
+  und bearbeitet die Ressource
 end note
 
 GDA_1 -> GDA_1 : Bestehenden List.entry auswählen
-GDA_1 -> GDA_1 : Referenzierte Ressource (Condition / Procedure / AllergyIntolerance) laden
+
+GDA_1 -> GDA_1 : Referenzierte Ressource (Condition/Procedure/AllergyIntolerance) laden
 
 GDA_1 -> GDA_1 : Fachliche Änderungen durchführen
 
-note over GDA_1
-z. B. Status, Schweregrad,... aktualisieren
-end note
+ref over GDA_1, eDiag_FA : [[uc_ediag_06_int_res.html#sub_uc_ediag_06_09---diagnosen-prozeduren-sowie-allergien-und-intoleranzen-erfassen Diagnosen, Prozeduren sowie Allergien und Intoleranzen erfassen]]
 
-GDA_1 -> GDA_1 : List.entry bleibt bestehen\n(keine Neuerstellung)
+GDA_1 -> GDA_1 : Alten Eintrag aus Liste entfernen (List.entry.flag = removed)
 
-== Persistieren der Änderungen ==
-
-note over GDA_1
-List.source = aktueller GDA
-List.date = aktueller Zeitpunkt
-end note
+GDA_1 -> GDA_1 : Neuen Eintrag zu Liste an passender Stelle hinzufügen (List.entry.flag = new)
 
 ref over GDA_1, eDiag_FA : $list-write
-
-note over eDiag_FA
-Änderungen erfolgreich persistiert
-konsistenter Listen- und Ressourcenstatus
-end note
 
 @enduml
