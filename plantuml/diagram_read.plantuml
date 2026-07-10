@@ -1,5 +1,5 @@
 @startuml
-title List-Read
+title Liste und zugehörige Ressourcen abrufen ($list-read)
 
 skinparam borderColor #000000
 skinparam backgroundColor #f5f5f5
@@ -52,51 +52,50 @@ participant eDiag_FA as "e-Diagnose Fachanwendung" COLOR_DIAG_FA
 
 autonumber
 
-== Liste abrufen ==
-
-note over GDA_1
-  TODO Endpunkt klären
-end note
-
 GDA_1 -> eDiag_FA: POST /[Condition|Procedure|AllergyIntolerance]/$list-read
 activate GDA_1 COLOR_GDA_1
 activate eDiag_FA COLOR_DIAG_FA
 
-eDiag_FA -> eDiag_FA: Prüfung auf bestehende Liste
+eDiag_FA -> eDiag_FA: Auf bestehende Liste(n) prüfen
 
-group alt: Liste vorhanden? [Liste vorhanden]
+group COLOR_OK alt: Liste(n) vorhanden? [Liste(n) vorhanden]
 
-  eDiag_FA -> eDiag_FA: Prüfen ob List.emptyReason vorhanden ist
+  eDiag_FA -> eDiag_FA: Liste mit aktuellem List.date ermitteln
+
+  eDiag_FA -> eDiag_FA: Prüfen, ob List.emptyReason vorhanden ist
   
-  group alt: List.emptyReason vorhanden? [nein]
+  group COLOR_OK alt: List.emptyReason vorhanden? [nein]
 
-    eDiag_FA -> eDiag_FA: Aufbereitung der Listeneinträge\nnew|changed → unchanged\nremoved → entfernen
+    eDiag_FA -> eDiag_FA: Flags der Listeneinträge aufbereiten\nnew|changed → unchanged\nremoved → entfernen
     eDiag_FA -> eDiag_FA: Zählen der Listeneinträge
 
     group COLOR_OK alt: Anzahl Einträge? [zumindest ein Eintrag]
 
-      eDiag_FA -> GDA_1: Collection-Bundle\nmit Listeneinträgen\n+ ETag für Optimistic Locking
+      eDiag_FA --> GDA_1: Collection-Bundle (List mit Einträgen) +\nETag für Optimistic Locking
 
     else COLOR_ERROR Liste leer
       
-      eDiag_FA -> eDiag_FA: Setzt List.emptyReason = nilknown
-      eDiag_FA -> GDA_1: Collection-Bundle (leer)\n+ ETag für Optimistic Locking
+      eDiag_FA -> eDiag_FA: List.emptyReason = nilknown setzen
+      eDiag_FA --> GDA_1: Collection-Bundle (List ohne Einträge) +\nETag für Optimistic Locking
 
     end
 
-  else ja
+  else COLOR_ERROR ja
 
     note over eDiag_FA
       List.emptyReason kann den Wert "notstarted" oder 
       "nilknown" haben.
+
+      TODO: Abklären, ob List mit "notstarted" persistiert wird.
     end note
-    eDiag_FA -> GDA_1: Collection-Bundle (leer)\n+ ETag für Optimistic Locking
+
+    eDiag_FA --> GDA_1: Collection-Bundle (List ohne Einträge) +\nETag für Optimistic Locking
 
   end
-else Liste nicht vorhanden
+else COLOR_ERROR Keine Liste vorhanden
   
-  eDiag_FA -> eDiag_FA: Erzeugt leere Liste mit List.emptyReason = notstarted
-  eDiag_FA -> GDA_1: Collection-Bundle (leer)\n+ ETag für Optimistic Locking
+  eDiag_FA -> eDiag_FA: Leere Liste mit List.emptyReason = notstarted erzeugen
+  eDiag_FA --> GDA_1: Collection-Bundle (List ohne Einträge) +\nETag für Optimistic Locking
   deactivate eDiag_FA
 
 end

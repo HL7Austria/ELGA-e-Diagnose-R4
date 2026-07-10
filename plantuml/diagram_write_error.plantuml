@@ -54,64 +54,66 @@ actor GDA_2 as "GDA 2" COLOR_GDA_2
 
 autonumber
 
- == List-Read durch GDA 1 ==
+== $list-read durch GDA 1 ==
 
 GDA_1 -> eDiag_FA: POST /Condition/$list-read
 activate GDA_1 COLOR_GDA_1
 
 activate eDiag_FA COLOR_DIAG_FA
-eDiag_FA --> GDA_1: Collection Bundle + ETag "123"
+eDiag_FA --> GDA_1: Collection-Bundle + ETag "123"
 deactivate eDiag_FA
 
 note over GDA_1
-GDA 1 bearbeitet Liste
-(Einträge hinzufügen/ändern/entfernen)
+  GDA 1 bearbeitet Liste
 end note
 
-== List-Read durch GDA 2 ==
+== $list-read durch GDA 2 ==
 
 GDA_2 -> eDiag_FA: POST /Condition/$list-read
 activate GDA_2 COLOR_GDA_2 
 
 activate eDiag_FA COLOR_DIAG_FA
 
-eDiag_FA --> GDA_2: Collection Bundle + ETag "123"
+eDiag_FA --> GDA_2: Collection-Bundle + ETag "123"
 deactivate eDiag_FA
 
 note over GDA_2
-GDA 2 bearbeitet Liste
-(Einträge hinzufügen/ändern/entfernen)
+  GDA 2 bearbeitet Liste
 end note
 
-== List-Write durch GDA 2 ==
+== $list-write durch GDA 2 ==
 
-GDA_2 -> eDiag_FA: POST /Condition/$list-write (Transaction Bundle + ETag "123")
+GDA_2 -> eDiag_FA: POST /Condition/$list-write (List + ETag "123")
 
 activate eDiag_FA COLOR_DIAG_FA
 eDiag_FA -> eDiag_FA: ETag "123" im Header ==\nETag der Fachanwendung "123"
-eDiag_FA --> GDA_2: 200 OK 
-deactivate GDA_2
 
-note over eDiag_FA
-Liste wurde durch GDA 2 aktualisiert.
+note over FA
+  Fachanwendung aktualisiert Inhalte.
 end note
+
+eDiag_FA --> GDA_2: HTTP 200 OK 
+deactivate GDA_2
 
 deactivate eDiag_FA
 
-== List-Write-Error für GDA 1 ==
+== Error für GDA 1 ==
 
-GDA_1 -> eDiag_FA: POST /Condition/$list-write (Transaction Bundle + ETag "123")
+GDA_1 -> eDiag_FA: POST /Condition/$list-write (List + ETag "123")
 
 activate eDiag_FA COLOR_DIAG_FA
-eDiag_FA -> eDiag_FA: ETag im Header "123" stimmt nicht\nmit ETag der Fachanwendung\nüberein, da er bereits zum Schreiben\nverwendet wurde
+eDiag_FA -> eDiag_FA: ETag im Header "123" stimmt nicht\nmit ETag der Fachanwendung\nüberein, da er bereits zum Schreiben\nverwendet wurde.
+
 note over eDiag_FA
-Fachanwendung lehnt Speichern ab
+  Fachanwendung lehnt Speichern ab.
 end note
-eDiag_FA --> GDA_1: OperationOutcome
+
+eDiag_FA --> GDA_1: HTTP 4xx Fehler / OperationOutcome
 deactivate GDA_1
+
 note over eDiag_FA, GDA_1
-Speichern der Liste wurde abgelehnt,
-der GDA 1 muss ein neues List-Read ausführen.
+  Speichern der Liste wurde abgelehnt,
+  der GDA 1 muss ein neues $list-read ausführen.
 end note
 
 deactivate eDiag_FA
