@@ -45,28 +45,56 @@ left to right direction
 title REST-Schnittstellen: https://[server]
 
 
-interface "/" as IEdiag {
-  «POST» $list-history-read [GDA, PAT] 
+interface "/Patient/[id]/List/" as List_type {
+  «GET» ?_include=List:patient&_include=List:source&_include:iterate=List:item&criteria... [GDA, PAT] 
+}
+
+interface "/Patient/[id]/List/[rid]" as List_instance { 
+  «DELETE» [PAT]
 }
 
 interface "/Patient/[id]/Condition/" as ICondition {
+  «POST» [GDA]
   «POST» $list-read [GDA, PAT]
   «POST» $list-write [GDA]
-  «POST» $patient-list-write [PAT]
-  «POST» $list-delete [PAT]
+  «POST» $delete [PAT]
+  «POST» $storno [GDA]
   «GET» [GDA, PAT]
-  «DELETE» (delete) [PAT]
+} 
+
+interface "/Patient/[id]/Procedure/" as IProcedure {
+  «POST» [GDA]
+  «POST» $list-read [GDA, PAT]
+  «POST» $list-write [GDA]
+  «POST» $delete [PAT]
+  «POST» $storno [GDA]
+  «GET» [GDA, PAT]
+} 
+
+interface "/Patient/[id]/AllergyIntolerance/" as IAllergyIntolerance {
+  «POST» [GDA]
+  «POST» $list-read [GDA, PAT]
+  «POST» $list-write [GDA]
+  «POST» $delete [PAT]
+  «POST» $storno [GDA]
+  «GET» [GDA, PAT]
 } 
 
 ' --- SYSTEMKOMPONENTE (ZENTRALER SERVER) ---
 
 component "ELGA\ne-Diagnose" as Server {
-  port "e-Diagnose" as p1
+  port "List (type level)" as p1
+  port "List (instance level)" as p5
   port "Condition" as p2
+  port "Procedure" as p3
+  port "AllergyIntolerance" as p4
 }
 
-p1 -up- IEdiag
+p1 -up- List_type
+p5 -up- List_instance
 p2 -up- ICondition
+p3 -up- IProcedure
+p4 -up- IAllergyIntolerance
 
 legend right
   **Legende Berechtigungen:**
