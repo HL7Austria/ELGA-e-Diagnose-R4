@@ -139,8 +139,6 @@ TODo: Der GDA kann Einträge in einer Liste fachlich bearbeiten - stimmt nicht m
 
 ### Sub_UC_eDiag_06_04 - Reihenfolge von Listeinträge ändern
 Der GDA kann die Reihenfolge der Listeinträge ändern. Die Einträge selbst bleiben dabei unverändert. Evtl. auch in den ELGA Core mitnehmen. 
-#### Ablauf
-<div>{% include_relative plantuml/diagram_uc_06_04.svg %}</div>
 
 
 ### Sub_UC_eDiag_06_05 - Einträge aus einer Liste entfernen
