@@ -151,5 +151,10 @@ List.entry wird entfernt, die referenzierte Ressource bleibt bestehen.
 
 
 ### Sub_UC_eDiag_06_08 - Liste durch ELGA-Teilnehmer:in löschen 
-ToDo: fachliche Auswirkungen klären; gesamte List-Ressouce löschen, alle Referenzen - alle enthaltenen Diagnosen?
+
+Der ELGA-Teilnehmer kann via ELGA-Portal eine aktuelle, einzelne oder alle historischen Versionen einer Liste unwiderruflich löschen. 
+
+Hierfür markiert der Patient die zu löschende Liste und führt über das Portal ein `DELETE` aus, mit dem Resultat, dass die ausgewählten Listen durch die Fachanwendung gelöscht werden.
+
+TODO: `DELETE` auf id (mit Compartments) oder warum custom operation?
 
