@@ -38,11 +38,18 @@ Mittels POST und meta.tag = notrelevant
 <div>{% include_relative plantuml/diagram_uc_06_09.svg %}</div>
 
 ### Sub_UC_eDiag_06_10 - Diagnosen, Prozeduren sowie Allergien und Intoleranzen stornieren
+
+Der GDA kann einen oder mehrere Diagnosen aufgrund einer falschen Eingabe stornieren. Dabei ist es irrelevant, ob eine zu stornierende Diagnose als relevant gekennzeichnet ist oder nicht.
+
+Sollte die Diagnose als relevant gekennzeichnet gewesen sein und will sie der GDA nach der Stornierung nicht mehr in der Liste der relevanten Einträge haben, muss die Diagnose aus der Liste der relevanten Einträge entfernt werden (siehe [Sub_UC_eDiag_06_05 - Einträge aus einer Liste entfernen](uc_ediag_06_int_list.md#sub_uc_ediag_06_05---einträge-aus-einer-liste-entfernen)).
+
 #### Ablauf
 
-<div>{% include_relative plantuml/diagram_uc_06_10.svg %}</div>
-
-
-### Diagnosen, Prozeduren sowie Allergien und Intoleranzen durch ELGA-Teilnehmer:in löschen
+- Um einen Eintrag zu stornieren, führt der GDA ein `$list-read` oder ein `GET` auf die Gesamtmenge der Diagnosen aus und markiert die zu stornierenden Einträge.
+- Durch Bestätigung wird die `$storno`-Operation ausgeführt.
+- Die Fachanwendung bearbeitet die zu stornierende Diagnose folgendermaßen:
+  -  `AllergyIntolerance.verificationStatus = entered-in-error`
+  -  `Condition.verificationStatus = entered-in-error`
+  -  `Procedure.status = entered-in-error`
 
 
