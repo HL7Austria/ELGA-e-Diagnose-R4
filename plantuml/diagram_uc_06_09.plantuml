@@ -54,44 +54,33 @@ participant eDiag_FA as "e-Diagnose Fachanwendung" COLOR_DIAG_FA
 autonumber
 activate GDA_1 COLOR_GDA_1
 
-==  Einzelressourcen erfassen ==
-
 GDA_1 -> GDA_1 : Neue Ressource erstellen
+
 GDA_1 -> GDA_1 : Fachliche Informationen erfassen
-
-
-note over GDA_1
-Erfassung einer
-Condition, Procedure oder
-AllergyIntolerance
-end note
-
-== Persistieren ==
 
 GDA_1 -> eDiag_FA: POST /[Condition|Procedure|AllergyIntolerance]
 
 activate eDiag_FA COLOR_DIAG_FA
 
-eDiag_FA -> eDiag_FA: Validierung der Ressource
+eDiag_FA -> eDiag_FA: Ressource validieren
 
-group COLOR_OK alt: Prüfung der Ressourcenvalidierung [Validierung erfolgreich] 
+group COLOR_OK alt: Ressource valide? [Validierung erfolgreich] 
 
-        eDiag_FA -> eDiag_FA: Neue Ressource persistieren
+  eDiag_FA -> eDiag_FA: Neue Ressource persistieren
 
-        note over eDiag_FA
-        Neue Ressource gespeichert.
-        Die Ressource ist zunächst nicht relevant.
-        end note
+  note over eDiag_FA
+    Neue Ressource gespeichert.
+  end note
 
-        eDiag_FA --> GDA_1: 201 Created
+  eDiag_FA --> GDA_1: HTTP 201 Created
 
-    else COLOR_ERROR Validierung fehlgeschlagen
+else COLOR_ERROR Validierung fehlgeschlagen
 
-        eDiag_FA --> GDA_1: OperationOutcome
+  eDiag_FA --> GDA_1: OperationOutcome
+  deactivate eDiag_FA
 
-    end
+end
 
-deactivate eDiag_FA
 
 @enduml
 
