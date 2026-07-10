@@ -53,23 +53,28 @@ participant eDiag_FA as "e-Diagnose Fachanwendung" COLOR_DIAG_FA
 
 autonumber
 
-== Liste abrufen ==
-
 activate GDA_1 COLOR_GDA_1
 activate eDiag_FA COLOR_DIAG_FA
 
-ref over GDA_1, eDiag_FA : [[uc_ediag_06_int_list.html#$list-read List-Read]]
-
 note over GDA_1
-  GDA erhält und bearbeitet
-  das von der FA
-  übermittelte Collection-Bundle
+  Vorbedingung: Im System des GDA 1 liegt eine 
+  bestehende Ressource (Condition/Procedure/AllergyIntolerance) 
+  vor, die in eine Liste aufgenommen werden soll.
+
+  Diese kann gerade erst erstellt worden sein oder 
+  aus der Gesamtansicht abgerufen worden sein.
 end note
 
-== Ressource in Liste aufnehmen ==
+ref over GDA_1, eDiag_FA : [[uc_ediag_06_int_list.html#$list-read $list-read]]
+
+note over GDA_1
+  GDA erhält ein Collection-Bundle von der 
+  Fachanwendung und bearbeitet die enthaltene
+  List-Ressource.
+end note
 
 GDA_1 -> GDA_1: Bestehende Ressource auswählen
-GDA_1 -> GDA_1: List.entry hinzufügen (List.entry.flag = new)
+GDA_1 -> GDA_1: List.entry hinzufügen\n- List.entry.flag = new\n- List.entry.item = Referenz auf bestehende Ressource
 
 note over GDA_1
   Die ausgewählte Ressource
