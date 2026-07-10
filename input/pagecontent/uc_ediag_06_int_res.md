@@ -9,6 +9,28 @@ Lesen/Suchen nach bestimmten Diagnosen
 
 ### Read/Search bestimmte Ressourcen (Diagnosen)
 
+### Sub_UC_eDiag_06_07 - Diagnosen, Prozeduren sowie Allergien und Intoleranzen durch ELGA-Teilnehmer löschen 
+
+Der ELGA-Teilnehmer kann via ELGA-Portal einzelne oder alle Diagnosen unwiderruflich löschen. Dabei ist es irrelevant, ob eine zu löschende Diagnose als relevant gekennzeichnet ist oder nicht. Die Inhalte der zu löschenden Diagnose werden durch die Fachanwendung entfernt und die Diagnose als "gelöscht" markiert.
+
+Sollte die Diagnose als relevant gekennzeichnet gewesen sein, kann nur ein GDA diese aus der Liste der relevanten Einträge entfernen (siehe [Sub_UC_eDiag_06_05 - Einträge aus einer Liste entfernen](uc_ediag_06_int_list.md#sub_uc_ediag_06_05---einträge-aus-einer-liste-entfernen)).
+
+#### Ablauf
+
+- Um einen Eintrag zu löschen, führt der ELGA-Teilnehmer über das Portal ein `$list-read` oder ein `GET` auf die Gesamtmenge der Diagnosen aus und markiert die zu löschenden Einträge.
+- Durch Bestätigung wird die `$delete`-Operation ausgeführt.
+- Die Fachanwendung bearbeitet die zu löschende Diagnose folgendermaßen:
+  -  Alle optionalen Felder `0..` werden geleert.
+  -  Alle verpflichtenden Felder `1..` werden
+     -  mit der [data-absent-reason-Extension](http://hl7.org/fhir/StructureDefinition/data-absent-reason) und dem Wert `unknown` versehen
+     -  im Fall von den folgenden codierten Elementen mit `required` Bindings auf folgende Werte gesetzt
+        -  `AllergyIntolerance.clinicalStatus = inactive`
+        -  `AllergyIntolerance.verificationStatus = unconfirmed`
+        -  `Condition.clinicalStatus = inactive`
+        -  `Condition.verificationStatus = unconfirmed`
+        -  `Procedure.status = completed`
+
+[![overview](patient_delete.drawio.svg){: style="width: 60%"}](patient_delete.drawio.svg)
 
 ### Sub_UC_eDiag_06_09 - Diagnosen, Prozeduren sowie Allergien und Intoleranzen erfassen
 Mittels POST und meta.tag = notrelevant
