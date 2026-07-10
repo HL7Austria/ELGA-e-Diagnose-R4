@@ -10,26 +10,47 @@ Das *flag*-Element eines Entries der List-Ressource beschreibt die **Art der Än
 |--------|------|
 | **New** | Neuer Eintrag wird der Liste hinzugefügt |
 | **Unchanged** | Bestehender Eintrag wird beibehalten/zur Kenntnis genommen |
-|  **Changed**  | Bestehender Eintrag wird geändert |
 |  **Removed**  | Bestehender Eintrag wird entfernt |
 
 <br>
 <div>{% include_relative plantuml/stateDiagram_list_flag.svg %}</div>
 <br>
 
-#### Auswirkung der Zugriffsart auf List.entry.flags und Bundle-Inhalte
+#### Auswirkung der Zugriffsart auf List.entry.flags
 
-Je nach Zugriffsart (Read-only, Read-to-Write oder Write) ergeben sich unterschiedliche Auswirkungen auf die Verarbeitung dieser Status sowie auf die enthaltenen Ressourcen in den jeweiligen Bundles (siehe [Zugriffsarten auf Diagnoseneinträge](interactions.html#zugriffsarten-auf-die-diagnosenliste)). ToDo: Begrifflichkeiten anpassen!!! 
-<br>
+Je nach Zugriffsart ([List-History-Read](uc_ediag_06_int_list.html#list-history-read), [List-Read](uc_ediag_06_int_list.html#list-read) oder [List-Write](uc_ediag_06_int_list.html#list-read)) ergeben sich unterschiedliche Auswirkungen auf die Verarbeitung dieser Status sowie auf die enthaltenen Ressourcen in den jeweiligen Listen.
 
-| Status | Read-only-Zugriff | Read-to-Write-Zugriff | Write-Zugriff |
-|--------|------|------|------|
-| **new** |- List-Entries, die vom Vorgänger-GDA mit *new* geflaggt wurden, bleiben beim Read-only-Zugriff **unverändert**.<br>- Die neuen Einträge sind im Collection Bundle enthalten.|- List-Entries, die vom Vorgänger-GDA mit *new* geflaggt wurden, werden beim Read-to-Write-Zugriff von der **Fachanwendung** als **unchanged** geflaggt.<br>- Die betreffenden Einträge sind im Collection Bundle enthalten.|- List-Entries, die beim schreibenden Zugriff vom aktuellen GDA mit *new* geflaggt wurden, werden der Liste neu hinzugefügt.<br>- Die betreffenden Einträge müssen im Transaction Bundle **enthalten** sein.|
-| **unchanged** |- List-Entries, die vom Vorgänger-GDA mit *unchanged* geflaggt wurden, bleiben beim Read-only-Zugriff **unverändert**.<br>- Die unveränderten Einträge sind im Collection Bundle enthalten. |- List-Entries, die vom Vorgänger-GDA als *unchanged* geflaggt wurden, bleiben beim Read-to-Write-Zugriff von der Fachanwendung unverändert.<br>- Die betreffenden Einträge sind im Collection Bundle enthalten.|- List-Entries, die vom aktuellen GDA nicht verändert wurden, bleiben beim schreibenden Zugriff mit *unchanged* geflaggt. Sie gelten somit als zur Kenntnis genommen.<br>-  Die betreffenden Einträge sind nicht im Transaction Bundle enthalten, sondern werden in der Liste lediglich **referenziert**.|
-|  **changed**  |- List-Entries, die vom Vorgänger-GDA mit *changed* geflaggt wurden, bleiben beim Read-only-Zugriff **unverändert**.<br>- Die geänderten Einträge sind im Collection Bundle enthalten.|- List-Entries, die vom Vorgänger-GDA mit *changed* geflaggt wurden, werden beim Read-to-Write-Zugriff von der **Fachanwendung** als **unchanged** geflaggt.<br>- Die betreffenden Einträge sind im Collection Bundle enthalten. |- List-Entries, die vom aktuellen GDA mit *changed* geflaggt wurden, gelten als geändert und werden entsprechend aktualisiert.<br>- Die zugehörigen Einträge müssen im Transaction Bundle **enthalten** sein.|
-|  **removed**  |- List-Entries, die vom Vorgänger-GDA mit *removed* geflaggt wurden, bleiben beim Read-only-Zugriff **unverändert**.<br>- Die zum Entfernen markierten Einträge sind im Collection Bundle enthalten. |- List-Entries, die vom Vorgänger-GDA mit *removed* geflaggt wurden, werden beim Read-to-Write-Zugriff in der **Fachanwendung entfernt**.<br>- Die betreffenden Einträge sind im Collection Bundle **nicht enthalten**.|- List-Entries, die beim schreibenden Zugriff vom aktuellen GDA mit *removed* geflaggt wurden, werden aus der Liste entfernt.<br>- Die betreffenden Einträge sind entsprechend zu kennzeichnen und müssen im Transaction Bundle **enthalten** sein. |
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th>"List-History-Read"-Zugriff</th>
+<th>"List-Read"-Zugriff</th>
+<th>"List-Write"-Zugriff</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><b>new</b></td>
+<td><ul><li>List-Entries, die vom Vorgänger-GDA mit <i>new</i> geflaggt wurden, bleiben beim "List-History-Read"-Zugriff <b>unverändert</b>.</li><li>Beim Abruf sind die neuen Einträge im resultierenden Collection-Bundle enthalten.</li></ul></td>
+<td><ul><li>List-Entries, die vom Vorgänger-GDA mit <i>new</i> geflaggt wurden, werden beim "List-Read"-Zugriff von der <b>Fachanwendung</b> als <b>unchanged</b> geflaggt.</li><li>Die betreffenden Einträge sind beim Abruf im resultierenden Collection-Bundle enthalten.</li></ul></td>
+<td><ul><li>List-Entries, die beim "List-Write"-Zugriff vom aktuellen GDA mit <i>new</i> geflaggt wurden, werden der Liste neu hinzugefügt.</li><li>Die Einträge müssen zuvor durch einen separaten Request angelegt worden sein.</li></ul></td>
+</tr>
+<tr>
+<td><b>unchanged</b></td>
+<td><ul><li>List-Entries, die vom Vorgänger-GDA mit <i>unchanged</i> geflaggt wurden, bleiben beim "List-History-Read"-Zugriff <b>unverändert</b>.</li><li>Beim Abruf sind die unveränderten Einträge sind im resultierenden Collection-Bundle enthalten.</li></ul></td>
+<td><ul><li>List-Entries, die vom Vorgänger-GDA als <i>unchanged</i> geflaggt wurden, bleiben beim "List-Read"-Zugriff von der Fachanwendung unverändert.</li><li>Die betreffenden Einträge sind beim Abruf im resultierenden Collection-Bundle enthalten.</li></ul></td>
+<td><ul><li>List-Entries, die vom aktuellen GDA nicht verändert wurden, bleiben beim "List-Write"-Zugriff mit <i>unchanged</i> geflaggt.</li></ul></td>
+</tr>
+<tr>
+<td><b>removed</b></td>
+<td><ul><li>List-Entries, die vom Vorgänger-GDA mit <i>removed</i> geflaggt wurden, bleiben beim "List-History-Read"-Zugriff <b>unverändert</b>.</li><li>Beim Abruf sind die zum Entfernen markierten Einträge sind im resultierenden Collection-Bundle enthalten.</li></ul></td>
+<td><ul><li>List-Entries, die vom Vorgänger-GDA mit <i>removed</i> geflaggt wurden, werden beim "List-Read"-Zugriff von der <b>Fachanwendung aus der Liste entfernt</b>.</li><li>Die betreffenden Einträge sind beim Abruf im resultierenden Collection-Bundle <b>nicht enthalten</b>.</li></ul></td>
+<td><ul><li>List-Entries, die beim "List-Write"-Zugriff vom aktuellen GDA mit <i>removed</i> geflaggt wurden, werden beim nächsten "List-Read"-Zugriff aus der Liste entfernt.</li></ul></td>
+</tr>
+</tbody>
+</table>
 
-<br>
 
 #### Statustabelle 
 In Bearbeitung

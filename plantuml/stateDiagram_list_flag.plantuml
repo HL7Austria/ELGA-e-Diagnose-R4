@@ -2,9 +2,7 @@
 title List.entry.flag
 
 (*) -d-> [Neuen Eintrag\nhinzufügen] new
-new --> [Automatisch bei\nRead-to-Write-Zugriff\n(durch Fachanwendung)] unchanged
-changed --> [Automatisch bei\nRead-to-Write-Zugriff\n(durch Fachanwendung)] unchanged
-unchanged --> [Eintrag\nändern] changed
-unchanged -d-> [Eintrag\nentfernen] removed
+new --> [Automatisch bei\n$list-read\n(durch Fachanwendung)] unchanged
+unchanged -d-> [Eintrag dokumentiert\nentfernen] removed
 removed  -d-> (*)
 @enduml
