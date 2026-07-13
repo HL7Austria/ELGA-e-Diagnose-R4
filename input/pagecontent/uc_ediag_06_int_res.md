@@ -6,8 +6,27 @@ Lesen der Gesamtliste
 Lesen/Suchen nach bestimmten Diagnosen
 
 ###  Read der Gesamtliste
+Ein Read der Gesamtliste dient der Anzeige einer aggregierten Gesamtansicht aller Diagnosen. Die Fachanwendung stellt hierfür die vorhandenen List-Ressourcen einschließlich der referenzierten fachlichen Einzelressourcen bereit. Der Zugriff erfolgt ausschließlich lesend und ermöglicht keine Veränderung der List-Ressourcen oder der enthaltenen Einträge.
 
-### Read/Search bestimmte Ressourcen (Diagnosen)
+#### Ablauf
+
+1. Der GDA fürht ein **GET** auf /Patient/[id]/List/ aus.
+2. Die Fachanwendung ermittelt die vorhandene List-Ressource des Patienten.
+3. Die in der List-Ressource referenzierte fachliche Einzelressource wird mittels `_include` und `_include:iterate` aufgelöst.
+4. Die Fachanwendung liefert eine Gesamtansicht aller Diagnosen zurück.
+5. Der ELGA-Teilnehmer oder GDA kann aus der Gesamtansicht einzelne Einträge für nachfolgende Operationen (z. B. $delete oder $storno) auswählen.
+
+
+### Read/Search von Diagnosen, Prozeduren sowie Allergien und Intoleranzen
+Read/Search ermöglicht die gezielte Suche und Anzeige von Patientendiagnosen, Prozeduren sowie Allergien und Intoleranzen. Die Fachanwendung greift ausschließlich lesend auf die gewählten Ressourcen zu; Änderungen an Status oder Inhalten sind nicht möglich. Die gefundenen Ressourcen können für nachfolgende Operationen (z. B. $delete oder $storno) ausgewählt werden.
+
+#### Ablauf
+1. Der GDA oder ELGA-Teilnehmer wählt den gewünschten Ressourcentyp (Condition, Procedure oder AllergyIntolerance) aus.
+2. Der GDA oder ELGA-Teilnehmer führt ein **GET** auf /Patient/[id]/Condition/, /Patient/[id]/Procedure/ oder /Patient/[id]/AllergyIntolerance/ aus.
+3. Optional können Suchparameter angegeben werden, um die Treffermenge einzuschränken.
+4. Die Fachanwendung prüft, ob Ressourcen des gewählten Typs vorhanden sind.
+5. Sind keine Ressourcen vorhanden, wird ein leeres Ergebnis zurückgeliefert. Sind Ressourcen vorhanden, werden die passenden Ressourcen als Searchset Bundle zurückgeliefert.
+
 
 ### Sub_UC_eDiag_06_07 - Diagnosen, Prozeduren sowie Allergien und Intoleranzen durch ELGA-Teilnehmer löschen 
 
