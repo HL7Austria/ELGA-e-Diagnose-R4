@@ -10,7 +10,7 @@ Ein Read der Gesamtliste dient der Anzeige einer aggregierten Gesamtansicht alle
 
 #### Ablauf
 
-1. Der GDA fürht ein **GET** auf /Patient/[id]/List/ aus.
+1. Der GDA fürht ein **GET** auf /Patient/[id]/List/ aus, siehe [Transaktionen](transaction.md#Transaktionen).
 2. Die Fachanwendung ermittelt die vorhandene List-Ressource des Patienten.
 3. Die in der List-Ressource referenzierte fachliche Einzelressource wird mittels `_include` und `_include:iterate` aufgelöst.
 4. Die Fachanwendung liefert eine Gesamtansicht aller Diagnosen zurück.
@@ -22,7 +22,7 @@ Read/Search ermöglicht die gezielte Suche und Anzeige von Patientendiagnosen, P
 
 #### Ablauf
 1. Der GDA oder ELGA-Teilnehmer wählt den gewünschten Ressourcentyp (Condition, Procedure oder AllergyIntolerance) aus.
-2. Der GDA oder ELGA-Teilnehmer führt ein **GET** auf /Patient/[id]/Condition/, /Patient/[id]/Procedure/ oder /Patient/[id]/AllergyIntolerance/ aus.
+2. Der GDA oder ELGA-Teilnehmer führt ein **GET** auf /Patient/[id]/Condition/, /Patient/[id]/Procedure/ oder /Patient/[id]/AllergyIntolerance/ aus, siehe [Transaktionen](transaction.md#Transaktionen).
 3. Optional können Suchparameter angegeben werden, um die Treffermenge einzuschränken.
 4. Die Fachanwendung prüft, ob Ressourcen des gewählten Typs vorhanden sind.
 5. Sind keine Ressourcen vorhanden, wird ein leeres Ergebnis zurückgeliefert. Sind Ressourcen vorhanden, werden die passenden Ressourcen als Searchset Bundle zurückgeliefert.
@@ -52,12 +52,24 @@ Sollte die Diagnose als relevant gekennzeichnet gewesen sein, kann nur ein GDA d
 [![overview](patient_delete.drawio.svg){: style="width: 60%"}](patient_delete.drawio.svg)
 
 ### Sub_UC_eDiag_06_09 - Diagnosen, Prozeduren sowie Allergien und Intoleranzen erfassen
-Mittels POST und meta.tag = notrelevant
+Der GDA erfasst neue Diagnosen, Prozeduren sowie Allergien und Intoleranzen über die e-Diagnose Fachanwendung.
+ToDo: meta.tag = notrelevant - setzen?
+
 #### Ablauf
+1. Der GDA wählt den gewünschten Ressourcentyp (Condition, Procedure oder AllergyIntolerance) aus.
+2. Der GDA erstellt eine neue Ressource und erfasst die erforderlichen fachlichen Informationen.
+3. Der GDA führt ein **POST** auf
+/Patient/[id]/Condition/,
+/Patient/[id]/Procedure/ oder
+/Patient/[id]/AllergyIntolerance/
+aus und übermittelt die neue Ressource an die e-Diagnose Fachanwendung.
+4. Die **Fachanwendung** validiert die übermittelte Ressource.
+5. Ist die Validierung erfolgreich, wird die neue Ressource gespeichert und dem GDA eine erfolgreiche Erstellung mittels **HTTP 201 Created** bestätigt. Ist die Validierung nicht erfolgreich, wird die Ressource nicht gespeichert. Die Fachanwendung liefert ein **OperationOutcome** mit den aufgetretenen Validierungsfehlern zurück.
+
+#### Sequenzdiagramm Eintrag erfassen
 <div>{% include_relative plantuml/diagram_uc_06_09.svg %}</div>
 
 ### Sub_UC_eDiag_06_10 - Diagnosen, Prozeduren sowie Allergien und Intoleranzen stornieren
-
 Der GDA kann einen oder mehrere Diagnosen aufgrund einer falschen Eingabe stornieren. Dabei ist es irrelevant, ob eine zu stornierende Diagnose als relevant gekennzeichnet ist oder nicht.
 
 Sollte die Diagnose als relevant gekennzeichnet gewesen sein und will sie der GDA nach der Stornierung nicht mehr in der Liste der relevanten Einträge haben, muss die Diagnose aus der Liste der relevanten Einträge entfernt werden (siehe [Sub_UC_eDiag_06_05 - Einträge aus einer Liste entfernen](uc_ediag_06_int_list.md#sub_uc_ediag_06_05---einträge-aus-einer-liste-entfernen)).
