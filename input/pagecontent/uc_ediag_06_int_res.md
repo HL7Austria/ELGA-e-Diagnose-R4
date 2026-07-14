@@ -8,7 +8,7 @@ Lesen/Suchen nach bestimmten Diagnosen
 ### Read/Search von Diagnosen, Prozeduren sowie Allergien und Intoleranzen
 Read/Search ermöglicht den lesenden Zugriff auf Diagnosen, Prozeduren sowie Allergien und Intoleranzen eines Patienten. Über die Interaktion können sowohl alle vorhandenen Ressourcen eines Ressourcentyps als auch durch Angabe von Suchparametern eingeschränkte Ergebnismengen abgerufen werden.
 
-Die Fachanwendung stellt die vorhandenen Ressourcen des gewählten Ressourcentyps als Searchset-Bundle bereit. Der Zugriff erfolgt ausschließlich lesend; Änderungen an Status, Inhalten oder Listenzuordnungen werden durch diese Interaktion nicht durchgeführt.
+Die Fachanwendung stellt die vorhandenen Ressourcen des gewählten Ressourcentyps als Search-Bundle bereit. Der Zugriff erfolgt ausschließlich lesend; Änderungen an Status, Inhalten oder Listenzuordnungen werden durch diese Interaktion nicht durchgeführt.
 
 
 #### Anwendungsbeispiele
@@ -23,8 +23,8 @@ Die Read/Search-Interaktion kann beispielsweise für folgende Szenarien verwende
 2. Der GDA oder ELGA-Teilnehmer führt ein **GET** auf /Patient/[id]/Condition/, /Patient/[id]/Procedure/ und/oder /Patient/[id]/AllergyIntolerance/ aus, siehe [Transaktionen](transaction.md#Transaktionen).
 3. Optional können Suchparameter angegeben werden, um die Treffermenge einzuschränken.
 4. Die Fachanwendung führt die Suche anhand der angegebenen Kriterien durch.
-4. Die Fachanwendung liefert ein Searchset-Bundle mit den gefundenen Ressourcen zurück.
-5. Sind keine Ressourcen vorhanden bzw. entsprechen keine Ressourcen den Suchkriterien, wird ein Searchset-Bundle ohne Einträge zurückgeliefert.
+4. Die Fachanwendung liefert ein Search-Bundle mit den gefundenen Ressourcen zurück.
+5. Sind keine Ressourcen vorhanden bzw. entsprechen keine Ressourcen den Suchkriterien, wird ein Search-Bundle ohne Einträge zurückgeliefert.
 
 
 
