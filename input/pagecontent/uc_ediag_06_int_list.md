@@ -12,13 +12,13 @@ Der History Read dient ausschließlich der Anzeige historischer Versionen einer 
 
 #### Ablauf
 
-1. Der GDA fürht ein **GET** auf das persistierte Collection Bundle der Liste aus.
-2. Die Fachanwendung prüft, ob die Liste vorhanden ist.
-3. Ist keine Liste vorhanden, wird ein leeres Ergebnis zurückgeliefert.
-4. Ist eine Liste vorhanden, wird das aktuelle oder angeforderte historische **Collection Bundle** zurückgeliefert. <br>
-Das **Collection Bundle** enthält:
+1. Der GDA fürht ein **GET** (Suche) auf den List-Typ aus.
+2. Die Fachanwendung prüft, ob Listen entsprechend der Suchparameter vorhanden sind.
+3. Werden keine Listen gebunden, wird ein leeres Ergebnis zurückgeliefert.
+4. Wird zumindest eine Liste gefunden, liefert die Fachanwendung ein **Search-Bundle** zurück. <br>
+Dieses **Search-Bundle** enthält:
 * die List-Ressource <br>
-* alle referenzierten Ressourcen 
+* alle referenzierten Ressourcen (Patient, Practitioner, Condition, Procedure, AllergyIntolerance)
 
 Beim List History Read erfolgt **keine Veränderung** von Flags, Status oder Inhalten durch die Fachanwendung.<br>
 Der Zugriff dient ausschließlich der Anzeige bzw. Informationsabfrage von aktueller oder historischer Listversionen.<br>
@@ -31,8 +31,8 @@ Der Zugriff dient ausschließlich der Anzeige bzw. Informationsabfrage von aktue
 
 <!-- TODO: Es muss noch definiert werden, wie zwischen den Listen von Conditions, Procedures, AllergyIntolerances unterschieden wird. -->
 **Beispiele für Zugriffe mittels Suchparameter:**
-* **Aktuelle Listenversion** der relevanten Diagnosen (Conditions) mit dem Suchparameter Patient abrufen: `GET [base]/Bundle?type=collection&_count=1&_sort=-timestamp&list.subject={bPK-GH}&list.code=http://loinc.org|11450-4`
-* **Alle Listenversionen** der relevanten Operationen (Procedures) mit dem Suchparameter Patient abrufen: `GET [base]/Bundle?type=collection&_sort=-timestamp&list.subject={bPK-GH}&list.code=http://loinc.org|47519-4`
+* **Aktuelle Listenversion** der relevanten Diagnosen (Conditions) mit dem Suchparameter Patient abrufen: `GET [base]/Patient/[id]/List?_include=List:patient&_include=List:source&_include:iterate=List:item&_count=1&_sort=-date&code=http://loinc.org|11450-4`
+* **Alle Listenversionen** der relevanten Operationen (Procedures) mit dem Suchparameter Patient abrufen: `GET [base]/Patient/[id]/List?_include=List:patient&_include=List:source&_include:iterate=List:item&_sort=-date&code=http://loinc.org|47519-4`  
 
 ### List-Read
 
