@@ -5,28 +5,27 @@ ToDo: Lesen - Standardoperation plan.read - get.search mit suchparameter? Wir br
 Lesen der Gesamtliste
 Lesen/Suchen nach bestimmten Diagnosen
 
-###  Read der Gesamtliste
-Ein Read der Gesamtliste dient der Anzeige einer aggregierten Gesamtansicht aller Diagnosen, Prozeduren und/oder Allergien und Intoleranzen. Die Fachanwendung stellt hierfür die vorhandenen List-Ressourcen einschließlich der referenzierten fachlichen Einzelressourcen bereit. Der Zugriff erfolgt ausschließlich lesend und ermöglicht keine Veränderung der List-Ressourcen oder der enthaltenen Einträge.
+### Read/Search von Diagnosen, Prozeduren sowie Allergien und Intoleranzen
+Read/Search ermöglicht den lesenden Zugriff auf Diagnosen, Prozeduren sowie Allergien und Intoleranzen eines Patienten. Über die Interaktion können sowohl alle vorhandenen Ressourcen eines Ressourcentyps als auch durch Angabe von Suchparametern eingeschränkte Ergebnismengen abgerufen werden.
+
+Die Fachanwendung stellt die vorhandenen Ressourcen des gewählten Ressourcentyps als Searchset-Bundle bereit. Der Zugriff erfolgt ausschließlich lesend; Änderungen an Status, Inhalten oder Listenzuordnungen werden durch diese Interaktion nicht durchgeführt.
+
+
+#### Anwendungsbeispiele
+Die Read/Search-Interaktion kann beispielsweise für folgende Szenarien verwendet werden:
+- **Gesamtansicht**: Abruf aller vorhandenen Diagnosen, Prozeduren oder Allergien und Intoleranzen eines Patienten.
+- **Gezielte Suche**: Einschränkung der Ergebnismenge durch Suchparameter, z. B. Suche nach bestimmten Diagnosen oder Ressourcen mit bestimmten Merkmalen.
+- **Auswahl für Folgeoperationen**: Ermittlung einzelner Ressourcen, die anschließend gelöscht ($delete) oder storniert ($storno) werden sollen.
 
 #### Ablauf
 
 1. Der GDA oder ELGA-Teilnehmer wählt den gewünschten Ressourcentyp (Condition, Procedure oder AllergyIntolerance) aus.
 2. Der GDA oder ELGA-Teilnehmer führt ein **GET** auf /Patient/[id]/Condition/, /Patient/[id]/Procedure/ und/oder /Patient/[id]/AllergyIntolerance/ aus, siehe [Transaktionen](transaction.md#Transaktionen).
 3. Optional können Suchparameter angegeben werden, um die Treffermenge einzuschränken.
-4. Die Fachanwendung prüft, ob Ressourcen des gewählten Typs vorhanden sind.
-5. Sind keine Ressourcen vorhanden, wird ein leeres Ergebnis zurückgeliefert. Sind Ressourcen vorhanden, werden die passenden Ressourcen als Searchset-Bundle zurückgeliefert.
-
-
-### Read/Search von gezielten Diagnosen, Prozeduren sowie Allergien und Intoleranzen
-Read/Search ermöglicht die gezielte Suche und Anzeige von Patientendiagnosen, Prozeduren sowie Allergien und Intoleranzen. Die Fachanwendung greift ausschließlich lesend auf die gewählten Ressourcen zu; Änderungen an Status oder Inhalten sind nicht möglich. Die gefundenen Ressourcen können für nachfolgende Operationen (z. B. $delete oder $storno) ausgewählt werden.
-
-#### Ablauf
-
-1. Die Schritte 1 und 2 entsprechen dem Ablauf von [Read der Gesamtliste](#read-der-gesamtliste), jedoch können optional Suchparameter angegeben werden, um die Treffermenge einzuschränken.
-3. Die Fachanwendung führt die Suche anhand der angegebenen Suchparameter durch.
+4. Die Fachanwendung führt die Suche anhand der angegebenen Kriterien durch.
 4. Die Fachanwendung liefert ein Searchset-Bundle mit den gefundenen Ressourcen zurück.
-5. Entsprechen keine Ressourcen den Suchkriterien, wird ein Searchset-Bundle ohne Einträge zurückgeliefert.
-6. Die gefundenen Ressourcen können für nachfolgende Operationen (z. B. `$delete` oder `$storno`) ausgewählt werden.
+5. Sind keine Ressourcen vorhanden bzw. entsprechen keine Ressourcen den Suchkriterien, wird ein Searchset-Bundle ohne Einträge zurückgeliefert.
+
 
 
 ### Sub_UC_eDiag_06_07 - Diagnosen, Prozeduren sowie Allergien und Intoleranzen durch ELGA-Teilnehmer löschen 
@@ -37,7 +36,8 @@ Sollte die Diagnose als relevant gekennzeichnet gewesen sein, kann nur ein GDA d
 
 #### Ablauf
 
-- Um einen Eintrag zu löschen, führt der ELGA-Teilnehmer über das Portal ein `$list-read` oder ein `GET` auf die Gesamtmenge der Diagnosen aus und markiert die zu löschenden Einträge.
+- Um einen Eintrag zu löschen, führt der ELGA-Teilnehmer über das Portal ein `$list-read` oder ein `GET` auf die Gesamtmenge der Diagnosen aus (siehe 
+[Read/Search von Diagnosen, Prozeduren sowie Allergien und Intoleranzen](uc_ediag_06_int_list.md#read-search-von-diagnosen-prozeduren-sowie-allergien-und-intoleranzen)) und markiert die zu löschenden Einträge.
 - Durch Bestätigung wird die `$delete`-Operation ausgeführt.
 - Die Fachanwendung bearbeitet die zu löschende Diagnose folgendermaßen:
   -  Alle optionalen Felder `0..` werden geleert.
@@ -54,7 +54,7 @@ Sollte die Diagnose als relevant gekennzeichnet gewesen sein, kann nur ein GDA d
 
 ### Sub_UC_eDiag_06_09 - Diagnosen, Prozeduren sowie Allergien und Intoleranzen erfassen
 Der GDA erfasst neue Diagnosen, Prozeduren sowie Allergien und Intoleranzen über die e-Diagnose Fachanwendung, siehe [Transaktionen](transaction.md#Transaktionen).<br>
-ToDo: meta.tag = notrelevant - setzen?
+
 
 #### Ablauf
 1. Der GDA wählt den gewünschten Ressourcentyp (Condition, Procedure oder AllergyIntolerance) aus.
@@ -77,7 +77,8 @@ Sollte die Diagnose als relevant gekennzeichnet gewesen sein und will sie der GD
 
 #### Ablauf
 
-- Um einen Eintrag zu stornieren, führt der GDA ein `$list-read` oder ein `GET` auf die Gesamtmenge der Diagnosen aus und markiert die zu stornierenden Einträge.
+- Um einen Eintrag zu stornieren, führt der GDA ein `$list-read` oder ein `GET` auf die Gesamtmenge der Diagnosen aus (siehe 
+[Read/Search von Diagnosen, Prozeduren sowie Allergien und Intoleranzen](uc_ediag_06_int_list.md#read-search-von-diagnosen-prozeduren-sowie-allergien-und-intoleranzen)) und markiert die zu stornierenden Einträge.
 - Durch Bestätigung wird die `$storno`-Operation ausgeführt.
 - Die Fachanwendung bearbeitet die zu stornierende Diagnose folgendermaßen:
   -  `AllergyIntolerance.verificationStatus = entered-in-error`
