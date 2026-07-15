@@ -142,14 +142,8 @@ Die Referenz auf die Ressource wird aus der Liste entfernt (removed). Die refere
 List.entry wird entfernt, die referenzierte Ressource bleibt bestehen.
 <div>{% include_relative plantuml/diagram_uc_06_05.svg %}</div>
 
-
-
-### Sub_UC_eDiag_06_07 - Eintrag innerhalb einer Liste durch ELGA-Teilnehmer:in löschen 
-ToDo: Aus Liste entfernen, Ressource bleibt bestehen, verliert nur Listzugehörigkeit oder Löschen - Ressource wird vollständig entfernt
-Ausblenden und Löschen? Löscht der Teilnehmer einen Eintrag, muss die Historienversion mitgelöscht werden? Betsehende Referenzen auf gelöschte Ressourcen.
-Lösche ich C, sage ich such mir alle List-Versionen mit C, und lösch mir alle C. Wie weit greifen, muss ich mich als Bürger durch alle Vorversionen durchklicken. 
-FHIR Spezifikation über Historie - nachlesen, wie die Regel ist! Was bedeutet eine Aktualisierung auf eine historische Version? 
-
 ### Sub_UC_eDiag_06_08 - Liste durch ELGA-Teilnehmer:in löschen 
-ToDo: fachliche Auswirkungen klären; gesamte List-Ressouce löschen, alle Referenzen - alle enthaltenen Diagnosen?
 
+Der ELGA-Teilnehmer kann via ELGA-Portal eine aktuelle, einzelne oder alle historischen Versionen einer Liste unwiderruflich löschen. 
+
+Hierfür markiert der Patient die zu löschende Liste und führt über das Portal ein `DELETE` aus, mit dem Resultat, dass die ausgewählten Listen durch die Fachanwendung gelöscht werden.
