@@ -73,10 +73,10 @@ pages:
     title: "Technische Use Cases"
   patient_journey.md:
       title: Patient Journey
-  uc_ediag_06_int_list.md:
-      title: "Interaktionen mit Listenressourcen"
-  uc_ediag_06_int_res.md:
-      title: "Interaktionen mit fachlichen Einzelressourcen"
+  uc_ediag_01_lesen.md:
+      title: "Lesen"
+  uc_ediag_02_schreiben.md:
+      title: "Schreiben"
 
 # The parameters property represents IG.definition.parameter. Rather
 # than a list of code/value pairs (as in the ImplementationGuide
@@ -114,6 +114,8 @@ menu:
   Anwendungsfälle: 
    Patient Journey: patient_journey.html
    Technische Use Cases: technische_use_cases.html
+   Lesen: uc_ediag_01_lesen.md
+   Schreiben: uc_ediag_02_schreiben.md
   Artifacts: artifacts.html
 
   
