@@ -10,6 +10,8 @@ Description: "Das AT e-Diagnose Condition-Profil leitet sich vom Condition-Profi
 // ob es sich um eine Fremddiagnose handelt wird durch extension für reported mit boolean gelöst
 * extension contains AtReported named reported 0..1
 
+* extension contains AtElgaEdiagExtEnteredInError named entered-in-error 0..1
+
 // für meta.tag neues template angelegt - ruleSet-at-ediag-meta-tag.fsh
 * insert MetaTagDiagnosisType
 

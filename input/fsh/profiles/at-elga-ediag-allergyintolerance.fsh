@@ -9,6 +9,8 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom Allerg
 // EHE einfach überall eine extension für reported mit boolean
 * extension contains AtReported named reported 0..1
 
+* extension contains AtElgaEdiagExtEnteredInError named entered-in-error 0..1
+
 // 2016_06_11: MBU neue Arbeitshypothese, Allergien, ToDo: ValueSet für relevant und nicht-relevant 
 * insert MetaTagDiagnosisType
 

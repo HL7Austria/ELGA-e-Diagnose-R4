@@ -12,6 +12,8 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom Procedure-Profi
 // forward extension -> EHE einfach überall eine extension für reported mit boolean
 * extension contains AtReported named reported 0..1
 
+* extension contains AtElgaEdiagExtEnteredInError named entered-in-error 0..1
+
 // für meta.tag neues template angelegt - ruleSet-at-ediag-meta-tag.fsh
 * insert MetaTagDiagnosisType
 
