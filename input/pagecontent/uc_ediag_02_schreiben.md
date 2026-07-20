@@ -7,7 +7,60 @@ Fachliche Änderungen an Diagnosen, Prozeduren sowie Allergien und Intoleranzen 
 
 
 <!--$PatientWrite wäre das Löschen der gesamten Ressource (nicht nur die Listenbeteiligung) und das $PatientDelete wäre das Löschen der Ressource in der Historie -->
+### Liste aktualisieren (List-Write)
 
+List Write ist eine eigenständige Operation, die ausschließlich im Kontext eines **zuvor ausgeführten** [List-Read](interactions.html#list-read) erfolgen darf.
+
+#### Ablauf
+
+1. Der GDA übermittelt via **POST $list-write** die aktualisierte Liste als **List Bundle**:
+* alle **neuen und geänderten und zu entfernenden Ressourcen** sind **inline** im Bundle enthalten,
+* alle **unveränderten Ressourcen** werden nur **referenziert**.
+2. Die Fachanwendung prüft, ob der übermittelte **List.identifier** mit dem List.identifier der temporär gespeicherten Listenversion **übereinstimmt** (d.h. es wurde zwischenzeitlich kein anderer Schreibvorgang durchgeführt).
+3. Stimmt der List.identifier nicht überein, lehnt die Fachanwendung das Speichern ab.
+Es muss erneut ein List-Read ausgeführt werden. Die Änderungen sind anschließend auf Basis der aktuellen Listversion erneut vorzunehmen und zu speichern. 
+4. Ist die Prüfung erfolgreich, validiert die Fachanwendung die neue Liste und stellt sicher, dass keine unzulässigen Zustandsübergänge vorgenommen wurden.
+5. Bei erfolgreicher Validierung:
+* werden die übermittelten Änderungen in die Ressourcen übernommen,
+* und auf Basis der aktualisierten Ressource erstellt die Fachanwendung ein neue Version der Liste als eigene List-Instanz, die als **neue Liste persistiert** wird. 
+6. Der GDA erhält eine Meldung, dass die Liste erfolgreich aktualisiert wurde.
+
+
+#### Sequenzdiagramm 
+<br>
+<div>{% include_relative plantuml/diagram_write.svg %}</div>
+<br>
+
+### Abgelehnter List Write
+
+#### Ablauf
+
+1. **GDA 1** führt einen **POST $list-read** auf die Liste einer Patientin bzw. eines Patienten durch.
+2. Die Fachanwendung prüft, ob eine Liste existiert.
+3. Die Fachanwendung liefert die aktuelle Liste als **Collection Bundl** mit dem aktuellen **List.identifier** „123" an GDA 1 aus.
+4. **GDA 1** beginnt mit der **fachlichen Bearbeitung** der Liste.
+5. Währenddessen führt **GDA 2** ebenfalls ein **List-Read** auf dieselbe Liste durch.
+6. Die Fachanwendung liefert auch an GDA 2 die aktuelle Liste mit dem List.identifier „123" aus.
+7. GDA 2 bearbeitet die Liste.
+8. GDA 2 sendet zuerst mittels **POST $list-write** ein Transaction Bundle mit den vorgenommenen Änderungen.
+9. Die Fachanwendung prüft, ob der im Transaction Bundle enthaltene **List.identifier** mit dem aktuellen List.identifier der zuletzt gespeicherten Liste übereinstimmt.
+10. Die Prüfung verläuft erfolgreich, da beide den Wert „123" besitzen.
+11. Die Fachanwendung validiert die übermittelten Änderungen und prüft insbesondere, ob keine unzulässigen Zustandsübergänge vorliegen.
+12. Die Änderungen werden übernommen und eine neue Version der Liste wird persistiert.
+13. Dabei wird ein neuer List.identifier erzeugt, beispielsweise „124".
+14. GDA 2 erhält eine Meldung, dass die Aktualisierung erfolgreich durchgeführt wurde.
+15. Anschließend sendet GDA 1 mittels **POST $ListWrite** seine ebenfalls auf Basis des ursprünglichen List.identifier „123" vorgenommenen Änderungen.
+16. Die Fachanwendung prüft erneut den übermittelten List.identifier gegen die aktuell persistierte Diagnosenliste.
+17. Die Prüfung schlägt fehl, da die aktuelle Liste mittlerweile den List.identifier „124" besitzt.
+18. Die Fachanwendung lehnt das Speichern ab.
+19. GDA 1 erhält eine Fehlermeldung, dass zwischenzeitlich eine neuere Version der Liste gespeichert wurde.
+20. GDA 1 muss erneut einen **POST $list-read** durchführen, die zwischenzeitlich vorgenommenen Änderungen prüfen und gegebenenfalls in die aktuelle Version übernehmen, bevor ein neuer Schreibvorgang erfolgen kann.
+
+
+#### Sequenzdiagramm Abgelehnter List Write
+<br>
+<div>{% include_relative plantuml/diagram_write_error.svg %}</div>
+<br>
 
 ### Sub_UC_eDiag_06_01 - Nach Initialisierung leere Liste bestätigen
 ToDo: Die Überprüfung aus diesem UC wird bereits bei List-Read durchgeführt. Teil des ELGA Core. emptyReason #nilknown. Im eDiag wir müssen zusätzlich angeben welcher ListType es ist. Eine leere Liste mit dem Wert **emptyReason = nilknown** bedeutet, dass für den Patienten derzeit keine relevanten Einträge vorliegen. Der Status dokumentiert somit explizit das Fehlen von relevanten Einträgen und ist von einer

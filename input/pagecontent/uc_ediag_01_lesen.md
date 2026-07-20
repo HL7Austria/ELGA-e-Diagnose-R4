@@ -1,11 +1,11 @@
 # Lesen
-
+Dieses Kapitel beschreibt die lesenden Zugriffe auf Listen sowie auf die Einzelressourcen Diagnosen, Prozeduren oder Allergien und Intoleranzen. Je nach Anwendungsfall stehen unterschiedliche Interaktionen zur Verfügung.
 <!--ToDo: Lesen - Standardoperation plan.read - get.search mit suchparameter? Wir brauchen einen Standardfall lesen und ich habe den Fall dass ich einen tiefgang machen möchte und diese lesen will. 
 Lesen der Gesamtliste
 Lesen/Suchen nach bestimmten Diagnosen -->
 
 ### Sub_UC_eDiag_01_01 - Vergangene Versionen einer Liste abrufen (List-History-Read)  
-Der History Read dient ausschließlich der Anzeige historischer Versionen einer Liste. Die Fachanwendung stellt bereits persistierte historische Collection Bundles unverändert bereit. Der Zugriff erfolgt lesend und ermöglicht keine nachfolgende Bearbeitung der Liste.
+Der History Read dient ausschließlich der Anzeige historischer Versionen einer Liste. Die Fachanwendung stellt bereits persistierte historische Search-Bundles unverändert bereit. Der Zugriff erfolgt lesend und ermöglicht keine nachfolgende Bearbeitung der Liste.
 
 #### Ablauf
 
@@ -23,7 +23,7 @@ Der Zugriff dient ausschließlich der Anzeige bzw. Informationsabfrage von aktue
 #### Sequenzdiagramm 
 
 <br>
-<div>{% include_relative plantuml/diagram_planhistoryread.svg %}</div>
+<div>{% include_relative plantuml/historyread.svg %}</div>
 <br> 
 
 <!-- TODO: Es muss noch definiert werden, wie zwischen den Listen von Conditions, Procedures, AllergyIntolerances unterschieden wird. -->
@@ -31,7 +31,7 @@ Der Zugriff dient ausschließlich der Anzeige bzw. Informationsabfrage von aktue
 * **Aktuelle Listenversion** der relevanten Diagnosen (Conditions) mit dem Suchparameter Patient abrufen: `GET [base]/Patient/[id]/List?_include=List:patient&_include=List:source&_include:iterate=List:item&_count=1&_sort=-date&code=http://loinc.org|11450-4`
 * **Alle Listenversionen** der relevanten Operationen (Procedures) mit dem Suchparameter Patient abrufen: `GET [base]/Patient/[id]/List?_include=List:patient&_include=List:source&_include:iterate=List:item&_sort=-date&code=http://loinc.org|47519-4`  
 
-### List-Read
+### Sub_UC_eDiag_01_02 - Liste und zugehörige Ressourcen abrufen (List-Read)
 
 List Read dient dem **Abruf der Liste und der Vorbereitung einer nachfolgenden Änderung**.
 <!-- -->
@@ -49,68 +49,15 @@ List Read dient dem **Abruf der Liste und der Vorbereitung einer nachfolgenden �
 6. Die Fachanwendung liefert an den GDA die Liste und alle referenzierten Ressourcen.
 7. Ziel ist ein neutraler, weiterbearbeitbarer Zustand für den abrufenden GDA.
 
-#### Sequenzdiagramm List Read
+#### Sequenzdiagramm 
 <br>
-<div>{% include_relative plantuml/diagram_read.svg %}</div>
+<div>{% include_relative plantuml/read.svg %}</div>
 <br> 
 
-### List-Write
-
-List Write ist eine eigenständige Operation, die ausschließlich im Kontext eines **zuvor ausgeführten** [List-Read](interactions.html#list-read) erfolgen darf.
-
-#### Ablauf
-
-1. Der GDA übermittelt via **POST $list-write** die aktualisierte Liste als **List Bundle**:
-* alle **neuen und geänderten und zu entfernenden Ressourcen** sind **inline** im Bundle enthalten,
-* alle **unveränderten Ressourcen** werden nur **referenziert**.
-2. Die Fachanwendung prüft, ob der übermittelte **List.identifier** mit dem List.identifier der temporär gespeicherten Listenversion **übereinstimmt** (d.h. es wurde zwischenzeitlich kein anderer Schreibvorgang durchgeführt).
-3. Stimmt der List.identifier nicht überein, lehnt die Fachanwendung das Speichern ab.
-Es muss erneut ein List-Read ausgeführt werden. Die Änderungen sind anschließend auf Basis der aktuellen Listversion erneut vorzunehmen und zu speichern. 
-4. Ist die Prüfung erfolgreich, validiert die Fachanwendung die neue Liste und stellt sicher, dass keine unzulässigen Zustandsübergänge vorgenommen wurden.
-5. Bei erfolgreicher Validierung:
-* werden die übermittelten Änderungen in die Ressourcen übernommen,
-* und auf Basis der aktualisierten Ressource erstellt die Fachanwendung ein neue Version der Liste als eigene List-Instanz, die als **neue Liste persistiert** wird. 
-6. Der GDA erhält eine Meldung, dass die Liste erfolgreich aktualisiert wurde.
 
 
-#### Sequenzdiagramm List Write
-<br>
-<div>{% include_relative plantuml/diagram_write.svg %}</div>
-<br>
-
-### Abgelehnter List Write
-
-#### Ablauf
-
-1. **GDA 1** führt einen **POST $list-read** auf die Liste einer Patientin bzw. eines Patienten durch.
-2. Die Fachanwendung prüft, ob eine Liste existiert.
-3. Die Fachanwendung liefert die aktuelle Liste als **Collection Bundl** mit dem aktuellen **List.identifier** „123" an GDA 1 aus.
-4. **GDA 1** beginnt mit der **fachlichen Bearbeitung** der Liste.
-5. Währenddessen führt **GDA 2** ebenfalls ein **List-Read** auf dieselbe Liste durch.
-6. Die Fachanwendung liefert auch an GDA 2 die aktuelle Liste mit dem List.identifier „123" aus.
-7. GDA 2 bearbeitet die Liste.
-8. GDA 2 sendet zuerst mittels **POST $list-write** ein Transaction Bundle mit den vorgenommenen Änderungen.
-9. Die Fachanwendung prüft, ob der im Transaction Bundle enthaltene **List.identifier** mit dem aktuellen List.identifier der zuletzt gespeicherten Liste übereinstimmt.
-10. Die Prüfung verläuft erfolgreich, da beide den Wert „123" besitzen.
-11. Die Fachanwendung validiert die übermittelten Änderungen und prüft insbesondere, ob keine unzulässigen Zustandsübergänge vorliegen.
-12. Die Änderungen werden übernommen und eine neue Version der Liste wird persistiert.
-13. Dabei wird ein neuer List.identifier erzeugt, beispielsweise „124".
-14. GDA 2 erhält eine Meldung, dass die Aktualisierung erfolgreich durchgeführt wurde.
-15. Anschließend sendet GDA 1 mittels **POST $ListWrite** seine ebenfalls auf Basis des ursprünglichen List.identifier „123" vorgenommenen Änderungen.
-16. Die Fachanwendung prüft erneut den übermittelten List.identifier gegen die aktuell persistierte Diagnosenliste.
-17. Die Prüfung schlägt fehl, da die aktuelle Liste mittlerweile den List.identifier „124" besitzt.
-18. Die Fachanwendung lehnt das Speichern ab.
-19. GDA 1 erhält eine Fehlermeldung, dass zwischenzeitlich eine neuere Version der Liste gespeichert wurde.
-20. GDA 1 muss erneut einen **POST $list-read** durchführen, die zwischenzeitlich vorgenommenen Änderungen prüfen und gegebenenfalls in die aktuelle Version übernehmen, bevor ein neuer Schreibvorgang erfolgen kann.
-
-
-#### Sequenzdiagramm Abgelehnter List Write
-<br>
-<div>{% include_relative plantuml/diagram_write_error.svg %}</div>
-<br>
-
-### Read/Search von Diagnosen, Prozeduren sowie Allergien und Intoleranzen
-Read/Search ermöglicht den lesenden Zugriff auf Diagnosen, Prozeduren sowie Allergien und Intoleranzen eines Patienten. Über die Interaktion können sowohl alle vorhandenen Ressourcen eines Ressourcentyps als auch durch Angabe von Suchparametern eingeschränkte Ergebnismengen abgerufen werden.
+### Sub_UC:eDiag_01_03 - Diagnosen, Prozeduren sowie Allergien und Intoleranzen als Einzelressource lesen und suchen (Read/Search)
+Read/Search ermöglicht den gezielten lesenden Zugriff auf Diagnosen, Prozeduren sowie Allergien und Intoleranzen eines Patienten. Über die Interaktion können sowohl alle vorhandenen Ressourcen eines Ressourcentyps als auch durch Angabe von Suchparametern eingeschränkte Ergebnismengen abgerufen werden.
 
 Die Fachanwendung stellt die vorhandenen Ressourcen des gewählten Ressourcentyps als Search-Bundle bereit. Der Zugriff erfolgt ausschließlich lesend; Änderungen an Status, Inhalten oder Listenzuordnungen werden durch diese Interaktion nicht durchgeführt.
 
@@ -125,7 +72,7 @@ Die Read/Search-Interaktion kann beispielsweise für folgende Szenarien verwende
 #### Ablauf
 
 1. Der GDA oder ELGA-Teilnehmer wählt den gewünschten Ressourcentyp (Condition, Procedure oder AllergyIntolerance) aus.
-2. Der GDA oder ELGA-Teilnehmer führt ein **GET** auf /Patient/[id]/Condition/, /Patient/[id]/Procedure/ und/oder /Patient/[id]/AllergyIntolerance/ aus, siehe [Transaktionen](transaction.md#Transaktionen).
+2. Der GDA oder ELGA-Teilnehmer führt ein **GET** auf /Patient/[id]/Condition/, /Patient/[id]/Procedure/ und/oder /Patient/[id]/AllergyIntolerance/ aus, siehe [Transaktionen](transaction.html#Transaktionen).
 3. Optional können Suchparameter angegeben werden, um die Treffermenge einzuschränken.
 4. Die Fachanwendung führt die Suche anhand der angegebenen Kriterien durch.
 4. Die Fachanwendung liefert ein Search-Bundle mit den gefundenen Ressourcen zurück.
