@@ -74,14 +74,14 @@ List Write ist eine eigenständige Operation, die ausschließlich im Kontext ein
 #### Sequenzdiagramm 
 <br>
 <div>{% include_relative plantuml/diagram_write_error.svg %}</div>
-<br>-->
+<br> -->
 
-### Sub_UC_eDiag_02_03 - Bestehende Ressource in eine Liste aufnehmen (Listeneinträge hinzufügen)
-Nach dem Erfassen einer neuen medizinischen Ressource [Ressource erfassen](uc_ediag_03_schreiben.html#sub-uc-ediag-02-07) kann dieser Eintrag in eine Liste aufgenommen werden. 
+### Sub_UC_eDiag_02_03 - Einträge zur Liste hinzufügen
+Nach dem Erfassen einer neuen medizinischen Ressource [Ressource erfassen](uc_ediag_02_schreiben.html#ressource-erfassen) kann dieser Eintrag in eine Liste aufgenommen werden. 
 Die Fachanwendung kennzeichnet die Ressource anschließend als relevant (meta.tag = relevant). 
 
 #### Ablauf
-1. Der GDA legt eine neue (Condition, Procedure oder AllergyIntolerance), siehe [Ressource erfassen](uc_ediag_03_schreiben.html#sub-uc-ediag-02-07) an oder eine bestehende Ressource, die in die Liste aufgenommen werden soll.
+1. Der GDA legt eine neue (Condition, Procedure oder AllergyIntolerance), siehe [Ressource erfassen](uc_ediag_02_schreiben.html#ressource-erfassen) an oder eine bestehende Ressource, die in die Liste aufgenommen werden soll.
 2. Dafür führt der GDA ein **POST $list-read** aus und erhält das aktuelle Search-Bundle der ausgewählten List-Ressource.
 3. Der GDA wählt die bestehende Ressource aus und fügt sie als neuen List.entry in die Liste ein.
 * **List.entry.flag = new**
@@ -90,70 +90,53 @@ Die Fachanwendung kennzeichnet die Ressource anschließend als relevant (meta.ta
 7. Die Fachanwendung kennzeichnet die referenzierte Ressource mit **meta.tag = relevant**, wodurch ihre Zugehörigkeit zur Liste gekennzeichnet wird.
 
 #### Sequenzdiagramm
-<div>{% include_relative plantuml/diagram_uc_06_02.svg %}</div>
+<div>{% include_relative plantuml/02_03.svg %}</div>
 
 
-### Sub_UC_eDiag_02_04 - Listeneinträge entfernen
 
+### Sub_UC_eDiag_02_04 - Eintrag aus der Liste löschen
+Löschen kann nur der Bürger.
+Die Referenz auf die Ressource wird aus der Liste entfernt (removed). Die referenzierte Ressource bleibt unverändert bestehen. Die Fachanwendung entfernt die Kennzeichnung als relevant (meta.tag = relevant).
+ToDo: Aus Liste entfernen, Ressource bleibt bestehen, verliert nur Listzugehörigkeit oder Löschen - Ressource wird vollständig entfernt Ausblenden und Löschen? Löscht der Teilnehmer einen Eintrag, muss die Historienversion mitgelöscht werden? Betsehende Referenzen auf gelöschte Ressourcen. Lösche ich C, sage ich such mir alle List-Versionen mit C, und lösch mir alle C. Wie weit greifen, muss ich mich als Bürger durch alle Vorversionen durchklicken. FHIR Spezifikation über Historie - nachlesen, wie die Regel ist! Was bedeutet eine Aktualisierung auf eine historische Version?
 
 ### Sub_UC_eDiag_02_05 - Reihenfolge der Listeneinträge ändern
-
-
-### Sub_UC_eDiag_02_06 - Gesamte Liste löschen
-
-
-
-
-
-<!--Ressourcenoperationen-->
-
-### Sub_UC_eDiag_02_07 - Ressource erfassen
-### Sub_UC_eDiag_02_08 - Ressource bearbeiten
-### Sub_UC_eDiag_02_09 - Ressource stornieren/löschen (falls fachlich erforderlich)
-
-
-
-
-
-
- 
-
-
-   
-
-### Sub_UC_eDiag_06_03 - Bestehende relevante Listeinträge fachlich bearbeiten
-TODo: Der GDA kann Einträge in einer Liste fachlich bearbeiten - stimmt nicht mehr? 1. Schritt, ich erstelle eine neue 2 Schritt: Will ich sie verknüpfen, muss ich auf die bestehenden Ressourcen zugreifen mit dem Identifier 123, der muss vom Client zwischengespeichert werden, damit dieser an die FA mitgesendet werden kann. 
-#### Ablauf
-<div>{% include_relative plantuml/diagram_uc_06_03.svg %}</div>
-
-
-### Sub_UC_eDiag_06_04 - Reihenfolge von Listeinträge ändern
 Der GDA kann die Reihenfolge der Listeinträge ändern. Die Einträge selbst bleiben dabei unverändert. Evtl. auch in den ELGA Core mitnehmen. 
-#### Ablauf
 
-
-### Sub_UC_eDiag_06_05 - Einträge aus einer Liste entfernen
-Die Referenz auf die Ressource wird aus der Liste entfernt (removed). Die referenzierte Ressource bleibt unverändert bestehen. Die Fachanwendung entfernt die Kennzeichnung als relevant (meta.tag = relevant).
-#### Ablauf
-
-
-### Sub_UC_eDiag_06_07 - Eintrag innerhalb einer Liste durch ELGA-Teilnehmer:in löschen 
-ToDo: Aus Liste entfernen, Ressource bleibt bestehen, verliert nur Listzugehörigkeit oder Löschen - Ressource wird vollständig entfernt
-Ausblenden und Löschen? Löscht der Teilnehmer einen Eintrag, muss die Historienversion mitgelöscht werden? Betsehende Referenzen auf gelöschte Ressourcen.
-Lösche ich C, sage ich such mir alle List-Versionen mit C, und lösch mir alle C. Wie weit greifen, muss ich mich als Bürger durch alle Vorversionen durchklicken. 
-FHIR Spezifikation über Historie - nachlesen, wie die Regel ist! Was bedeutet eine Aktualisierung auf eine historische Version? 
-
-### Sub_UC_eDiag_06_08 - Liste durch ELGA-Teilnehmer:in löschen 
+### Sub_UC_eDiag_02_06 - Liste löschen 
 ToDo: fachliche Auswirkungen klären; gesamte List-Ressouce löschen, alle Referenzen - alle enthaltenen Diagnosen?
 
 
 Fachliche Einzelressourcen repräsentieren die medizinischen Inhalte der e-Diagnose. Hierzu zählen insbesondere Diagnosen (Condition), Prozeduren (Procedure) sowie Allergien und Intoleranzen (AllergyIntolerance). Die nachfolgenden Sub-Use-Cases beschreiben die Erfassung, das Abrufen und die Stornierung dieser Ressourcen. Bestehende Ressourcen werden weder bearbeitet noch gelöscht; fachliche Änderungen erfolgen durch das Anlegen neuer Ressourcen.
 
-### Sub_UC_eDiag_06_07 - Diagnosen, Prozeduren sowie Allergien und Intoleranzen durch ELGA-Teilnehmer löschen 
 
-Der ELGA-Teilnehmer kann via ELGA-Portal einzelne oder alle Diagnosen unwiderruflich löschen. Dabei ist es irrelevant, ob eine zu löschende Diagnose als relevant gekennzeichnet ist oder nicht. Die Inhalte der zu löschenden Diagnose werden durch die Fachanwendung entfernt und die Diagnose als "gelöscht" markiert.
+<!--Ressourcenoperationen-->
 
-Sollte die Diagnose in der aktuellen Liste referenziert sein, erstellt die Fachanwendung eine neue Version der Liste ohne die gelöschte Diagnose.
+### Sub_UC_eDiag_02_07 - Ressource erfassen
+Der GDA erfasst neue Diagnosen, Prozeduren sowie Allergien und Intoleranzen über die e-Diagnose Fachanwendung, siehe [Transaktionen](transaction.md#Transaktionen).<br>
+
+#### Ablauf
+1. Der GDA wählt den gewünschten Ressourcentyp (Condition, Procedure oder AllergyIntolerance) aus.
+2. Der GDA erstellt eine neue Ressource und erfasst die erforderlichen fachlichen Informationen.
+3. Der GDA führt ein **POST** auf
+/Patient/[id]/Condition/,
+/Patient/[id]/Procedure/ oder
+/Patient/[id]/AllergyIntolerance/
+aus und übermittelt die neue Ressource an die e-Diagnose Fachanwendung.
+4. Die **Fachanwendung** validiert die übermittelte Ressource.
+5. Ist die Validierung erfolgreich, wird die neue Ressource gespeichert und dem GDA eine erfolgreiche Erstellung mittels **HTTP 201 Created** bestätigt. Ist die Validierung nicht erfolgreich, wird die Ressource nicht gespeichert. Die Fachanwendung liefert ein **OperationOutcome** mit den aufgetretenen Validierungsfehlern zurück.
+
+#### Sequenzdiagramm 
+<div>{% include_relative plantuml/diagram_uc_06_09.svg %}</div>
+
+
+### Sub_UC_eDiag_02_08 - Ressource bearbeiten
+Bestehende relevante Listeinträge fachlich bearbeiten TODo: Der GDA kann Einträge in einer Liste fachlich bearbeiten - stimmt nicht mehr? 1. Schritt, ich erstelle eine neue 2 Schritt: Will ich sie verknüpfen, muss ich auf die bestehenden Ressourcen zugreifen mit dem Identifier 123, der muss vom Client zwischengespeichert werden, damit dieser an die FA mitgesendet werden kann. 
+#### Ablauf
+<div>{% include_relative plantuml/diagram_uc_06_03.svg %}</div>
+
+
+### Sub_UC_eDiag_02_09 - Ressource löschen
+Der ELGA-Teilnehmer kann via ELGA-Portal einzelne oder alle Diagnosen unwiderruflich löschen. Dabei ist es irrelevant, ob eine zu löschende Diagnose als relevant gekennzeichnet ist oder nicht. Die Inhalte der zu löschenden Diagnose werden durch die Fachanwendung entfernt und die Diagnose als "gelöscht" markiert. Sollte die Diagnose in der aktuellen Liste referenziert sein, erstellt die Fachanwendung eine neue Version der Liste ohne die gelöschte Diagnose.
 
 #### Ablauf
 
@@ -174,25 +157,8 @@ Sollte die Diagnose in der aktuellen Liste referenziert sein, erstellt die Facha
 
 [![overview](patient_delete.drawio.svg){: style="width: 60%"}](patient_delete.drawio.svg)
 
-### Sub_UC_eDiag_06_09 - Diagnosen, Prozeduren sowie Allergien und Intoleranzen erfassen
-Der GDA erfasst neue Diagnosen, Prozeduren sowie Allergien und Intoleranzen über die e-Diagnose Fachanwendung, siehe [Transaktionen](transaction.md#Transaktionen).<br>
 
-
-#### Ablauf
-1. Der GDA wählt den gewünschten Ressourcentyp (Condition, Procedure oder AllergyIntolerance) aus.
-2. Der GDA erstellt eine neue Ressource und erfasst die erforderlichen fachlichen Informationen.
-3. Der GDA führt ein **POST** auf
-/Patient/[id]/Condition/,
-/Patient/[id]/Procedure/ oder
-/Patient/[id]/AllergyIntolerance/
-aus und übermittelt die neue Ressource an die e-Diagnose Fachanwendung.
-4. Die **Fachanwendung** validiert die übermittelte Ressource.
-5. Ist die Validierung erfolgreich, wird die neue Ressource gespeichert und dem GDA eine erfolgreiche Erstellung mittels **HTTP 201 Created** bestätigt. Ist die Validierung nicht erfolgreich, wird die Ressource nicht gespeichert. Die Fachanwendung liefert ein **OperationOutcome** mit den aufgetretenen Validierungsfehlern zurück.
-
-#### Sequenzdiagramm Eintrag erfassen
-<div>{% include_relative plantuml/diagram_uc_06_09.svg %}</div>
-
-### Sub_UC_eDiag_06_10 - Diagnosen, Prozeduren sowie Allergien und Intoleranzen stornieren
+### Sub_UC_eDiag_02_10 - Ressource stornieren
 Der GDA kann einen oder mehrere Diagnosen aufgrund einer falschen Eingabe stornieren. Dabei ist es irrelevant, ob eine zu stornierende Diagnose als relevant gekennzeichnet ist oder nicht.
 
 Sollte die Diagnose als relevant gekennzeichnet gewesen sein und will sie der GDA nach der Stornierung nicht mehr in der Liste der relevanten Einträge haben, muss die Diagnose aus der Liste der relevanten Einträge entfernt werden (siehe [Sub_UC_eDiag_06_05 - Einträge aus einer Liste entfernen](uc_ediag_06_int_list.md#sub_uc_ediag_06_05---einträge-aus-einer-liste-entfernen)).
@@ -206,3 +172,5 @@ Sollte die Diagnose als relevant gekennzeichnet gewesen sein und will sie der GD
   -  `AllergyIntolerance.verificationStatus = entered-in-error`
   -  `Condition.verificationStatus = entered-in-error`
   -  `Procedure.status = entered-in-error`
+
+
