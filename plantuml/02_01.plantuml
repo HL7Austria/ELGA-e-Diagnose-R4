@@ -1,6 +1,6 @@
 @startuml
 
-title Nach Initialisierung leere Liste bestätigen
+title Leere Liste fachlich bestätigen
 
 skinparam borderColor #000000
 skinparam backgroundColor #f5f5f5
@@ -59,18 +59,29 @@ activate eDiag_FA COLOR_DIAG_FA
 
 ref over GDA_1, eDiag_FA : $list-read
 
-group alt: List.emptyReason == notstarted
+group COLOR_OK alt: List.emptyReason == notstarted
   note over GDA_1
     GDA erhält das von der FA
-    übermittelte Collection-Bundle
+    übermittelte List-Bundle
     und bestätigt, dass keine Einträge
     (Condition/Procedure/AllergyIntolerance)
     dokumentiert werden müssen.
+    GDA bestätigt den leeren fachlichen Zustand.
   end note
 
+ref over GDA_1, eDiag_FA : $list-write
+
+else COLOR_ERROR List.emptyReason == nilknown
   GDA_1 -> GDA_1: List.emptyReason = nilknown
+
+note over eDiag_FA
+    Keine Änderung der Liste erforderlich.
+    Der bestehende Zustand
+    List.emptyReason = nilknown
+    bleibt erhalten.
+  end note
   
-  ref over GDA_1, eDiag_FA : $list-write
+
 end
 
 @enduml
