@@ -38,10 +38,10 @@ List Read dient dem **Abruf der Liste und der Vorbereitung einer nachfolgenden �
 
 1. Der GDA führt einen **POST $list-read** aus. 
 2. Die Fachanwendung **prüft auf Existenz** der Liste/n für die angegebene Patientin bzw. den angegebenen Patienten.
-3. Ist keine Liste vorhanden, wird dieser erstellt siehe Liste-initialisieren, siehe [Schreiben](uc_ediag_02_schreiben.html#nach-intialisierung-leere-liste-bestätigen) und eine leere Liste mit dem emptyReason notstarted wird zurückgeliefert.
+3. Ist keine Liste vorhanden, wird dieser erstellt siehe **Liste-initialisieren** [Schreiben](uc_ediag_02_schreiben.html#nach-intialisierung-leere-liste-bestätigen) und eine leere Liste mit dem emptyReason notstarted wird zurückgeliefert.
 4. Existiert bereits eine Liste, wird von der Fachanwendung aus diesem ein Search-Bundle zur Auslieferung bereitgestellt. Die Inhalte werden von der Fachanwendung wie folgt aufbereitet: 
 * Falls der vorherige GDA neue Listeneinträge hinzugefügt hat (List.entry.flag hat den Wert **new**), werden diese auf **unchanged** gesetzt.<br>
-* Falls der vorherige GDA Listenneinträge beendet hat (deren List.entry.flag haben den Wert **removed**), werden diese Einträge aus der Liste **entfernt**.<br>
+* Falls der vorherige GDA Listenneinträge beendet hat (deren List.entry.flag haben den Wert **removed**), werden diese Einträge aus der Liste **entfernt**, siehe [Workflowmanagement](workflowmanagement.html#auswirkung-derzugriffsart-auf-list-entry-flag).<br>
 * Falls der vorherige GDA **alle vorhandenen Einträge** mit removed gekennzeichnet hat, wird List.emptyReason mit *nilknown* zurückgeliefert, um nachfolgenden GDA zu signalisieren, dass der Patient zum Zeitpunkt des letzten Schreibens keine Einträge hatte.<br>
 5. Die Fachanwendung liefert an den GDA die Liste inkl. ETag für [Optimistic Locking](https://hl7.org/fhir/http.html#concurrency) und alle referenzierten Ressourcen.
 6. Ziel ist ein neutraler, weiterbearbeitbarer Zustand für den abrufenden GDA.
