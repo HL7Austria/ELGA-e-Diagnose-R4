@@ -13,24 +13,26 @@ Dieser Ablauf beschreibt die fachliche Bestätigung einer initialisierten, leere
 3. Ist **List.emptyReason = notstarted**, handelt es sich um eine initialisierte, aber noch nicht fachlich bestätigte leere Liste.
 4. Die Fachanwendung stellt dem GDA die leere Liste zur Bestätigung bereit.
 5. Der GDA bestätigt, dass für die Person aktuell keine Einträge dokumentiert werden müssen.
-6. Die Fachanwendung setzt daraufhin **List.emptyReason = nilknown**.
-7. Anschließend führt die Fachanwendung einen POST $list-write aus, um den bestätigten Zustand der Liste zu speichern.
+6. Die Fachanwendung setzt daraufhin **List.emptyReason = nilknown** und liefert die aktualísierte Liste inkl. ETag für [Optimistic Locking](https://hl7.org/fhir/http.html#concurrency) zurück.
+7. Anschließend führt die Fachanwendung einen **POST $list-write** aus, um den bestätigten Zustand der Liste zu speichern, siehe Sequenzdiagramm [List-Read](uc_ediag_01_lesen.html#list-read).
 
 
-#### Sequenzdiagramm
-<div>{% include_relative plantuml/02_01.svg %}</div>
+<!--#### Sequenzdiagramm-->
+<!--verweisen wir auf $list-read und dann können wir uns diesen diagramm sparen-->
+<!--<div>{% include_relative plantuml/02_01.svg %}</div>-->
 
 
-### Sub_UC_eDiag_02_01 - Liste aktualisieren (List-Write)
-List Write ist eine eigenständige Operation, die ausschließlich im Kontext eines **zuvor ausgeführten** [Lesen](uc_ediag_01_lesen.html#list-read) erfolgen darf.
+### Sub_UC_eDiag_02_02 - Liste aktualisieren (List-Write)
+List Write ist eine eigenständige Operation, die ausschließlich im Kontext eines **zuvor ausgeführten** [List-Read](uc_ediag_01_lesen.html#list-read) erfolgen darf.
 
 #### Ablauf
 
-1. Der GDA übermittelt via **POST $list-write** die aktualisierte Liste als **List Bundle**:
+1. Der GDA übermittelt via **POST $list-write** die aktualisierte Liste als **List Bundle** inkl. ETag für [Optimistic Locking](https://hl7.org/fhir/http.html#concurrency):
 * alle **neuen und geänderten und zu entfernenden Ressourcen** sind **inline** im Bundle enthalten,
 * alle **unveränderten Ressourcen** werden nur **referenziert**.
-2. Die Fachanwendung prüft anhand des im HTTP-Header übermittelten **ETag**, siehe auch [Optimistic Locking](https://hl7.org/fhir/http.html#concurrency), ob die vom GDA bearbeitete Listenversion noch der aktuellen Version entspricht.
-3. Stimmen die ETags nicht überein, lehnt die Fachanwendung den Schreibvorgang ab. Der GDA muss erneut ein $list-read durchführen und seine Änderungen auf Basis der aktuellen Listversion erneut vornehmen. 
+2. Die Fachanwendung prüft anhand des im HTTP-Header übermittelten **ETag**, ob die vom GDA bearbeitete Listenversion noch der aktuellen Version entspricht.
+3. Stimmen die ETags nicht überein, lehnt die Fachanwendung den Schreibvorgang ab, siehe [Abgelehntes Write](https://build.fhir.org/ig/HL7Austria/ELGA-Core-R4/branches/main/interactions.html#abgelehntes-plan-write). 
+   Der GDA muss erneut ein $list-read durchführen und seine Änderungen auf Basis der aktuellen Listversion erneut vornehmen. 
 4. Ist die Prüfung erfolgreich, validiert die Fachanwendung die neue Liste und stellt sicher, dass keine unzulässigen Zustandsübergänge vorgenommen wurden.
 5. Bei erfolgreicher Validierung:
 * werden die übermittelten Änderungen in die Ressourcen übernommen,
@@ -43,7 +45,7 @@ List Write ist eine eigenständige Operation, die ausschließlich im Kontext ein
 <div>{% include_relative plantuml/write.svg %}</div>
 <br>
 
-#### Alternativ - Abgelehnter List Write
+<!--#### Alternativ - Abgelehnter List Write
 
 #### Ablauf
 
@@ -72,31 +74,51 @@ List Write ist eine eigenständige Operation, die ausschließlich im Kontext ein
 #### Sequenzdiagramm 
 <br>
 <div>{% include_relative plantuml/diagram_write_error.svg %}</div>
-<br>
+<br>-->
+
+### Sub_UC_eDiag_02_03 - Bestehende Ressource in eine Liste aufnehmen (Listeneinträge hinzufügen)
+Nach dem Erfassen einer neuen medizinischen Ressource [Ressource erfassen](uc_ediag_03_schreiben.html#sub-uc-ediag-02-07) kann dieser Eintrag in eine Liste aufgenommen werden. 
+Die Fachanwendung kennzeichnet die Ressource anschließend als relevant (meta.tag = relevant). 
+
+#### Ablauf
+1. Der GDA legt eine neue (Condition, Procedure oder AllergyIntolerance), siehe [Ressource erfassen](uc_ediag_03_schreiben.html#sub-uc-ediag-02-07) an oder eine bestehende Ressource, die in die Liste aufgenommen werden soll.
+2. Dafür führt der GDA ein **POST $list-read** aus und erhält das aktuelle Search-Bundle der ausgewählten List-Ressource.
+3. Der GDA wählt die bestehende Ressource aus und fügt sie als neuen List.entry in die Liste ein.
+* **List.entry.flag = new**
+* **List.entry.item** referenziert die bestehende Ressource. 
+6. Der GDA führt ein **POST $list-write** aus und übermittelt die aktualisierte Liste an die Fachanwendung.
+7. Die Fachanwendung kennzeichnet die referenzierte Ressource mit **meta.tag = relevant**, wodurch ihre Zugehörigkeit zur Liste gekennzeichnet wird.
+
+#### Sequenzdiagramm
+<div>{% include_relative plantuml/diagram_uc_06_02.svg %}</div>
 
 
-Listeneinträge hinzufügen
-Listeneinträge entfernen
-Reihenfolge der Listeneinträge ändern
-Gesamte Liste löschen
+### Sub_UC_eDiag_02_04 - Listeneinträge entfernen
+
+
+### Sub_UC_eDiag_02_05 - Reihenfolge der Listeneinträge ändern
+
+
+### Sub_UC_eDiag_02_06 - Gesamte Liste löschen
+
+
+
 
 
 <!--Ressourcenoperationen-->
 
-Ressource erfassen
-Ressource bearbeiten
-Ressource stornieren/löschen (falls fachlich erforderlich)
+### Sub_UC_eDiag_02_07 - Ressource erfassen
+### Sub_UC_eDiag_02_08 - Ressource bearbeiten
+### Sub_UC_eDiag_02_09 - Ressource stornieren/löschen (falls fachlich erforderlich)
 
 
 
 
 
 
-### Sub_UC_eDiag_06_02 - Bestehende Ressource in eine Liste aufnehmen
-Nach dem Erfassen einer neuen medizinischen Ressource [Sub_UC_eDiag_06_09](uc_ediag_06_int_res.html#sub-uc-ediag-06-09) kann diese in eine Liste aufgenommen werden. Die Fachanwendung kennzeichnet die Ressource anschließend als relevant (meta.tag = relevant). 
+ 
 
-#### Ablauf
-<div>{% include_relative plantuml/diagram_uc_06_02.svg %}</div>
+
    
 
 ### Sub_UC_eDiag_06_03 - Bestehende relevante Listeinträge fachlich bearbeiten

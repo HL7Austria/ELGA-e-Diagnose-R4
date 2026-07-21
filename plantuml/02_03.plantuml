@@ -65,10 +65,10 @@ note over GDA_1
   aus der Gesamtansicht abgerufen worden sein.
 end note
 
-ref over GDA_1, eDiag_FA : [[uc_ediag_06_int_list.html#$list-read $list-read]]
+ref over GDA_1, eDiag_FA : [[uc_ediag_01_lesen.html#$list-read $list-read]]
 
 note over GDA_1
-  GDA erhält ein Collection-Bundle von der 
+  GDA erhält ein Search-Bundle von der 
   Fachanwendung und bearbeitet die enthaltene
   List-Ressource.
 end note
@@ -82,7 +82,7 @@ note over GDA_1
   aufgenommen.
 end note
 
-ref over GDA_1, eDiag_FA : [[uc_ediag_06_int_list.html#$list-write List-Write]] 
+ref over GDA_1, eDiag_FA : [[uc_ediag_02_schreiben.html#$list-write List-Write]] 
 
 eDiag_FA -> eDiag_FA : meta.tag = relevant setzen
 
