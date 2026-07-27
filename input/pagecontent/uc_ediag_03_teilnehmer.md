@@ -2,7 +2,7 @@
 
 <!--Löschen von Einträgen bzw. Versionen der Summary-Liste-->
 ### Liste durch ELGA-Teilnehmer:in löschen 
-> Sub_UC_eDiag_02_06 -
+> Sub:UC_03_01 -
 ToDo: fachliche Auswirkungen klären; gesamte List-Ressouce löschen, alle Referenzen - alle enthaltenen Diagnosen?
 
 Vorschlag:
