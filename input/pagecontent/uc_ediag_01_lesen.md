@@ -2,6 +2,8 @@
 > UC-01 - Dieses Kapitel beschreibt die lesenden Zugriffe auf Listen sowie auf die Einzelressourcen Diagnosen, Prozeduren oder Allergien und Intoleranzen. Je nach Anwendungsfall stehen unterschiedliche Interaktionen zur Verfügung.
 
 
+## Interaktionen auf Listenressourcen
+
 ### Vergangene Versionen einer Liste abrufen (List-History-Read)  
 > Sub:UC_01_01 - Der History Read dient ausschließlich der Anzeige historischer Versionen einer Liste. Die Fachanwendung stellt bereits persistierte historische Search-Bundles unverändert bereit. Der Zugriff erfolgt lesend und ermöglicht keine nachfolgende Bearbeitung der Liste.
 
@@ -52,7 +54,9 @@ Der Zugriff dient ausschließlich der Anzeige bzw. Informationsabfrage von aktue
 
 
 
-### Sub_UC:eDiag_01_03 - Diagnosen, Prozeduren sowie Allergien und Intoleranzen als Einzelressource lesen und suchen (Read/Search)
+## Interaktionen auf Einzelressourcen
+
+### Diagnosen, Prozeduren sowie Allergien und Intoleranzen als Einzelressource lesen und suchen (Read/Search)
 > Sub:UC_01_03 - Read/Search ermöglicht den gezielten lesenden Zugriff auf Diagnosen, Prozeduren sowie Allergien und Intoleranzen eines Patienten. Über die Interaktion können sowohl alle vorhandenen Ressourcen eines Ressourcentyps als auch durch Angabe von Suchparametern eingeschränkte Ergebnismengen abgerufen werden.
 
 Die Fachanwendung stellt die vorhandenen Ressourcen des gewählten Ressourcentyps als Search-Bundle bereit. Der Zugriff erfolgt ausschließlich lesend; Änderungen an Status, Inhalten oder Listenzuordnungen werden durch diese Interaktion nicht durchgeführt.
