@@ -59,7 +59,7 @@ activate eDiag_FA COLOR_DIAG_FA
 
 ref over GDA_1, eDiag_FA : $list-read
 
-group COLOR_OK alt: List.emptyReason == notstarted
+group alt: List.emptyReason == notstarted
   note over GDA_1
     GDA erhält das von der FA
     übermittelte List-Bundle
@@ -68,19 +68,11 @@ group COLOR_OK alt: List.emptyReason == notstarted
     dokumentiert werden müssen.
     GDA bestätigt den leeren fachlichen Zustand.
   end note
-
-ref over GDA_1, eDiag_FA : $list-write
-
-else COLOR_ERROR List.emptyReason == nilknown
-  GDA_1 -> GDA_1: List.emptyReason = nilknown
-
-note over eDiag_FA
-    Keine Änderung der Liste erforderlich.
-    Der bestehende Zustand
-    List.emptyReason = nilknown
-    bleibt erhalten.
-  end note
   
+else List.emptyReason == nilknown
+  GDA_1 -> GDA_1: List.emptyReason = nilknown
+  
+  ref over GDA_1, eDiag_FA : $list-write
 
 end
 

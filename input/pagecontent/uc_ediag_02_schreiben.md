@@ -23,12 +23,11 @@ ToDo: Nur der GDA setzt das nilknown und nicht die Fachanwendung
 4. Die Fachanwendung stellt dem GDA die leere Liste zur Bestätigung bereit.
 5. Der GDA bestätigt, dass für die Person aktuell keine Einträge dokumentiert werden müssen.
 6. Die Fachanwendung setzt daraufhin **List.emptyReason = nilknown** und liefert die aktualísierte Liste inkl. ETag für [Optimistic Locking](https://hl7.org/fhir/http.html#concurrency) zurück.
-7. Anschließend führt die Fachanwendung einen **POST $list-write** aus, um den bestätigten Zustand der Liste zu speichern, siehe Sequenzdiagramm [List-Read](uc_ediag_01_lesen.html#list-read).
+7. Anschließend führt die Fachanwendung einen **POST $list-write** aus, um den bestätigten Zustand der Liste zu speichern.
 
 
-<!--#### Sequenzdiagramm-->
-<!--verweisen wir auf $list-read und dann können wir uns diesen diagramm sparen-->
-<!--<div>{% include_relative plantuml/02_01.svg %}</div>-->
+#### Sequenzdiagramm
+<div>{% include_relative plantuml/02_01.svg %}</div>
 
 
 ### Liste aktualisieren (List-Write)
@@ -177,7 +176,7 @@ aus und übermittelt die neue Ressource an die e-Diagnose Fachanwendung.
 ### Diagnose stornieren
 > Sub_UC_eDiag_02_09 - Der GDA kann einen oder mehrere Diagnosen aufgrund einer falschen Eingabe stornieren. Dabei ist es irrelevant, ob eine zu stornierende Diagnose als relevant gekennzeichnet ist oder nicht.
 
-Sollte die Diagnose als relevant gekennzeichnet gewesen sein und will sie der GDA nach der Stornierung nicht mehr in der Liste der relevanten Einträge haben, muss die Diagnose aus der Liste der relevanten Einträge entfernt werden (siehe [Sub_UC_eDiag_06_05 - Einträge aus einer Liste entfernen](uc_ediag_06_int_list.md#sub_uc_ediag_06_05---einträge-aus-einer-liste-entfernen)).
+Sollte die Diagnose als relevant gekennzeichnet gewesen sein und will sie der GDA nach der Stornierung nicht mehr in der Liste der relevanten Einträge haben, muss die Diagnose aus der Liste der relevanten Einträge entfernt werden, siehe Einträge aus einer Liste entfernen.
 
 #### Ablauf
 
