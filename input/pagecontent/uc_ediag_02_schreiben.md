@@ -126,7 +126,7 @@ ToDo: Aus Liste entfernen, Ressource bleibt bestehen, verliert nur Listzugehöri
 
 
 ## Interaktionen auf Einzelressourcen
-Unter dem Begriff „Diagnose“ werden in diesem Implementierungsleitfaden die FHIR-Ressourcen Condition zur Abbildung von Diagnosen, Procedure zur Abbildung von Prozeduren sowie AllergyIntolerance zur Abbildung von Allergien und Intoleranzen zusammengefasst.
+Im Rahmen der Anwendung eDiagnose werden unter dem Begriff „Diagnose“ die FHIR-Ressourcen Condition (Diagnosen), Procedure (Prozeduren) sowie AllergyIntolerance (Allergien und Intoleranzen) zusammengefasst.
 ### Diagnose erfassen
 > Sub_UC_eDiag_02_06 - Der GDA erfasst neue Diagnosen, Prozeduren sowie Allergien und Intoleranzen über die e-Diagnose Fachanwendung, siehe [Transaktionen](transaction.md#Transaktionen).<br>
 
