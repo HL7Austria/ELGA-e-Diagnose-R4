@@ -77,7 +77,7 @@ pages:
       title: "Lesen"
   uc_ediag_02_schreiben.md:
       title: "Schreiben"
-  uc_ediag_03:teilnehmer.md:
+  uc_ediag_03_teilnehmer.md:
       title: "Teilnehmerrechte ausüben"
 
 # The parameters property represents IG.definition.parameter. Rather
