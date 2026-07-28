@@ -135,7 +135,7 @@ aus und übermittelt die neue Ressource an die e-Diagnose Fachanwendung.
 <div>{% include_relative plantuml/diagram_uc_06_09.svg %}</div>
 
 
-### Daignose bearbeiten
+### Diagnose bearbeiten
 > Sub:UC_02_07 - Bestehende Einträge fachlich bearbeiten 
 TODo: Der GDA kann Einträge in einer Liste fachlich bearbeiten - stimmt nicht mehr? 1. Schritt, ich erstelle eine neue 2 Schritt: Will ich sie verknüpfen, muss ich auf die bestehenden Ressourcen zugreifen mit dem Identifier 123, der muss vom Client zwischengespeichert werden, damit dieser an die FA mitgesendet werden kann. Änderungen eines Eintrags werden referenziert und sind somit nachverfolgbar.
 #### Ablauf
