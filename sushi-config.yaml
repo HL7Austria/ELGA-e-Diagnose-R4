@@ -77,6 +77,8 @@ pages:
       title: "Lesen"
   uc_ediag_02_schreiben.md:
       title: "Schreiben"
+  uc_ediag_03:teilnehmer.md:
+      title: "Teilnehmerrechte ausüben"
 
 # The parameters property represents IG.definition.parameter. Rather
 # than a list of code/value pairs (as in the ImplementationGuide
@@ -116,6 +118,7 @@ menu:
    Technische Use Cases: technische_use_cases.html
    Lesen: uc_ediag_01_lesen.html
    Schreiben: uc_ediag_02_schreiben.html
+   Teilnehmerrechte ausüben: uc_ediag_03_teilnehmer.html
   Artifacts: artifacts.html
 
   
