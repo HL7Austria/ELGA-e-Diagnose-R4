@@ -2,7 +2,7 @@
 
 #### Status des List.entry.flags 
 
-Ein Eintrag in die Liste kann, abhängig vom jeweiligen Use Case, einen unterschiedlichen Status einnehmen. Dieser Status wird sowohl beispielsweise in der Condition-Ressource selbst als auch auf List-Ebene im Element List.entry.flag dokumentiert.
+Ein Eintrag in die Summary-Liste kann, abhängig vom jeweiligen Use Case, einen unterschiedlichen Status einnehmen. Dieser Status wird sowohl beispielsweise in der Condition-Ressource selbst als auch auf List-Ebene im Element List.entry.flag dokumentiert.
 
 Das *flag*-Element eines Entries der List-Ressource beschreibt die **Art der Änderung eines Eintrags auf Listenebene** und kann folgende Status einnehmen:<br>
 
@@ -18,7 +18,9 @@ Das *flag*-Element eines Entries der List-Ressource beschreibt die **Art der Än
 
 #### Auswirkung der Zugriffsart auf List.entry.flags
 
-Je nach Zugriffsart ([List-History-Read](uc_ediag_06_int_list.html#list-history-read), [List-Read](uc_ediag_06_int_list.html#list-read) oder [List-Write](uc_ediag_06_int_list.html#list-read)) ergeben sich unterschiedliche Auswirkungen auf die Verarbeitung dieser Status sowie auf die enthaltenen Ressourcen in den jeweiligen Listen.
+Je nach Zugriffsart ([List-History-Read](uc_ediag_01_lesen.html#vergangene-versionen-einer-summary-liste-abrufen-list-history-read), [List-Read](uc_ediag_01_lesen.html#liste-und-zugehörige-ressourcen-abrufen-list-read) oder [List-Write](uc_ediag_02_schreiben.html#liste-aktualisieren-list-write)) ergeben sich unterschiedliche Auswirkungen auf die Verarbeitung dieser Status sowie auf die enthaltenen Ressourcen in den jeweiligen Listen.
+
+
 
 <table>
 <thead>
