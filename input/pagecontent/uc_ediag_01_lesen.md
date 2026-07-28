@@ -33,7 +33,8 @@ Der Zugriff dient ausschließlich der Anzeige bzw. Informationsabfrage von aktue
 * **Alle Listenversionen** der relevanten Operationen (Procedures) mit dem Suchparameter Patient abrufen: `GET [base]/Patient/[id]/List?_include=List:patient&_include=List:source&_include:iterate=List:item&_sort=-date&code=http://loinc.org|47519-4`  
 
 ### Liste und zugehörige Ressourcen abrufen (List-Read)
-> Sub:UC_01_02 - List Read dient dem **Abruf der Summary-Liste und der Vorbereitung einer nachfolgenden Änderung**.
+> Sub:UC_01_02  
+List Read dient dem **Abruf der Summary-Liste und der Vorbereitung einer nachfolgenden Änderung**.
 <!-- -->
 
 #### Ablauf

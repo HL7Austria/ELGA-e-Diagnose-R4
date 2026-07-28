@@ -13,7 +13,7 @@ Die nachfolgend beschriebenen Sub-Use-Cases definieren die erforderlichen Intera
 
 - [Lesen](uc_ediag_01_lesen.html)
 - [Schreiben](uc_ediag_02_schreiben.html)
-- [Teilnehmerrechte-ausüben](uc_ediag_03_teilnehmer.html)
+- [Teilnehmerrechte ausüben](uc_ediag_03_teilnehmer.html)
 
 
 
