@@ -118,7 +118,7 @@ Die Referenz auf die Ressource wird aus der Liste entfernt (removed). Die refere
 ## Interaktionen auf Einzelressourcen
 Im Rahmen der Anwendung eDiagnose werden unter dem Begriff „Diagnose“ die FHIR-Ressourcen Condition (Diagnosen), Procedure (Prozeduren) sowie AllergyIntolerance (Allergien und Intoleranzen) zusammengefasst.
 ### Diagnose erfassen
-> Sub:UC_02_06 - Der GDA erfasst neue Diagnosen, Prozeduren sowie Allergien und Intoleranzen über die e-Diagnose Fachanwendung, siehe [Transaktionen](transaction.md#Transaktionen).<br>
+> Sub:UC_02_06 - Der GDA erfasst eine neue Diagnose, Prozedure oder Allergie und Intoleranz über die e-Diagnose Fachanwendung, die nicht Teil der Summary-Liste ist, siehe [Transaktionen](transaction.md#Transaktionen).<br>
 
 #### Ablauf
 1. Der GDA wählt den gewünschten Ressourcentyp (Condition, Procedure oder AllergyIntolerance) aus.
@@ -136,7 +136,7 @@ aus und übermittelt die neue Ressource an die e-Diagnose Fachanwendung.
 
 
 ### Daignose bearbeiten
-> Sub:UC_02_07 - Bestehende relevante Listeinträge fachlich bearbeiten 
+> Sub:UC_02_07 - Bestehende Einträge fachlich bearbeiten 
 TODo: Der GDA kann Einträge in einer Liste fachlich bearbeiten - stimmt nicht mehr? 1. Schritt, ich erstelle eine neue 2 Schritt: Will ich sie verknüpfen, muss ich auf die bestehenden Ressourcen zugreifen mit dem Identifier 123, der muss vom Client zwischengespeichert werden, damit dieser an die FA mitgesendet werden kann. Änderungen eines Eintrags werden referenziert und sind somit nachverfolgbar.
 #### Ablauf
 <div>{% include_relative plantuml/diagram_uc_06_03.svg %}</div>
