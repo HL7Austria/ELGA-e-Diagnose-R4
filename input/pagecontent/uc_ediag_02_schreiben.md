@@ -24,12 +24,12 @@ Dieser Ablauf beschreibt die fachliche Bestätigung einer initialisierten, leere
 
 ### Liste aktualisieren (List-Write)
 > Sub:UC_02_02 
-Nach dem Erfassen einer neuen medizinischen Ressource Sub:UC_02_07 - Ressource erfassen, kann diese in eine Liste aufgenommen werden. Die Fachanwendung kennzeichnet die Ressource anschließend als relevant (meta.tag = relevant). 
+List Write, siehe [List-Write](https://build.fhir.org/ig/HL7Austria/ELGA-Core-R4/branches/main/interactions.html#list-write) ist eine eigenständige Operation, die ausschließlich im Kontext eines **zuvor ausgeführten** [List-Read](uc_ediag_01_lesen.html#list-read) erfolgen darf.
+Nach dem Erfassen einer neuen medizinischen Ressource, siehe [Diagnose erfassen](uc_ediag_02_schreiben.html#diagnose-erfassen), kann diese in einer Summary-Liste aufgenommen werden. Die Fachanwendung kennzeichnet die Ressource anschließend als relevant (meta.tag = relevant). 
 
-Vorschlag:
-List Write ist eine eigenständige Operation, die ausschließlich im Kontext eines **zuvor ausgeführten** [List-Read](uc_ediag_01_lesen.html#list-read) erfolgen darf.
+ToDo: Patient Compartment für die Endpunkte
 
-#### Ablauf
+<!-- #### Ablauf
 
 1. Der GDA übermittelt via **POST $list-write** die aktualisierte Liste als **List Bundle** inkl. ETag für [Optimistic Locking](https://hl7.org/fhir/http.html#concurrency):
 * alle **neuen und geänderten und zu entfernenden Ressourcen** sind **inline** im Bundle enthalten,
@@ -49,7 +49,7 @@ List Write ist eine eigenständige Operation, die ausschließlich im Kontext ein
 <div>{% include_relative plantuml/write.svg %}</div>
 <br>
 
-<!--#### Alternativ - Abgelehnter List Write
+#### Alternativ - Abgelehnter List Write
 
 #### Ablauf
 
@@ -81,7 +81,8 @@ List Write ist eine eigenständige Operation, die ausschließlich im Kontext ein
 <br> -->
 
 ### Einträge zur Liste hinzufügen
-> Sub:UC_02_03 -Nach dem Erfassen einer neuen medizinischen Ressource [Ressource erfassen](uc_ediag_02_schreiben.html#ressource-erfassen) kann dieser Eintrag in eine Liste aufgenommen werden. Die Fachanwendung kennzeichnet die Ressource anschließend als relevant (meta.tag = relevant). 
+> Sub:UC_02_03 
+Nach dem Erfassen einer neuen medizinischen Ressource [Ressource erfassen](uc_ediag_02_schreiben.html#ressource-erfassen) kann dieser Eintrag in eine Liste aufgenommen werden. Die Fachanwendung kennzeichnet die Ressource anschließend als relevant (meta.tag = relevant). 
 
 #### Ablauf
 1. Der GDA legt eine neue (Condition, Procedure oder AllergyIntolerance), siehe [Ressource erfassen](uc_ediag_02_schreiben.html#ressource-erfassen) an oder eine bestehende Ressource, die in die Liste aufgenommen werden soll.
@@ -111,18 +112,22 @@ Die Referenz auf die Ressource wird aus der Liste entfernt (removed). Die refere
 
 
 ### Reihenfolge der Listeneinträge ändern
-> Sub:UC_02_05 - Der GDA kann die gemeinsame Reihenfolge der Summary-Listeinträge ändern. Die Einträge selbst bleiben dabei unverändert. Evtl. auch in den ELGA Core mitnehmen. 
+> Sub:UC_02_05 
+Der GDA kann die gemeinsame Reihenfolge der Summary-Listeinträge ändern. Die Einträge selbst bleiben dabei unverändert. Evtl. auch in den ELGA Core mitnehmen. 
 
 ### Diagnose in der Liste bearbeiten
-> Sub:UC_02_07 - Bestehende Einträge fachlich bearbeiten 
+> Sub:UC_02_07 
+Bestehende Einträge fachlich bearbeiten 
 TODo: Dieser UC setzt sich zusammen aus mehreren anderen und wird zur besseren verständnis hier nochmals beschrieben. 
 Der GDA kann Einträge in einer Liste fachlich bearbeiten - stimmt nicht mehr? 1. Schritt, ich erstelle eine neue 2 Schritt: Will ich sie verknüpfen, muss ich auf die bestehenden Ressourcen zugreifen mit dem Identifier 123, der muss vom Client zwischengespeichert werden, damit dieser an die FA mitgesendet werden kann. Änderungen eines Eintrags werden referenziert und sind somit nachverfolgbar.
+
 #### Ablauf
 <div>{% include_relative plantuml/diagram_uc_06_03.svg %}</div>
 
 
 ## Interaktionen auf Einzelressourcen
 Im Rahmen der Anwendung eDiagnose werden unter dem Begriff „Diagnose“ die FHIR-Ressourcen Condition (Diagnosen), Procedure (Prozeduren) sowie AllergyIntolerance (Allergien und Intoleranzen) zusammengefasst. - gehört in den Hintergrund, auch Gesamtliste, Summary-Liste
+
 ### Diagnose erfassen
 > Sub:UC_02_06 -
 Der GDA erfasst eine neue Diagnose, Prozedure oder Allergie und Intoleranz über die e-Diagnose Fachanwendung, die nicht Teil der Summary-Liste ist, siehe [Transaktionen](transaction.md#Transaktionen) kann in der Folge durch eine Änderung, siehe Sub:UC_02_03 zur Liste hinzugefügtr werden.<br>
@@ -142,12 +147,9 @@ aus und übermittelt die neue Ressource an die e-Diagnose Fachanwendung.
 <div>{% include_relative plantuml/diagram_uc_06_09.svg %}</div>
 
 
-
-
-
-
 ### Diagnose stornieren
-> Sub:UC_02_09 - Der GDA kann einen oder mehrere Diagnosen aufgrund einer falschen Eingabe stornieren. Dabei ist es irrelevant, ob eine zu stornierende Diagnose als relevant gekennzeichnet ist oder nicht.
+> Sub:UC_02_09 
+Der GDA kann einen oder mehrere Diagnosen aufgrund einer falschen Eingabe stornieren. Dabei ist es irrelevant, ob eine zu stornierende Diagnose als relevant gekennzeichnet ist oder nicht.
 
 Sollte die Diagnose als relevant gekennzeichnet gewesen sein und will sie der GDA nach der Stornierung nicht mehr in der Liste der relevanten Einträge haben, muss die Diagnose aus der Liste der relevanten Einträge entfernt werden, siehe Einträge aus einer Liste entfernen.
 In Ergänzung müssen der GDA, der die Stornierung durchgeführt hat, den Stornierungszeitpunkt und den Vermerk festhalten.
