@@ -28,6 +28,9 @@ List Write, siehe [List-Write](https://build.fhir.org/ig/HL7Austria/ELGA-Core-R4
 Nach dem Erfassen einer neuen medizinischen Ressource, siehe [Diagnose erfassen](uc_ediag_02_schreiben.html#diagnose-erfassen), kann diese in einer Summary-Liste aufgenommen werden. Die Fachanwendung kennzeichnet die Ressource anschließend als relevant (meta.tag = relevant). 
 
 ToDo: Patient Compartment für die Endpunkte
+`GET [base]/Patient/[id]/Condition/`,
+`GET [base]/Patient/[id]/Procedure/` oder 
+`GET [base]/Patient/[id]/AllergyIntolerance/`
 
 <!-- #### Ablauf
 
@@ -44,10 +47,7 @@ ToDo: Patient Compartment für die Endpunkte
 6. Der GDA erhält eine Meldung, dass die Liste erfolgreich aktualisiert wurde.
 
 
-#### Sequenzdiagramm 
-<br>
-<div>{% include_relative plantuml/write.svg %}</div>
-<br>
+<!--
 
 #### Alternativ - Abgelehnter List Write
 
@@ -75,10 +75,6 @@ ToDo: Patient Compartment für die Endpunkte
 20. GDA 1 muss erneut einen **POST $list-read** durchführen, die zwischenzeitlich vorgenommenen Änderungen prüfen und gegebenenfalls in die aktuelle Version übernehmen, bevor ein neuer Schreibvorgang erfolgen kann.
 
 
-#### Sequenzdiagramm 
-<br>
-<div>{% include_relative plantuml/diagram_write_error.svg %}</div>
-<br> -->
 
 ### Einträge zur Liste hinzufügen
 > Sub:UC_02_03 
@@ -100,36 +96,41 @@ Nach dem Erfassen einer neuen medizinischen Ressource [Ressource erfassen](uc_ed
 
 ### Einträge aus einer Liste entfernen
 > Sub:UC_02_04 
-Nur entfernen, das weitere Vorgehen wird hier nicht beschrieben. Stornieren kann als Folge sein
-Die Referenz auf die Ressource wird aus der Liste entfernt (removed). Die referenzierte Ressource bleibt unverändert bestehen. Die Fachanwendung entfernt die Kennzeichnung als relevant (meta.tag = relevant).
+Nur entfernen, das weitere Vorgehen wird hier nicht beschrieben. Stornieren kann als Folge durchgeführt werden. 
+Die Referenz auf die Ressource wird aus der Summary-Liste entfernt (removed). Die referenzierte Ressource bleibt unverändert bestehen. Die Fachanwendung entfernt die Kennzeichnung als relevant (meta.tag = relevant).
+
 ToDo: Aus Liste entfernen, Ressource bleibt bestehen, verliert nur Listzugehörigkeit oder Löschen - Ressource wird vollständig entfernt Ausblenden und Löschen? Löscht der Teilnehmer einen Eintrag, muss die Historienversion mitgelöscht werden? Betsehende Referenzen auf gelöschte Ressourcen. Lösche ich C, sage ich such mir alle List-Versionen mit C, und lösch mir alle C. Wie weit greifen, muss ich mich als Bürger durch alle Vorversionen durchklicken. 
-
-FHIR Spezifikation über Historie - nachlesen, wie die Regel ist! Was bedeutet eine Aktualisierung auf eine historische Version?
-
-Vorschlag:
-Einträge innerhalb einer Liste durch ELGA-Teilnehmer:in löschen.
-Die Referenz auf die Ressource wird aus der Liste entfernt (removed). Die referenzierte Ressource bleibt unverändert bestehen. Die Fachanwendung entfernt die Kennzeichnung als relevant (meta.tag = relevant).
+<!--FHIR Spezifikation über Historie - nachlesen, wie die Regel ist! Was bedeutet eine Aktualisierung auf eine historische Version?-->
 
 
 ### Reihenfolge der Listeneinträge ändern
 > Sub:UC_02_05 
-Der GDA kann die gemeinsame Reihenfolge der Summary-Listeinträge ändern. Die Einträge selbst bleiben dabei unverändert. Evtl. auch in den ELGA Core mitnehmen. 
+Der GDA kann die gemeinsame Reihenfolge der Summary-Listeinträge ändern. Die Einträge selbst bleiben dabei unverändert. 
+ToDo: Evtl. auch in den ELGA Core mitnehmen. 
 
 ### Diagnose in der Liste bearbeiten
-> Sub:UC_02_07 
+> Sub:UC_02_06 
 Bestehende Einträge fachlich bearbeiten 
 TODo: Dieser UC setzt sich zusammen aus mehreren anderen und wird zur besseren verständnis hier nochmals beschrieben. 
 Der GDA kann Einträge in einer Liste fachlich bearbeiten - stimmt nicht mehr? 1. Schritt, ich erstelle eine neue 2 Schritt: Will ich sie verknüpfen, muss ich auf die bestehenden Ressourcen zugreifen mit dem Identifier 123, der muss vom Client zwischengespeichert werden, damit dieser an die FA mitgesendet werden kann. Änderungen eines Eintrags werden referenziert und sind somit nachverfolgbar.
 
 #### Ablauf
+1. **GDA** führt ein **POST $list-read** auf eine Summary-Liste einer Person aus.
+2. Die Fachanwendung prüft, ob eine Liste existiert.
+3. Die Fachanwendung liefert die aktuelle Liste als **Search-Bundle** aus.
+4. Der **GDA** startet mit der **fachlichen Bearbeitung** in dem eine oder mehrere Diagnosen in der Summary-Liste edidiert werden
+5. ...ToDo
+
+
+#### Sequenzdiagramm
 <div>{% include_relative plantuml/diagram_uc_06_03.svg %}</div>
 
 
 ## Interaktionen auf Einzelressourcen
-Im Rahmen der Anwendung eDiagnose werden unter dem Begriff „Diagnose“ die FHIR-Ressourcen Condition (Diagnosen), Procedure (Prozeduren) sowie AllergyIntolerance (Allergien und Intoleranzen) zusammengefasst. - gehört in den Hintergrund, auch Gesamtliste, Summary-Liste
+
 
 ### Diagnose erfassen
-> Sub:UC_02_06 -
+> Sub:UC_02_07
 Der GDA erfasst eine neue Diagnose, Prozedure oder Allergie und Intoleranz über die e-Diagnose Fachanwendung, die nicht Teil der Summary-Liste ist, siehe [Transaktionen](transaction.md#Transaktionen) kann in der Folge durch eine Änderung, siehe Sub:UC_02_03 zur Liste hinzugefügtr werden.<br>
 
 #### Ablauf
@@ -148,8 +149,8 @@ aus und übermittelt die neue Ressource an die e-Diagnose Fachanwendung.
 
 
 ### Diagnose stornieren
-> Sub:UC_02_09 
-Der GDA kann einen oder mehrere Diagnosen aufgrund einer falschen Eingabe stornieren. Dabei ist es irrelevant, ob eine zu stornierende Diagnose als relevant gekennzeichnet ist oder nicht.
+> Sub:UC_02_08 
+Der GDA kann einen oder mehrere Diagnosen aufgrund einer falschen Eingabe stornieren. Dabei ist es irrelevant, ob eine zu stornierende Diagnose in der Summary-List referenziert wird oder nicht.
 
 Sollte die Diagnose als relevant gekennzeichnet gewesen sein und will sie der GDA nach der Stornierung nicht mehr in der Liste der relevanten Einträge haben, muss die Diagnose aus der Liste der relevanten Einträge entfernt werden, siehe Einträge aus einer Liste entfernen.
 In Ergänzung müssen der GDA, der die Stornierung durchgeführt hat, den Stornierungszeitpunkt und den Vermerk festhalten.
@@ -165,3 +166,4 @@ In Ergänzung müssen der GDA, der die Stornierung durchgeführt hat, den Storni
   -  `Procedure.status = entered-in-error`
 
 
+Diagnosen, Prozeduren sowie Allergien und Intoleranzen als Einzelressource lesen und suchen (Read/Search)
