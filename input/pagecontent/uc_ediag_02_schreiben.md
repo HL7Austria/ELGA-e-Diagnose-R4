@@ -129,14 +129,13 @@ TODo: Dieser UC setzt sich zusammen aus mehreren anderen und wird zur besseren v
 Der GDA kann Einträge in einer Liste fachlich bearbeiten - stimmt nicht mehr? 1. Schritt, ich erstelle eine neue 2 Schritt: Will ich sie verknüpfen, muss ich auf die bestehenden Ressourcen zugreifen mit dem Identifier 123, der muss vom Client zwischengespeichert werden, damit dieser an die FA mitgesendet werden kann. Änderungen eines Eintrags werden referenziert und sind somit nachverfolgbar.-->
 
 #### Ablauf
-1. **GDA** führt ein **POST $list-read** auf die Summary-Liste der Person aus.
+1. **GDA** führt ein **POST $list-read** gemäß List-Read
 2. Die Fachanwendung liefert die aktuelle Summary-Liste inkl. ETag für [Optimistic Locking](https://hl7.org/fhir/http.html#concurrency) und alle referenzierten Ressourcen.
-4. **GDA** wählt die fachlich zu bearbeitende(n) Ressourcen aus.
-    * GDA übernimmt den Identifier der bestehenden Ressource für die weitere Bearbeitung ?
+3. **GDA** wählt die fachlich zu bearbeitende(n) Ressourcen aus und übernimmt den Business-Identifier der bestehenden Ressource.
     * GDA storniert die bestehende Ressource gemäß Sub:UC_02_08 – Diagnose stornieren.
     * GDA erfasst die fachlich geänderte Ressource gemäß Sub:UC_02_07 – Diagnose erfassen und übernimmt dabei den Identifier der stornierten Ressource.
 5. übernhame des Identifier der bisherigenb Ressource
-6. **GDA** führt ein **POST $list-write** aus und übermittelt die aktualisierte Summary-Liste.
+6. **GDA** führt ein **POST $list-write** gemäß List-Write durch und übermittelt die aktualisierte Summary-Liste.
 
 
 
