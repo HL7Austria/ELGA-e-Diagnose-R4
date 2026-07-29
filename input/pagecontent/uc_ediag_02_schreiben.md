@@ -121,16 +121,23 @@ ToDo: Evtl. auch in den ELGA Core mitnehmen.
 > Sub:UC_02_06 
 <br> 
 
-Bestehende Einträge fachlich bearbeiten 
+Dieser Sub-UC fasst die zur fachlichen Bearbeitung einer bestehenden Ressource erforderlichen Einzelschritte zusammen. Die Bearbeitung erfolgt durch Stornierung der bestehenden Ressource und Erfassung einer neuen fachlich korrigierten Ressource.
+Dadurch bleiben Änderungen nachvollziehbar und versioniert.
+
+<!--Bestehende Einträge fachlich bearbeiten 
 TODo: Dieser UC setzt sich zusammen aus mehreren anderen und wird zur besseren verständnis hier nochmals beschrieben. 
-Der GDA kann Einträge in einer Liste fachlich bearbeiten - stimmt nicht mehr? 1. Schritt, ich erstelle eine neue 2 Schritt: Will ich sie verknüpfen, muss ich auf die bestehenden Ressourcen zugreifen mit dem Identifier 123, der muss vom Client zwischengespeichert werden, damit dieser an die FA mitgesendet werden kann. Änderungen eines Eintrags werden referenziert und sind somit nachverfolgbar.
+Der GDA kann Einträge in einer Liste fachlich bearbeiten - stimmt nicht mehr? 1. Schritt, ich erstelle eine neue 2 Schritt: Will ich sie verknüpfen, muss ich auf die bestehenden Ressourcen zugreifen mit dem Identifier 123, der muss vom Client zwischengespeichert werden, damit dieser an die FA mitgesendet werden kann. Änderungen eines Eintrags werden referenziert und sind somit nachverfolgbar.-->
 
 #### Ablauf
-1. **GDA** führt ein **POST $list-read** auf eine Summary-Liste einer Person aus.
-2. Die Fachanwendung prüft, ob eine Liste existiert.
-3. Die Fachanwendung liefert die aktuelle Liste als **Search-Bundle** aus.
-4. Der **GDA** startet mit der **fachlichen Bearbeitung** in dem eine oder mehrere Diagnosen in der Summary-Liste edidiert werden
-5. ...ToDo
+1. **GDA** führt ein **POST $list-read** auf die Summary-Liste der Person aus.
+2. Die Fachanwendung liefert die aktuelle Summary-Liste inkl. ETag für [Optimistic Locking](https://hl7.org/fhir/http.html#concurrency) und alle referenzierten Ressourcen.
+4. **GDA** wählt die fachlich zu bearbeitende(n) Ressourcen aus.
+    * GDA übernimmt den Identifier der bestehenden Ressource für die weitere Bearbeitung ?
+    * GDA storniert die bestehende Ressource gemäß Sub:UC_02_08 – Diagnose stornieren.
+    * GDA erfasst die fachlich geänderte Ressource gemäß Sub:UC_02_07 – Diagnose erfassen und übernimmt dabei den Identifier der stornierten Ressource.
+5. übernhame des Identifier der bisherigenb Ressource
+6. **GDA** führt ein **POST $list-write** aus und übermittelt die aktualisierte Summary-Liste.
+
 
 
 #### Sequenzdiagramm
@@ -181,4 +188,3 @@ In Ergänzung müssen der GDA, der die Stornierung durchgeführt hat, den Storni
   -  `Procedure.status = entered-in-error`
 
 
-Diagnosen, Prozeduren sowie Allergien und Intoleranzen als Einzelressource lesen und suchen (Read/Search)
