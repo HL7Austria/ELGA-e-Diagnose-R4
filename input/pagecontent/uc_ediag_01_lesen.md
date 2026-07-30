@@ -70,9 +70,9 @@ List Read dient dem **Abruf der Summary-Liste und der Vorbereitung einer nachfol
 > Sub:UC_01_03 
 <br> 
 
-Read ermöglicht den lesenden Zugriff auf alle Einträge von Diagnosen, Prozeduren sowie Allergien und Intoleranzen eines Patienten jeweils als Gesamtansicht, siehe Abbildung. 
+Dieser Use-Case ermöglicht den lesenden Zugriff auf alle Einträge von Diagnosen, Prozeduren sowie Allergien und Intoleranzen eines Patienten jeweils als Gesamtansicht. 
 
-[![diagram](ediag_kategorie.png){: style="width: 60%"}](ediag_kategorie.png)
+
 
 Die Interaktion liefert standardmäßig die letzten 30 Einträge, absteigend nach Datum sortiert zurück. Die Fachanwendung stellt die vorhandenen Ressourcen des gewählten Ressourcentyps als Search-Bundle bereit. Der Zugriff erfolgt ausschließlich lesend; Änderungen an Status, Inhalten oder Listenzuordnungen werden durch diese Interaktion nicht durchgeführt.
 
