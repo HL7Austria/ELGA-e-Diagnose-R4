@@ -2,8 +2,7 @@
 > UC-01 
 <br> 
 
-Dieses Kapitel beschreibt die lesenden Zugriffe auf Summary-Listen, Gesamtansicht sowie auf die Einzelressourcen Diagnosen, Prozeduren oder Allergien und Intoleranzen. 
-Je nach Anwendungsfall stehen unterschiedliche Interaktionen zur Verfügung.
+Dieses Kapitel beschreibt die lesenden Zugriffe auf Summary-Listen, Gesamtansicht sowie auf die Einträge in den Einzelressourcen. Je nach Anwendungsfall stehen unterschiedliche Interaktionen zur Verfügung.
 
 
 ## Interaktionen auf Listenressourcen
@@ -19,7 +18,7 @@ Vorversionen der Summary-Listen können in chronologischer Reihenfolge dargestel
 
 1. Der GDA fürht ein **GET** (Suche) auf den List-Typ aus.
 2. Die Fachanwendung führt die Suche anhand der angegebenen Suchparameter durch.
-3. Werden keine Listen gebunden, wird ein leeres Ergebnis zurückgeliefert.
+3. Werden keine Listen gefunden, wird ein leeres Ergebnis zurückgeliefert.
 4. Wird zumindest eine Liste gefunden, liefert die Fachanwendung ein **Search-Bundle** zurück. <br>
 Dieses **Search-Bundle** enthält:
 * die List-Ressource <br>
@@ -36,8 +35,8 @@ Der Zugriff dient ausschließlich der Anzeige bzw. Informationsabfrage von aktue
 
 <!-- TODO: Es muss noch definiert werden, wie zwischen den Listen von Conditions, Procedures, AllergyIntolerances unterschieden wird. -->
 **Beispiele für Zugriffe mittels Suchparameter:**
-* **Aktuelle Listenversion** der relevanten Diagnosen (Conditions) mit dem Suchparameter Patient abrufen: `GET [base]/Patient/[id]/List?_include=List:patient&_include=List:source&_include:iterate=List:item&_count=1&_sort=-date&code=http://loinc.org|11450-4`
-* **Alle Listenversionen** der relevanten Operationen (Procedures) mit dem Suchparameter Patient abrufen: `GET [base]/Patient/[id]/List?_include=List:patient&_include=List:source&_include:iterate=List:item&_sort=-date&code=http://loinc.org|47519-4`  
+* **Aktuelle Listenversion** der Summary-Einträge (Conditions) mit dem Suchparameter Patient abrufen: `GET [base]/Patient/[id]/List?_include=List:patient&_include=List:source&_include:iterate=List:item&_count=1&_sort=-date&code=http://loinc.org|11450-4`
+* **Alle Listenversionen** der Summary-Einträge (Procedures) mit dem Suchparameter Patient abrufen: `GET [base]/Patient/[id]/List?_include=List:patient&_include=List:source&_include:iterate=List:item&_sort=-date&code=http://loinc.org|47519-4`  
 
 ### Liste und zugehörige Ressourcen abrufen (List-Read)
 > Sub:UC_01_02  
@@ -49,7 +48,7 @@ List Read dient dem **Abruf der Summary-Liste und der Vorbereitung einer nachfol
 #### Ablauf
 
 1. Der GDA führt einen **POST $list-read** aus. 
-2. Die Fachanwendung **prüft auf Existenz** der Liste/n für die angegebene Patientin bzw. den angegebenen Patienten.
+2. Die Fachanwendung **prüft auf Existenz** der Liste/n.
 3. Ist keine Liste vorhanden, wird dieser erstellt und eine leere Liste mit dem emptyReason notstarted wird zurückgeliefert. 
 4. Existiert bereits eine Liste, stellt die Fachanwendung ein Search-Bundle einschließlich aller referenzierten Ressourcen zur Auslieferung bereit. 
 * Falls der vorherige GDA neue Listeneinträge hinzugefügt hat (List.entry.flag hat den Wert **new**), werden diese auf **unchanged** gesetzt.<br>
@@ -67,11 +66,11 @@ List Read dient dem **Abruf der Summary-Liste und der Vorbereitung einer nachfol
 
 ## Interaktionen auf Einzelressourcen
 
-### Diagnosen, Prozeduren sowie Allergien und Intoleranzen als Einzelressource lesen 
+### Einträge als Einzelressource lesen 
 > Sub:UC_01_03 
 <br> 
 
-Read ermöglicht den lesenden Zugriff auf die Gesamtansicht der Diagnosen, Prozeduren sowie Allergien und Intoleranzen eines Patienten. Die Interaktion liefert standardmäßig die letzten 30 Einträge, absteigend nach Datum sortiert zurück.
+Read ermöglicht den lesenden Zugriff auf Einträge von Diagnosen, Prozeduren sowie Allergien und Intoleranzen eines Patienten jeweils als Gesamtansicht. Die Interaktion liefert standardmäßig die letzten 30 Einträge, absteigend nach Datum sortiert zurück.
 Die Fachanwendung stellt die vorhandenen Ressourcen des gewählten Ressourcentyps als Search-Bundle bereit. Der Zugriff erfolgt ausschließlich lesend; Änderungen an Status, Inhalten oder Listenzuordnungen werden durch diese Interaktion nicht durchgeführt.
 
 
@@ -79,6 +78,6 @@ Die Fachanwendung stellt die vorhandenen Ressourcen des gewählten Ressourcentyp
 
 1. Der GDA oder ELGA-Teilnehmer wählt den gewünschten Ressourcentyp (Condition, Procedure oder AllergyIntolerance) aus.
 2. Der GDA oder ELGA-Teilnehmer führt ein **GET** auf /Patient/[id]/Condition/, /Patient/[id]/Procedure/ und/oder /Patient/[id]/AllergyIntolerance/ aus, siehe [Transaktionen](transaction.html#Transaktionen).
-3. Optional kann der Abfrageparameter _count angegeben werden um die Treffermenge einzustellen. Standarmäßig werden die letzten 30 Einträge, absteigend nach Datum zurück gegebenen.  
+3. **Optional** kann der Abfrageparameter **_count** angegeben werden um die Treffermenge einzustellen. Standarmäßig werden die letzten 30 Einträge, absteigend nach Datum zurück gegebenen.  
 4. Die Fachanwendung liefert ein Search-Bundle mit den gefundenen Ressourcen zurück.
 5. Sind keine Ressourcen vorhanden bzw. entsprechen keine Ressourcen den Suchkriterien, wird ein Search-Bundle ohne Einträge zurückgeliefert.
