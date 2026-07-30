@@ -1,7 +1,7 @@
 # Teilnehmerrechte ausüben
 
 <!--Löschen von Einträgen bzw. Versionen der Summary-Liste-->
-### Eine gesamte Liste löschen 
+### Eine Listen-Version löschen 
 > Sub:UC_03_01 
 <br> 
 
