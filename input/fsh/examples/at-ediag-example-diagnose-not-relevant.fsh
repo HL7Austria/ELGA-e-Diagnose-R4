@@ -8,6 +8,7 @@ Usage: #example
 
 * extension[AtReported].valueBoolean = true
 
+
 * clinicalStatus = $condition-clinical#active
 
 * verificationStatus = http://terminology.hl7.org/CodeSystem/condition-ver-status#confirmed

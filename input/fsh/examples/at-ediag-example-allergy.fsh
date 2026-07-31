@@ -7,6 +7,8 @@ Description: "Beispielinstanz einer bestätigten Allergie"
 
 * extension[reported].valueBoolean = false
 
+
+
 * clinicalStatus = http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical#active
 
 * verificationStatus = http://terminology.hl7.org/CodeSystem/allergyintolerance-verification#refuted
