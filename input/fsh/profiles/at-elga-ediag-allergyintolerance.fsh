@@ -14,7 +14,7 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom Allerg
 // 2016_06_11: MBU neue Arbeitshypothese, Allergien, ToDo: ValueSet für relevant und nicht-relevant 
 * insert MetaTagDiagnosisType
 
-* identifier 0..0
+* identifier 1..1 MS
 * identifier ^short = "Zuordnung der Allergie in einem internem Dokumentationssystem"
 
 // erfolgreiche desensibilisierung dokumentieren? oder selbst weggegangene allergien?
