@@ -171,10 +171,11 @@ aus und übermittelt die neue Ressource an die e-Diagnose Fachanwendung.
 > Sub:UC_02_08 
 <br> 
 
+ToDo: Kläre, ob die GDA-OID durch den Request automatisch mitkommt!
+
 Der GDA kann eine oder mehrere Einträge aufgrund einer falschen Eingabe stornieren. Dabei ist es irrelevant, ob ein zu stornierender Eintrag in der Summary-List referenziert wird oder nicht.
 Im Zuge der Stornierung kann der GDA einen Vermerk festhalten. 
-
-ToDo:Im Zuge der Stornierung kann der GDA einen Vermerk festhalten. Die OID des GDA´s und der Stornierungszeitpunkt wird durch die Fachanwendung gesetzt.
+Die OID des GDA´s und der Stornierungszeitpunkt wird durch die Fachanwendung gesetzt.
 
 
 #### Ablauf
