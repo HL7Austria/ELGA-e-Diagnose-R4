@@ -156,7 +156,7 @@ Der GDA kann Einträge in einer Liste fachlich bearbeiten - stimmt nicht mehr? 1
 5. Der GDA führt einen POST $list-write aus und übermittelt die aktualisierte Summary-Liste an die Fachanwendung. Die fachlich geänderte Ressource wird dabei neu angelegt und erhält durch die Übernahme des Business-Identifier die Verbindung zur bisherigen Ressource.
 
 #### Sequenzdiagramm
-<div>{% include_relative plantuml/diagram_uc_06_03.svg %}</div>
+<div>{% include_relative plantuml/02_06.svg %}</div>
 
 
 ## Interaktionen auf Einzelressourcen
@@ -180,7 +180,7 @@ aus und übermittelt die neue Ressource an die e-Diagnose Fachanwendung.
 5. Ist die Validierung erfolgreich, wird die neue Ressource gespeichert und dem GDA eine erfolgreiche Erstellung mittels **HTTP 201 Created** bestätigt. Ist die Validierung nicht erfolgreich, wird die Ressource nicht gespeichert. Die Fachanwendung liefert ein **OperationOutcome** mit den aufgetretenen Validierungsfehlern zurück.
 
 #### Sequenzdiagramm 
-<div>{% include_relative plantuml/diagram_uc_06_09.svg %}</div>
+<div>{% include_relative plantuml/02_07.svg %}</div>
 
 
 ### Eintrag stornieren
@@ -195,14 +195,20 @@ Die OID des GDA´s und der Stornierungszeitpunkt wird durch die Fachanwendung ge
 
 #### Ablauf
 
-- Um einen Eintrag zu stornieren, führt der GDA ein `$list-read` oder ein `GET` auf die Gesamtmenge der Diagnosen aus (siehe 
-[Read/Search von Diagnosen, Prozeduren sowie Allergien und Intoleranzen](uc_ediag_06_int_list.md#read-search-von-diagnosen-prozeduren-sowie-allergien-und-intoleranzen)) und markiert die zu stornierenden Einträge.
-- Optional kann der GDA einen Grund für die Stornierung angeben.
-- Durch Bestätigung wird die `$storno`-Operation ausgeführt.
-- Die Fachanwendung bearbeitet den zu stornierenden Eintrag folgendermaßen:
-  -  `AllergyIntolerance.verificationStatus = entered-in-error`
-  -  `Condition.verificationStatus = entered-in-error`
-  -  `Procedure.status = entered-in-error`
-- Die Fachanwendung speichert den Zeitpunkt der Stornierung ab und übernimmt ursprünglichen Wert des verification.Status bzw. status
+1. Um einen Eintrag zu stornieren, führt der GDA ein `$list-read` oder ein `GET` auf die Gesamtmenge der Diagnosen aus (siehe 
+[Read/Search von Diagnosen, Prozeduren sowie Allergien und Intoleranzen](uc_ediag_01_lesen.md#einträge-als-einzelressource-abrufen))
+und markiert die zu stornierenden Einträge.
+2. Optional kann der GDA einen Grund für die Stornierung angeben.
+3. Durch Bestätigung wird die `$storno`-Operation ausgeführt.
+4. Die Fachanwendung bearbeitet den zu stornierenden Eintrag folgendermaßen:
+  *  `AllergyIntolerance.verificationStatus = entered-in-error`
+  *  `Condition.verificationStatus = entered-in-error`
+  *  `Procedure.status = entered-in-error`
+5. Die Fachanwendung speichert den Zeitpunkt der Stornierung ab und übernimmt ursprünglichen Wert des verification.Status bzw. status
 
 ### Eintrag bearbeiten in der Gesamtansicht
+Der GDA kann über die Gesamtansicht bestehende Einträge suchen, auswählen und fachlich bearbeiten.
+
+Im Unterschied zur Bearbeitung innerhalb einer Summary-Liste erfolgt die Änderung hier unabhängig von der aktuellen Listenzuordnung. Die Bearbeitung betrifft die referenzierte medizinische Ressource.
+
+#### Ablauf

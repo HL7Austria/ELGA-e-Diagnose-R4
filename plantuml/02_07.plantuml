@@ -1,6 +1,6 @@
 @startuml
 
-title Diagnosen, Prozeduren sowie Allergien und Intoleranzen erfassen
+title Eintrag erfassen
 
 skinparam borderColor #000000
 skinparam backgroundColor #f5f5f5
