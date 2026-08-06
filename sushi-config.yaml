@@ -103,16 +103,17 @@ parameters:
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 menu:
   Home: index.html
-  Inhaltsverzeichnis: toc.html
-  Einleitung:
-   Umfang und Inhalt: scope_and_content.html
-   Hintergrund: background.html
-   Herausforderungen: challenges.html 
-  Funktionales:
-   Akteure: actors.html
-   Transaktionen: transaction.html
+  Table of Contents: toc.html
+  Introduction:
+   Scope and Content: scope_and_content.html
+   Background: background.html
+   Challenges: challenges.html 
+  Functional:
+   Design Choices: design_choices.html
+   System Actors: actors.html
+   Transactions: transaction.html
    Workflowmanagement: workflowmanagement.html
-  Anwendungsfälle: 
+  Use Cases: 
    Patient Journey: patient_journey.html
    Technische Use Cases: technische_use_cases.html
    Lesen: uc_ediag_01_lesen.html

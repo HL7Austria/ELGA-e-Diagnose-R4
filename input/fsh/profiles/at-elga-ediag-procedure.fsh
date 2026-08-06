@@ -17,7 +17,7 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom Procedure-Profi
 // für meta.tag neues template angelegt - ruleSet-at-ediag-meta-tag.fsh
 * insert MetaTagDiagnosisType
 
-* identifier 0..0 
+* identifier 0..* 
 * identifier ^short = "Zuordnung der Diagnose in einem internem Dokumentationssystem"
 
 * instantiatesCanonical 0..0
