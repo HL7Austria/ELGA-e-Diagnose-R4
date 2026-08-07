@@ -4,6 +4,69 @@
 
 Dieses Kapitel beschreibt die Schreiboperationen der e-Diagnose-Fachanwendung. Im Mittelpunkt stehen die Aktualisierung von Summary-Listen sowie die Erfassung, Zuordnung, Entfernung, Stornierung und Löschung von medizinischen Einzeleinträgen (Ressourcen).
 
+## Interaktionen auf Einzelressourcen
+
+
+### Eintrag erfassen
+> Sub:UC_02_07
+<br> 
+
+Der GDA erfasst einen neuen Eintrag über die e-Diagnose Fachanwendung, die nicht Teil der Summary-Liste ist. Dieser Eintrag kann in Folge durch eine Änderung, siehe Sub:UC_02_03 zur Liste hinzugefügte werden.<br>
+
+#### Ablauf
+1. Der GDA wählt den gewünschten Ressourcentyp (Condition, Procedure oder AllergyIntolerance) aus.
+2. Der GDA erstellt einen neuen Eintrag und erfasst die erforderlichen fachlichen Informationen.
+3. Der GDA führt ein **POST** auf
+/Patient/[id]/Condition/,
+/Patient/[id]/Procedure/ oder
+/Patient/[id]/AllergyIntolerance/
+aus und übermittelt die neue Ressource an die e-Diagnose Fachanwendung.
+4. Die **Fachanwendung** validiert die übermittelte Ressource.
+5. Ist die Validierung erfolgreich, wird die neue Ressource gespeichert und dem GDA eine erfolgreiche Erstellung mittels **HTTP 201 Created** bestätigt. Ist die Validierung nicht erfolgreich, wird die Ressource nicht gespeichert. Die Fachanwendung liefert ein **OperationOutcome** mit den aufgetretenen Validierungsfehlern zurück.
+
+#### Sequenzdiagramm 
+<div>{% include_relative plantuml/02_07.svg %}</div>
+
+
+### Eintrag stornieren
+> Sub:UC_02_08 
+<br> 
+<!--ToDo: Kläre, ob die GDA-OID durch den Request automatisch mitkommt!-->
+
+Der GDA kann eine oder mehrere Einträge aufgrund einer falschen Eingabe stornieren. Dabei ist es irrelevant, ob ein zu stornierender Eintrag in der Summary-List referenziert wird oder nicht.
+Im Zuge der Stornierung kann der GDA einen Vermerk festhalten. 
+Die OID des GDA´s und der Stornierungszeitpunkt wird durch die Fachanwendung gesetzt.
+
+
+#### Ablauf
+
+1. Um einen Eintrag zu stornieren, führt der GDA ein `$list-read` oder ein `GET` auf die Gesamtmenge der Diagnosen aus (siehe 
+[Read/Search von Diagnosen, Prozeduren sowie Allergien und Intoleranzen](uc_ediag_01_lesen.md#einträge-als-einzelressource-abrufen))
+und markiert die zu stornierenden Einträge.
+2. Optional kann der GDA einen Grund für die Stornierung angeben.
+3. Durch Bestätigung wird die `$storno`-Operation ausgeführt.
+4. Die Fachanwendung bearbeitet den zu stornierenden Eintrag folgendermaßen:
+  *  `AllergyIntolerance.verificationStatus = entered-in-error`
+  *  `Condition.verificationStatus = entered-in-error`
+  *  `Procedure.status = entered-in-error`
+5. Die Fachanwendung speichert den Zeitpunkt der Stornierung ab und übernimmt ursprünglichen Wert des verification.Status bzw. status
+
+### Eintrag bearbeiten in der Gesamtansicht
+Der GDA kann über die Gesamtansicht bestehende Einträge suchen, auswählen und fachlich bearbeiten.
+
+Im Unterschied zur Bearbeitung innerhalb einer Summary-Liste erfolgt die Änderung hier unabhängig von der aktuellen Listenzuordnung. Die Bearbeitung betrifft die referenzierte medizinische Ressource.
+
+#### Ablauf
+1. Der GDA wählt den gewünschten Ressourcentyp (Condition, Procedure oder AllergyIntolerance) aus.
+2. Der GDA ruft die gewünschte Ressource über die Gesamtansicht gemäß Sub:UC_01_03 – Einträge als Einzelressource abrufen ab.
+3. Der GDA wählt den fachlich zu bearbeitenden Eintrag aus.
+4. Der GDA nimmt die erforderlichen fachlichen Änderungen an der Ressource vor.
+5. Der GDA erstellt die geänderte Ressource gemäß Sub:UC_02_07 – Eintrag erfassen. Dabei wird der Business-Identifier der bisherigen Ressource übernommen.
+6. Ist der bisherige Eintrag fachlich nicht mehr gültig, storniert der GDA die bisherige Ressource gemäß Sub:UC_02_08 – Eintrag stornieren.
+7. Die Fachanwendung validiert die neue Ressource und speichert sie als neue Version. Der Business-Identifier bleibt unverändert erhalten.
+8. Die Fachanwendung bestätigt die erfolgreiche Bearbeitung der Ressource.
+
+
 ## Interaktionen auf Listenressourcen
 
 <!--$PatientWrite wäre das Löschen der gesamten Ressource (nicht nur die Listenbeteiligung) und das $PatientDelete wäre das Löschen der Ressource in der Historie -->
@@ -161,64 +224,3 @@ Der GDA kann Einträge in einer Liste fachlich bearbeiten - stimmt nicht mehr? 1
 <div>{% include_relative plantuml/02_06.svg %}</div>
 
 
-## Interaktionen auf Einzelressourcen
-
-
-### Eintrag erfassen
-> Sub:UC_02_07
-<br> 
-
-Der GDA erfasst einen neuen Eintrag über die e-Diagnose Fachanwendung, die nicht Teil der Summary-Liste ist. Dieser Eintrag kann in Folge durch eine Änderung, siehe Sub:UC_02_03 zur Liste hinzugefügte werden.<br>
-
-#### Ablauf
-1. Der GDA wählt den gewünschten Ressourcentyp (Condition, Procedure oder AllergyIntolerance) aus.
-2. Der GDA erstellt einen neuen Eintrag und erfasst die erforderlichen fachlichen Informationen.
-3. Der GDA führt ein **POST** auf
-/Patient/[id]/Condition/,
-/Patient/[id]/Procedure/ oder
-/Patient/[id]/AllergyIntolerance/
-aus und übermittelt die neue Ressource an die e-Diagnose Fachanwendung.
-4. Die **Fachanwendung** validiert die übermittelte Ressource.
-5. Ist die Validierung erfolgreich, wird die neue Ressource gespeichert und dem GDA eine erfolgreiche Erstellung mittels **HTTP 201 Created** bestätigt. Ist die Validierung nicht erfolgreich, wird die Ressource nicht gespeichert. Die Fachanwendung liefert ein **OperationOutcome** mit den aufgetretenen Validierungsfehlern zurück.
-
-#### Sequenzdiagramm 
-<div>{% include_relative plantuml/02_07.svg %}</div>
-
-
-### Eintrag stornieren
-> Sub:UC_02_08 
-<br> 
-<!--ToDo: Kläre, ob die GDA-OID durch den Request automatisch mitkommt!-->
-
-Der GDA kann eine oder mehrere Einträge aufgrund einer falschen Eingabe stornieren. Dabei ist es irrelevant, ob ein zu stornierender Eintrag in der Summary-List referenziert wird oder nicht.
-Im Zuge der Stornierung kann der GDA einen Vermerk festhalten. 
-Die OID des GDA´s und der Stornierungszeitpunkt wird durch die Fachanwendung gesetzt.
-
-
-#### Ablauf
-
-1. Um einen Eintrag zu stornieren, führt der GDA ein `$list-read` oder ein `GET` auf die Gesamtmenge der Diagnosen aus (siehe 
-[Read/Search von Diagnosen, Prozeduren sowie Allergien und Intoleranzen](uc_ediag_01_lesen.md#einträge-als-einzelressource-abrufen))
-und markiert die zu stornierenden Einträge.
-2. Optional kann der GDA einen Grund für die Stornierung angeben.
-3. Durch Bestätigung wird die `$storno`-Operation ausgeführt.
-4. Die Fachanwendung bearbeitet den zu stornierenden Eintrag folgendermaßen:
-  *  `AllergyIntolerance.verificationStatus = entered-in-error`
-  *  `Condition.verificationStatus = entered-in-error`
-  *  `Procedure.status = entered-in-error`
-5. Die Fachanwendung speichert den Zeitpunkt der Stornierung ab und übernimmt ursprünglichen Wert des verification.Status bzw. status
-
-### Eintrag bearbeiten in der Gesamtansicht
-Der GDA kann über die Gesamtansicht bestehende Einträge suchen, auswählen und fachlich bearbeiten.
-
-Im Unterschied zur Bearbeitung innerhalb einer Summary-Liste erfolgt die Änderung hier unabhängig von der aktuellen Listenzuordnung. Die Bearbeitung betrifft die referenzierte medizinische Ressource.
-
-#### Ablauf
-1. Der GDA wählt den gewünschten Ressourcentyp (Condition, Procedure oder AllergyIntolerance) aus.
-2. Der GDA ruft die gewünschte Ressource über die Gesamtansicht gemäß Sub:UC_01_03 – Einträge als Einzelressource abrufen ab.
-3. Der GDA wählt den fachlich zu bearbeitenden Eintrag aus.
-4. Der GDA nimmt die erforderlichen fachlichen Änderungen an der Ressource vor.
-5. Der GDA erstellt die geänderte Ressource gemäß Sub:UC_02_07 – Eintrag erfassen. Dabei wird der Business-Identifier der bisherigen Ressource übernommen.
-6. Ist der bisherige Eintrag fachlich nicht mehr gültig, storniert der GDA die bisherige Ressource gemäß Sub:UC_02_08 – Eintrag stornieren.
-7. Die Fachanwendung validiert die neue Ressource und speichert sie als neue Version. Der Business-Identifier bleibt unverändert erhalten.
-8. Die Fachanwendung bestätigt die erfolgreiche Bearbeitung der Ressource.

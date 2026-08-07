@@ -1,24 +1,5 @@
 # Teilnehmerrechte ausüben
 <!--Löschen von Einträgen bzw. Versionen der Summary-Liste-->
-## Interaktionen auf Listenressourcen
-
-### Eine Summary-Listenversion löschen 
-> Sub:UC_03_01 
-<br> 
-
-<!--ToDo: Es wird nur diese eine Ansicht der Liste gelöscht und nicht die Diagnosen. 
-Sofern eine gesamte Version einer Summary-Liste von einem:einer ELGA-Teilnehmer:in gelöscht wurde, wird diese nicht mehr in der Historie angezeigt. Sobald alle Summary-Listversionen gelöscht sind, ist die Summary-Liste beim nächsten Abrtuf leer und emptyReason:nilknown gesetzt.-->
-Eine ELGA-Teilnehmerin bzw. ein ELGA-Teilnehmer kann einzelne historische Versionen einer Summary-Liste unwiderruflich löschen. Gelöschte Summary-Listversionen werden nicht mehr in der Historie angezeigt. Sind keine Summary-Listversionen mehr vorhanden, liefert ein nachfolgender Abruf eine leere Summary-Liste mit List.emptyReason = nilknown zurück.
-
-#### Ablauf
-1. Ein:e ELGA-Teilnehmer:in führt ein **GET** auf den List-Typ gemäß [List-History-Read](uc_ediag_01_lesen.md#vergangene-versionen-einer-summary-liste-abrufen) aus.
-2. Die Fachanwendung liefert die vorhandenen Summary-Listversionen als Search-Bundle zurück.
-3. ELGA-Teilnehmer:in wählt die zu löschende Summary-Listversion aus.
-4. Durch Bestätigung wird das **DELETE** für die ausgewählte Summary-Listversion ausgeführt.
-5. Die Fachanwendung entfernt die ausgewählte Summary-Listversion aus der Historie.
-6. Sind keine Summary-Listversionen mehr vorhanden, liefert ein nachfolgender Abruf eine leere Summary-Liste mit **List.emptyReason = nilknown**.
-
-[![overview](summary_delete.drawio.svg){: style="width: 60%"}](summary_delete.drawio.svg)
 
 ## Interaktionen auf Einzelressourcen
 
@@ -46,3 +27,24 @@ Ein:e ELGA-Teilnehmer:in kann via ELGA-Portal einzelne oder alle Einträge unwid
 - Die Fachanwendung erstellt eine neue Version der Summary-Liste, sollte der zu löschende Eintrag Teil der aktuellen Summary-Liste gewesen sein.
 
 [![overview](patient_delete.drawio.svg){: style="width: 60%"}](patient_delete.drawio.svg)
+
+## Interaktionen auf Listenressourcen
+
+### Eine Summary-Listenversion löschen 
+> Sub:UC_03_01 
+<br> 
+
+<!--ToDo: Es wird nur diese eine Ansicht der Liste gelöscht und nicht die Diagnosen. 
+Sofern eine gesamte Version einer Summary-Liste von einem:einer ELGA-Teilnehmer:in gelöscht wurde, wird diese nicht mehr in der Historie angezeigt. Sobald alle Summary-Listversionen gelöscht sind, ist die Summary-Liste beim nächsten Abrtuf leer und emptyReason:nilknown gesetzt.-->
+Eine ELGA-Teilnehmerin bzw. ein ELGA-Teilnehmer kann einzelne historische Versionen einer Summary-Liste unwiderruflich löschen. Gelöschte Summary-Listversionen werden nicht mehr in der Historie angezeigt. Sind keine Summary-Listversionen mehr vorhanden, liefert ein nachfolgender Abruf eine leere Summary-Liste mit List.emptyReason = nilknown zurück.
+
+#### Ablauf
+1. Ein:e ELGA-Teilnehmer:in führt ein **GET** auf den List-Typ gemäß [List-History-Read](uc_ediag_01_lesen.md#vergangene-versionen-einer-summary-liste-abrufen) aus.
+2. Die Fachanwendung liefert die vorhandenen Summary-Listversionen als Search-Bundle zurück.
+3. ELGA-Teilnehmer:in wählt die zu löschende Summary-Listversion aus.
+4. Durch Bestätigung wird das **DELETE** für die ausgewählte Summary-Listversion ausgeführt.
+5. Die Fachanwendung entfernt die ausgewählte Summary-Listversion aus der Historie.
+6. Sind keine Summary-Listversionen mehr vorhanden, liefert ein nachfolgender Abruf eine leere Summary-Liste mit **List.emptyReason = nilknown**.
+
+[![overview](summary_delete.drawio.svg){: style="width: 60%"}](summary_delete.drawio.svg)
+

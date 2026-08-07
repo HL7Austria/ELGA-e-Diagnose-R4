@@ -57,17 +57,19 @@ pages:
   index.md:
     title: "Home"
   scope_and_content.md:
-    title: Umfang und Inhalt
+    title: "Scope and Content"
   background.md:
-    title: Hintergrund
+    title: "Background"
   challenges.md:
-    title: Herausforderungen 
+    title: "Challenges" 
   transaction.md:
-    title: "Transaktionen"
+    title: "Transactions"
   actors.md:
-    title: Akteure
+    title: "System Actors"
+  design_choices.md:
+    title: "Design Choices"
   workflowmanagement.md:
-    title: Workflowmanagement
+    title: "Workflowmanagement"
   technische_use_cases.md:
     title: "Technische Use Cases"
   patient_journey.md:

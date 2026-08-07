@@ -5,6 +5,24 @@
 Dieses Kapitel beschreibt die lesenden Zugriffe der e-Diagnose-Fachanwendung auf Listen, Gesamtansicht sowie auf die Einträge in den Einzelressourcen. Je nach Anwendungsfall stehen unterschiedliche Interaktionen zur Verfügung.
 
 
+## Interaktionen auf Einzelressourcen
+
+### Einträge als Einzelressource abrufen 
+> Sub:UC_01_03 
+<br> 
+
+Dieser Use-Case ermöglicht den lesenden Zugriff auf alle Einträge von Diagnosen, Prozeduren sowie Allergien und Intoleranzen eines Patienten jeweils als Gesamtansicht. 
+Die Interaktion liefert standardmäßig die letzten 30 Einträge, absteigend nach Datum sortiert zurück. Die Fachanwendung stellt die vorhandenen Ressourcen des gewählten Ressourcentyps als Search-Bundle bereit. Der Zugriff erfolgt ausschließlich lesend; Änderungen an Status, Inhalten oder Listenzuordnungen werden durch diese Interaktion nicht durchgeführt.
+
+#### Ablauf
+
+1. Der GDA oder ELGA-Teilnehmer wählt den gewünschten Ressourcentyp (Condition, Procedure oder AllergyIntolerance) aus.
+2. Der GDA oder ELGA-Teilnehmer führt ein **GET** auf /Patient/[id]/Condition/, /Patient/[id]/Procedure/ und/oder /Patient/[id]/AllergyIntolerance/ aus, siehe [Transaktionen](transaction.html#Transaktionen).
+3. **Optional** kann der Abfrageparameter **_count** angegeben werden um die Treffermenge einzustellen. Standarmäßig werden die letzten 30 Einträge, absteigend nach Datum sortiert zurück gegebenen.  
+4. Die Fachanwendung liefert ein Search-Bundle mit den gefundenen Einträgen zurück.
+5. Sind keine Ressourcen vorhanden bzw. entsprechen keine Ressourcen den Suchkriterien, wird ein Search-Bundle ohne Einträge zurückgeliefert.
+
+
 ## Interaktionen auf Listenressourcen
 
 ### Vergangene Versionen einer Summary-Liste abrufen (List-History-Read)  
@@ -64,20 +82,5 @@ List Read dient dem **Abruf der Summary-Liste und der Vorbereitung einer nachfol
 
 
 
-## Interaktionen auf Einzelressourcen
 
-### Einträge als Einzelressource abrufen 
-> Sub:UC_01_03 
-<br> 
-
-Dieser Use-Case ermöglicht den lesenden Zugriff auf alle Einträge von Diagnosen, Prozeduren sowie Allergien und Intoleranzen eines Patienten jeweils als Gesamtansicht. 
-Die Interaktion liefert standardmäßig die letzten 30 Einträge, absteigend nach Datum sortiert zurück. Die Fachanwendung stellt die vorhandenen Ressourcen des gewählten Ressourcentyps als Search-Bundle bereit. Der Zugriff erfolgt ausschließlich lesend; Änderungen an Status, Inhalten oder Listenzuordnungen werden durch diese Interaktion nicht durchgeführt.
-
-#### Ablauf
-
-1. Der GDA oder ELGA-Teilnehmer wählt den gewünschten Ressourcentyp (Condition, Procedure oder AllergyIntolerance) aus.
-2. Der GDA oder ELGA-Teilnehmer führt ein **GET** auf /Patient/[id]/Condition/, /Patient/[id]/Procedure/ und/oder /Patient/[id]/AllergyIntolerance/ aus, siehe [Transaktionen](transaction.html#Transaktionen).
-3. **Optional** kann der Abfrageparameter **_count** angegeben werden um die Treffermenge einzustellen. Standarmäßig werden die letzten 30 Einträge, absteigend nach Datum sortiert zurück gegebenen.  
-4. Die Fachanwendung liefert ein Search-Bundle mit den gefundenen Einträgen zurück.
-5. Sind keine Ressourcen vorhanden bzw. entsprechen keine Ressourcen den Suchkriterien, wird ein Search-Bundle ohne Einträge zurückgeliefert.
 
