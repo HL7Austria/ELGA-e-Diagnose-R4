@@ -155,7 +155,7 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom Procedure-Profi
 * note.time 0..0
 // https://www.hl7.org/fhir/elementdefinition-definitions.html#ElementDefinition.maxLength
 // * note.text ^maxLength = 500
-* note ^short = "Freitext zur Diagnose für Zusatzinformation"
+* note ^short = "Freitext zur Prozedur für Zusatzinformation"
 
 * focalDevice 0..0
 * focalDevice ^short = "Prozedurendurchführendes Gerät"
