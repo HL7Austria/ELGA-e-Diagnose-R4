@@ -8,7 +8,7 @@ Dieses Kapitel beschreibt die lesenden Zugriffe der e-Diagnose-Fachanwendung auf
 ## Interaktionen auf Einzelressourcen
 
 ### Einträge als Einzelressource abrufen 
-> Sub:UC_01_03 
+> Sub:UC_01_01 
 <br> 
 
 Dieser Use-Case ermöglicht den lesenden Zugriff auf alle Einträge von Diagnosen, Prozeduren sowie Allergien und Intoleranzen eines Patienten jeweils als Gesamtansicht. 
@@ -26,7 +26,7 @@ Die Interaktion liefert standardmäßig die 30 zuletzt erstellten Ressourcen, ab
 ## Interaktionen auf Listenressourcen
 
 ### Vergangene Versionen einer Summary-Liste abrufen (List-History-Read)  
-> Sub:UC_01_01 
+> Sub:UC_01_02 
 <br> 
 
 History Read dient ausschließlich der Anzeige historischer Versionen der Summary-Liste. Die Fachanwendung stellt bereits persistierte historische Search-Bundles unverändert bereit. Der Zugriff erfolgt lesend und ermöglicht keine nachfolgende Bearbeitung der Summary-Liste.
@@ -57,7 +57,7 @@ Der Zugriff dient ausschließlich der Anzeige bzw. Informationsabfrage von aktue
 * **Alle Summary-Listenversionen** der Summary-Einträge (Procedures) mit dem Suchparameter Patient abrufen: `GET [base]/Patient/[id]/List?_include=List:patient&_include=List:source&_include:iterate=List:item&_sort=-date&code=http://loinc.org|47519-4`  
 
 ### Summary-Liste und zugehörige Ressourcen abrufen (List-Read)
-> Sub:UC_01_02  
+> Sub:UC_01_03  
 <br> 
 
 List Read dient dem **Abruf der Summary-Liste und der Vorbereitung einer nachfolgenden Änderung**.
