@@ -4,11 +4,9 @@
 ## Interaktionen auf Einzelressourcen
 
 ### Eintrag löschen
-> Sub:UC_03_02 
+> Sub:UC_03_01
 <br> 
-ToDo: Ist ein _history von Einzelressourcen nach einem Löschen von Ressourcen erlaubt?
-
-Ein:e ELGA-Teilnehmer:in kann via ELGA-Portal einzelne oder alle Einträge unwiderruflich löschen. Dabei ist es irrelevant, ob ein zu löschender Eintrag Teil der Summary-Liste ist oder nicht. Die Inhalte des zu löschenden Eintrags werden durch die Fachanwendung entfernt und der Eintrag als "gelöscht" markiert. Sollte der Eintrag in der aktuellen Summary-Liste referenziert sein, erstellt die Fachanwendung eine neue Version der Summary-Liste ohne den gelöschten Eintrag.
+Ein:e ELGA-Teilnehmer:in kann via ELGA-Portal einzelne oder alle Einträge unwiderruflich löschen. Dabei ist es irrelevant, ob ein zu löschender Eintrag Teil der Summary-Liste ist oder nicht. Eine Historisierung auf Ebene von Einzelressourcen wird durch die Fachanwendung nicht unterstützt. Die Ressource wird nicht gelöscht, sondern die Inhalte des zu löschenden Eintrags werden durch die Fachanwendung entfernt und der Eintrag als "gelöscht" markiert. Sollte der Eintrag in der aktuellen Summary-Liste referenziert sein, erstellt die Fachanwendung eine neue Version der Summary-Liste ohne den gelöschten Eintrag.
 
 #### Ablauf
 
@@ -32,12 +30,12 @@ Ein:e ELGA-Teilnehmer:in kann via ELGA-Portal einzelne oder alle Einträge unwid
 ## Interaktionen auf Listenressourcen
 
 ### Eine Summary-Listenversion löschen 
-> Sub:UC_03_01 
+> Sub:UC_03_02 
 <br> 
 
 <!--ToDo: Es wird nur diese eine Ansicht der Liste gelöscht und nicht die Diagnosen. 
 Sofern eine gesamte Version einer Summary-Liste von einem:einer ELGA-Teilnehmer:in gelöscht wurde, wird diese nicht mehr in der Historie angezeigt. Sobald alle Summary-Listversionen gelöscht sind, ist die Summary-Liste beim nächsten Abrtuf leer und emptyReason:nilknown gesetzt.-->
-Eine ELGA-Teilnehmerin bzw. ein ELGA-Teilnehmer kann einzelne historische Versionen einer Summary-Liste unwiderruflich löschen. Gelöschte Summary-Listversionen werden nicht mehr in der Historie angezeigt. Sind keine Summary-Listversionen mehr vorhanden, liefert ein nachfolgender Abruf eine leere Summary-Liste mit List.emptyReason = nilknown zurück.
+Ein:e ELGA-Teilnehmer:in kann einzelne historische Versionen einer Summary-Liste unwiderruflich löschen. Gelöschte Summary-Listversionen werden nicht mehr in der Historie angezeigt. Sind keine Summary-Listversionen mehr vorhanden, liefert ein nachfolgender Abruf eine leere Summary-Liste mit List.emptyReason = nilknown zurück.
 
 #### Ablauf
 1. Ein:e ELGA-Teilnehmer:in führt ein **GET** auf den List-Typ gemäß [List-History-Read](uc_ediag_01_lesen.md#vergangene-versionen-einer-summary-liste-abrufen) aus.
