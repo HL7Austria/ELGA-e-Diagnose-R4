@@ -8,7 +8,7 @@ Dieses Kapitel beschreibt die Schreiboperationen der e-Diagnose-Fachanwendung. I
 
 
 ### Eintrag erfassen
-> Sub:UC_02_07
+> Sub:UC_02_01
 <br> 
 
 Der GDA erfasst einen neuen Eintrag über die e-Diagnose Fachanwendung, die nicht Teil der Summary-Liste ist. Dieser Eintrag kann in Folge durch eine Änderung, siehe Sub:UC_02_03 zur Liste hinzugefügte werden.<br>
@@ -25,11 +25,11 @@ aus und übermittelt die neue Ressource an die e-Diagnose Fachanwendung.
 5. Ist die Validierung erfolgreich, wird die neue Ressource gespeichert und dem GDA eine erfolgreiche Erstellung mittels **HTTP 201 Created** bestätigt. Ist die Validierung nicht erfolgreich, wird die Ressource nicht gespeichert. Die Fachanwendung liefert ein **OperationOutcome** mit den aufgetretenen Validierungsfehlern zurück.
 
 #### Sequenzdiagramm 
-<div>{% include_relative plantuml/02_07.svg %}</div>
+<div>{% include_relative plantuml/02_1.svg %}</div>
 
 
 ### Eintrag stornieren
-> Sub:UC_02_08 
+> Sub:UC_02_02 
 <br> 
 <!--ToDo: Kläre, ob die GDA-OID durch den Request automatisch mitkommt!-->
 
@@ -72,7 +72,7 @@ Im Unterschied zur Bearbeitung innerhalb einer Summary-Liste erfolgt die Änderu
 <!--$PatientWrite wäre das Löschen der gesamten Ressource (nicht nur die Listenbeteiligung) und das $PatientDelete wäre das Löschen der Ressource in der Historie -->
 
 ### Leere Summary-Liste fachlich bestätigen
-> Sub:UC_02_01 
+> Sub:UC_02_03 
 <br> 
 
 Dieser Ablauf beschreibt die fachliche Bestätigung einer initialisierten, leeren Summary-Liste durch den GDA und die anschließende Speicherung des bestätigten Zustands in der Fachanwendung. Eine leere Summary-Liste mit dem Wert **emptyReason = nilknown** bedeutet, dass für den Patienten derzeit keine Summary-Einträge vorliegen. Der Status dokumentiert somit explizit das Fehlen von Summary-Einträgen und ist von einer noch nicht befüllten Liste **emptyReason = notstarted** zu unterscheiden.
@@ -87,12 +87,14 @@ Dieser Ablauf beschreibt die fachliche Bestätigung einer initialisierten, leere
 6. Die Fachanwendung speichert die aktualisierte Summary-Liste inkl. ETag für [Optimistic Locking](https://hl7.org/fhir/http.html#concurrency) zurück.
 
 #### Sequenzdiagramm
-<div>{% include_relative plantuml/02_01.svg %}</div>
+<div>{% include_relative plantuml/02_3.svg %}</div>
 
 
 ### Summary-Liste aktualisieren (List-Write)
-> Sub:UC_02_02 
+> Sub:UC_02_04 
 <br> 
+
+ToDo: ELGA CORE - an die neue Herangehensweise anpassen!
 
 [List-Write](https://build.fhir.org/ig/HL7Austria/ELGA-Core-R4/branches/main/interactions.html#list-write) ist eine eigenständige Operation, die ausschließlich im Kontext eines **zuvor ausgeführten** [List-Read](uc_ediag_01_lesen.html#list-read) erfolgen darf.
 Nach dem Erfassen einer neuen medizinischen Ressource, siehe [Einträge erfassen](uc_ediag_02_schreiben.html#einträge-erfassen), kann diese in einer Summary-Liste aufgenommen werden. Die Fachanwendung kennzeichnet die Ressource anschließend als relevant (meta.tag = relevant). 
@@ -147,7 +149,7 @@ ToDo: Patient Compartment für die Endpunkte
 
 
 ### Eintrag zur Summary-Liste hinzufügen
-> Sub:UC_02_03 
+> Sub:UC_02_05 
 Der GDA verfasst einen neuen Eintrag, siehe [Eintrag erfassen](uc_ediag_02_schreiben.html#ressource-erfassen) oder möchte einen bestehenden Eintrag in die Summary-Liste aufnehmen. Die Fachanwendung kennzeichnet diesen Eintrag anschließend als relevant (meta.tag = relevant). 
 
 #### Ablauf
@@ -161,12 +163,12 @@ Der GDA verfasst einen neuen Eintrag, siehe [Eintrag erfassen](uc_ediag_02_schre
 7. Die Fachanwendung kennzeichnet die referenzierte Ressource mit **meta.tag = relevant**, wodurch ihre Zugehörigkeit zur Summary-Liste gekennzeichnet wird.
 
 #### Sequenzdiagramm
-<div>{% include_relative plantuml/02_03.svg %}</div>
+<div>{% include_relative plantuml/02_5.svg %}</div>
 
 
 
 ### Eintrag aus Summary-Liste entfernen
-> Sub:UC_02_04 
+> Sub:UC_02_06 
 <!--FHIR Spezifikation über Historie - nachlesen, wie die Regel ist! Was bedeutet eine Aktualisierung auf eine historische Version?
 -->
 
@@ -185,10 +187,10 @@ Ein bestehender Eintrag kann aus der Summary-Liste entfernt werden, ohne dass di
 5. Die Fachanwendung entfernt die mit List.entry.flag = removed gekennzeichneten Einträge aus der Summary-Liste und entfernt bei den referenzierten Ressourcen die Kennzeichnung meta.tag = relevant.
 
 #### Sequenzdiagramm
-<div>{% include_relative plantuml/02_04.svg %}</div>
+<div>{% include_relative plantuml/02_6.svg %}</div>
 
 ### Reihenfolge der Einträge in der Summary-Liste ändern
-> Sub:UC_02_05 
+> Sub:UC_02_07 
 <br> 
 <!--Der GDA kann die Reihenfolge der Summary-Einträge ändern. Die Einträge selbst bleiben dabei unverändert. 
 ToDo: Evtl. auch in den ELGA Core mitnehmen. -->
@@ -202,7 +204,7 @@ Der GDA kann die Reihenfolge der Einträge innerhalb einer Summary-Liste ändern
 4. Die Fachanwendung speichert die neue Reihenfolge als aktuelle Version der Summary-Liste. Die referenzierten Ressourcen bleiben unverändert.
 
 ### Einträge in der Summary-Liste bearbeiten
-> Sub:UC_02_06 
+> Sub:UC_02_08 
 <br> 
 Dieser Sub-UC beschreibt die fachliche Bearbeitung von Einträgen einer Summary-Liste. Die tatsächliche Reihenfolge der Bearbeitungsschritte kann je nach Anwendungsfall variieren. Es ist nicht notwendigerweise vorgesehen, dass $list-read am Anfang und $list-write am Ende des Ablaufs stehen.
 Durch die Verwendung eines bereits bestehenden Business-Identifier wird bei der Bearbeitung die Zuordnung einer alten Version zu einer neuen Version einer Ressource ermöglicht. Dadurch bleibt die Verbindung zwischen den Versionen erhalten.
@@ -221,6 +223,6 @@ Der GDA kann Einträge in einer Liste fachlich bearbeiten - stimmt nicht mehr? 1
 5. Der GDA führt einen POST $list-write aus und übermittelt die aktualisierte Summary-Liste an die Fachanwendung. Die fachlich geänderte Ressource wird dabei neu angelegt und erhält durch die Übernahme des Business-Identifier die Verbindung zur bisherigen Ressource.
 
 #### Sequenzdiagramm
-<div>{% include_relative plantuml/02_06.svg %}</div>
+<div>{% include_relative plantuml/02_8.svg %}</div>
 
 

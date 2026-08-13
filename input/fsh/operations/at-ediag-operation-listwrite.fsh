@@ -30,7 +30,7 @@ Usage: #definition
 * parameter[=].max = "1"
 * parameter[=].documentation = "Der *list* Parameter dient der Übermittlung der Liste des Patienten."
 * parameter[=].type = #Bundle
-* parameter[=].targetProfile[+] = Canonical(AtEdiagBundleListeTx)  // Transaction Bundle
+// ToDo: * parameter[=].targetProfile[+] = Canonical(AtEdiagBundleListeTx)  // Transaction Bundle
 * parameter[+]
 * parameter[=].name = #return
 * parameter[=].use = #out

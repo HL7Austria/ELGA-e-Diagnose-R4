@@ -38,4 +38,4 @@ Usage: #definition
 * parameter[=].max = "1"
 * parameter[=].documentation = "Der *return* Parameter gibt Auskunft über den Erfolg der Operation."
 * parameter[=].type = #Bundle
-* parameter[=].targetProfile[+] = Canonical(AtEdiagBundleListeCl)  // Collection Bundle
+// ToDo: * parameter[=].targetProfile[+] = Canonical(AtEdiagBundleListeCl)  // Collection Bundle
