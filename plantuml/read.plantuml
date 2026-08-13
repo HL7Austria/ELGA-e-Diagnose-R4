@@ -71,24 +71,24 @@ group COLOR_OK alt: Liste(n) vorhanden? [Liste(n) vorhanden]
 
     group COLOR_OK alt: Anzahl Einträge? [zumindest ein Eintrag]
 
-      eDiag_FA --> GDA_1: Collection-Bundle (List mit Einträgen) +\nETag für Optimistic Locking
+      eDiag_FA --> GDA_1: Search-Bundle (List mit Einträgen) +\nETag für Optimistic Locking
 
     else COLOR_ERROR Liste leer
       
       eDiag_FA -> eDiag_FA: List.emptyReason = nilknown setzen
-      eDiag_FA --> GDA_1: Collection-Bundle (List ohne Einträge) +\nETag für Optimistic Locking
+      eDiag_FA --> GDA_1: Search-Bundle (List ohne Einträge) +\nETag für Optimistic Locking
 
     end
 
   else COLOR_ERROR ja
 
-    eDiag_FA --> GDA_1: Collection-Bundle (List ohne Einträge) +\nETag für Optimistic Locking
+    eDiag_FA --> GDA_1: Search-Bundle (List ohne Einträge) +\nETag für Optimistic Locking
 
   end
 else COLOR_ERROR Keine Liste vorhanden
   
   eDiag_FA -> eDiag_FA: Leere Liste mit List.emptyReason = notstarted erzeugen
-  eDiag_FA --> GDA_1: Collection-Bundle (List ohne Einträge) +\nETag für Optimistic Locking
+  eDiag_FA --> GDA_1: Search-Bundle (List ohne Einträge) +\nETag für Optimistic Locking
   deactivate eDiag_FA
 
 end

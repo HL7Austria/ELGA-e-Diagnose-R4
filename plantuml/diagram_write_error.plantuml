@@ -60,7 +60,7 @@ GDA_1 -> eDiag_FA: POST /Condition/$list-read
 activate GDA_1 COLOR_GDA_1
 
 activate eDiag_FA COLOR_DIAG_FA
-eDiag_FA --> GDA_1: Collection-Bundle + ETag "123"
+eDiag_FA --> GDA_1: Search-Bundle + ETag "123"
 deactivate eDiag_FA
 
 note over GDA_1
@@ -74,7 +74,7 @@ activate GDA_2 COLOR_GDA_2
 
 activate eDiag_FA COLOR_DIAG_FA
 
-eDiag_FA --> GDA_2: Collection-Bundle + ETag "123"
+eDiag_FA --> GDA_2: Search-Bundle + ETag "123"
 deactivate eDiag_FA
 
 note over GDA_2

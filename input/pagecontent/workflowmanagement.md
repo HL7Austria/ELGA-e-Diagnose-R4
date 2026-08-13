@@ -34,20 +34,20 @@ Je nach Zugriffsart ([List-History-Read](uc_ediag_01_lesen.html#vergangene-versi
 <tbody>
 <tr>
 <td><b>new</b></td>
-<td><ul><li>List-Entries, die vom Vorgänger-GDA mit <i>new</i> geflaggt wurden, bleiben beim "List-History-Read"-Zugriff <b>unchanged</b>.</li><li>Beim Abruf sind die neuen Einträge im resultierenden Collection-Bundle enthalten.</li></ul></td>
-<td><ul><li>List-Entries, die vom Vorgänger-GDA mit <i>new</i> geflaggt wurden, werden beim "List-Read"-Zugriff von der <b>Fachanwendung</b> als <b>unchanged</b> geflaggt.</li><li>Die betreffenden Einträge sind beim Abruf im resultierenden Collection-Bundle enthalten.</li></ul></td>
+<td><ul><li>List-Entries, die vom Vorgänger-GDA mit <i>new</i> geflaggt wurden, bleiben beim "List-History-Read"-Zugriff <b>unchanged</b>.</li><li>Beim Abruf sind die neuen Einträge im resultierenden Search-Bundle enthalten.</li></ul></td>
+<td><ul><li>List-Entries, die vom Vorgänger-GDA mit <i>new</i> geflaggt wurden, werden beim "List-Read"-Zugriff von der <b>Fachanwendung</b> als <b>unchanged</b> geflaggt.</li><li>Die betreffenden Einträge sind beim Abruf im resultierenden Search-Bundle enthalten.</li></ul></td>
 <td><ul><li>List-Entries, die beim "List-Write"-Zugriff vom aktuellen GDA mit <i>new</i> geflaggt wurden, werden der Liste neu hinzugefügt.</li><li>Die Einträge müssen zuvor durch einen separaten Request angelegt worden sein.</li></ul></td>
 </tr>
 <tr>
 <td><b>unchanged</b></td>
-<td><ul><li>List-Entries, die vom Vorgänger-GDA mit <i>unchanged</i> geflaggt wurden, bleiben beim "List-History-Read"-Zugriff <b>unchanged</b>.</li><li>Beim Abruf sind die unveränderten Einträge im resultierenden Collection-Bundle enthalten.</li></ul></td>
-<td><ul><li>List-Entries, die vom Vorgänger-GDA als <i>unchanged</i> geflaggt wurden, bleiben beim "List-Read"-Zugriff von der Fachanwendung unverändert.</li><li>Die betreffenden Einträge sind beim Abruf im resultierenden Collection-Bundle enthalten.</li></ul></td>
+<td><ul><li>List-Entries, die vom Vorgänger-GDA mit <i>unchanged</i> geflaggt wurden, bleiben beim "List-History-Read"-Zugriff <b>unchanged</b>.</li><li>Beim Abruf sind die unveränderten Einträge im resultierenden Search-Bundle enthalten.</li></ul></td>
+<td><ul><li>List-Entries, die vom Vorgänger-GDA als <i>unchanged</i> geflaggt wurden, bleiben beim "List-Read"-Zugriff von der Fachanwendung unverändert.</li><li>Die betreffenden Einträge sind beim Abruf im resultierenden Search-Bundle enthalten.</li></ul></td>
 <td><ul><li>List-Entries, die vom aktuellen GDA nicht verändert wurden, bleiben beim "List-Write"-Zugriff mit <i>unchanged</i> geflaggt.</li></ul></td>
 </tr>
 <tr>
 <td><b>removed</b></td>
-<td><ul><li>List-Entries, die vom Vorgänger-GDA mit <i>removed</i> geflaggt wurden, bleiben beim "List-History-Read"-Zugriff <b>unchanged</b>.</li><li>Beim Abruf sind die zum Entfernen markierten Einträge im resultierenden Collection-Bundle enthalten.</li></ul></td>
-<td><ul><li>List-Entries, die vom Vorgänger-GDA mit <i>removed</i> geflaggt wurden, werden beim "List-Read"-Zugriff von der <b>Fachanwendung aus der Liste entfernt</b>.</li><li>Die betreffenden Einträge sind beim Abruf im resultierenden Collection-Bundle <b>nicht enthalten</b>.</li></ul></td>
+<td><ul><li>List-Entries, die vom Vorgänger-GDA mit <i>removed</i> geflaggt wurden, bleiben beim "List-History-Read"-Zugriff <b>unchanged</b>.</li><li>Beim Abruf sind die zum Entfernen markierten Einträge im resultierenden Search-Bundle enthalten.</li></ul></td>
+<td><ul><li>List-Entries, die vom Vorgänger-GDA mit <i>removed</i> geflaggt wurden, werden beim "List-Read"-Zugriff von der <b>Fachanwendung aus der Liste entfernt</b>.</li><li>Die betreffenden Einträge sind beim Abruf im resultierenden Search-Bundle <b>nicht enthalten</b>.</li></ul></td>
 <td><ul><li>List-Entries, die beim "List-Write"-Zugriff vom aktuellen GDA mit <i>removed</i> geflaggt wurden, werden beim nächsten "List-Read"-Zugriff aus der Liste entfernt.</li></ul></td>
 </tr>
 </tbody>

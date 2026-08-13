@@ -59,7 +59,7 @@ activate eDiag_FA COLOR_DIAG_FA
 ref over GDA_1, eDiag_FA : [[uc_ediag_06_int_list.html#$list-read $list-read]]
 
 note over GDA_1
-  GDA erhält ein Collection-Bundle von der 
+  GDA erhält ein Search-Bundle von der 
   Fachanwendung und bearbeitet die enthaltene
   List-Ressource.
 end note
