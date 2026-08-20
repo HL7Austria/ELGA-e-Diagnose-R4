@@ -49,10 +49,7 @@ Description: "Das AT e-Diagnose List-Profil leitet sich vom HL7-AT-Core-R4-Profi
 // --- Entries ---
 * entry 0..* MS
 
-// new, unchanged, changed oder removed kann angegeben werden. 
-* entry.flag 1..1 MS
-* entry.flag from ElgaListEntryFlagVS (required)
-* entry.flag ^short = "Kennzeichnet die Art der Änderung des Eintrags"
+* entry.flag 0..0
 
 * entry.deleted 0..0 
 * entry.deleted ^short = "Gibt an, ob der referenzierte Eintrag zur Entfernung markiert wurde. Wird durch Flag 'removed' gelöst."

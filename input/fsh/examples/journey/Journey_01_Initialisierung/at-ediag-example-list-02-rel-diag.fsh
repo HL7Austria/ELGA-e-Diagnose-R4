@@ -17,5 +17,4 @@ Usage: #example
 
 * source = Reference(PractitionerExample)
 
-* entry[0].flag = ElgaListEntryFlagCS#new
 * entry[0].item = Reference(DiagnoseCurrentlyRelevantExample)
