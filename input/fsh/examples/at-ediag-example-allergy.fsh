@@ -19,16 +19,22 @@ Description: "Beispielinstanz einer bestätigten Allergie"
 * code.coding.display = " Amoxicillin-Allergie"
 
 
-* patient = Reference(PatientExample)
-
+* patient
+  * identifier[0].system = "urn:oid:1.2.40.0.10.2.1.1.149"
+  * identifier[=].value = "GH:oeLdSEb0l+8kSdJWjOYyYmnYki0="
+  * type = #Patient
 
 * recordedDate = "2026-04-20T10:00:00+02:00"
 
+* recorder
+  * identifier[0].system = "urn:ietf:rfc:3986"
+  * identifier[=].value = "urn:oid:1.2.40.0.34.99.4613.4"
+  * type = #Practitioner
 
-* recorder = Reference(PractitionerExample)
-
-
-* asserter = Reference(PractitionerExample)
+* asserter
+  * identifier[0].system = "urn:ietf:rfc:3986"
+  * identifier[=].value = "urn:oid:1.2.40.0.34.99.4613.4"
+  * type = #Practitioner
 
 
 * reaction.manifestation[0].coding.system = "http://snomed.info/sct"

@@ -11,7 +11,7 @@ Context: AtEdiagCondition, AtEdiagProcedure, AtEdiagAllergyIntolerance
   reason 0..1
 * extension[practitioner] only Extension
 * extension[practitioner].value[x] 1..
-* extension[practitioner].value[x] only AtEdiagReference
+* extension[practitioner].value[x] only AtElgaEdiagReference
 * extension[practitioner].value[x] only Reference(HL7ATCorePractitioner)
 * extension[datetime] only Extension
 * extension[datetime].value[x] 1..

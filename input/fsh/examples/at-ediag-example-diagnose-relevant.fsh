@@ -18,13 +18,22 @@ Usage: #example
 * code.coding[snomed].code = #40930008
 * code.coding[snomed].display = "Hypothyroidism"
 
-* subject = Reference(PatientExample)
+* subject
+  * identifier[0].system = "urn:oid:1.2.40.0.10.2.1.1.149"
+  * identifier[=].value = "GH:oeLdSEb0l+8kSdJWjOYyYmnYki0="
+  * type = #Patient
 
 * recordedDate = "2026-03-01T00:00:00+00:00"
 
-* recorder = Reference(PractitionerExample)
+* recorder
+  * identifier[0].system = "urn:ietf:rfc:3986"
+  * identifier[=].value = "urn:oid:1.2.40.0.34.99.4613.4"
+  * type = #Practitioner
 
-* asserter = Reference(PractitionerExample)
+* asserter
+  * identifier[0].system = "urn:ietf:rfc:3986"
+  * identifier[=].value = "urn:oid:1.2.40.0.34.99.4613.4"
+  * type = #Practitioner
 
 * onsetDateTime = "2024-06-01"
 

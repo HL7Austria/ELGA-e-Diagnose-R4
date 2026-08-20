@@ -1,5 +1,5 @@
 Profile: AtEdiagList
-Parent: AtElgaCoreList
+Parent: List
 Id: at-elga-ediag-list
 Title: "AT ELGA e-Diagnose List"
 Description: "Das AT e-Diagnose List-Profil leitet sich vom HL7-AT-Core-R4-Profil ab und dient der strukturierten Listung von Einträgen."
@@ -27,7 +27,8 @@ Description: "Das AT e-Diagnose List-Profil leitet sich vom HL7-AT-Core-R4-Profi
 * code ^short = "Code, der den Typ der Liste beschreibt."
 
 * subject 1..1 MS
-* subject only Reference(AtElgaCorePatient)
+* subject only AtElgaEdiagReference
+* subject only Reference(Patient)
 * subject ^short = "Patient, für den die Liste erstellt werden soll, der über den Zentralen Patientenindex identifizierbar und Teilnehmer von ELGA e-Diagnose ist."
 
 * encounter 0..0
@@ -36,9 +37,28 @@ Description: "Das AT e-Diagnose List-Profil leitet sich vom HL7-AT-Core-R4-Profi
 * date 1..1 MS
 * date ^short = "Letzte Aktualisierung der Liste."
 
+// * meta.tag ^slicing.discriminator[+].type = #value
+// * meta.tag ^slicing.discriminator[=].path = "$this"
+// * meta.tag ^slicing.rules = #open
+// //code -> required pattern
+// //code.coding -> fixed value
+// //code.coding.system-> fixed value
+// //code.coding.code -> fixed value
+// * meta.tag contains diagnosisType 1..1
+// * meta.tag[diagnosisType] from AtEdiagDiagnosisTypeVS (required)
+
 * source 1..1 MS
-* source only Reference(AtElgaCorePractitioner or AtElgaCorePractitionerRole or AtElgaCorePatient)
 * source ^short = "Arzt oder Ärztin, die die Liste erstellt und für den Inhalt verantwortlich ist. Eindeutig identifiziert über den GDA-Index und berechtigt auf die ELGA e-Diagnose des Patienten zuzugreifen. Device nur für initiale Erstellung durch die Fachanwendung. Patient nur nachdem er Einträge gelöscht hat."
+* source only AtElgaEdiagReference
+* source only Reference(Patient or Practitioner or AtEdiagPractitionerRole)
+// * source ^slicing.discriminator[0].type = #type
+// * source ^slicing.discriminator[0].path = "$this"
+// * source ^slicing.rules = #open
+// * source ^slicing.description = "Slicing based on the type of the reference"
+// * source contains normal 0..1 and oid 0..1 and bPK 0..1
+// * source[normal] only Reference(AtElgaCorePractitionerRole)
+// * source[oid] only AtElgaEdiagOidReference(AtElgaCorePractitioner)
+// * source[bPK] only AtElgaEdiagbPKReference(AtElgaCorePatient)
 
 * orderedBy 0..0
 * orderedBy ^short = "Die Reihenfolge der Einträge in der Liste."
