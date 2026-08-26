@@ -70,7 +70,8 @@ mögliche Codes: active | recurrence | relapse | inactive | remission | resolved
 * bodySite ^short = "Zuordnung der Diagnose der Körper-Lokalisation"
 
 * subject 1..1 MS
-* subject only Reference(AtElgaCorePatient)
+* subject only AtElgaEdiagReference
+* subject only Reference(Patient)
 * subject ^short = "Person, auf die sich die Diagnose bezieht"
 
 * encounter 0..0
@@ -91,21 +92,14 @@ mögliche Codes: active | recurrence | relapse | inactive | remission | resolved
 * recordedDate ^short = "Zeitpunkt der Diagnosendokumentation"
 
 * recorder 1..1 MS
-* recorder only Reference (
-    AtElgaCorePractitioner
-    or AtElgaCorePractitionerRole
-)
+* recorder only AtElgaEdiagReference
+* recorder only Reference(Practitioner or AtEdiagPractitionerRole)
 * recorder ^short = "Ansonsten Gesundheitsdiensteanbieter, der die Diagnose eingetragen hat"
 
 
 * asserter 0..1
-* asserter only Reference (
-
-    AtElgaCorePractitioner
-    or AtElgaCorePractitionerRole
-    or AtElgaCorePatient
-    or http://hl7.org/fhir/StructureDefinition/RelatedPerson
-)
+* asserter only AtElgaEdiagReference
+* asserter only Reference(Practitioner or AtEdiagPractitionerRole or Patient or AtEdiagRelatedPerson)
 * asserter ^short = "Quelle der Information zur Diagnose (z. B. behandelnde Person, Patient oder Dritter)"
 
 * stage 0..0
