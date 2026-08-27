@@ -4,8 +4,6 @@ Title: "Beispiel Prozedur"
 Description: "Beispielinstanz einer Prozedur"
 Usage: #example
 
-* meta.tag[diagnosisType] = AtEdiagDiagnosisType#relevant "currently relevant"
-
 * extension[reported].valueBoolean = false
 
 * status = #completed

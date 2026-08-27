@@ -4,8 +4,6 @@ Title: "Beispiel Diagnose currently relevant"
 Description: "Beispielinstanz einer Diagnose - currently relevant"
 Usage: #example
 
-* meta.tag[diagnosisType] = AtEdiagDiagnosisType#relevant "currently relevant"
-
 * extension[AtReported].valueBoolean = false
 
 
