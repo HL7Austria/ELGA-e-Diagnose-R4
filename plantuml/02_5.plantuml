@@ -59,7 +59,7 @@ activate eDiag_FA COLOR_DIAG_FA
 note over GDA_1
   Vorbedingung: Im System des GDA 1 liegt eine 
   bestehende Ressource (Condition/Procedure/AllergyIntolerance) 
-  vor, die in eine Liste aufgenommen werden soll.
+  vor, die in eine Summary-Liste aufgenommen werden soll.
 
   Diese kann gerade erst erstellt worden sein oder 
   aus der Gesamtansicht abgerufen worden sein.
@@ -74,7 +74,7 @@ note over GDA_1
 end note
 
 GDA_1 -> GDA_1: Bestehende Ressource auswählen
-GDA_1 -> GDA_1: List.entry hinzufügen\n- List.entry.flag = new\n- List.entry.item = Referenz auf bestehende Ressource
+GDA_1 -> GDA_1: List.entry hinzufügen\n- List.entry.item = Referenz auf bestehende Ressource
 
 note over GDA_1
   Die ausgewählte Ressource
@@ -83,13 +83,5 @@ note over GDA_1
 end note
 
 ref over GDA_1, eDiag_FA : [[uc_ediag_02_schreiben.html#$list-write List-Write]] 
-
-eDiag_FA -> eDiag_FA : meta.tag = relevant setzen
-
-note over eDiag_FA
-  Die Ressource in der Liste
-  mit List.entry.flag = new wurde
-  als relevant gekennzeichnet.
-end note
 
 @enduml

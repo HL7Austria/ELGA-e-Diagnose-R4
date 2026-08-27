@@ -56,7 +56,7 @@ Der Zugriff dient ausschließlich der Anzeige bzw. Informationsabfrage von aktue
 * **Aktuelle Summary-Listenversion** der Summary-Einträge (Conditions) mit dem Suchparameter Patient abrufen: `GET [base]/Patient/[id]/List?_include=List:patient&_include=List:source&_include:iterate=List:item&_count=1&_sort=-date&code=http://loinc.org|11450-4`
 * **Alle Summary-Listenversionen** der Summary-Einträge (Procedures) mit dem Suchparameter Patient abrufen: `GET [base]/Patient/[id]/List?_include=List:patient&_include=List:source&_include:iterate=List:item&_sort=-date&code=http://loinc.org|47519-4`  
 
-### Summary-Liste und zugehörige Ressourcen abrufen (List-Read)
+### Aktuelle Summary-Liste abrufen (List-Read)
 > Sub:UC_01_03  
 <br> 
 
@@ -67,6 +67,10 @@ Diese Abfrage dient dem **Abruf der aktuellen Summary-Liste für eine Art von Ei
 1. Der GDA führt ein **`GET /List?code=[code]&_sort=-date&_count=1&include=*`** aus. 
 2. Die Fachanwendung liefert als Ergebnis ein SearchSet-Bundle, das die Summary-Liste inklusive aller referenzierter Ressourcen enthält, sowie den `ETag` für [Optimistic Locking](https://hl7.org/fhir/http.html#concurrency) an den GDA.
 3. Die zurückgelieferte Summary-Liste bildet die Grundlage für nachfolgende Änderungsoperationen.
+
+##### Alternativer Ablauf
+
+1. Es kann auch **`GET /List?code=[code]&_sort=-date&_count=1`** ausgeführt werden, um die Summary-Liste OHNE referenzierte Ressourcen abzurufen.
 
 #### Sequenzdiagramm 
 <br>

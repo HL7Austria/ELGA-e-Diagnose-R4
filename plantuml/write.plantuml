@@ -62,40 +62,24 @@ note over GDA_1
   wurde die Liste bearbeitet.
 end note
 
-GDA_1 -> GDA_1 : List.source = aktueller GDA
-GDA_1 -> GDA_1 : List.date = aktueller Zeitpunkt
+GDA_1 -> GDA_1 : List.date = aktueller Zeitpunkt\nList.source = aktueller GDA
 
-GDA_1 -> eDiag_FA: POST /[Condition|Procedure|AllergyIntolerance]/$list-write (List + ETag)
+GDA_1 -> eDiag_FA: POST /List/$write (List + ETag)
 
 activate eDiag_FA COLOR_DIAG_FA
-eDiag_FA -> eDiag_FA: ETag im Header ==\nETag der Fachanwendung?
 
-group COLOR_OK alt: ETag stimmt überein? [ja]
+eDiag_FA -> eDiag_FA: Inhalte [[OperationDefinition-at-ediag-operation-list-write.html#validierung--fehlerbehandlung validieren]]
 
-  eDiag_FA -> eDiag_FA: Inhalte validieren\n(keine unzulässigen Zustandsübergänge)
-
-  group COLOR_OK alt: Validierung erfolgreich [ja]
-    
-    eDiag_FA -> eDiag_FA: Neue Version persistieren
-
-    note over eDiag_FA
-      Neue Version der Liste als eigene List-Instanz gespeichert.
-    end note
-
-    eDiag_FA --> GDA_1: HTTP 200 OK
-
-  else COLOR_ERROR nein
-
-    eDiag_FA --> GDA_1: HTTP 4xx Fehler / OperationOutcome
-
-  end
+group COLOR_OK alt: Validierung erfolgreich [ja]
   
-else nein
+  eDiag_FA -> eDiag_FA: Neue Version persistieren
+
+  eDiag_FA --> GDA_1: HTTP 200 OK
+
+else COLOR_ERROR nein
 
   eDiag_FA --> GDA_1: HTTP 4xx Fehler / OperationOutcome
-  deactivate GDA_1
-  deactivate eDiag_FA
 
 end
-
+  
 @enduml

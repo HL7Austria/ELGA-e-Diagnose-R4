@@ -48,6 +48,7 @@ title REST-Schnittstellen: https://[server]
 interface "/Patient/[id]/List/" as List_type {
   «GET» ?code=[code]&_include=* [GDA, PAT] 
   «GET» ?code=[code]&_sort=-date&_count=1&_include=* [GDA, PAT]
+  «POST» $list-write [GDA]
 }
 
 interface "/Patient/[id]/List/[rid]" as List_instance { 
@@ -56,7 +57,6 @@ interface "/Patient/[id]/List/[rid]" as List_instance {
 
 interface "/Patient/[id]/Condition/" as ICondition {
   «POST» [GDA]
-  «POST» $list-write [GDA]
   «POST» $delete [PAT]
   «POST» $storno [GDA]
   «GET» [GDA, PAT]
@@ -64,7 +64,6 @@ interface "/Patient/[id]/Condition/" as ICondition {
 
 interface "/Patient/[id]/Procedure/" as IProcedure {
   «POST» [GDA]
-  «POST» $list-write [GDA]
   «POST» $delete [PAT]
   «POST» $storno [GDA]
   «GET» [GDA, PAT]
@@ -72,7 +71,6 @@ interface "/Patient/[id]/Procedure/" as IProcedure {
 
 interface "/Patient/[id]/AllergyIntolerance/" as IAllergyIntolerance {
   «POST» [GDA]
-  «POST» $list-write [GDA]
   «POST» $delete [PAT]
   «POST» $storno [GDA]
   «GET» [GDA, PAT]

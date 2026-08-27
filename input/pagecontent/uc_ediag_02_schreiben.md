@@ -90,33 +90,25 @@ Dieser Ablauf beschreibt die fachliche Bestätigung einer initialisierten, leere
 <div>{% include_relative plantuml/02_3.svg %}</div>
 
 
-### Summary-Liste aktualisieren (List-Write)
+### Summary-Liste aktualisieren ($write)
+
 > Sub:UC_02_04 
-<br> 
 
-ToDo: ELGA CORE - an die neue Herangehensweise anpassen!
+Die `$write`-Operation ist eine eigentständige Operation, die allerdings einen **zuvor ausgeführten** [Abruf der aktuellen Summary-Liste](uc_ediag_01_lesen.html#aktuelle-summary-liste-abrufen-list-read) voraussetzt.
 
-[List-Write](https://build.fhir.org/ig/HL7Austria/ELGA-Core-R4/branches/main/interactions.html#list-write) ist eine eigenständige Operation, die ausschließlich im Kontext eines **zuvor ausgeführten** [List-Read](uc_ediag_01_lesen.html#list-read) erfolgen darf.
-Nach dem Erfassen einer neuen medizinischen Ressource, siehe [Einträge erfassen](uc_ediag_02_schreiben.html#einträge-erfassen), kann diese in einer Summary-Liste aufgenommen werden. Die Fachanwendung kennzeichnet die Ressource anschließend als relevant (meta.tag = relevant). 
+#### Ablauf
 
-ToDo: Patient Compartment für die Endpunkte
-`GET [base]/Patient/[id]/Condition/`,
-`GET [base]/Patient/[id]/Procedure/` oder 
-`GET [base]/Patient/[id]/AllergyIntolerance/`
+1. Der GDA übermittelt via `POST /List/$write` die aktualisierte Summary-Liste.
+2. Die Fachanwendung [validiert](OperationDefinition-at-ediag-operation-listwrite.html#validierung--fehlerbehandlung) die empfangenen Daten entsprechend.
+3. Nach erfolgreicher Validierung wird die Summary-Liste persistiert.
 
-<!-- #### Ablauf
+#### Custom Operations
 
-1. Der GDA übermittelt via **POST $list-write** die aktualisierte Liste als **List Bundle** inkl. ETag für [Optimistic Locking](https://hl7.org/fhir/http.html#concurrency):
-* alle **neuen und geänderten und zu entfernenden Ressourcen** sind **inline** im Bundle enthalten,
-* alle **unveränderten Ressourcen** werden nur **referenziert**.
-2. Die Fachanwendung prüft anhand des im HTTP-Header übermittelten **ETag**, ob die vom GDA bearbeitete Listenversion noch der aktuellen Version entspricht.
-3. Stimmen die ETags nicht überein, lehnt die Fachanwendung den Schreibvorgang ab, siehe [Abgelehntes Write](https://build.fhir.org/ig/HL7Austria/ELGA-Core-R4/branches/main/interactions.html#abgelehntes-plan-write). 
-   Der GDA muss erneut ein $list-read durchführen und seine Änderungen auf Basis der aktuellen Listversion erneut vornehmen. 
-4. Ist die Prüfung erfolgreich, validiert die Fachanwendung die neue Liste und stellt sicher, dass keine unzulässigen Zustandsübergänge vorgenommen wurden.
-5. Bei erfolgreicher Validierung:
-* werden die übermittelten Änderungen in die Ressourcen übernommen,
-* und auf Basis der aktualisierten Ressource erstellt die Fachanwendung ein neue Version der Liste als eigene List-Instanz, die als **neue Liste persistiert** wird. 
-6. Der GDA erhält eine Meldung, dass die Liste erfolgreich aktualisiert wurde.
+[$write](OperationDefinition-at-ediag-operation-list-write.html)
+
+#### Sequenzdiagramm
+
+<div>{% include_relative plantuml/write.svg %}</div>
 
 
 <!--
