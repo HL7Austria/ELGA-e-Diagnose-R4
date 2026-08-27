@@ -60,20 +60,13 @@ Der Zugriff dient ausschließlich der Anzeige bzw. Informationsabfrage von aktue
 > Sub:UC_01_03  
 <br> 
 
-List Read dient dem **Abruf der Summary-Liste und der Vorbereitung einer nachfolgenden Änderung**.
-
+Diese Abfrage dient dem **Abruf der aktuellen Summary-Liste für eine Art von Einträgen**.
 
 #### Ablauf
 
-1. Der GDA führt einen **POST $list-read** aus. 
-2. Die Fachanwendung **prüft auf Existenz** der Summary-Liste/n.
-3. Ist keine Summary-Liste vorhanden, wird dieser erstellt und eine leere Summary-Liste mit dem emptyReason notstarted wird zurückgeliefert. 
-4. Existiert bereits eine Summary-Liste, stellt die Fachanwendung ein Search-Bundle einschließlich aller referenzierten Ressourcen zur Auslieferung bereit. 
-* Falls der vorherige GDA neue Summary-Einträge hinzugefügt hat (List.entry.flag hat den Wert **new**), werden diese auf **unchanged** gesetzt.<br>
-* Falls der vorherige GDA Summary-Einträge beendet hat (deren List.entry.flag haben den Wert **removed**), werden diese Einträge aus der Liste **entfernt**, siehe [Workflowmanagement](workflowmanagement.html#auswirkung-derzugriffsart-auf-list-entry-flag).<br>
-* Falls der vorherige GDA **alle vorhandenen Summary-Einträge** mit removed gekennzeichnet hat, wird List.emptyReason mit *nilknown* zurückgeliefert, um nachfolgenden GDA zu signalisieren, dass die Person zum Zeitpunkt des letzten Schreibens keine Einträge hatte.<br>
-5. Die Fachanwendung liefert an den GDA die Summary-Liste inkl. ETag für [Optimistic Locking](https://hl7.org/fhir/http.html#concurrency) und alle referenzierten Ressourcen.
-6. Die zurückgelieferte Summary-Liste bildet die Grundlage für nachfolgende Änderungsoperationen.
+1. Der GDA führt ein **`GET /List?code=[code]&_sort=-date&_count=1&include=*`** aus. 
+2. Die Fachanwendung liefert als Ergebnis ein SearchSet-Bundle, das die Summary-Liste inklusive aller referenzierter Ressourcen enthält, sowie den `ETag` für [Optimistic Locking](https://hl7.org/fhir/http.html#concurrency) an den GDA.
+3. Die zurückgelieferte Summary-Liste bildet die Grundlage für nachfolgende Änderungsoperationen.
 
 #### Sequenzdiagramm 
 <br>
