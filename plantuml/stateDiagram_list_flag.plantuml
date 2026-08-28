@@ -1,8 +1,0 @@
-@startuml
-title List.entry.flag
-
-(*) -d-> [Neuen Eintrag\nhinzufügen] new
-new --> [Automatisch bei\n$list-read\n(durch Fachanwendung)] unchanged
-unchanged -d-> [Eintrag dokumentiert\nentfernen] removed
-removed  -d-> (*)
-@enduml
