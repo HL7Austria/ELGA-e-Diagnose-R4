@@ -12,9 +12,6 @@ Description: "Das AT e-Diagnose Condition-Profil leitet sich vom Condition-Profi
 
 * extension contains AtElgaEdiagExtEnteredInError named entered-in-error 0..1
 
-// für meta.tag neues template angelegt - ruleSet-at-ediag-meta-tag.fsh
-* insert MetaTagDiagnosisType
-
 * identifier 0..*
 * identifier ^short = "Zuordnung der Diagnose in einem internem Dokumentationssystem"
 
@@ -30,7 +27,7 @@ mögliche Codes: active | recurrence | relapse | inactive | remission | resolved
 * verificationStatus ^short = "Status der Diagnose, mögliche Codes: unconfirmed | provisional | differential | confirmed | refuted | entered-in-error"
 
 * category 0..0
-* category ^short = "Differenzierung nach Kontext - wird meta.tag gelöst"
+* category ^short = "Differenzierung nach Kontext ist nicht relevant."
 
 * severity 0..0
 * severity ^short = "Schweregrad der Erkrankung"

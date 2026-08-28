@@ -3,8 +3,6 @@ InstanceOf: AtEdiagAllergyIntolerance
 Title: "Beispiel Allergie"
 Description: "Beispielinstanz einer bestätigten Allergie"
 
-* meta.tag[diagnosisType] = AtEdiagDiagnosisType#relevant "currently relevant"
-
 * extension[reported].valueBoolean = false
 
 

@@ -5,8 +5,6 @@ Description: "Beispielinstanz einer Diagnose - not currently relevant"
 Usage: #example
 
 
-* meta.tag[diagnosisType] = AtEdiagDiagnosisType#notrelevant "not currently relevant"
-
 * extension[AtReported].valueBoolean = true
 
 
