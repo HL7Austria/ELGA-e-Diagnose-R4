@@ -56,9 +56,9 @@ Der Zugriff dient ausschließlich der Anzeige bzw. Informationsabfrage von aktue
 * **Aktuelle Summary-Listenversion** der Summary-Einträge (Conditions) mit dem Suchparameter Patient abrufen: `GET [base]/Patient/[id]/List?_include=List:patient&_include=List:source&_include:iterate=List:item&_count=1&_sort=-date&code=http://loinc.org|11450-4`
 * **Alle Summary-Listenversionen** der Summary-Einträge (Procedures) mit dem Suchparameter Patient abrufen: `GET [base]/Patient/[id]/List?_include=List:patient&_include=List:source&_include:iterate=List:item&_sort=-date&code=http://loinc.org|47519-4`  
 
-### Aktuelle Summary-Liste abrufen (List-Read)
+### Aktuelle Summary-Liste abrufen
+
 > Sub:UC_01_03  
-<br> 
 
 Diese Abfrage dient dem **Abruf der aktuellen Summary-Liste für eine Art von Einträgen**.
 
