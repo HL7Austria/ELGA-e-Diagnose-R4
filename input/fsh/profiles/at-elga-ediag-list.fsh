@@ -69,7 +69,7 @@ des Patienten zuzugreifen. Im Falle eines Patienten: eindeutig identifiziert dur
 * entry.item.reference 1..1
 
 * emptyReason 0..1 MS
-* emptyReason from ElgaListEmptyReasonVS (required)
+* emptyReason from AtEdiagListEmptyReasonVS (required)
 * emptyReason ^short = "Begründung, warum die Summary-Liste leer ist."
 
 Invariant: list-integrity
