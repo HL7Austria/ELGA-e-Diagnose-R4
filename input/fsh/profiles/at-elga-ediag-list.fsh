@@ -40,7 +40,7 @@ Zentralen Patientenindex identifizierbar und Teilnehmer der e-Diagnose ist."
 * date ^short = "Datum der letzten Aktualisierung der Liste."
 
 * source 1..1 MS
-* source only Reference(HL7ATCorePractitioner or AtElgaCorePractitionerRole or HL7ATCorePatient)
+* source only Reference(HL7ATCorePractitioner or HL7ATCorePractitionerRole or HL7ATCorePatient)
 * source ^short = "Person, die die Liste erstellt hat und für den Inhalt verantwortlich ist. Im Falle eines GDA: eindeutig identifiziert über den GDA-Index und berechtigt auf die ELGA-Anwendung 
 des Patienten zuzugreifen. Im Falle eines Patienten: eindeutig identifiziert durch den Z-PI."
 

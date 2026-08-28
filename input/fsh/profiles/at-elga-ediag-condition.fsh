@@ -88,17 +88,17 @@ mögliche Codes: active | recurrence | relapse | inactive | remission | resolved
 * recordedDate ^short = "Zeitpunkt der Diagnosendokumentation"
 
 * recorder 1..1 MS
-* recorder only Reference (
+* recorder only Reference(
     HL7ATCorePractitioner
-    or AtElgaCorePractitionerRole
+    or HL7ATCorePractitionerRole
 )
 * recorder ^short = "Ansonsten Gesundheitsdiensteanbieter, der die Diagnose eingetragen hat"
 
 
 * asserter 0..1
-* asserter only Reference (
+* asserter only Reference(
     HL7ATCorePractitioner
-    or AtElgaCorePractitionerRole
+    or HL7ATCorePractitionerRole
     or HL7ATCorePatient
     or http://hl7.org/fhir/StructureDefinition/RelatedPerson
 )

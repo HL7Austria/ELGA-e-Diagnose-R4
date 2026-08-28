@@ -83,17 +83,17 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom Procedure-Profi
 * performed[x] ^short = "Zeitpunkt der Durchführung"
 
 * recorder 1..1 MS
-* recorder only Reference (
+* recorder only Reference(
     HL7ATCorePractitioner
-    or AtElgaCorePractitionerRole
+    or HL7ATCorePractitionerRole
 )
 * recorder ^short = "Gesundheitsdiensteanbieter, der die Prozedur eingetragen/dokumentiert hat"
 
 
 * asserter 0..1
-* asserter only Reference (
+* asserter only Reference(
     HL7ATCorePractitioner
-    or AtElgaCorePractitionerRole
+    or HL7ATCorePractitionerRole
     or HL7ATCorePatient
     or http://hl7.org/fhir/StructureDefinition/RelatedPerson
 )
