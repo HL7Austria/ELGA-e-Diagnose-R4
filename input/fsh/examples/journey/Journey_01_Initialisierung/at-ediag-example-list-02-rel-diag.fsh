@@ -3,9 +3,6 @@ InstanceOf: AtEdiagList
 Title: "e-Diagnose-Liste mit einer relevanten Diagnose"
 Usage: #example
 
-* identifier.system = "urn:ietf:rfc:3986"
-* identifier.value = "urn:uuid:list-02"
-
 * status = #current
 * mode = #working
 

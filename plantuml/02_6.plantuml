@@ -1,6 +1,6 @@
 @startuml
 
-title Bestehende Ressource aus einer Liste entfernen
+title Eintrag aus Summary-Liste entfernen
 
 skinparam borderColor #000000
 skinparam backgroundColor #f5f5f5
@@ -56,24 +56,16 @@ autonumber
 activate GDA_1 COLOR_GDA_1
 activate eDiag_FA COLOR_DIAG_FA
 
-ref over GDA_1, eDiag_FA : [[uc_ediag_06_int_list.html#$list-read $list-read]]
+ref over GDA_1, eDiag_FA : [[uc_ediag_01_lesen.html#aktuelle-summary-liste-abrufen-list-read Aktuelle Summary-Liste abrufen]]
 
 note over GDA_1
   GDA erhält ein Search-Bundle von der 
   Fachanwendung und bearbeitet die enthaltene
-  List-Ressource.
+  Summary-Liste.
 end note
 
-GDA_1 -> GDA_1: List.entry entfernen\n- List.entry.flag = removed
+GDA_1 -> GDA_1: Eintrag aus Summary-Liste entfernen,\n indem List.entry entfernt wird
 
-ref over GDA_1, eDiag_FA : [[uc_ediag_06_int_list.html#$list-write List-Write]] 
-
-eDiag_FA -> eDiag_FA : meta.tag = not-relevant setzen
-
-note over eDiag_FA
-  Die Ressource in der Liste
-  mit List.entry.flag = removed wurde
-  als nicht relevant gekennzeichnet.
-end note
+ref over GDA_1, eDiag_FA : [[uc_ediag_02_schreiben.html#summary-liste-aktualisieren-write $write]] 
 
 @enduml

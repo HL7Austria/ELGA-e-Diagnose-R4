@@ -52,47 +52,13 @@ participant eDiag_FA as "e-Diagnose Fachanwendung" COLOR_DIAG_FA
 
 autonumber
 
-GDA_1 -> eDiag_FA: POST /[Condition|Procedure|AllergyIntolerance]/$list-read
+GDA_1 -> eDiag_FA: GET /List?code=[code]&_sort=-date&_count=1&_include=*
 activate GDA_1 COLOR_GDA_1
 activate eDiag_FA COLOR_DIAG_FA
 
-eDiag_FA -> eDiag_FA: Auf bestehende Liste(n) prüfen
-
-group COLOR_OK alt: Liste(n) vorhanden? [Liste(n) vorhanden]
-
-  eDiag_FA -> eDiag_FA: Liste mit aktuellem List.date ermitteln
-
-  eDiag_FA -> eDiag_FA: Prüfen, ob List.emptyReason vorhanden ist
-  
-  group COLOR_OK alt: List.emptyReason vorhanden? [nein]
-
-    eDiag_FA -> eDiag_FA: Flags der Listeneinträge aufbereiten\nnew|changed → unchanged\nremoved → entfernen
-    eDiag_FA -> eDiag_FA: Zählen der Listeneinträge
-
-    group COLOR_OK alt: Anzahl Einträge? [zumindest ein Eintrag]
-
-      eDiag_FA --> GDA_1: Search-Bundle (List mit Einträgen) +\nETag für Optimistic Locking
-
-    else COLOR_ERROR Liste leer
-      
-      eDiag_FA -> eDiag_FA: List.emptyReason = nilknown setzen
-      eDiag_FA --> GDA_1: Search-Bundle (List ohne Einträge) +\nETag für Optimistic Locking
-
-    end
-
-  else COLOR_ERROR ja
-
-    eDiag_FA --> GDA_1: Search-Bundle (List ohne Einträge) +\nETag für Optimistic Locking
-
-  end
-else COLOR_ERROR Keine Liste vorhanden
-  
-  eDiag_FA -> eDiag_FA: Leere Liste mit List.emptyReason = notstarted erzeugen
-  eDiag_FA --> GDA_1: Search-Bundle (List ohne Einträge) +\nETag für Optimistic Locking
-  deactivate eDiag_FA
-
-end
+eDiag_FA --> GDA_1: SearchSet-Bundle (Summary-Liste inkl.\nreferenzierter Resourcen) + \nETag für Optimistic Locking
 
 deactivate GDA_1
+deactivate eDiag_FA
 
 @enduml

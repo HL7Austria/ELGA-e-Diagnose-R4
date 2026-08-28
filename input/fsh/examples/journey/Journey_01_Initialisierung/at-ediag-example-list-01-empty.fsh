@@ -4,7 +4,6 @@ Title: "Beispiel einer leeren e-Diagnose-Liste"
 Description: "Initiale e-Diagnose-Liste ohne Diagnosen, Prozeduren oder Allergien."
 Usage: #example
 
-* identifier.value = "123"
 * status = #current
 * mode = #working
 // Problem List / general clinical items
