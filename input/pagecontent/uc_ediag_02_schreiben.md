@@ -101,6 +101,23 @@ Die `$write`-Operation ist eine eigentständige Operation, die allerdings einen 
 2. Die Fachanwendung [validiert](OperationDefinition-at-ediag-operation-listwrite.html#validierung--fehlerbehandlung) die empfangenen Daten entsprechend.
 3. Nach erfolgreicher Validierung wird die Summary-Liste persistiert.
 
+##### Alternativer Ablauf: Abgelehnte $write-Operation
+
+1. Der GDA ruft die [aktuelle Summary-Liste](uc_ediag_01_lesen.html#aktuelle-summary-liste-abrufen-list-read) ab.
+2. Die Fachanwendung liefert das SearchSet-Bundle zurück. Die in `List.meta.versionId` entspricht dem `ETag` für [Optimistic Locking](https://hl7.org/fhir/http.html#concurrency) mit dem Wert `123`.
+3. **GDA 1** macht **fachliche Änderungen** an der Summary-Liste.
+4. Währenddessen ruft **GDA 2** ebenfalls die [aktuelle Summary-Liste](uc_ediag_01_lesen.html#aktuelle-summary-liste-abrufen-list-read). 
+5. Die Fachanwendung liefert das SearchSet-Bundle zurück. Auch in diesem Fall hat `List.meta.versionId` den Wert `123`.
+6. **GDA 2** macht **fachliche Änderungen** an der Summary-Liste.
+7. **GDA 2** aktualisiert zuerst mittels [$write-Operation](uc_ediag_02_schreiben.html#summary-liste-aktualisieren-write) die Summary-Liste.
+8. Im Rahmen der Validierung der übermittelten Summary-Liste, prüft die Fachanwendung, ob der mitgeschickte `If-Match`-Header mit der aktuellen `versionId` der Summary-Liste übereinstimmt.
+9.  Die Prüfung verläuft erfolgreich, weil beide den Wert `123` haben. Die Änderungen werden übernommen und die neue Version der Summary-Liste wird persistiert. Dabei erhält die Summary-Liste die neue `List.meta.version` mit dem Wert `124`.
+12. **GDA 2** erhält die Meldung, dass die Aktualisierung erfolgreich durchgeführt wurde.
+13. Anschließend will **GDA 1** mittels [$write-Operation](uc_ediag_02_schreiben.html#summary-liste-aktualisieren-write) ebenfalls seine Version der Summary-Liste speichern.
+14. Die Fachanwendung validiert erneut die übermittelte Summary-Liste. Die Prüfung schlägt fehl, weil die aktuelle Summary-Liste in der Fachanwendung mittlerweile die `List.meta.versionId` mit dem Wert `124` besitzt. Die Fachanwendung lehnt das Speichern ab.
+17. **GDA 1** erhält eine Fehlermeldung, dass zwischenzeitlich eine Version der Liste gespeichert wurde.
+18. **GDA 1** muss erneut die [aktuelle Summary-Liste](uc_ediag_01_lesen.html#aktuelle-summary-liste-abrufen-list-read) abrufen, die zwischenzeitlich vorgenommenen Änderungen prüfen und gegebenenfalls seine Änderungen erneut durchführen, bevor ein neuer Schreibvorgang erfolgen kann.
+
 #### Custom Operations
 
 [$write](OperationDefinition-at-ediag-operation-list-write.html)
@@ -109,35 +126,9 @@ Die `$write`-Operation ist eine eigentständige Operation, die allerdings einen 
 
 <div>{% include_relative plantuml/write.svg %}</div>
 
+##### Alternativer Ablauf: Abgelehnte $write-Operation
 
-<!--
-
-#### Alternativ - Abgelehnter List Write
-
-#### Ablauf
-
-1. **GDA 1** führt ein **POST $list-read** auf die Liste einer Person aus.
-2. Die Fachanwendung prüft, ob eine Liste existiert.
-3. Die Fachanwendung liefert die aktuelle Liste als **List Bundle** mit dem aktuellen **ETag** „123" an GDA 1 aus.
-4. **GDA 1** beginnt mit der **fachlichen Bearbeitung** der Liste.
-5. Währenddessen führt **GDA 2** ebenfalls ein **List-Read** auf dieselbe Liste durch.
-6. Die Fachanwendung liefert auch an GDA 2 die aktuelle Liste mit dem ETag „123" aus.
-7. GDA 2 bearbeitet die Liste.
-8. GDA 2 sendet zuerst mittels **POST $list-write** ein Transaction Bundle mit den vorgenommenen Änderungen.
-9. Die Fachanwendung prüft, ob der im Transaction Bundle enthaltene **List.identifier** mit dem aktuellen List.identifier der zuletzt gespeicherten Liste übereinstimmt.
-10. Die Prüfung verläuft erfolgreich, da beide den Wert „123" besitzen.
-11. Die Fachanwendung validiert die übermittelten Änderungen und prüft insbesondere, ob keine unzulässigen Zustandsübergänge vorliegen.
-12. Die Änderungen werden übernommen und eine neue Version der Liste wird persistiert.
-13. Dabei wird ein neuer List.identifier erzeugt, beispielsweise „124".
-14. GDA 2 erhält eine Meldung, dass die Aktualisierung erfolgreich durchgeführt wurde.
-15. Anschließend sendet GDA 1 mittels **POST $ListWrite** seine ebenfalls auf Basis des ursprünglichen List.identifier „123" vorgenommenen Änderungen.
-16. Die Fachanwendung prüft erneut den übermittelten List.identifier gegen die aktuell persistierte Diagnosenliste.
-17. Die Prüfung schlägt fehl, da die aktuelle Liste mittlerweile den List.identifier „124" besitzt.
-18. Die Fachanwendung lehnt das Speichern ab.
-19. GDA 1 erhält eine Fehlermeldung, dass zwischenzeitlich eine neuere Version der Liste gespeichert wurde.
-20. GDA 1 muss erneut einen **POST $list-read** durchführen, die zwischenzeitlich vorgenommenen Änderungen prüfen und gegebenenfalls in die aktuelle Version übernehmen, bevor ein neuer Schreibvorgang erfolgen kann.
--->
-
+<div>{% include_relative plantuml/diagram_write_error.svg %}</div>
 
 ### Eintrag zur Summary-Liste hinzufügen
 
