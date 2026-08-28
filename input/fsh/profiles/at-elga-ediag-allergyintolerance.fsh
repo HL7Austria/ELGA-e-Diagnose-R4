@@ -11,9 +11,6 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom Allerg
 
 * extension contains AtElgaEdiagExtEnteredInError named entered-in-error 0..1
 
-// 2016_06_11: MBU neue Arbeitshypothese, Allergien, ToDo: ValueSet für relevant und nicht-relevant 
-* insert MetaTagDiagnosisType
-
 * identifier 0..*
 * identifier ^short = "Zuordnung der Allergie in einem internem Dokumentationssystem"
 

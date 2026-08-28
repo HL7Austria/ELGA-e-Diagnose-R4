@@ -14,9 +14,6 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom Procedure-Profi
 
 * extension contains AtElgaEdiagExtEnteredInError named entered-in-error 0..1
 
-// für meta.tag neues template angelegt - ruleSet-at-ediag-meta-tag.fsh
-* insert MetaTagDiagnosisType
-
 * identifier 0..* 
 * identifier ^short = "Zuordnung der Diagnose in einem internem Dokumentationssystem"
 
