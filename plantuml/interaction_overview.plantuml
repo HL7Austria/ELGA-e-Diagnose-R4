@@ -42,7 +42,7 @@ skinparam interface {
 
 left to right direction
 
-title REST-Schnittstellen: https://[server]
+title REST-Schnittstellen: [base]
 
 
 interface "/List" as List_type {
