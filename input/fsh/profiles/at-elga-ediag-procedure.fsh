@@ -69,7 +69,7 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom Procedure-Profi
 
 
 * subject 1..1 MS
-* subject only Reference(AtElgaCorePatient)
+* subject only Reference(HL7ATCorePatient)
 * subject ^short = "Person, auf die sich die Prozedur bezieht"
 
 * encounter 0..0
@@ -94,7 +94,7 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom Procedure-Profi
 * asserter only Reference (
     AtElgaCorePractitioner
     or AtElgaCorePractitionerRole
-    or AtElgaCorePatient
+    or HL7ATCorePatient
     or http://hl7.org/fhir/StructureDefinition/RelatedPerson
 )
 * asserter ^short = "Quelle der Information zur Prozedur (z. B. behandelnde Person, Patient oder Dritter)"

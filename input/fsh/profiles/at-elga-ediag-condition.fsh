@@ -67,7 +67,7 @@ mögliche Codes: active | recurrence | relapse | inactive | remission | resolved
 * bodySite ^short = "Zuordnung der Diagnose der Körper-Lokalisation"
 
 * subject 1..1 MS
-* subject only Reference(AtElgaCorePatient)
+* subject only Reference(HL7ATCorePatient)
 * subject ^short = "Person, auf die sich die Diagnose bezieht"
 
 * encounter 0..0
@@ -100,7 +100,7 @@ mögliche Codes: active | recurrence | relapse | inactive | remission | resolved
 
     AtElgaCorePractitioner
     or AtElgaCorePractitionerRole
-    or AtElgaCorePatient
+    or HL7ATCorePatient
     or http://hl7.org/fhir/StructureDefinition/RelatedPerson
 )
 * asserter ^short = "Quelle der Information zur Diagnose (z. B. behandelnde Person, Patient oder Dritter)"

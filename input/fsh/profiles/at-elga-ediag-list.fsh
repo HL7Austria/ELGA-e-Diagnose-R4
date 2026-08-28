@@ -29,7 +29,7 @@ Description: "Das AT e-Diagnose List-Profil dient der strukturierten Listung von
 * code ^short = "Code, der den Typ der Liste beschreibt."
 
 * subject 1..1 MS
-* subject only Reference(AtElgaCorePatient)
+* subject only Reference(HL7ATCorePatient)
 * subject ^short = "Patient, für den die Liste geführt wird, der über den 
 Zentralen Patientenindex identifizierbar und Teilnehmer der e-Diagnose ist."
 
@@ -40,7 +40,7 @@ Zentralen Patientenindex identifizierbar und Teilnehmer der e-Diagnose ist."
 * date ^short = "Datum der letzten Aktualisierung der Liste."
 
 * source 1..1 MS
-* source only Reference(AtElgaCorePractitioner or AtElgaCorePractitionerRole or AtElgaCorePatient)
+* source only Reference(AtElgaCorePractitioner or AtElgaCorePractitionerRole or HL7ATCorePatient)
 * source ^short = "Person, die die Liste erstellt hat und für den Inhalt verantwortlich ist. Im Falle eines GDA: eindeutig identifiziert über den GDA-Index und berechtigt auf die ELGA-Anwendung 
 des Patienten zuzugreifen. Im Falle eines Patienten: eindeutig identifiziert durch den Z-PI."
 
