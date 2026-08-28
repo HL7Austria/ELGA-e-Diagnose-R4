@@ -89,7 +89,7 @@ mögliche Codes: active | recurrence | relapse | inactive | remission | resolved
 
 * recorder 1..1 MS
 * recorder only Reference (
-    AtElgaCorePractitioner
+    HL7ATCorePractitioner
     or AtElgaCorePractitionerRole
 )
 * recorder ^short = "Ansonsten Gesundheitsdiensteanbieter, der die Diagnose eingetragen hat"
@@ -97,8 +97,7 @@ mögliche Codes: active | recurrence | relapse | inactive | remission | resolved
 
 * asserter 0..1
 * asserter only Reference (
-
-    AtElgaCorePractitioner
+    HL7ATCorePractitioner
     or AtElgaCorePractitionerRole
     or HL7ATCorePatient
     or http://hl7.org/fhir/StructureDefinition/RelatedPerson

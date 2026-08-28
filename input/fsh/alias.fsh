@@ -14,7 +14,6 @@ Alias: $cs-list-empty-reason = http://terminology.hl7.org/CodeSystem/list-empty-
 Alias: $list-status = http://hl7.org/fhir/list-status
 
 // elga core
-Alias: $AtElgaCorePractitioner = https://fhir.hl7.at/elga/aps/r4/StructureDefinition/at-aps-practitioner
 Alias: $AtElgaCorePractitionerRole = https://fhir.hl7.at/elga/aps/r4/StructureDefinition/at-aps-practitionerrole
 
 // patient

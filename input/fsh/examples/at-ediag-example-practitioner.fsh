@@ -1,5 +1,5 @@
 Instance: PractitionerExample
-InstanceOf: AtElgaCorePractitioner
+InstanceOf: HL7ATCorePractitioner
 Title: "Beispiel Practitioner"
 Description: "Beispielinstanz eines Arztes"
 Usage: #example
