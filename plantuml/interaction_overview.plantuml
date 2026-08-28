@@ -42,34 +42,34 @@ skinparam interface {
 
 left to right direction
 
-title REST-Schnittstellen: https://[server]
+title REST-Schnittstellen: [base]
 
 
-interface "/Patient/[id]/List/" as List_type {
+interface "/List" as List_type {
   «GET» ?code=[code]&_include=* [GDA, PAT] 
   «GET» ?code=[code]&_sort=-date&_count=1&_include=* [GDA, PAT]
   «POST» $list-write [GDA]
 }
 
-interface "/Patient/[id]/List/[rid]" as List_instance { 
+interface "/List/[id]" as List_instance { 
   «DELETE» [PAT]
 }
 
-interface "/Patient/[id]/Condition/" as ICondition {
+interface "/Condition" as ICondition {
   «POST» [GDA]
   «POST» $delete [PAT]
   «POST» $storno [GDA]
   «GET» [GDA, PAT]
 } 
 
-interface "/Patient/[id]/Procedure/" as IProcedure {
+interface "/Procedure" as IProcedure {
   «POST» [GDA]
   «POST» $delete [PAT]
   «POST» $storno [GDA]
   «GET» [GDA, PAT]
 } 
 
-interface "/Patient/[id]/AllergyIntolerance/" as IAllergyIntolerance {
+interface "/AllergyIntolerance" as IAllergyIntolerance {
   «POST» [GDA]
   «POST» $delete [PAT]
   «POST» $storno [GDA]

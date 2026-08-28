@@ -56,41 +56,35 @@ autonumber
 
 == $list-read durch GDA 1 ==
 
-GDA_1 -> eDiag_FA: POST /Condition/$list-read
 activate GDA_1 COLOR_GDA_1
+GDA_1 -> eDiag_FA: GET /List?code=http://loinc.org|11450-4&_sort=-date&_count=1&_include=*
 
 activate eDiag_FA COLOR_DIAG_FA
-eDiag_FA --> GDA_1: Search-Bundle + ETag "123"
+eDiag_FA --> GDA_1: SearchSet-Bundle\n(List.meta.versionId=123)
 deactivate eDiag_FA
 
-note over GDA_1
-  GDA 1 bearbeitet Liste
-end note
+GDA_1 -> GDA_1: GDA 1 bearbeitet Summary-Liste
 
 == $list-read durch GDA 2 ==
 
-GDA_2 -> eDiag_FA: POST /Condition/$list-read
+GDA_2 -> eDiag_FA:  GET /List?code=http://loinc.org|11450-4&_sort=-date&_count=1&_include=*
 activate GDA_2 COLOR_GDA_2 
 
 activate eDiag_FA COLOR_DIAG_FA
 
-eDiag_FA --> GDA_2: Search-Bundle + ETag "123"
+eDiag_FA --> GDA_2: SearchSet-Bundle\n(List.meta.versionId=123)
 deactivate eDiag_FA
 
-note over GDA_2
-  GDA 2 bearbeitet Liste
-end note
+GDA_2 -> GDA_2: GDA 2 bearbeitet Summary-Liste
 
 == $list-write durch GDA 2 ==
 
-GDA_2 -> eDiag_FA: POST /Condition/$list-write (List + ETag "123")
+GDA_2 -> eDiag_FA: POST /List/$write + If-Match-Header "123"
 
 activate eDiag_FA COLOR_DIAG_FA
-eDiag_FA -> eDiag_FA: ETag "123" im Header ==\nETag der Fachanwendung "123"
+eDiag_FA -> eDiag_FA: Validierung der übermittelten Daten\nIf-Match "123" im Header ==\nList.meta.versionId der Fachanwendung "123"
 
-note over FA
-  Fachanwendung aktualisiert Inhalte.
-end note
+eDiag_FA -> eDiag_FA: Fachanwendung persistiert neue Summary-Liste
 
 eDiag_FA --> GDA_2: HTTP 200 OK 
 deactivate GDA_2
@@ -99,10 +93,10 @@ deactivate eDiag_FA
 
 == Error für GDA 1 ==
 
-GDA_1 -> eDiag_FA: POST /Condition/$list-write (List + ETag "123")
+GDA_1 -> eDiag_FA: POST /List/$write + If-Match-Header "123"
 
 activate eDiag_FA COLOR_DIAG_FA
-eDiag_FA -> eDiag_FA: ETag im Header "123" stimmt nicht\nmit ETag der Fachanwendung\nüberein, da er bereits zum Schreiben\nverwendet wurde.
+eDiag_FA -> eDiag_FA: Validierung der übermittelten Daten schlägt fehl\nIf-Match "123" im Header stimmt nicht\nmit List.meta.versionId der Fachanwendung\nüberein.
 
 note over eDiag_FA
   Fachanwendung lehnt Speichern ab.
@@ -111,9 +105,10 @@ end note
 eDiag_FA --> GDA_1: HTTP 4xx Fehler / OperationOutcome
 deactivate GDA_1
 
-note over eDiag_FA, GDA_1
+note over GDA_1
   Speichern der Liste wurde abgelehnt,
-  der GDA 1 muss ein neues $list-read ausführen.
+  der GDA 1 muss die aktuelle Version 
+  der Summary-Liste erneut abrufen.
 end note
 
 deactivate eDiag_FA

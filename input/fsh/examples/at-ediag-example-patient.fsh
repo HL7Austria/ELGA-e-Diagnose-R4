@@ -1,5 +1,5 @@
 Instance: PatientExample
-InstanceOf: AtElgaCorePatient
+InstanceOf: HL7ATCorePatient
 Title: "Beispiel Patient"
 Description: "Beispielinstanz eines Patienten"
 Usage: #example

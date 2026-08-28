@@ -12,12 +12,12 @@ Dieses Kapitel beschreibt die lesenden Zugriffe der e-Diagnose-Fachanwendung auf
 
 Dieser Use-Case ermöglicht den lesenden Zugriff auf jeweils alle Einträge von Diagnosen, Prozeduren sowie Allergien und Intoleranzen eines Patienten als Gesamtansicht.
 
-Die Interaktion liefert standardmäßig die 30 zuletzt erstellten Einträge, absteigend nach Erstellungsdatum sortiert, zurück. **(TODO: ggf folgenden Satz löschen)** Da eine fachliche Bearbeitung eines Eintrags die Erstellung einer neuen Ressource impliziert, entspricht das Erstellungsdatum dem Zeitpunkt der letzten fachlichen Bearbeitung. Die Fachanwendung stellt die vorhandenen Einträge des gewählten Ressourcentyps als SearchSet-Bundle bereit.
+Die Interaktion liefert standardmäßig die 30 zuletzt erstellten Einträge, absteigend nach Erstellungsdatum sortiert, zurück. Da eine fachliche Bearbeitung eines Eintrags die Erstellung einer neuen Ressource impliziert, entspricht das Erstellungsdatum dem Zeitpunkt der letzten fachlichen Bearbeitung. Die Fachanwendung stellt die vorhandenen Einträge des gewählten Ressourcentyps als SearchSet-Bundle bereit.
 
 #### Ablauf
 
 1. Der GDA oder ELGA-Teilnehmer wählt den gewünschten Ressourcentyp (Condition, Procedure oder AllergyIntolerance) der abzurufenden Einträge aus.
-2. Der GDA oder ELGA-Teilnehmer führt ein `GET` auf `/Patient/[id]/Condition/`, `/Patient/[id]/Procedure/` und/oder `/Patient/[id]/AllergyIntolerance/` aus, siehe [Transaktionen](transaction.html#Transaktionen).
+1. Der GDA oder ELGA-Teilnehmer führt ein `GET` auf `/Condition`, `/Procedure` und/oder `/AllergyIntolerance` aus, siehe [Transaktionen](transaction.html#Transaktionen).
 3. **Optional** kann der Abfrageparameter `_count` angegeben werden, um die Anzahl der zurückgelieferten Ressourcen festzulegen. Standardmäßig werden die 30 zuletzt erstellten Ressourcen, absteigend nach Erstellungsdatum sortiert, zurückgeliefert.
 4. Die Fachanwendung liefert ein SearchSet-Bundle mit den gefundenen Einträgen zurück.
 5. Sind keine Ressourcen vorhanden bzw. entsprechen keine Ressourcen den Suchkriterien, wird ein leeres SearchSet-Bundle zurückgeliefert.
@@ -55,8 +55,8 @@ Der Zugriff dient ausschließlich der Anzeige bzw. Informationsabfrage von aktue
 
 <!-- TODO: Es muss noch definiert werden, wie zwischen den Listen von Conditions, Procedures, AllergyIntolerances unterschieden wird. -->
 **Beispiele für Zugriffe mittels Suchparameter:**
-* **Aktuelle Summary-Listenversion** der Summary-Einträge (Conditions) mit dem Suchparameter Patient abrufen: `GET [base]/Patient/[id]/List?_include=List:patient&_include=List:source&_include:iterate=List:item&_count=1&_sort=-date&code=http://loinc.org|11450-4`
-* **Alle Summary-Listenversionen** der Summary-Einträge (Procedures) mit dem Suchparameter Patient abrufen: `GET [base]/Patient/[id]/List?_include=List:patient&_include=List:source&_include:iterate=List:item&_sort=-date&code=http://loinc.org|47519-4`  
+* **Aktuelle Summary-Listenversion** der Summary-Einträge (Conditions) mit dem Suchparameter Patient abrufen: `GET /List?_include=List:patient&_include=List:source&_include:iterate=List:item&_count=1&_sort=-date&code=http://loinc.org|11450-4`
+* **Alle Summary-Listenversionen** der Summary-Einträge (Procedures) mit dem Suchparameter Patient abrufen: `GET /List?_include=List:patient&_include=List:source&_include:iterate=List:item&_sort=-date&code=http://loinc.org|47519-4`  
 
 ### Aktuelle Summary-Liste abrufen
 

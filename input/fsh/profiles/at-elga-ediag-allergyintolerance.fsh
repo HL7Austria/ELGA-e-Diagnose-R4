@@ -64,7 +64,7 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom Allerg
 
 
 * patient 1..1 MS
-* patient only Reference(AtElgaCorePatient)
+* patient only Reference(HL7ATCorePatient)
 * patient ^short = "Betroffene Person, auf die sich die Allergie bezieht"
 
 * encounter 0..0
@@ -82,16 +82,16 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom Allerg
 // analog zu procedure, kein patient keine related person
 * recorder 1..1 MS
 * recorder only Reference(
-    AtElgaCorePractitioner
-    or AtElgaCorePractitionerRole
+    HL7ATCorePractitioner
+    or HL7ATCorePractitionerRole
 )
 * recorder ^short = "Gesundheitsdiensteanbieter, die die Allergie ins System erfasst/dokumentiert"
 
 * asserter 0..1
 * asserter only Reference(
-    AtElgaCorePractitioner
-    or AtElgaCorePractitionerRole
-    or AtElgaCorePatient
+    HL7ATCorePractitioner
+    or HL7ATCorePractitionerRole
+    or HL7ATCorePatient
     or RelatedPerson
 )
 * asserter ^short = "Person (fachliche Quelle + related Person oder Patient selbst), die/der die Allergie bestätigt"
