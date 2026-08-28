@@ -16,9 +16,9 @@ Der GDA erfasst einen neuen Eintrag über die e-Diagnose-Fachanwendung. Ein neue
 1. Der GDA wählt den gewünschten Ressourcentyp (Condition, Procedure oder AllergyIntolerance) aus.
 2. Der GDA erstellt einen neuen Eintrag und erfasst die erforderlichen fachlichen Informationen.
 3. Der GDA führt ein **POST** auf
-/Patient/[id]/Condition/,
-/Patient/[id]/Procedure/ oder
-/Patient/[id]/AllergyIntolerance/
+`/Condition`,
+`/Procedure` oder
+`/AllergyIntolerance`
 aus und übermittelt die neue Ressource an die e-Diagnose Fachanwendung.
 4. Die **Fachanwendung** validiert die übermittelte Ressource.
 5. Ist die Validierung erfolgreich, wird die neue Ressource gespeichert und dem GDA eine erfolgreiche Erstellung mittels **HTTP 201 Created** bestätigt. Ist die Validierung nicht erfolgreich, wird die Ressource nicht gespeichert. Die Fachanwendung liefert ein **OperationOutcome** mit den aufgetretenen Validierungsfehlern zurück.
