@@ -56,17 +56,17 @@ pages:
   index.md:
     title: "Home"
   scope_and_content.md:
-    title: "Scope and Content"
+    title: "Umfang und Inhalt"
   background.md:
-    title: "Background"
+    title: "Hintergrund"
   challenges.md:
-    title: "Challenges" 
+    title: "Herausforderungen" 
   transaction.md:
-    title: "Transactions"
+    title: "Transaktionen"
   actors.md:
-    title: "System Actors"
+    title: "Akteure"
   design_choices.md:
-    title: "Design Choices"
+    title: "Designentscheidungen"
   workflowmanagement.md:
     title: "Workflowmanagement"
   technische_use_cases.md:
@@ -104,17 +104,17 @@ parameters:
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 menu:
   Home: index.html
-  Table of Contents: toc.html
-  Introduction:
-   Scope and Content: scope_and_content.html
-   Background: background.html
-   Challenges: challenges.html 
-  Functional:
-   Design Choices: design_choices.html
-   System Actors: actors.html
-   Transactions: transaction.html
+  Inhaltsverzeichnis: toc.html
+  Einleitung:
+   Umfang und Inhalt: scope_and_content.html
+   Hintergrund: background.html
+   Herausforderungen: challenges.html 
+  Funktionalles:
+   Designnentscheidungen: design_choices.html
+   Akteure: actors.html
+   Transaktionen: transaction.html
    Workflowmanagement: workflowmanagement.html
-  Use Cases: 
+  Anwendungsfälle: 
    Patient Journey: patient_journey.html
    Technische Use Cases: technische_use_cases.html
    Lesen: uc_ediag_01_lesen.html
