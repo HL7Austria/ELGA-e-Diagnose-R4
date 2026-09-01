@@ -53,7 +53,7 @@ und markiert die zu stornierenden Einträge.
 ### Eintrag bearbeiten in der Gesamtansicht
 Der GDA kann über die Gesamtansicht bestehende Einträge suchen, auswählen und fachlich bearbeiten.
 
-Im Unterschied zur Bearbeitung innerhalb einer Summary-Liste erfolgt die Änderung hier unabhängig von der aktuellen Listenzuordnung. Die Bearbeitung betrifft die referenzierte medizinische Ressource.
+Im Unterschied zur Bearbeitung innerhalb einer Summary-Liste erfolgt die Änderung hier unabhängig von der aktuellen Zuordnung in eine Summary-Liste. Die Bearbeitung betrifft die referenzierte medizinische Ressource.
 
 #### Ablauf
 1. Der GDA wählt den gewünschten Ressourcentyp (Condition, Procedure oder AllergyIntolerance) aus.
