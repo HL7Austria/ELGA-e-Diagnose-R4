@@ -70,7 +70,7 @@ GDA_1 -> GDA_1 : Referenzierte Ressource (Condition/Procedure/AllergyIntolerance
 
 GDA_1 -> GDA_1 : Fachliche Änderungen durchführen
 
-ref over GDA_1, eDiag_FA : [[uc_ediag_06_int_res.html#sub_uc_ediag_06_09---diagnosen-prozeduren-sowie-allergien-und-intoleranzen-erfassen Diagnosen, Prozeduren sowie Allergien und Intoleranzen erfassen]]
+ref over GDA_1, eDiag_FA : [[uc_ediag_02_schreiben.html#eintrag-erfassen Diagnosen, Prozeduren sowie Allergien und Intoleranzen erfassen]]
 
 GDA_1 -> GDA_1 : Alten Eintrag aus Liste entfernen (List.entry.flag = removed)
 

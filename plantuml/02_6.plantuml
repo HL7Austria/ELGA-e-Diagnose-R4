@@ -56,7 +56,7 @@ autonumber
 activate GDA_1 COLOR_GDA_1
 activate eDiag_FA COLOR_DIAG_FA
 
-ref over GDA_1, eDiag_FA : [[uc_ediag_01_lesen.html#aktuelle-summary-liste-abrufen-list-read Aktuelle Summary-Liste abrufen]]
+ref over GDA_1, eDiag_FA : [[uc_ediag_01_lesen.html#aktuelle-summary-liste-abrufen Aktuelle Summary-Liste abrufen]]
 
 note over GDA_1
   GDA erhält ein Search-Bundle von der 

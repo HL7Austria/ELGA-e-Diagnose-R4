@@ -40,7 +40,7 @@ Die OID des GDA´s und der Stornierungszeitpunkt wird durch die Fachanwendung ge
 #### Ablauf
 
 1. Um einen Eintrag zu stornieren, führt der GDA ein `$list-read` oder ein `GET` auf die Gesamtmenge der Diagnosen aus (siehe 
-[Read/Search von Diagnosen, Prozeduren sowie Allergien und Intoleranzen](uc_ediag_01_lesen.md#einträge-als-einzelressource-abrufen))
+[Read/Search von Diagnosen, Prozeduren sowie Allergien und Intoleranzen](uc_ediag_01_lesen.html#einzelne-einträge-abrufen))
 und markiert die zu stornierenden Einträge.
 2. Optional kann der GDA einen Grund für die Stornierung angeben.
 3. Durch Bestätigung wird die `$storno`-Operation ausgeführt.
@@ -93,20 +93,20 @@ Dieser Ablauf beschreibt die fachliche Bestätigung einer initialisierten, leere
 
 > Sub:UC_02_04 
 
-Die `$write`-Operation ist eine eigentständige Operation, die allerdings einen **zuvor ausgeführten** [Abruf der aktuellen Summary-Liste](uc_ediag_01_lesen.html#aktuelle-summary-liste-abrufen-list-read) voraussetzt.
+Die `$write`-Operation ist eine eigentständige Operation, die allerdings einen **zuvor ausgeführten** [Abruf der aktuellen Summary-Liste](uc_ediag_01_lesen.html#aktuelle-summary-liste-abrufen) voraussetzt.
 
 #### Ablauf
 
 1. Der GDA übermittelt via `POST /List/$write` die aktualisierte Summary-Liste.
-2. Die Fachanwendung [validiert](OperationDefinition-at-ediag-operation-listwrite.html#validierung--fehlerbehandlung) die empfangenen Daten entsprechend.
+2. Die Fachanwendung [validiert](OperationDefinition-at-ediag-operation-list-write.html#validierung--fehlerbehandlung) die empfangenen Daten entsprechend.
 3. Nach erfolgreicher Validierung wird die Summary-Liste persistiert.
 
 ##### Alternativer Ablauf: Abgelehnte $write-Operation
 
-1. Der GDA ruft die [aktuelle Summary-Liste](uc_ediag_01_lesen.html#aktuelle-summary-liste-abrufen-list-read) ab.
+1. Der GDA ruft die [aktuelle Summary-Liste](uc_ediag_01_lesen.html#aktuelle-summary-liste-abrufen) ab.
 2. Die Fachanwendung liefert das SearchSet-Bundle zurück. Die in `List.meta.versionId` entspricht dem `ETag` für [Optimistic Locking](https://hl7.org/fhir/http.html#concurrency) mit dem Wert `123`.
 3. **GDA 1** macht **fachliche Änderungen** an der Summary-Liste.
-4. Währenddessen ruft **GDA 2** ebenfalls die [aktuelle Summary-Liste](uc_ediag_01_lesen.html#aktuelle-summary-liste-abrufen-list-read). 
+4. Währenddessen ruft **GDA 2** ebenfalls die [aktuelle Summary-Liste](uc_ediag_01_lesen.html#aktuelle-summary-liste-abrufen). 
 5. Die Fachanwendung liefert das SearchSet-Bundle zurück. Auch in diesem Fall hat `List.meta.versionId` den Wert `123`.
 6. **GDA 2** macht **fachliche Änderungen** an der Summary-Liste.
 7. **GDA 2** aktualisiert zuerst mittels [$write-Operation](uc_ediag_02_schreiben.html#summary-liste-aktualisieren-write) die Summary-Liste.
@@ -116,7 +116,7 @@ Die `$write`-Operation ist eine eigentständige Operation, die allerdings einen 
 13. Anschließend will **GDA 1** mittels [$write-Operation](uc_ediag_02_schreiben.html#summary-liste-aktualisieren-write) ebenfalls seine Version der Summary-Liste speichern.
 14. Die Fachanwendung validiert erneut die übermittelte Summary-Liste. Die Prüfung schlägt fehl, weil die aktuelle Summary-Liste in der Fachanwendung mittlerweile die `List.meta.versionId` mit dem Wert `124` besitzt. Die Fachanwendung lehnt das Speichern ab.
 17. **GDA 1** erhält eine Fehlermeldung, dass zwischenzeitlich eine Version der Liste gespeichert wurde.
-18. **GDA 1** muss erneut die [aktuelle Summary-Liste](uc_ediag_01_lesen.html#aktuelle-summary-liste-abrufen-list-read) abrufen, die zwischenzeitlich vorgenommenen Änderungen prüfen und gegebenenfalls seine Änderungen erneut durchführen, bevor ein neuer Schreibvorgang erfolgen kann.
+18. **GDA 1** muss erneut die [aktuelle Summary-Liste](uc_ediag_01_lesen.html#aktuelle-summary-liste-abrufen) abrufen, die zwischenzeitlich vorgenommenen Änderungen prüfen und gegebenenfalls seine Änderungen erneut durchführen, bevor ein neuer Schreibvorgang erfolgen kann.
 
 #### Custom Operations
 
@@ -138,7 +138,7 @@ Der GDA möchte einen bestehenden Eintrag in die Summary-Liste aufnehmen.
 
 #### Ablauf
 
-1. Der GDA ruft die [aktuelle Summary-Liste](uc_ediag_01_lesen.html#aktuelle-summary-liste-abrufen-list-read) ab und erhält das entsprechende SearchSet-Bundle.
+1. Der GDA ruft die [aktuelle Summary-Liste](uc_ediag_01_lesen.html#aktuelle-summary-liste-abrufen) ab und erhält das entsprechende SearchSet-Bundle.
 2. Der GDA wählt den bestehenden Eintrag aus. 
 3. Der GDA fügt den Eintrag als `List.entry` in die Liste ein.
 * **`List.entry.item`** referenziert den bestehenden Eintrag. 
@@ -163,7 +163,7 @@ Ein bestehender Eintrag kann aus der Summary-Liste entfernt werden, ohne dass di
 
 #### Ablauf
 
-1. Der GDA ruft die [aktuelle Summary-Liste](uc_ediag_01_lesen.html#aktuelle-summary-liste-abrufen-list-read) ab und erhält das entsprechende SearchSet-Bundle.
+1. Der GDA ruft die [aktuelle Summary-Liste](uc_ediag_01_lesen.html#aktuelle-summary-liste-abrufen) ab und erhält das entsprechende SearchSet-Bundle.
 2. Der GDA entfernt den Eintrag oder die Einträge aus der Summary-Liste. Das bedeutet, dass der entsprechende `List.entry` entfernt wird.
 1. Der GDA führt die [`$write`-Operation](uc_ediag_02_schreiben.html#summary-liste-aktualisieren-write) aus und übermittelt die aktualisierte Liste an die Fachanwendung.
 
