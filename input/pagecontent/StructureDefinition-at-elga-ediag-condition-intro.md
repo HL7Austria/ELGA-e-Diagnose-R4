@@ -1,0 +1,2 @@
+### Content
+Dokumentiert Diagnosen und klinisch relevante Gesundheitszustände einer Person, einschließlich Erkrankungen, Symptome, allgemeiner Zustandsbeschreibungen (Findings), familiärer Vorbelastungen sowie sonstiger gesundheitlich relevanter Probleme oder Risiken. Sie bildet eine fachliche Feststellung zu einem Gesundheitsaspekt ab und kann sowohl aktuelle als auch vergangene Zustände umfassen. 
