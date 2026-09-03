@@ -1,18 +1,14 @@
 {% include styleheader.md %}
 
-Das Kapitel gibt einen Überblick über die zentralen Anwendungsfälle der e-Diagnose und zeigt, wie die verschiedenen Akteure mit den Funktionen interagieren. 
+Dieses Kapitel gibt einen Überblick über die beteiligten Akteure und beschreibt deren Berechtigungen. Dabei wird dargestellt, welche Rollen zum Lesen bzw. Schreiben der Informationen berechtigt sind.
 
-Weiters werden in einer Tabelle alle ELGA Rollen angeführt, die Zugriff auf die Summary-Liste(n) und die Einträge erhalten sollen. 
-
-### Use Case Diagramm
-
-<br>
-
-[![diagram](ediag_uc_diagramm.drawio.png){: style="width: 60%"}](ediag_uc_diagramm.drawio.png)
-
-<br clear="all"/>
 
 ### Rollen und Berechtigungen
 
 [![tabelle](ediag_zugriffsmatrix.png){: style="width: 60%"}](ediag_zugriffsmatrix.png)
+ 
+\* Das Schreiben umfasst in diesem Zusammenhang auch das Ausüben von Teilnehmerrechten, insbesondere das Löschen ganzer Summary-Listenversionen ([Eine Summary-Listenversion löschen](uc_ediag_03_teilnehmer.md#eine-summary-listenversion-löschen)) bzw. einzelner Einträge ([Eintrag löschen](uc_ediag_03_teilnehmer.md#eintrag-löschen).
+
+
+
 

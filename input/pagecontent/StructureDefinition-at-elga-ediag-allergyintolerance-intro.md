@@ -1,0 +1,2 @@
+### Defintion
+AllergyIntolerance dient der Dokumentation einer klinischen Einschätzung einer Allergie oder Intoleranz sowie einer bestehenden oder potenziellen Überempfindlichkeit gegenüber einer bestimmten Substanz oder Substanzklasse und des damit verbundenen Risikos einer unerwünschten Reaktion bei Exposition. 
