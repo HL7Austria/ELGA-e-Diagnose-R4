@@ -1,13 +1,15 @@
 {% include styleheader.md %}
 
-Dieses Kapitel gibt einen Überblick über die beteiligten Akteure und beschreibt deren Berechtigungen. Dabei wird dargestellt, welche Rollen zum Lesen bzw. Schreiben der Informationen berechtigt sind.
-
+Dieses Kapitel beschreibt die an der eDiagnose beteiligten Akteure, deren Berechtigungen sowie die vorgesehenen Zugriffswege.
 
 ### Rollen und Berechtigungen
 
-[![tabelle](ediag_zugriffsmatrix.png){: style="width: 60%"}](ediag_zugriffsmatrix.png)
- 
-\* Das Schreiben umfasst in diesem Zusammenhang auch das Ausüben von Teilnehmerrechten, insbesondere das Löschen ganzer Summary-Listenversionen ([Eine Summary-Listenversion löschen](uc_ediag_03_teilnehmer.md#eine-summary-listenversion-löschen)) bzw. einzelner Einträge ([Eintrag löschen](uc_ediag_03_teilnehmer.md#eintrag-löschen).
+An der eDiagnose sind insbesondere ELGA-Teilnehmerinnen und ELGA-Teilnehmer sowie Gesundheitsdiensteanbieter (GDA) beteiligt. Die weiteren Rollen werden in der Architektur beschrieben.
+
+ELGA-Teilnehmer: Lesen und Schreiben. Das Schreiben umfasst auch das Löschen eigener Einträge bzw. Summary-Listenversionen.
+GDA: Lesen, Schreiben und Stornieren.
+
+Die detaillierten Berechtigungen der einzelnen ELGA-Rollen sind in der Architektur beschrieben.
 
 
 

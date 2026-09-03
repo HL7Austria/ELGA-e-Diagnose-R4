@@ -24,16 +24,19 @@ Das Systemumfeld der e-Diagnose umfasst alle Akteur:innen, Systeme und organisat
 
 [![diagram](ediag_systemumfeld.png){: style="width: 80%"}](ediag_systemumfeld.png)
 
+#### ELGA-Teilnehmer:innen und Vertretungen
 Im Fokus der e-Diagnose steht der:die ELGA-Teilnehmer:in und dessen:deren Gesamtheit der dokumentierten Conditions, Procedures und AllergiesIntolerances, welche von GDA festgestellt werden und die interdisziplinäre Zusammenarbeit des Behandlungsteams unterstützen soll, um so einen bestmöglichen Outcome für den:die ELGA-Teilnehmer:in zu ermöglichen. 
 
 Der Zugriff von ELGA-Teilnehmer:innen und deren Vertretungen auf die e-Diagnose erfolgt über das Gesundheitsportal unter Nutzung der bestehenden Identifikationsmechanismen. ELGA-Teilnehmer:innen können Einsicht in ihre gespeicherten Daten nehmen sowie Teilnehmer:innenrechte wahrnehmen. Eine direkte medizinische Dokumentation durch ELGA-Teilnehmer:innen und deren Vertretungen ist nicht vorgesehen. 
 
 Die Einsichtnahme in die e-Diagnose sowie die Wahrnehmung von Teilnehmer:innenrechten kann auch durch gesetzlich oder rechtswirksam bevollmächtigte Vertretungsbefugte (Vertretung) im Rahmen der jeweils geltenden rechtlichen Bestimmungen erfolgen. Der Zugriff erfolgt dabei – analog zu ELGA-Teilnehmer:innen – über das Gesundheitsportal unter Nutzung der bestehenden Identifikationsmechanismen. 
 
+#### GDA
 GDA dokumentieren und nutzen die Inhalte der e-Diagnose im Rahmen eines aktiven Behandlungsverhältnisses. Die Conditions, Procedures, Alerts/Flags und AllergiesIntolerances werden von GDA dokumentiert und stehen auch allen weiteren behandelnden/berechtigten GDA zur Verfügung.
 
 Der Zugriff erfolgt primär über angebundene Primärsysteme (z.B.: AIS/KIS, etc.) oder alternativ über das GDA-Portal. Die Authentifizierung und Autorisierung erfolgen gemäß GTelG 2012 unter Nutzung des bestehenden ELGA-Berechtigungssystems. Der Zugriff ist ausschließlich im Rahmen eines aktiven Behandlungsverhältnisses zulässig. Perspektivisch ist sicherzustellen, dass die e-Diagnose allen Berufsgruppen zugänglich gemacht wird, für welche dies nach berufsrechtlichen und datenschutzrechtlichen Vorgaben zulässig und geboten ist.
 
+#### Unterstützende ELGA-Einrichtungen
 Zur organisatorischen Unterstützung bestehen als Teile der ELGA und e-Health Supporteinrichtung die ELGA-Ombudsstelle (OBST), die Widerspruchstelle (WIST) sowie die Serviceline (SEL).: 
 
 - OBST: Zur Wahrung der Teilnehmerrechte für ELGA-Teilnehmer:innen und deren Vertretungen. 

@@ -6,12 +6,13 @@ Die strukturierte Dokumentation und der Austausch von Conditions, Procedures und
 ### Fachliches Umfeld & Datenkategorien
 Die IPS unterscheidet mehrere Datenkategorien. Diese werden im Rahmen der Konzeption der e-Diagnose berücksichtigt, insbesondere im Hinblick auf die spätere Verwendung der Daten für die APS.
 
-| IPS-Datenkategorie | Berücksichtigte Daten | Verwendung in der eDiagnose |
+
+| IPS-Datenkategorie | FHIR-Ressource | Verwendung in der eDiagnose |
 |---|---|---|
-| **Problem List** | Conditions | Condition-Summary |
-| **History of Past Problems** | Conditions | Condition-Einträge |
-| **History of Procedures** | Procedures | Procedure-Einträge |
-| **Allergies and Intolerances** | Allergies / Intolerances | Allergy-/Intolerance-Einträge |
+| **Problem List** | Conditions | Condition-Summary-Liste |
+| **History of Past Problems** | Conditions | Condition-Summary-Einträge |
+| **History of Procedures** | Procedures | Procedure-Summary-Einträge |
+| **Allergies and Intolerances** | AllergiesIntolerances | AllergyIntolerance-Summary-Einträge |
 
 [![diagram](ediag_ips.png){: style="width: 60%"}](ediag_ips.png)
 
