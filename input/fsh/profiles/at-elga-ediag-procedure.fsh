@@ -15,19 +15,19 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom Procedure-Profi
 * extension contains AtElgaEdiagExtEnteredInError named entered-in-error 0..1
 
 * identifier 0..* 
-* identifier ^short = "Zuordnung der Diagnose in einem internen Dokumentationssystem"
+* identifier ^short = "Zuordnung der Diagnose in einem internen Dokumentationssystem."
 
 * instantiatesCanonical 0..0
-* instantiatesCanonical ^short = "Verweis auf eine standardisierte FHIR-Ressource, ein Template oder einen Leitfaden, der beschreibt, wie die Prozedur durchgeführt werden soll"
+* instantiatesCanonical ^short = "Verweis auf eine standardisierte FHIR-Ressource, ein Template oder einen Leitfaden, der beschreibt, wie die Prozedur durchgeführt werden soll."
 
 * instantiatesUri 0..0
-* instantiatesUri ^short = "Verweis auf ein externes Dokument"
+* instantiatesUri ^short = "Verweis auf ein externes Dokument."
 
 * basedOn 0..0
-* basedOn ^short = "Verweis auf eine Anforderung"
+* basedOn ^short = "Verweis auf eine Anforderung."
 
 * partOf 0..0
-* partOf ^short = "Verweis der Ressource auf eine andere, übergeordnete Ressource"
+* partOf ^short = "Verweis der Ressource auf eine andere, übergeordnete Ressource."
 
 // es wird kein workflow abgebildet
 // bei therapien, die inprogress sein könnten - potentiell eher nicht
@@ -38,16 +38,16 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom Procedure-Profi
 // Einschränkung erfolgt über ein eigenes ValueSet (procedure-status) und required binding
 * status 1..1 MS
 * status from AtEdiagProcedureStatus (required)
-* status ^short = "Nur tatsächlich durchgeführte (completed) oder irrtümlich dokumentierte (entered-in-error) Prozeduren"
+* status ^short = "Nur tatsächlich durchgeführte (completed) oder irrtümlich dokumentierte (entered-in-error) Prozeduren."
 
 // korrekturvermerk ist noch in abstimmung in digimed, wird von dort dann übernommen
 // was ist korrigieren, stornieren, fachlich korrekturvermerk
 * statusReason 0..1
-* statusReason ^short = "ToDo: Korrekturvermerk wird von digimed übernommen, ist noch in Abstimmung"
+* statusReason ^short = "ToDo: Korrekturvermerk wird von digimed übernommen, ist noch in Abstimmung."
 
 // wäre überkategorie von code, 
 * category 0..0
-* category ^short = "Kategorisierung nach Verfahren"
+* category ^short = "Kategorisierung nach Verfahren."
 
 // IPS Free Set enthält nur 983 konzepte
 // eigenes value set, um alle procedures abzudecken (mit ausnahme derer, die in IPS entfernt wruden)
@@ -62,29 +62,29 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom Procedure-Profi
 // Terminolgen sollen es prüfen - evtl. gibt es nicht mehr präcodierte? - https://jira-elga.atlassian.net/jira/software/c/projects/STD/boards/496?selectedIssue=STD-7659
 * code 1..1 MS
 * code from AtEDiagProzedurenCodes (required)
-* code ^short = "Prozedurencode der durchgeführten Prozedur"
+* code ^short = "Prozedurencode der durchgeführten Prozedur."
 * code.text 0..0
  
 * subject 1..1 MS
 * subject only Reference(HL7ATCorePatient)
-* subject ^short = "Person, auf die sich die Prozedur bezieht"
+* subject ^short = "Person, auf die sich die Prozedur bezieht."
 
 * encounter 0..0
-* encounter ^short = "Behandlungskontakt"
+* encounter ^short = "Behandlungskontakt."
 
 // Was ist wenn es der Patient nicht genau weiß? https://build.fhir.org/ig/hl7-eu/base/StructureDefinition-procedure-eu-core.html
 // Procedure (EU core) - HL7 Europe Base and Core FHIR IG v2.0.0
 // SGR: 2026_04_23_wir belassen es optional und schauen uns bis zum Ballot an, was die EU zu dem Zeitpunkt vorgibt
 * performed[x] 0..1
 * performed[x] only dateTime
-* performed[x] ^short = "Zeitpunkt der Durchführung"
+* performed[x] ^short = "Zeitpunkt der Durchführung."
 
 * recorder 1..1 MS
 * recorder only Reference(
     HL7ATCorePractitioner
     or HL7ATCorePractitionerRole
 )
-* recorder ^short = "Gesundheitsdiensteanbieter, der die Prozedur eingetragen bzw. dokumentiert hat"
+* recorder ^short = "Gesundheitsdiensteanbieter, der die Prozedur eingetragen bzw. dokumentiert hat."
 
 
 * asserter 0..1
@@ -94,52 +94,52 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom Procedure-Profi
     or HL7ATCorePatient
     or http://hl7.org/fhir/StructureDefinition/RelatedPerson
 )
-* asserter ^short = "Quelle der Information zur Prozedur (z. B. behandelnde Person, Patient oder Dritter)"
+* asserter ^short = "Quelle der Information zur Prozedur (z. B. behandelnde Person, Patient oder Dritter)."
 
 // soll erst in einer neuen version von e-diagnose berücksichtigt werden
 // in erster version noch nicht relevant
 * performer 0..0
-* performer ^short = "Person, die die Prozedur durchgeführt hat"
+* performer ^short = "Person, die die Prozedur durchgeführt hat."
 
 // soll erst in einer neuen version von e-diagnose berücksichtigt werden (e-befund neu)
 // in erster version noch nicht relevant
 * location 0..0
-* location ^short = "Durchführungsort"
+* location ^short = "Durchführungsort."
 
 // potential für unbegrenzte komplexität
 * reasonCode 0..0
-* reasonCode ^short = "Code des medizinischen Grundes für die Durchführung der Prozedur"
+* reasonCode ^short = "Code des medizinischen Grundes für die Durchführung der Prozedur."
 
 // potential für unbegrenzte komplexität
 * reasonReference 0..0
-* reasonReference ^short = "Begründung für die Durchführung der Prozedur; Verweis auf eine andere Ressource wie Condition, Observation,..."
+* reasonReference ^short = "Begründung für die Durchführung der Prozedur; Verweis auf eine andere Ressource wie z.B. Condition oder Observation."
 
 // grundsätzlich interessant
 // potentielle überdeckung mit dem code
 // ggf. konsistenzproblem (code, bodysite), wenn mans codiert ists kompliziert
 // außer es kommen konkrete anforderungen; sonst als freitext
 * bodySite 0..0
-* bodySite ^short = "Betroffene Körperstelle"
+* bodySite ^short = "Betroffene Körperstelle."
 
 * outcome 0..0
-* outcome ^short = "Ergebnis der Prozedur"
+* outcome ^short = "Ergebnis der Prozedur."
 
 // vergleichbar mit evidence in condition
 // verlinkte entlassbriefe könnten ggf. mal nicht mehr erreichbar sein (20 jahre aufbehaltungspflicht)
 // 2026_04_23_MBU URL, um einen Mehrwert zu haben. Damit der pdf-Friedhof aufhört, sondern eine saubere Lösung mittels URL, auf genau die DokuementenID 
 // ToDo: Wie macht man das?
 * report 0..*
-* report ^short = "Verweis auf ELGA-Befunde als medizinische Evidenz"
+* report ^short = "Verweis auf ELGA-Befunde als medizinische Evidenz."
 
 // e-diagnose ist keine op-berichts-dokumentationssystem
 * complication 0..0
-* complication ^short = "Komplikation während dem Eingriff"
+* complication ^short = "Komplikation während dem Eingriff."
 
 * complicationDetail 0..0
-* complicationDetail ^short = "Diagnose, die durch die durchgeführte Prozedur entstanden ist"
+* complicationDetail ^short = "Diagnose, die durch die durchgeführte Prozedur entstanden ist."
 
 * followUp 0..0
-* followUp ^short = "Nachkontrolle (Code)"
+* followUp ^short = "Nachkontrolle (Code)."
 
 * note 0..1
 // note.autor und .time werden 0..0
@@ -149,13 +149,13 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom Procedure-Profi
 * note.time 0..0
 // https://www.hl7.org/fhir/elementdefinition-definitions.html#ElementDefinition.maxLength
 // * note.text ^maxLength = 500
-* note ^short = "Freitext zur Prozedur als Zusatzinformation"
+* note ^short = "Freitext zur Prozedur als Zusatzinformation."
 
 * focalDevice 0..0
-* focalDevice ^short = "Gerät, das zur Durchführung der Prozedur verwendet wurde"
+* focalDevice ^short = "Gerät, das zur Durchführung der Prozedur verwendet wurde."
 
 * usedReference 0..0
-* usedReference ^short = "Verweis auf während der Prozedur verwendete Materialien, z. B. Medikamente"
+* usedReference ^short = "Verweis auf während der Prozedur verwendete Materialien, z. B. Medikamente."
 
 * usedCode 0..0
-* usedCode ^short = "Code der während der Prozedur verwendeten Materialien"
+* usedCode ^short = "Code der während der Prozedur verwendeten Materialien."
