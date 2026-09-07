@@ -36,7 +36,7 @@ Vorversionen der Summary-Listen können in chronologischer Reihenfolge dargestel
 
 #### Ablauf
 
-1. Der GDA fürht ein **GET** (Suche) auf den List-Typ aus.
+1. Der GDA führt ein **GET** (Suche) auf den List-Typ aus.
 2. Die Fachanwendung führt die Suche anhand der angegebenen Suchparameter durch.
 3. Werden keine Summary-Listen gefunden, wird ein leeres Ergebnis zurückgeliefert.
 4. Wird zumindest eine Summary-Liste gefunden, liefert die Fachanwendung ein **Search-Bundle** zurück. <br>
@@ -45,7 +45,7 @@ Dieses **Search-Bundle** enthält:
 * alle referenzierten Ressourcen (Patient, Practitioner, Condition, Procedure, AllergyIntolerance)
 
 Beim List History Read erfolgt **keine Veränderung** von Flags, Status oder Inhalten durch die Fachanwendung.<br>
-Der Zugriff dient ausschließlich der Anzeige bzw. Informationsabfrage von aktueller oder historischer Summary-Listversionen.<br>
+Der Zugriff dient ausschließlich der Anzeige bzw. Informationsabfrage von aktueller oder historischer Summary-Listenversionen.<br>
 
 #### Sequenzdiagramm 
 

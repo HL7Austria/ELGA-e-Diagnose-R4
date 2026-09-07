@@ -4,12 +4,11 @@ Dieses Kapitel beschreibt die an der eDiagnose beteiligten Akteure, deren Berech
 
 ### Rollen und Berechtigungen
 
-An der eDiagnose sind insbesondere ELGA-Teilnehmerinnen und ELGA-Teilnehmer sowie Gesundheitsdiensteanbieter (GDA) beteiligt. Die detaillierten Berechtigungen der einzelnen ELGA-Rollen sind in der Architektur beschrieben.
+An der eDiagnose sind insbesondere ELGA-Teilnehmer sowie Gesundheitsdiensteanbieter (GDA) beteiligt. Die detaillierten Berechtigungen der einzelnen ELGA-Rollen sind in der Architektur beschrieben.
 
 
 | ELGA-Rolle | Berechtigungen |
 |---|---|
 | **ELGA-Teilnehmer** | 🟢 **Lesen** · 🟠 **Schreiben**<br>↳ Schreiben umfasst auch das Löschen einzelner Einträge bzw. Summary-Listenversionen. |
 | **GDA** | 🟢 **Lesen** · 🟢 **Schreiben** · 🟠 **Stornieren** |
-
 

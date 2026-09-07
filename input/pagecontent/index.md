@@ -3,6 +3,7 @@
 Dieser Leitfaden beschreibt die Einführung der ELGA-Anwendung **e-Diagnose**, die eine standardisierte Erfassung, Dokumentation und Verwaltung von Diagnosen, Prozeduren, Allergien und Intoleranzen in Österreich ermöglicht.
 
 Ziel der Anwendung ist es, einen schnellen Zugriff auf die bestehenden Informationen zu ermöglichen, Doppeluntersuchungen zu vermeiden und die Behandlungsqualität nachhaltig zu verbessern. 
+
 Mit der **e-Diagnose** wird der Informationsaustausch zu Diagnosen, Prozeduren, Allergien und Intoleranzen im intra- und extramuralen Bereich deutlich vereinfacht. 
 
 Die Anwendung bietet eine **vollständige, gemeinsame Dokumentation in ELGA** und bildet gleichzeitig die **Grundlage für die Patient Summary**.

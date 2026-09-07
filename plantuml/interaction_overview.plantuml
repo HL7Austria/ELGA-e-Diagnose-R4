@@ -95,7 +95,7 @@ p4 -up- IAllergyIntolerance
 legend right
   **Legende Berechtigungen:**
   [GDA] = Gesundheitsdiensteanbieter
-  [PAT] = PATIENT: ELGA-Teilnehmer:in
+  [PAT] = PATIENT: ELGA-Teilnehmer
 end legend
 
 ' --- ARCHITEKTUR-NOTIZEN ---
