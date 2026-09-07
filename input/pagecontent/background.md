@@ -9,10 +9,10 @@ Die IPS unterscheidet mehrere Datenkategorien. Diese werden im Rahmen der Konzep
 
 | IPS-Datenkategorie | FHIR-Ressource | Verwendung in der eDiagnose |
 |---|---|---|
-| **Problem List** | Conditions | Condition-Summary-Liste |
-| **History of Past Problems** | Conditions | Condition-Summary-Einträge |
-| **History of Procedures** | Procedures | Procedure-Summary-Einträge |
-| **Allergies and Intolerances** | AllergiesIntolerances | AllergyIntolerance-Summary-Einträge |
+| **Problem List** | Conditions | Diagnosen-Summary-Liste |
+| **History of Past Problems** | Conditions | Diagnosen-Summary-Einträge |
+| **History of Procedures** | Procedures | Prozeduren-Summary-Einträge |
+| **Allergies and Intolerances** | AllergiesIntolerances | Allergie und Intoleranzen-Summary-Einträge |
 
-[![diagram](ediag_ips.png){: style="width: 60%"}](ediag_ips.png)
+[![diagram](summary_listen_dokumentstruktur.png){: style="width: 60%"}](summary_listen_dokumentstruktur.png)
 
