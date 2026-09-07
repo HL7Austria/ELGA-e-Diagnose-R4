@@ -15,7 +15,7 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom Procedure-Profi
 * extension contains AtElgaEdiagExtEnteredInError named entered-in-error 0..1
 
 * identifier 0..* 
-* identifier ^short = "Zuordnung der Diagnose in einem internem Dokumentationssystem"
+* identifier ^short = "Zuordnung der Diagnose in einem internen Dokumentationssystem"
 
 * instantiatesCanonical 0..0
 * instantiatesCanonical ^short = "Verweis auf eine standardisierte FHIR-Ressource, ein Template oder einen Leitfaden, der beschreibt, wie die Prozedur durchgeführt werden soll"
@@ -27,7 +27,7 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom Procedure-Profi
 * basedOn ^short = "Verweis auf eine Anforderung"
 
 * partOf 0..0
-* partOf ^short = "Verweis der Ressource auf eine andere, übergreordnete Ressource"
+* partOf ^short = "Verweis der Ressource auf eine andere, übergeordnete Ressource"
 
 // es wird kein workflow abgebildet
 // bei therapien, die inprogress sein könnten - potentiell eher nicht
@@ -64,10 +64,7 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom Procedure-Profi
 * code from AtEDiagProzedurenCodes (required)
 * code ^short = "Prozedurencode der durchgeführten Prozedur"
 * code.text 0..0
-
-
-
-
+ 
 * subject 1..1 MS
 * subject only Reference(HL7ATCorePatient)
 * subject ^short = "Person, auf die sich die Prozedur bezieht"
@@ -87,7 +84,7 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom Procedure-Profi
     HL7ATCorePractitioner
     or HL7ATCorePractitionerRole
 )
-* recorder ^short = "Gesundheitsdiensteanbieter, der die Prozedur eingetragen/dokumentiert hat"
+* recorder ^short = "Gesundheitsdiensteanbieter, der die Prozedur eingetragen bzw. dokumentiert hat"
 
 
 * asserter 0..1
@@ -102,7 +99,7 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom Procedure-Profi
 // soll erst in einer neuen version von e-diagnose berücksichtigt werden
 // in erster version noch nicht relevant
 * performer 0..0
-* performer ^short = "Diese Person hat die Prozedur durchgeführt"
+* performer ^short = "Person, die die Prozedur durchgeführt hat"
 
 // soll erst in einer neuen version von e-diagnose berücksichtigt werden (e-befund neu)
 // in erster version noch nicht relevant
@@ -111,11 +108,11 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom Procedure-Profi
 
 // potential für unbegrenzte komplexität
 * reasonCode 0..0
-* reasonCode ^short = "Code, des med. Grundes für die Durchführung der Prozedur"
+* reasonCode ^short = "Code des medizinischen Grundes für die Durchführung der Prozedur"
 
 // potential für unbegrenzte komplexität
 * reasonReference 0..0
-* reasonReference ^short = "Begründung dass die Prozedur durchgeführt worden ist - Verweis auf eine andere R. wie Condition, Observation,..."
+* reasonReference ^short = "Begründung für die Durchführung der Prozedur; Verweis auf eine andere Ressource wie Condition, Observation,..."
 
 // grundsätzlich interessant
 // potentielle überdeckung mit dem code
@@ -136,10 +133,10 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom Procedure-Profi
 
 // e-diagnose ist keine op-berichts-dokumentationssystem
 * complication 0..0
-* complication ^short = "Komplikation/en während dem Eingriff"
+* complication ^short = "Komplikation während dem Eingriff"
 
 * complicationDetail 0..0
-* complicationDetail ^short = "Eine Diagnose die durch die durchgeführte Prozedur entstanden ist"
+* complicationDetail ^short = "Diagnose, die durch die durchgeführte Prozedur entstanden ist"
 
 * followUp 0..0
 * followUp ^short = "Nachkontrolle (Code)"
@@ -152,13 +149,13 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom Procedure-Profi
 * note.time 0..0
 // https://www.hl7.org/fhir/elementdefinition-definitions.html#ElementDefinition.maxLength
 // * note.text ^maxLength = 500
-* note ^short = "Freitext zur Prozedur für Zusatzinformation"
+* note ^short = "Freitext zur Prozedur als Zusatzinformation"
 
 * focalDevice 0..0
-* focalDevice ^short = "Prozedurendurchführendes Gerät"
+* focalDevice ^short = "Gerät, das zur Durchführung der Prozedur verwendet wurde"
 
 * usedReference 0..0
-* usedReference ^short = "Verweis auf verwendete Materialien während der Prozedur (z.b. Medikamente)"
+* usedReference ^short = "Verweis auf während der Prozedur verwendete Materialien, z. B. Medikamente"
 
 * usedCode 0..0
-* usedCode ^short = "Code der Materialien, die während der Prozedur verwendetet wurden"
+* usedCode ^short = "Code der während der Prozedur verwendeten Materialien"

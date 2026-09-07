@@ -1,6 +1,6 @@
 ### Wer ruft diese Operation in welchem Zusammenhang auf?
 
-Möchte der GDA die Summary-Liste für eine bestimmte Art von Einträgen (z.B. Allergien, Diagnosen, Prozeduren) aktualisieren (Einträge werden hinzugefügt/entfernt)
+Möchte der GDA die Summary-Liste für eine bestimmte Art von Einträgen (z.B.. Allergien, Diagnosen, Prozeduren) aktualisieren (Einträge werden hinzugefügt/entfernt)
 oder möchte der GDA die Reihenfolge der Einträge ändern, so muss diese Operation ausgeführt werden.
 
 ### Voraussetzung für den Aufruf

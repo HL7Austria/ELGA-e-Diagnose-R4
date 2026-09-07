@@ -15,7 +15,7 @@ Description: "Das AT e-Diagnose List-Profil dient der strukturierten Listung von
 
 * status 1..1 MS
 * status = #current (exactly)
-* status ^short = "Status des Liste."
+* status ^short = "Status der Liste."
 
 * mode 1..1 MS
 * mode = #working (exactly)
