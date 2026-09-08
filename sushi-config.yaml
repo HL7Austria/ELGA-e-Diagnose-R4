@@ -86,6 +86,8 @@ pages:
     title: Download
   publication_info.md:
       title: Publikationsinformationen
+  dependencies.md:
+    title: Dependencies
   
   
 
@@ -133,6 +135,7 @@ menu:
   About:
    Autoren und Mitwirkende: contributors.html
    Download: download.html
+   Dependencies: dependencies.html
    Publikationsinformationen: publication_info.html
    Impressum: impressum.html
    
