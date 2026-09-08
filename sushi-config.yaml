@@ -82,6 +82,8 @@ pages:
     title: Autoren und Mitwirkende
   impressum.md:
       title: "Impressum"
+  download.md:
+    title: Download
   publication_info.md:
       title: Publikationsinformationen
   
@@ -130,6 +132,7 @@ menu:
   Artifacts: artifacts.html
   About:
    Autoren und Mitwirkende: contributors.html
+   Download: download.html
    Publikationsinformationen: publication_info.html
    Impressum: impressum.html
    
