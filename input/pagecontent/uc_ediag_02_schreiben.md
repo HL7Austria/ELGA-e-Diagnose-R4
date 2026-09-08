@@ -93,7 +93,7 @@ Dieser Ablauf beschreibt die fachliche Bestätigung einer initialisierten, leere
 
 > Sub:UC_02_04 
 
-Die `$write`-Operation ist eine eigenständige Operation, die allerdings einen **zuvor ausgeführten** [Abruf der aktuellen Summary-Liste](uc_ediag_01_lesen.html#aktuelle-summary-liste-abrufen-list-read) voraussetzt.
+Die `$write`-Operation ist eine eigenständige Operation, die allerdings einen **zuvor ausgeführten** [Abruf der aktuellen Summary-Liste](uc_ediag_01_lesen.html#aktuelle-summary-liste-abrufen) voraussetzt.
 
 #### Ablauf
 
