@@ -89,7 +89,7 @@ pages:
   copyright.md:
     title: Copyright
   # Known Issues
-  impressum.md:
+  imprint.md:
     title: "Impressum"
   
 
@@ -141,7 +141,7 @@ menu:
    Dependencies: dependencies.html
    Copyright: copyright.html
    Known Issues: https://github.com/HL7Austria/ELGA-e-Diagnose-R4/issues
-   Impressum: impressum.html
+   Impressum: imprint.html
    
   
   
