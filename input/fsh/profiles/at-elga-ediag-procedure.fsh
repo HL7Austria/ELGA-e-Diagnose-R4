@@ -84,7 +84,7 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom Procedure-Profi
     HL7ATCorePractitioner
     or HL7ATCorePractitionerRole
 )
-* recorder ^short = "Gesundheitsdiensteanbieter, der die Prozedur eingetragen bzw. dokumentiert hat."
+* recorder ^short = "GDA, der die Prozedur eingetragen bzw. dokumentiert hat."
 
 
 * asserter 0..1

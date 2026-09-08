@@ -12,7 +12,7 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom Allerg
 * extension contains AtElgaEdiagExtEnteredInError named entered-in-error 0..1
 
 * identifier 0..*
-* identifier ^short = "Zuordnung der Allergie in einem internen Dokumentationssystem"
+* identifier ^short = "Zuordnung der Allergie in einem internen Dokumentationssystem."
 
 // erfolgreiche desensibilisierung dokumentieren? oder selbst weggegangene allergien?
 // löschen von bereits dokumentierten eher nicht, sondern status setzen
@@ -22,7 +22,7 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom Allerg
 // 2026_04_29_ Status 1..1 gesetzt, synchrone zur Condition
 * clinicalStatus 1..1 MS
 * code only CodeableConcept
-* clinicalStatus ^short = "Status der Allergie; active | inactive | resolved"
+* clinicalStatus ^short = "Status der Allergie; mögliche Codes: active | inactive | resolved."
 
 // "presumed" in R5 ist großer wunsch von MBU - wie könnte das abgebildet werden? MBU redet mit allergologen, ob wirklich notwendig
 // um das abzubilden, müssten wir unconfirmed auswählen und zusätzlich presumed um das abzubilden
@@ -35,20 +35,20 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom Allerg
 // 2026-06_ToDo: Klären der Kardinalität? Optional?
 * verificationStatus 1..1 MS
 * verificationStatus only CodeableConcept
-* verificationStatus ^short = "Verifizierungsstatus der Allergie. Möglicher Status; unconfirmed | confirmed | refuted | entered-in-error"
+* verificationStatus ^short = "Verifizierungsstatus der Allergie; mögliche Codes: unconfirmed | confirmed | refuted | entered-in-error."
 
 
 // ungenaue unterscheidung
 * type 0..0
-* type ^short = "Identifikation ob es eine Allergie oder Intoleranz ist"
+* type ^short = "Kennzeichnung, ob es sich um eine Allergie oder Intoleranz handelt."
 
 // 
 * category 0..0
-* category ^short = "Differenzierung nach Kontext - Medikamente, Lebensmittel, Umwelt,.. - falls nur med. rele. dann ist es nicht notwendig, fachlich klären"
+* category ^short = "ToDo - falls nur med. rele. dann ist es nicht notwendig, fachlich klären: Differenzierung nach Kontext z. B. Medikamente, Lebensmittel oder Umwelt."
 
 // 
 * criticality 0..0
-* criticality ^short = "Einschätzung der Schwere (Anaphylaxie)"
+* criticality ^short = "Einschätzung des Schweregrads, z. B. im Hinblick auf eine Anaphylaxie."
 
 // kein text wird zugelassen, wie bei condition/procedure/etc.
 // substanz wird dokumentiert
@@ -56,7 +56,7 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom Allerg
 
 * code 1..1 MS
 * code only CodeableConcept
-* code ^short = "Allergiecode, Text verboten"
+* code ^short = "Allergiecode; Freitext ist nicht zulässig."
 
 * code.text 0..0
 
@@ -65,19 +65,19 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom Allerg
 
 * patient 1..1 MS
 * patient only Reference(HL7ATCorePatient)
-* patient ^short = "Betroffene Person, auf die sich die Allergie bezieht"
+* patient ^short = "Betroffene Person, auf die sich die Allergie bezieht."
 
 * encounter 0..0
-* encounter ^short = "Behandlungskontakt"
+* encounter ^short = "Behandlungskontakt."
 
 // beginn der allergie wohl nicht bekannt
 // beginn der reaction kann sehr wohl bekannt sein, wird deshalb nur reaction.onset dokumentiert
 * onset[x] 0..0
-* onset[x] ^short = "Erstes Aufzeichnungsdatum der Allergie(symptomatik)"
+* onset[x] ^short = "Erstes Aufzeichnungsdatum der Allergie bzw. Allergiesymptomatik."
 
 * recordedDate 1..1 MS
 * recordedDate only dateTime 
-* recordedDate ^short = "Dokumentationsdatum"
+* recordedDate ^short = "Dokumentationsdatum."
 
 // analog zu procedure, kein patient keine related person
 * recorder 1..1 MS
@@ -85,7 +85,7 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom Allerg
     HL7ATCorePractitioner
     or HL7ATCorePractitionerRole
 )
-* recorder ^short = "Gesundheitsdiensteanbieter, die die Allergie ins System erfasst/dokumentiert"
+* recorder ^short = "GDA, der die Allergie im System erfasst bzw. dokumentiert hat."
 
 * asserter 0..1
 * asserter only Reference(
@@ -94,44 +94,44 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom Allerg
     or HL7ATCorePatient
     or RelatedPerson
 )
-* asserter ^short = "Person (fachliche Quelle + related Person oder Patient selbst), die/der die Allergie bestätigt"
+* asserter ^short = "Quelle der Information zur Allergie, z. B. Patient, behandelnde Person oder Dritter."
 
 * lastOccurrence 0..0
-* lastOccurrence ^short = "Letztes Auftreten der Symptomatik - siehe manifestation"
+* lastOccurrence ^short = "Letztes Auftreten der Symptomatik; siehe Manifestation."
 
 * note 0..0
-* note ^short = "Zusätzliche Informationen oder Freitext zur Allergie wird in reaction beschrieben"
+* note ^short = "Zusätzliche Informationen; Freitext wird in reaction beschrieben."
 
 * reaction 1..1 MS
-* reaction ^short = "Details über die Allergiereaktion"
+* reaction ^short = "Details zur allergischen Reaktion."
 
 * reaction.substance 0..0
-* reaction.substance ^short = "Spezifische Substanz die zur Allergie führt, wird in allergyintoleranz.code gelöst"
+* reaction.substance ^short = "Spezifische Substanz, die zur Allergie führt; wird über AllergyIntolerance.code abgebildet."
 
 // ggf. pflicht in snomed
 * reaction.manifestation 1..* MS
 * reaction.manifestation only CodeableConcept
-* reaction.manifestation ^short = "Aufgezeichnete klinische allergische Symptome"
+* reaction.manifestation ^short = "Aufgezeichnete klinische Symptome der allergischen Reaktion."
 
 // https://hub.kbv.de/spaces/ALDOK1X0X0/pages/375456332/Weitere+m%C3%B6gliche+Inhalte#Weiterem%C3%B6glicheInhalte-ArtderReaktion%2FzeitlicherVerlaufderReaktion
 // codes noch aktualisieren/anders benennen
 // extension soll verpflichtend ausgefüllt werden
 * reaction.extension contains AtEdiagReactionTime named reactionTime 1..1 MS
-* reaction.extension[reactionTime] ^short = "Zeitlicher Verlauf der Manifestation"
+* reaction.extension[reactionTime] ^short = "Zeitlicher Verlauf der Manifestation."
 
 
 * reaction.description 0..0
-* reaction.description ^short = "Textbasierte Zusammenfassung der allergischen Reaktion"
+* reaction.description ^short = "Textbasierte Zusammenfassung der allergischen Reaktion."
 
 * reaction.onset 0..1
 * reaction.onset only dateTime 
-* reaction.onset ^short = "Beginn der Reaktion"
+* reaction.onset ^short = "Beginn der Reaktion."
 
 * reaction.severity 0..0
-* reaction.severity ^short = "Beschreibt ob die Reaktion mild, moderat,... war"
+* reaction.severity ^short = "Schweregrad der Reaktion, z. B. mild oder moderat."
 
 * reaction.exposureRoute 0..0
-* reaction.exposureRoute ^short = "Art der Exposition der betroffenen Person gegenüber der Substanz"
+* reaction.exposureRoute ^short = "Art der Exposition der betroffenen Person gegenüber der Substanz."
 
 * reaction.note 0..1
 * reaction.note.author[x] 0..0
@@ -139,7 +139,7 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom Allerg
 // https://www.hl7.org/fhir/elementdefinition-definitions.html#ElementDefinition.maxLength
 // * note.text ^maxLength = 500
 // 2026_04_23 500 ausreichend. Es ist eine Freitextergänzung zum SNOMED Textes (schlecht eingestellter - zur Ergänzung zu DD) nicht * sondern nur 1 bei Bedarf
-* reaction.note ^short = "Freitext zu Allergie und Intoleranzen als Zusatzinformation"
+* reaction.note ^short = "Freitext zu Allergie und Intoleranzen als Zusatzinformation."
 
 // referenz auf befund, laborbefund, etc wäre noch interessant - extension!
 // SGR: Siehe condition - evidence 
