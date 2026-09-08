@@ -80,8 +80,6 @@ pages:
       title: "Teilnehmerrechte ausüben"
   contributors.md:
     title: Autoren und Mitwirkende
-  impressum.md:
-      title: "Impressum"
   download.md:
     title: Download
   publication_info.md:
@@ -90,7 +88,9 @@ pages:
     title: Dependencies
   copyright.md:
     title: Copyright
-  
+  # Known Issues
+  impressum.md:
+    title: "Impressum"
   
 
 # The parameters property represents IG.definition.parameter. Rather
@@ -140,6 +140,7 @@ menu:
    Publikationsinformationen: publication_info.html
    Dependencies: dependencies.html
    Copyright: copyright.html
+   Known Issues: https://github.com/HL7Austria/ELGA-e-Diagnose-R4/issues
    Impressum: impressum.html
    
   
