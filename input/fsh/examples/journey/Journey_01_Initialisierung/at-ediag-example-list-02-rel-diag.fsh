@@ -1,6 +1,7 @@
 Instance: ListExample02
 InstanceOf: AtEdiagList
-Title: "e-Diagnose-Liste mit einer relevanten Diagnose"
+Title: "Summary-Liste mit einem Summary-Eintrag"
+Description: "Beispiel einer Summary-Liste mit einem Eintrag, der auf eine Diagnose verweist."
 Usage: #example
 
 * status = #current

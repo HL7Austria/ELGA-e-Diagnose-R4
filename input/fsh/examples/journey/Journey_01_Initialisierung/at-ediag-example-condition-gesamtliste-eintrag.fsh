@@ -1,21 +1,19 @@
-Instance: DiagnoseNotCurrentlyRelevantExample
+Instance: ConditionGesamtlisteExample
 InstanceOf: AtEdiagCondition
-Title: "Beispiel Diagnose not currently relevant"
-Description: "Beispielinstanz einer Diagnose - not currently relevant"
+Title: "Beispielinstanz einer Diagnose für die Gesamtliste"
+Description: "Beispiel Diagnose, aktuelle Beschwerden des Patienten"
 Usage: #example
 
-
 * extension[AtReported].valueBoolean = true
-
 
 * clinicalStatus = $condition-clinical#active
 
 * verificationStatus = http://terminology.hl7.org/CodeSystem/condition-ver-status#confirmed
 
 * code.coding[snomed].system = "http://snomed.info/sct"
-* code.coding[snomed].code = #719590007
+* code.coding[snomed].code = #10351008
 
-* code.coding[snomed].display = "Saisonale Grippe"
+* code.coding[snomed].display = "Suppurative tonsillitis"
 
 * subject = Reference(PatientExample)
 

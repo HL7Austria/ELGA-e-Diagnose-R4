@@ -9,6 +9,6 @@ An der e-Diagnose sind insbesondere ELGA-Teilnehmer sowie Gesundheitsdiensteanbi
 
 | ELGA-Rolle | Berechtigungen |
 |---|---|
-| **ELGA-Teilnehmer** | 🟢 **Lesen** · 🟠 **Schreiben**<br>↳ Schreiben umfasst auch das Löschen einzelner Einträge bzw. Summary-Listenversionen. |
+| **ELGA-Teilnehmer** | 🟢 **Lesen** · 🟠 **Schreiben**<br>↳ Schreiben umfasst in diesem Zusammenhang das Löschen einzelner Einträge bzw. Summary-Listenversionen. |
 | **GDA** | 🟢 **Lesen** · 🟢 **Schreiben** · 🟠 **Stornieren** |
 

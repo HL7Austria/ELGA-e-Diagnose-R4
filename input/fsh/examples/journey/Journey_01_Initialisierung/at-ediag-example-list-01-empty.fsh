@@ -1,7 +1,7 @@
 Instance: ListExample01
 InstanceOf: AtEdiagList
-Title: "Beispiel einer leeren e-Diagnose-Liste"
-Description: "Initiale e-Diagnose-Liste ohne Diagnosen, Prozeduren oder Allergien."
+Title: "Beispiel einer leeren Summary-Liste"
+Description: "Initiale Summary-Liste ohne Summary-Einträge."
 Usage: #example
 
 * status = #current
@@ -9,6 +9,6 @@ Usage: #example
 // Problem List / general clinical items
 * code = $cs-loinc#11450-4
 * subject = Reference(PatientExample)
-* date = "2026-03-01T08:00:00+00:00"
+* date = "2026-03-03T08:00:00+00:00"
 * source = Reference(PractitionerExample)
-* emptyReason = $cs-list-empty-reason#notstarted
+* emptyReason = $cs-list-empty-reason#notstarted "notstarted"
