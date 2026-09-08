@@ -32,7 +32,6 @@ contact:
 #
 dependencies:
 #  hl7.fhir.eu.mpd: 0.1.0-ballot
-  hl7.fhir.uv.ips: 2.0.0
   hl7.at.fhir.core.r4: 2.0.0
 #   hl7.fhir.us.core: 3.1.0
 #   hl7.fhir.us.mcode:
@@ -81,11 +80,17 @@ pages:
       title: "Teilnehmerrechte ausüben"
   contributors.md:
     title: Autoren und Mitwirkende
-  impressum.md:
-      title: "Impressum"
+  download.md:
+    title: Download
   publication_info.md:
       title: Publikationsinformationen
-  
+  dependencies.md:
+    title: Dependencies
+  copyright.md:
+    title: Copyright
+  # Known Issues
+  imprint.md:
+    title: "Impressum"
   
 
 # The parameters property represents IG.definition.parameter. Rather
@@ -131,8 +136,12 @@ menu:
   Artifacts: artifacts.html
   About:
    Autoren und Mitwirkende: contributors.html
+   Download: download.html
    Publikationsinformationen: publication_info.html
-   Impressum: impressum.html
+   Dependencies: dependencies.html
+   Copyright: copyright.html
+   Known Issues: https://github.com/HL7Austria/ELGA-e-Diagnose-R4/issues
+   Impressum: imprint.html
    
   
   
