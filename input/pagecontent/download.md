@@ -1,24 +1,24 @@
-### Full IG
+### Vollständiger Implementierungsleitfaden
 
-Download the entire implementation guide [here](full-ig.zip).
+Der gesamte Implementierungsleitfaden kann [hier](full-ig.zip) heruntergeladen werden.
 
-### NPM Package and Definitions
+### NPM-Paket und Definitionen
 
-The following file contains all the value sets, profiles, extensions, list of pages and urls in the IG, etc. defined as part of this Implementation Guide:
+Die folgende Datei enthält alle Value-Sets, Profile, Extensions, die Liste der Seiten und URLs des IG, die im Rahmen dieses Implementierungsleitfadens definiert wurden:
 
-- [NPM Package](package.tgz)
+- [NPM-Paket](package.tgz)
 
-In addition there are format specific definition files:
+Darüber hinaus stehen formatspezifische Definitionsdateien zur Verfügung:
 
 - [XML](definitions.xml.zip)
 - [JSON](definitions.json.zip)
 - [TTL](definitions.ttl.zip)
 
-These files should be the first choice whenever generating any implementation artifacts since they contain all of the rules about what makes these profiles valid. Implementers will still need to be familiar with the content of the specification and profiles that apply in order to make a conformant implementation.  See the overview on [validating FHIR profiles and resources]({{ site.data.fhir.path }}validation.html).
+Diese Dateien sollten bei der Erzeugung von Implementierungsartefakten stets die erste Wahl sein, da sie sämtliche Regeln enthalten, die die Gültigkeit dieser Profile bestimmen. Implementierende müssen darüber hinaus mit dem Inhalt der Spezifikation und der jeweils geltenden Profile vertraut sein, um eine konforme Implementierung zu erstellen. Siehe dazu die Übersicht zur [Validierung von FHIR-Profilen und -Ressourcen]({{ site.data.fhir.path }}validation.html).
 
-### Examples
+### Beispiele
 
-All of the examples that are used in this Implementation Guide are available for download:
+Alle in diesem Implementierungsleitfaden verwendeten Beispiele stehen zum Download bereit:
 
 - [XML](examples.xml.zip)
 - [JSON](examples.json.zip)
