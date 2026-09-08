@@ -55,61 +55,58 @@ interface "/List/[id]" as List_instance {
   «DELETE» [PAT]
 }
 
-interface "/Condition" as ICondition {
-  «POST» [GDA]
+interface "/Condition/[id]" as ICondition_instance {
   «POST» $delete [PAT]
   «POST» $storno [GDA]
+} 
+
+interface "/Condition" as ICondition_type {
+  «POST» [GDA]
   «GET» [GDA, PAT]
 } 
 
-interface "/Procedure" as IProcedure {
-  «POST» [GDA]
+interface "/Procedure/[id]" as IProcedure_instance {
   «POST» $delete [PAT]
   «POST» $storno [GDA]
+} 
+
+interface "/Procedure" as IProcedure_type {
+  «POST» [GDA]
   «GET» [GDA, PAT]
 } 
 
-interface "/AllergyIntolerance" as IAllergyIntolerance {
-  «POST» [GDA]
+interface "/AllergyIntolerance/[id]" as IAllergyIntolerance_instance {
   «POST» $delete [PAT]
   «POST» $storno [GDA]
+} 
+
+interface "/AllergyIntolerance" as IAllergyIntolerance_type {
+  «POST» [GDA]
   «GET» [GDA, PAT]
 } 
 
 ' --- SYSTEMKOMPONENTE (ZENTRALER SERVER) ---
 
 component "ELGA\ne-Diagnose" as Server {
-  port "List (type level)" as p1
-  port "List (instance level)" as p5
+  port "List" as p1
   port "Condition" as p2
   port "Procedure" as p3
   port "AllergyIntolerance" as p4
 }
 
 p1 -up- List_type
-p5 -up- List_instance
-p2 -up- ICondition
-p3 -up- IProcedure
-p4 -up- IAllergyIntolerance
+p1 -up- List_instance
+p2 -up- ICondition_type
+p2 -up- ICondition_instance
+p3 -up- IProcedure_type
+p3 -up- IProcedure_instance
+p4 -up- IAllergyIntolerance_type
+p4 -up- IAllergyIntolerance_instance
 
 legend right
   **Legende Berechtigungen:**
   [GDA] = Gesundheitsdiensteanbieter
   [PAT] = PATIENT: ELGA-Teilnehmer
 end legend
-
-' --- ARCHITEKTUR-NOTIZEN ---
-
-' note bottom of Server
-'   **UML 2.0 Component Specification**
-'   Zentrales e-Medikations-System kapselt persistierte
-'   Collection Bundles (v.1 / v.2) und Transaction Bundles.
-' end note
-
-' note right of IBundle
-'   **Ressourcen-Kontext:**
-'   Enthält MedicationRequest,
-'   Patient, Practitioner.
-' end note
 
 @enduml
