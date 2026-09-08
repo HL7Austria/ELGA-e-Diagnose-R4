@@ -10,7 +10,7 @@ Ein ELGA-Teilnehmer kann via ELGA-Portal einzelne oder alle Einträge unwiderruf
 
 ##### Ablauf
 
-- Um einen Eintrag zu löschen, führt der ELGA-Teilnehmer über das Portal ein `POST $delete` auf den zu löschenden Eintrag aus.
+- Um einen Eintrag zu löschen, führt der ELGA-Teilnehmer über das Portal die [`$delete`-Operation](OperationDefinition-at-ediag-operation-diagnose-delete.html) auf den zu löschenden Eintrag aus.
 - Die Fachanwendung löscht den entsprechenden Eintrag.
 - Die Fachanwendung erstellt eine neue Version der Summary-Liste ohne den gelöschten Eintrag, sollte der zu löschende Eintrag Teil der aktuellen Summary-Liste gewesen sein.
 
