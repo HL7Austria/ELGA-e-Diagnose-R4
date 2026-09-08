@@ -1,6 +1,6 @@
 Instance: AtDiagListWrite
 InstanceOf: OperationDefinition
-Title: "e-Diagnose Operation $write"  //TODO
+Title: "e-Diagnose Operation $write"  
 Description: """Die $write Operation wird aufgerufen, wenn eine Summary-Liste geschrieben wird."""
 Usage: #definition
 

@@ -1,19 +1,24 @@
 {% include styleheader.md %}
-ToDo: Muss überabreitet werden. Plan ist eine gemeinsame Journey mit e-med, da eine Konsultation bei einem GDA mit einer neuen Medikation in der Praxis oft in Verbindung steht. 
+### Anwendungsbeispiel
 
-<!--Am Beispiel einer fiktiven Patient Journey wird veranschaulicht, wie sich die klinisch relevanten Informationen eines Patienten im Rahmen der e-Diagnose
-erweitern und verändern. Neben Diagnosen werden auch Prozeduren, Allergien/Intoleranzen sowie klinische Warnungen berücksichtigt.
+Das folgende Anwendungsbeispiel beschreibt anhand einer fiktiven **Patient Journey**, wie die klinisch relevanten Informationen eines Patienten im Rahmen der e-Diagnose aufgebaut, ergänzt und aktualisiert werden. Dabei werden Diagnosen, Prozeduren sowie Allergien und Intoleranzen strukturiert erfasst und einzelne Summary-Einträge über die jeweilige Summary-Liste zusammengeführt.
 
- ALTE Version ### 1.3.2026: Erstvorstellung beim Arzt
-Dr. Musterärztin sieht den Patienten Max Mustermann erstmals in ihrer Ordination. Zur besseren klinischen Einschätzung ruft sie die vorhandenen medizinischen Informationen aus der e-Diagnose ab.
 
-Da für Herrn Mustermann bisher noch keine strukturierte e-Dagnose-Zusammenstellung existiert, wird automatisch ein initialer leerer klinischer Status erzeugt. Dieser enthält lediglich den [Patienten](Patient-PatientExample.html), die erstellende Fachanwendung ([Device](Device-DeviceExample.html)) sowie das Erstellungsdatum (ToDo: ist es das Datum der Erstellung sprich der Tag des Arztbesuches oder welches?) und der Grund, warum der Plan noch leer ist (EmptyReason *notstarted*). 
+### Patient Journey
+Die Patient Journey zeigt den Lebenszyklus der e-Diagnose von der erstmaligen Initialisierung der Summary-Liste über das Hinzufügen und Aktualisieren einzelner Einträge bis hin zur Korrektur bzw. Löschung eines Eintrags.
 
-   * **Leere Liste:**
-     * [Collection Bundle](Bundle-At-Ediag-Journey-01-Bundle-Liste-Cl.html) 
 
-Herr Mustermann stellt sich mit einem aktuellen grippalen Infekt vor. Im Rahmen der Anamnese wird als relevante Vorerkrankung eine Hypothyreose erhoben. 
-Der Patient berichtet eine bestehende Dauermedikation mit L-Thyroxin 75mg. Für den grippalen Infekt wird eine symptomatische Therapie eingeleitet, unter anderem mit Ibuprofen bei Bedarf zur Fiebersenkung und Schmerzreduktion.
+### 1. Arztbesuch - Initalisierung der Summary-Liste
+[Dr Musterärztin Melanie](Practitioner-PractitionerExample.html) sieht Max Mustermann am **3. März 2026** erstmals in ihrer Ordination. Zur besseren klinischen Einschätzung ruft sie die vorhandenen medizinischen Informationen aus der e-Diagnose ab.
 
-   * **Diagnoseeinträge hinzufügen:**
-     * [Transaction Bundle](Bundle-At-Ediag-Journey-01-Bundle-Liste-Tx.html) -->
+Für Herrn Mustermann existiert bisher noch keine strukturierte e-Diagnose Summary-Liste. Die e-Diagnose wird daher erstmals initialisiert. Für den Patienten wird eine leere Summary-Liste angelegt. Diese enthält den Patienten [DI Max Mustermann](Patient-PatientExample.html), die für die Erstellung der Liste verantwortliche Quelle  sowie das Datum der letzten Aktualisierung. Da noch keine Einträge vorhanden sind, wird zusätzlich der Grund für die leere Liste über List.emptyReason mit dem Code [Notstarted](List-ListExample01.html) angegeben.
+
+
+
+
+Im Rahmen der Anamnese erhebt Dr. Musterärztin die aktuellen gesundheitlichen Probleme des Patienten. Herr Mustermann berichtet über einen seit mehreren Jahren bestehenden Bluthochdruck. Außerdem gibt er an, seit seiner Kindheit an einer Penicillinallergie zu leiden.
+
+Die relevanten Informationen werden in den jeweiligen e-Diagnose-Ressourcen dokumentiert. Für die Hypertonie wird eine Condition und für die Penicillinallergie eine AllergyIntolerance geführt.
+
+Bei einem neuerlichen Abruf der e-Diagnose-Liste über einen GET-Aufruf werden die vorhandenen Einträge als Search Bundle zurückgegeben.
+
