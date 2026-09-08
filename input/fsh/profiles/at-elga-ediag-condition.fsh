@@ -13,18 +13,17 @@ Description: "Das AT e-Diagnose Condition-Profil leitet sich vom Condition-Profi
 * extension contains AtElgaEdiagExtEnteredInError named entered-in-error 0..1
 
 * identifier 0..*
-* identifier ^short = "Zuordnung der Diagnose in einem internem Dokumentationssystem"
+* identifier ^short = "Zuordnung der Diagnose in einem internen Dokumentationssystem"
 
 // 2026_05_18_Begriff: Klinischer Status der Diagnose- bei Änderungen Anja Schwab Bescheid geben!!!
 * clinicalStatus 1..1 MS
 * code only CodeableConcept
-* clinicalStatus ^short = "Klinischer Status der Diagnose (wie:Status post), 
-mögliche Codes: active | recurrence | relapse | inactive | remission | resolved"
+* clinicalStatus ^short = "Klinischer Status der Diagnose (wie:Status post), mögliche Codes: active | recurrence | relapse | inactive | remission | resolved"
 
 // 2026_06_ToDo: Klären der Kardinalität? optional? 
 * verificationStatus 1..1 MS
 * verificationStatus only CodeableConcept
-* verificationStatus ^short = "Status der Diagnose, mögliche Codes: unconfirmed | provisional | differential | confirmed | refuted | entered-in-error"
+* verificationStatus ^short = "Verifizierungsstatus der Diagnose, mögliche Codes: unconfirmed | provisional | differential | confirmed | refuted | entered-in-error"
 
 * category 0..0
 * category ^short = "Differenzierung nach Kontext ist nicht relevant."

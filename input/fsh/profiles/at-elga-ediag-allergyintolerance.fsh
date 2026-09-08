@@ -12,7 +12,7 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom Allerg
 * extension contains AtElgaEdiagExtEnteredInError named entered-in-error 0..1
 
 * identifier 0..*
-* identifier ^short = "Zuordnung der Allergie in einem internem Dokumentationssystem"
+* identifier ^short = "Zuordnung der Allergie in einem internen Dokumentationssystem"
 
 // erfolgreiche desensibilisierung dokumentieren? oder selbst weggegangene allergien?
 // löschen von bereits dokumentierten eher nicht, sondern status setzen
@@ -35,7 +35,7 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom Allerg
 // 2026-06_ToDo: Klären der Kardinalität? Optional?
 * verificationStatus 1..1 MS
 * verificationStatus only CodeableConcept
-* verificationStatus ^short = "ToDo; Presumed, gibt es hierzu aktuelle Infos? kardinalität von clinicalStatus & verificationStatus muss noch erarbeitet werden. Möglicher Status; unconfirmed | confirmed | refuted | entered-in-error"
+* verificationStatus ^short = "Verifizierungsstatus der Allergie. Möglicher Status; unconfirmed | confirmed | refuted | entered-in-error"
 
 
 // ungenaue unterscheidung

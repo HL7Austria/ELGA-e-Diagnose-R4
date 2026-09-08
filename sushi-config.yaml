@@ -78,6 +78,14 @@ pages:
       title: "Schreiben"
   uc_ediag_03_teilnehmer.md:
       title: "Teilnehmerrechte ausüben"
+  contributors.md:
+    title: Autoren und Mitwirkende
+  impressum.md:
+      title: "Impressum"
+  publication_info.md:
+      title: Publikationsinformationen
+  
+  
 
 # The parameters property represents IG.definition.parameter. Rather
 # than a list of code/value pairs (as in the ImplementationGuide
@@ -108,8 +116,8 @@ menu:
    Umfang und Inhalt: scope_and_content.html
    Hintergrund: background.html
    Herausforderungen: challenges.html 
-  Funktionalles:
-   Designnentscheidungen: design_choices.html
+  Funktionales:
+   Designentscheidungen: design_choices.html
    Akteure: actors.html
    Transaktionen: transaction.html
    Workflowmanagement: workflowmanagement.html
@@ -120,7 +128,12 @@ menu:
    Schreiben: uc_ediag_02_schreiben.html
    Teilnehmerrechte ausüben: uc_ediag_03_teilnehmer.html
   Artifacts: artifacts.html
-
+  About:
+   Autoren und Mitwirkende: contributors.html
+   Publikationsinformationen: publication_info.html
+   Impressum: impressum.html
+   
+  
   
 
 # ╭───────────────────────────Less Common Implementation Guide Properties──────────────────────────╮

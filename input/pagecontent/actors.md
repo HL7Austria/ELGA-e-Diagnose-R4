@@ -1,18 +1,14 @@
 {% include styleheader.md %}
 
-Das Kapitel gibt einen Überblick über die zentralen Anwendungsfälle der e-Diagnose und zeigt, wie die verschiedenen Akteure mit den Funktionen interagieren. 
-
-Weiters werden in einer Tabelle alle ELGA Rollen angeführt, die Zugriff auf die Summary-Liste(n) und die Einträge erhalten sollen. 
-
-### Use Case Diagramm
-
-<br>
-
-[![diagram](ediag_uc_diagramm.drawio.png){: style="width: 60%"}](ediag_uc_diagramm.drawio.png)
-
-<br clear="all"/>
+Dieses Kapitel beschreibt die an der eDiagnose beteiligten Akteure, deren Berechtigungen sowie die vorgesehenen Zugriffswege.
 
 ### Rollen und Berechtigungen
 
-[![tabelle](ediag_zugriffsmatrix.png){: style="width: 60%"}](ediag_zugriffsmatrix.png)
+An der eDiagnose sind insbesondere ELGA-Teilnehmer sowie Gesundheitsdiensteanbieter (GDA) beteiligt. Die detaillierten Berechtigungen der einzelnen ELGA-Rollen sind in der Architektur beschrieben.
+
+
+| ELGA-Rolle | Berechtigungen |
+|---|---|
+| **ELGA-Teilnehmer** | 🟢 **Lesen** · 🟠 **Schreiben**<br>↳ Schreiben umfasst auch das Löschen einzelner Einträge bzw. Summary-Listenversionen. |
+| **GDA** | 🟢 **Lesen** · 🟢 **Schreiben** · 🟠 **Stornieren** |
 

@@ -34,7 +34,7 @@ aus und übermittelt die neue Ressource an die e-Diagnose Fachanwendung.
 
 Der GDA kann eine oder mehrere Einträge aufgrund einer falschen Eingabe stornieren. Dabei ist es irrelevant, ob ein zu stornierender Eintrag in der Summary-List referenziert wird oder nicht.
 Im Zuge der Stornierung kann der GDA einen Vermerk festhalten. 
-Die OID des GDA´s und der Stornierungszeitpunkt wird durch die Fachanwendung gesetzt.
+Die OID des GDA und der Stornierungszeitpunkt werden durch die Fachanwendung gesetzt.
 
 
 #### Ablauf
@@ -48,7 +48,7 @@ und markiert die zu stornierenden Einträge.
   *  `AllergyIntolerance.verificationStatus = entered-in-error`
   *  `Condition.verificationStatus = entered-in-error`
   *  `Procedure.status = entered-in-error`
-5. Die Fachanwendung speichert den Zeitpunkt der Stornierung ab und übernimmt ursprünglichen Wert des verification.Status bzw. status
+5. Die Fachanwendung speichert den Zeitpunkt der Stornierung ab und übernimmt den ursprünglichen Wert des verification.Status bzw. status
 
 ### Eintrag bearbeiten in der Gesamtansicht
 Der GDA kann über die Gesamtansicht bestehende Einträge suchen, auswählen und fachlich bearbeiten.
@@ -93,7 +93,7 @@ Dieser Ablauf beschreibt die fachliche Bestätigung einer initialisierten, leere
 
 > Sub:UC_02_04 
 
-Die `$write`-Operation ist eine eigentständige Operation, die allerdings einen **zuvor ausgeführten** [Abruf der aktuellen Summary-Liste](uc_ediag_01_lesen.html#aktuelle-summary-liste-abrufen) voraussetzt.
+Die `$write`-Operation ist eine eigenständige Operation, die allerdings einen **zuvor ausgeführten** [Abruf der aktuellen Summary-Liste](uc_ediag_01_lesen.html#aktuelle-summary-liste-abrufen-list-read) voraussetzt.
 
 #### Ablauf
 
@@ -110,7 +110,7 @@ Die `$write`-Operation ist eine eigentständige Operation, die allerdings einen 
 5. Die Fachanwendung liefert das SearchSet-Bundle zurück. Auch in diesem Fall hat `List.meta.versionId` den Wert `123`.
 6. **GDA 2** macht **fachliche Änderungen** an der Summary-Liste.
 7. **GDA 2** aktualisiert zuerst mittels [$write-Operation](uc_ediag_02_schreiben.html#summary-liste-aktualisieren-write) die Summary-Liste.
-8. Im Rahmen der Validierung der übermittelten Summary-Liste, prüft die Fachanwendung, ob der mitgeschickte `If-Match`-Header mit der aktuellen `versionId` der Summary-Liste übereinstimmt.
+8. Im Rahmen der Validierung der übermittelten Summary-Liste prüft die Fachanwendung, ob der mitgeschickte `If-Match`-Header mit der aktuellen `versionId` der Summary-Liste übereinstimmt.
 9.  Die Prüfung verläuft erfolgreich, weil beide den Wert `123` haben. Die Änderungen werden übernommen und die neue Version der Summary-Liste wird persistiert. Dabei erhält die Summary-Liste die neue `List.meta.version` mit dem Wert `124`.
 12. **GDA 2** erhält die Meldung, dass die Aktualisierung erfolgreich durchgeführt wurde.
 13. Anschließend will **GDA 1** mittels [$write-Operation](uc_ediag_02_schreiben.html#summary-liste-aktualisieren-write) ebenfalls seine Version der Summary-Liste speichern.
@@ -158,7 +158,7 @@ Der GDA möchte einen bestehenden Eintrag in die Summary-Liste aufnehmen.
 <!--Nur entfernen, das weitere Vorgehen wird hier nicht beschrieben. Stornieren kann als Folge durchgeführt werden. 
 Die Referenz auf die Ressource wird aus der Summary-Liste entfernt (removed). Die referenzierte Ressource bleibt unverändert bestehen. Die Fachanwendung entfernt die Kennzeichnung als relevant (meta.tag = relevant).
 
-ToDo: Aus Liste entfernen, Ressource bleibt bestehen, verliert nur Listzugehörigkeit oder Löschen - Ressource wird vollständig entfernt Ausblenden und Löschen? Löscht der Teilnehmer einen Eintrag, muss die Historienversion mitgelöscht werden? Betsehende Referenzen auf gelöschte Ressourcen. Lösche ich C, sage ich such mir alle List-Versionen mit C, und lösch mir alle C. Wie weit greifen, muss ich mich als Bürger durch alle Vorversionen durchklicken. -->
+ToDo: Aus Liste entfernen, Ressource bleibt bestehen, verliert nur Listzugehörigkeit oder Löschen - Ressource wird vollständig entfernt Ausblenden und Löschen? Löscht der Teilnehmer einen Eintrag, muss die Historienversion mitgelöscht werden? Bestehende Referenzen auf gelöschte Ressourcen. Lösche ich C, sage ich such mir alle List-Versionen mit C, und lösch mir alle C. Wie weit greifen, muss ich mich als Bürger durch alle Vorversionen durchklicken. -->
 Ein bestehender Eintrag kann aus der Summary-Liste entfernt werden, ohne dass die Ressource selbst gelöscht oder geändert wird. Hierzu wird die Referenz auf die Ressource aus der Summary-Liste entfernt. Die Ressource bleibt weiterhin verfügbar und kann zu einem späteren Zeitpunkt erneut in die Summary-Liste aufgenommen werden.
 
 #### Ablauf
@@ -187,12 +187,12 @@ Der GDA kann die Reihenfolge der Einträge innerhalb einer Summary-Liste ändern
 ### Einträge in der Summary-Liste bearbeiten
 > Sub:UC_02_08 
 <br> 
-Dieser Sub-UC beschreibt die fachliche Bearbeitung von Einträgen einer Summary-Liste. Die tatsächliche Reihenfolge der Bearbeitungsschritte kann je nach Anwendungsfall variieren. Es ist nicht notwendigerweise vorgesehen, dass $list-read am Anfang und $list-write am Ende des Ablaufs stehen.
+Dieser Sub-UC beschreibt die fachliche Bearbeitung von Einträgen einer Summary-Liste. Die tatsächliche Reihenfolge der Bearbeitungsschritte kann je nach Anwendungsfall variieren. Ein berechtigter GDA kann alle bestehenden (eigene und fremde) Einträge bearbeiten. Es ist nicht notwendigerweise vorgesehen, dass $list-read am Anfang und $list-write am Ende des Ablaufs stehen.
 Durch die Verwendung eines bereits bestehenden Business-Identifier wird bei der Bearbeitung die Zuordnung einer alten Version zu einer neuen Version einer Ressource ermöglicht. Dadurch bleibt die Verbindung zwischen den Versionen erhalten.
 
 <!--Bestehende Einträge fachlich bearbeiten 
-TODo: Dieser UC setzt sich zusammen aus mehreren anderen und wird zur besseren verständnis hier nochmals beschrieben. 
-Der GDA kann Einträge in einer Liste fachlich bearbeiten - stimmt nicht mehr? 1. Schritt, ich erstelle eine neue 2 Schritt: Will ich sie verknüpfen, muss ich auf die bestehenden Ressourcen zugreifen mit dem Identifier 123, der muss vom Client zwischengespeichert werden, damit dieser an die FA mitgesendet werden kann. Änderungen eines Eintrags werden referenziert und sind somit nachverfolgbar.-->
+TODo: Dieser UC setzt sich zusammen aus mehreren anderen und wird zum besseren Verständnis hier nochmals beschrieben. 
+Der GDA kann Einträge in einer Liste fachlich bearbeiten - stimmt nicht mehr? 1. Schritt, ich erstelle eine neue 2. Schritt: Will ich sie verknüpfen, muss ich auf die bestehenden Ressourcen zugreifen mit dem Identifier 123, der muss vom Client zwischengespeichert werden, damit dieser an die FA mitgesendet werden kann. Änderungen eines Eintrags werden referenziert und sind somit nachverfolgbar.-->
 
 #### Ablauf
 
