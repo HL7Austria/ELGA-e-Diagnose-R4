@@ -13,23 +13,22 @@ Description: "Das AT e-Diagnose Condition-Profil leitet sich vom Condition-Profi
 * extension contains AtElgaEdiagExtEnteredInError named entered-in-error 0..1
 
 * identifier 0..*
-* identifier ^short = "Zuordnung der Diagnose in einem internen Dokumentationssystem"
+* identifier ^short = "Zuordnung der Diagnose in einem internen Dokumentationssystem."
 
 // 2026_05_18_Begriff: Klinischer Status der Diagnose- bei Änderungen Anja Schwab Bescheid geben!!!
 * clinicalStatus 1..1 MS
 * code only CodeableConcept
-* clinicalStatus ^short = "Klinischer Status der Diagnose (wie:Status post), mögliche Codes: active | recurrence | relapse | inactive | remission | resolved"
+* clinicalStatus ^short = "Klinischer Status der Diagnose (z. B. Status post); mögliche Codes: active | recurrence | relapse | inactive | remission | resolved."
 
 // 2026_06_ToDo: Klären der Kardinalität? optional? 
 * verificationStatus 1..1 MS
 * verificationStatus only CodeableConcept
-* verificationStatus ^short = "Verifizierungsstatus der Diagnose, mögliche Codes: unconfirmed | provisional | differential | confirmed | refuted | entered-in-error"
+* verificationStatus ^short = "Verifizierungsstatus der Diagnose, mögliche Codes: unconfirmed | provisional | differential | confirmed | refuted | entered-in-error."
 
 * category 0..0
 * category ^short = "Differenzierung nach Kontext ist nicht relevant."
-
 * severity 0..0
-* severity ^short = "Schweregrad der Erkrankung"
+* severity ^short = "Schweregrad der Erkrankung."
 
 
 //"Condition.code.text wird 0..0 (es soll keinen Freitext zum Code geben)
@@ -39,7 +38,7 @@ Description: "Das AT e-Diagnose Condition-Profil leitet sich vom Condition-Profi
 // https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"
 * code 1..1 MS
 * code only CodeableConcept
-* code ^short = "Diagnosecode (Codierservice), Text verboten, Codesystem 1.SNOMED 2.Orphanet"
+* code ^short = "Diagnosecode (Codierservice); Freitext ist nicht zulässig. Codesysteme: 1. SNOMED CT, 2. Orphanet."
 
 * code.text 0..0
 
@@ -63,35 +62,35 @@ Description: "Das AT e-Diagnose Condition-Profil leitet sich vom Condition-Profi
 * code.coding[orphanet].code 1..1
 
 * bodySite 0..0
-* bodySite ^short = "Zuordnung der Diagnose der Körper-Lokalisation"
+* bodySite ^short = "Zuordnung der Diagnose zu einer Körperstelle."
 
 * subject 1..1 MS
 * subject only Reference(HL7ATCorePatient)
-* subject ^short = "Person, auf die sich die Diagnose bezieht"
+* subject ^short = "Person, auf die sich die Diagnose bezieht."
 
 * encounter 0..0
-* encounter ^short = "Behandlungskontakt"
+* encounter ^short = "Behandlungskontakt."
 
 // dateTime
 * onset[x] 0..1
 * onset[x] only dateTime 
-* onset[x] ^short = "Beginn der Erkrankung/Diagnosezeitpunkt"
+* onset[x] ^short = "Beginn der Erkrankung bzw. Diagnosezeitpunkt."
 
 // dateTime
 * abatement[x] 0..1
 * abatement[x] only dateTime 
-* abatement[x] ^short = "Ende der Erkrankung"
+* abatement[x] ^short = "Ende der Erkrankung."
 
 * recordedDate 1..1 MS
 * recordedDate only dateTime
-* recordedDate ^short = "Zeitpunkt der Diagnosendokumentation"
+* recordedDate ^short = "Zeitpunkt der Dokumentation der Diagnose."
 
 * recorder 1..1 MS
 * recorder only Reference(
     HL7ATCorePractitioner
     or HL7ATCorePractitionerRole
 )
-* recorder ^short = "Ansonsten Gesundheitsdiensteanbieter, der die Diagnose eingetragen hat"
+* recorder ^short = "GDA, der die Diagnose eingetragen hat."
 
 
 * asserter 0..1
@@ -101,10 +100,10 @@ Description: "Das AT e-Diagnose Condition-Profil leitet sich vom Condition-Profi
     or HL7ATCorePatient
     or http://hl7.org/fhir/StructureDefinition/RelatedPerson
 )
-* asserter ^short = "Quelle der Information zur Diagnose (z. B. behandelnde Person, Patient oder Dritter)"
+* asserter ^short = "Quelle der Information zur Diagnose (z. B. behandelnde GDA, Patient oder Dritter)."
 
 * stage 0..0
-* stage ^short = "Stadium der Erkrankung"
+* stage ^short = "Stadium der Erkrankung."
 
 // muss profiliert werden für .detail (Reference) als Link auf 
 // ELGA-Befunde = Metadaten werden eingetragen
@@ -113,7 +112,7 @@ Description: "Das AT e-Diagnose Condition-Profil leitet sich vom Condition-Profi
 
 * evidence 0..*
 //* evidence.detail only Reference(ELGABefund)
-* evidence ^short = "Verweis auf ELGA-Befunde als medizinische Evidenz"
+* evidence ^short = "Verweis auf ELGA-Befunde als medizinische Evidenz."
 
 
 // https://www.hl7.org/fhir/elementdefinition-definitions.html#ElementDefinition.maxLength
@@ -122,4 +121,4 @@ Description: "Das AT e-Diagnose Condition-Profil leitet sich vom Condition-Profi
 * note 0..1
 * note.author[x] 0..0
 * note.time 0..0
-* note ^short = "Freitext zur Diagnose für Zusatzinformation"
+* note ^short = "Freitext zur Diagnose als Zusatzinformation."
