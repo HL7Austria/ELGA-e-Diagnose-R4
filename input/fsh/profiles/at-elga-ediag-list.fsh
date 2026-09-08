@@ -19,7 +19,7 @@ Description: "Das AT e-Diagnose List-Profil dient der strukturierten Listung von
 
 * mode 1..1 MS
 * mode = #working (exactly)
-* mode ^short = "Die Liste wird laufend gepflegt, hat daher den fixen Wert: working."
+* mode ^short = "Die Liste wird laufend gepflegt und hat daher den festen Wert: working."
 
 * title 0..0
 * title ^short = "Die Liste hat keinen Titel."
@@ -41,8 +41,8 @@ Zentralen Patientenindex identifizierbar und Teilnehmer der e-Diagnose ist."
 
 * source 1..1 MS
 * source only Reference(HL7ATCorePractitioner or HL7ATCorePractitionerRole or HL7ATCorePatient)
-* source ^short = "Person, die die Liste erstellt hat und für den Inhalt verantwortlich ist. Im Falle eines GDA: eindeutig identifiziert über den GDA-Index und berechtigt auf die ELGA-Anwendung 
-des Patienten zuzugreifen. Im Falle eines Patienten: eindeutig identifiziert durch den Z-PI."
+* source ^short = "Person, die die Liste erstellt hat und für den Inhalt verantwortlich ist. Im Falle eines GDA ist sie eindeutig über den GDA-Index identifiziert und zum Zugriff auf die ELGA-Anwendung des Patienten berechtigt. 
+ Im Falle eines Patienten erfolgt die eindeutige Identifizierung über den Z-PI."
 
 * orderedBy 0..0
 * orderedBy ^short = "Die Reihenfolge der Einträge wird über die List.entries durch den Ersteller vorgegeben."
@@ -58,10 +58,10 @@ des Patienten zuzugreifen. Im Falle eines Patienten: eindeutig identifiziert dur
 * entry.flag ^short = "Kennzeichnung des Status entsprechend Workflow nicht relevant."
 
 * entry.deleted 0..0 
-* entry.deleted ^short = "Kennzeichnung, dass der Eintrag gelöscht wurde, ist nicht erlaubt (siehe Invariant lst-2)."
+* entry.deleted ^short = "Eine Kennzeichnung des Eintrags als gelöscht ist nicht zulässig (siehe Invariant list-emptyreason-required)."
 
 * entry.date 0..0
-* entry.date ^short = "Datum der Aufnahme des Eintrags in die Liste wird nicht dokumentiert, da die Liste laufend gepflegt wird und das Datum der letzten Aktualisierung der Liste (List.date) dokumentiert wird."
+* entry.date ^short = "Das Datum der Aufnahme des Eintrags in die Liste wird nicht dokumentiert, da die Liste laufend gepflegt wird. Dokumentiert wird das Datum der letzten Aktualisierung der Liste (List.date)."
 
 * entry.item 1..1 MS
 * entry.item ^short = "Referenz auf einen Eintrag."
