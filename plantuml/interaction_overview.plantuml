@@ -54,7 +54,7 @@ interface "/List" as List_type {
 interface "/List/[id]" as List_instance {
   «GET» /_history [GDA, PAT] 
   «GET» /_history/[vid] [GDA, PAT] 
-  «DELETE» [PAT]
+  «POST» $delete-history-version [PAT]
 }
 
 interface "/Condition/[id]" as ICondition_instance {
