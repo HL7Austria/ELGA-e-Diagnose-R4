@@ -15,7 +15,7 @@ Dieser Use-Case ermöglicht den lesenden Zugriff auf einen einzelnen Eintrag.
 1. Der GDA oder ELGA-Teilnehmer hat einen der folgenden Requests durchgeführt: 
    1. [Abruf der aktuelle Summary-Liste](#aktuelle-summary-liste-abrufen)
    2. [Abruf der Summary-Listenversion](#versionen-einer-summary-liste-abrufen)
-   3. [Abruf aller Einträge](#einträge-abrufen)
+   3. [Abruf aller Einträge](#alle-einträge-abrufen)
 2. Auf Basis des zuvor ausgeführten Requests wählt der GDA oder ELGA-Teilnehmer einen Eintrag aus der durch seine `id` eindeutig identifiziert wird.
 3. Der GDA führt ein `GET /[Condition|Procedure|AllergyIntolerance]/[id]` aus, um den ausgewählten Eintrag von der e-Diagnose Fachanwendung abzurufen.
 
