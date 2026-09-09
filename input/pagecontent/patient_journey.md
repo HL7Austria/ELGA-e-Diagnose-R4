@@ -5,6 +5,7 @@ Die Patient Journey zeigt den Lebenszyklus der e-Diagnose von der erstmaligen In
 
 
 ### 1. Arztbesuch – Erstvorstellung und Initialisierung der e-Diagnose
+
 [Dr Musterärztin Melanie](Practitioner-PractitionerExample.html) sieht [Max Mustermann](Patient-PatientExample.html) am **3. März 2026** erstmals in ihrer Ordination. Zur besseren klinischen Einschätzung ruft sie die vorhandenen medizinischen Informationen aus der e-Diagnose ab.
 
 
@@ -19,14 +20,15 @@ Im Rahmen der Anamnese und körperlichen Untersuchung erhebt die Ärztin die akt
 Herr Mustermann berichtet über einen seit mehreren Jahren bestehenden, mit Lisimopril 10 mg medikamentös behandelten Bluthochdruck. Momentan bestehen bei Herrn Mustermann Schmerzen beim Schlucken und Fieber über 38,5 Grad. Die körperliche Untersuchung ergibt eine eitrige Angina.
 Herr Mustermann gibt an, seit seiner Kindheit an einer Penicillinallergie zu leiden. Da Herr Mustermann aufgrund seiner bekannten Penicillinallergie kein Amoxicillin erhalten darf, entscheidet sich die Ärztin für eine Behandlung mit Clarithromycin und Mexalen 500 mg bei Bedarf zur Schmerzbehandlung.
 
-Die relevanten Informationen werden in den jeweiligen Ressourcen dokumentiert. Für die [Hypertonie](Condition-ConditionSummaryExample.html) und [Suppurative tonsillitis](Condition-ConditionGesamtlisteExample.html) werden jeweils eine Condition und für die [Amoxicillin](AllergyIntolerance-AllergyExample.html)-Allergie eine AllergyIntolerance angelegt.
+Die relevanten Informationen werden in den jeweiligen Ressourcen dokumentiert. Für die [Hypertonie](Condition-ConditionSummaryExample.html) und [Suppurative tonsillitis](Condition-ConditionGesamtlisteExample1.html) werden jeweils eine Condition und für die [Amoxicillin](AllergyIntolerance-AllergyExample.html)-Allergie eine AllergyIntolerance angelegt.
 Bei einem neuerlichen Abruf der e-Diagnose werden die eingetragenen Summary-Einträge (Hypertonie und Amoxicillin-Allergie) in den jeweiligen Kategorien der Summary-Listen zurückgegeben [Condtion-Summary-Liste](List-ListConditionExample.html) und [Allergy-Summary-Liste](List-ListAllergyExample.html). Um eine Gesamtansicht aller Diagnoseneinträge zu erhalten führt Dr. Musterärztin ein [Einträge abrufen](uc_ediag_01_lesen.html#einträge-abrufen) aus.
 
 
 ### 2.Arztbesuch - Auftreten von Nebenwirkungen
-Die Symptome der eitrige Angina haben sich duch die Einnahme der antibiotischen Therapie deutlich gebessert. Allerdings berichtet Herr Mustermann über Durchfall, sowie einem unangehmen Juckreiz im Genitalbeeich. Bei der Untersuchung stellt Dr. Musterärztin eine Pilzinfektion fest, die vermutlich im Zusammenhang mit der vorausgegangen Antibiothikatherapie steht. 
 
-Für die Magen-Darm-Beschwerden und die diagnostizierte Candida-Infektion werden entsprechende Einträge in der e-Diagnose angelegt. Die bestehende Amoxicillin-Allergie bleibt weiterhin als relevante Allergie des Patienten bestehen.
+Die Symptome der eitrige Angina haben sich duch die Einnahme der antibiotischen Therapie deutlich gebessert. Allerdings berichtet Herr Mustermann bei seinem Ordinationsbesuch am **6. März 2026** über Durchfall, sowie einem Juckreiz im Genitalbeeich. Bei der Untersuchung stellt Dr. Musterärztin eine Pilzinfektion fest, die vermutlich im Zusammenhang mit der vorausgegangen Antibiothikatherapie steht. 
+
+Für die [Medikamenteninduzierte Diarrhö](Condition-ConditionGesamtlisteExample3.html) und die diagnostizierte [Candida-Balanitis](Condition-ConditionGesamtlisteExample2.html) werden entsprechende Einträge in der Gesamtansicht aller Diagnoseneinträge angelegt. 
 
 
 
