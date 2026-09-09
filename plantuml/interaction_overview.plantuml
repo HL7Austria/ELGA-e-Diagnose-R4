@@ -48,7 +48,7 @@ title REST-Schnittstellen: [base]
 interface "/List" as List_type {
   «GET» ?code=[code]&_include=* [GDA, PAT] 
   «GET» ?code=[code]&_sort=-date&_count=1&_include=* [GDA, PAT]
-  «POST» $list-write [GDA]
+  «POST» $write [GDA]
 }
 
 interface "/List/[id]" as List_instance { 
@@ -57,7 +57,7 @@ interface "/List/[id]" as List_instance {
 
 interface "/Condition/[id]" as ICondition_instance {
   «POST» $delete [PAT]
-  «POST» $storno [GDA]
+  «POST» $entered-in-error [GDA]
 } 
 
 interface "/Condition" as ICondition_type {
@@ -67,7 +67,7 @@ interface "/Condition" as ICondition_type {
 
 interface "/Procedure/[id]" as IProcedure_instance {
   «POST» $delete [PAT]
-  «POST» $storno [GDA]
+  «POST» $entered-in-error [GDA]
 } 
 
 interface "/Procedure" as IProcedure_type {
@@ -77,7 +77,7 @@ interface "/Procedure" as IProcedure_type {
 
 interface "/AllergyIntolerance/[id]" as IAllergyIntolerance_instance {
   «POST» $delete [PAT]
-  «POST» $storno [GDA]
+  «POST» $entered-in-error [GDA]
 } 
 
 interface "/AllergyIntolerance" as IAllergyIntolerance_type {
