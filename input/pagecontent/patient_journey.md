@@ -16,14 +16,17 @@ Für Herrn Mustermann existiert bisher noch keine strukturierte e-Diagnose-Summa
 **Erfassung bestehender Diagnosen und Allergien**
 
 Im Rahmen der Anamnese und körperlichen Untersuchung erhebt die Ärztin die aktuellen gesundheitlichen Probleme sowie bereits länger bestehende Grunderkrankungen und Allergien des Patienten. 
-Herr Mustermann berichtet über einen seit mehreren Jahren bestehenden, medikamentös behandelten Bluthochdruck. Momentan bestehen bei Herrn Mustermann Schmerzen beim Schlucken und Fieber über 38,5 Grad. Die körperliche Untersuchung ergibt eine eitrige Angina.
-Herr Mustermann gibt an, seit seiner Kindheit an einer Penicillinallergie zu leiden.
+Herr Mustermann berichtet über einen seit mehreren Jahren bestehenden, mit Lisimopril 10 mg medikamentös behandelten Bluthochdruck. Momentan bestehen bei Herrn Mustermann Schmerzen beim Schlucken und Fieber über 38,5 Grad. Die körperliche Untersuchung ergibt eine eitrige Angina.
+Herr Mustermann gibt an, seit seiner Kindheit an einer Penicillinallergie zu leiden. Da Herr Mustermann aufgrund seiner bekannten Penicillinallergie kein Amoxicillin erhalten darf, entscheidet sich die Ärztin für eine Behandlung mit Clarithromycin und Mexalen 500 mg bei Bedarf zur Schmerzbehandlung.
 
 Die relevanten Informationen werden in den jeweiligen Ressourcen dokumentiert. Für die [Hypertonie](Condition-ConditionSummaryExample.html) und [Suppurative tonsillitis](Condition-ConditionGesamtlisteExample.html) werden jeweils eine Condition und für die [Amoxicillin](AllergyIntolerance-AllergyExample.html)-Allergie eine AllergyIntolerance angelegt.
 Bei einem neuerlichen Abruf der e-Diagnose werden die eingetragenen Summary-Einträge (Hypertonie und Amoxicillin-Allergie) in den jeweiligen Kategorien der Summary-Listen zurückgegeben [Condtion-Summary-Liste](List-ListConditionExample.html) und [Allergy-Summary-Liste](List-ListAllergyExample.html). Um eine Gesamtansicht aller Diagnoseneinträge zu erhalten führt Dr. Musterärztin ein [Einträge abrufen](uc_ediag_01_lesen.html#einträge-abrufen) aus.
 
 
+### 2.Arztbesuch - Auftreten von Nebenwirkungen
+Die Symptome der eitrige Angina haben sich duch die Einnahme der antibiotischen Therapie deutlich gebessert. Allerdings berichtet Herr Mustermann über Durchfall, sowie einem unangehmen Juckreiz im Genitalbeeich. Bei der Untersuchung stellt Dr. Musterärztin eine Pilzinfektion fest, die vermutlich im Zusammenhang mit der vorausgegangen Antibiothikatherapie steht. 
 
+Für die Magen-Darm-Beschwerden und die diagnostizierte Candida-Infektion werden entsprechende Einträge in der e-Diagnose angelegt. Die bestehende Amoxicillin-Allergie bleibt weiterhin als relevante Allergie des Patienten bestehen.
 
 
 
