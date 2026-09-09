@@ -47,9 +47,15 @@ Dieser Use-Case dient ausschließlich der Anzeige historischer Versionen der Sum
 
 1. Der GDA ruft die [aktuelle Summary-Liste](uc_ediag_01_lesen.html#aktuelle-summary-liste-abrufen) ab, wodurch er das entsprechende SearchSet-Bundle und damit die `id` der Summary-Liste erhält.
 2. In einem zweiten Request kann der GDA jetzt auf die gesamte History von der Summary-Liste zugreifen. 
-   `GET /List/[id]/_history`
 3. Die e-Diagnose Fachanwendung liefert ein History-Bundle zurück, das alle Summary-Listenversionen enthält.
+   `GET /List/[id]/_history`
 4. Zu einer Summary-Listenversion können die [referenzierten Diagnosen von der e-Diagnose Fachanwendung](#einzelnen-eintrag-abrufen) abgefragt werden.
+
+###### Alternativer Ablauf
+
+1. Alternativ kann auch direkt auf eine bestimmte Version zugegriffen werden:
+  `GET /List/[id]/_history/[vid]`
+2. Die e-Diagnose Fachanwendung liefert die entsprechende Summary-Listenversion zurück.
 
 ##### Sequenzdiagramm 
 
