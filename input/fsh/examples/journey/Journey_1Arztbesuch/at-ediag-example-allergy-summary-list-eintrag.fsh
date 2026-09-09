@@ -1,4 +1,4 @@
-Instance: AllergySummaryExample
+Instance: AllergySummaryExample1
 InstanceOf: AtEdiagAllergyIntolerance
 Title: "Beispielinstanz einer Allergie für die Summary-Liste"
 Description: "Beispiel einer bestätigten Allergie"
