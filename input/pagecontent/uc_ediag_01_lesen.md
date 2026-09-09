@@ -37,39 +37,25 @@ Die Interaktion liefert standardmäßig die 30 zuletzt erstellten Einträge, abs
 
 ### Interaktionen auf Listenressourcen
 
-#### Vergangene Versionen einer Summary-Liste abrufen (List-History-Read)  
-
-**TODO: Unklar, ob Historie von Listen geführt wird (siehe https://github.com/HL7Austria/ELGA-e-Diagnose-R4/issues/13)**
-**TODO: Falls Historie von Listen: Entscheiden, ob bei jeder $write-Operation eine neue Liste angelegt wird, oder ob _history verwendet wird. Davon ist abhängig, ob Search (`GET`) verwendet werden kann oder eine Custom Operation für die Sucher innerhalb der _history erforderlich ist.**
+#### Versionen einer Summary-Liste abrufen
 
 > Sub:UC_01_02 
 
-History Read dient ausschließlich der Anzeige historischer Versionen der Summary-Liste. Die Fachanwendung stellt bereits persistierte historische Summary-Listen unverändert bereit. Der Zugriff erfolgt lesend und ermöglicht keine nachfolgende Bearbeitung der jeweiligen Summary-Liste.
-Vorversionen der Summary-Listen können in chronologischer Reihenfolge dargestellt werden – absteigend nach Erstellungsdatum, d.h. die jüngste Version zuerst.  
+Dieser Use-Case dient ausschließlich der Anzeige historischer Versionen der Summary-Liste. Der Zugriff erfolgt lesend und ermöglicht keine Bearbeitung der jeweiligen Summary-Listenversion.
 
 ##### Ablauf
 
-1. Der GDA führt ein **GET** (Suche) auf den List-Typ aus.
-2. Die Fachanwendung führt die Suche anhand der angegebenen Suchparameter durch.
-3. Werden keine Summary-Listen gefunden, wird ein leeres Ergebnis zurückgeliefert.
-4. Wird zumindest eine Summary-Liste gefunden, liefert die Fachanwendung ein **Search-Bundle** zurück. <br>
-Dieses **Search-Bundle** enthält:
-* die List-Ressource <br>
-* alle referenzierten Ressourcen (Patient, Practitioner, Condition, Procedure, AllergyIntolerance)
-
-Beim List History Read erfolgt **keine Veränderung** von Flags, Status oder Inhalten durch die Fachanwendung.<br>
-Der Zugriff dient ausschließlich der Anzeige bzw. Informationsabfrage von aktueller oder historischer Summary-Listenversionen.<br>
+1. Der GDA ruft die [aktuelle Summary-Liste](uc_ediag_01_lesen.html#aktuelle-summary-liste-abrufen) ab, wodurch er das entsprechende SearchSet-Bundle und damit die `id` der Summary-Liste erhält.
+2. In einem zweiten Request kann der GDA jetzt auf die gesamte History von der Summary-Liste zugreifen. 
+   `GET /List/[id]/_history`
+3. Die e-Diagnose Fachanwendung liefert ein History-Bundle zurück, das alle Summary-Listenversionen enthält.
+4. Zu einer Summary-Listenversion können die [referenzierten Diagnosen von der e-Diagnose Fachanwendung](#einzelnen-eintrag-abrufen) abgefragt werden.
 
 ##### Sequenzdiagramm 
 
 <br>
 <div>{% include_relative plantuml/historyread.svg %}</div>
 <br> 
-
-<!-- TODO: Es muss noch definiert werden, wie zwischen den Listen von Conditions, Procedures, AllergyIntolerances unterschieden wird. -->
-**Beispiele für Zugriffe mittels Suchparameter:**
-* **Aktuelle Summary-Listenversion** der Summary-Einträge (Conditions) mit dem Suchparameter Patient abrufen: `GET /List?_include=List:patient&_include=List:source&_include:iterate=List:item&_count=1&_sort=-date&code=http://loinc.org|11450-4`
-* **Alle Summary-Listenversionen** der Summary-Einträge (Procedures) mit dem Suchparameter Patient abrufen: `GET /List?_include=List:patient&_include=List:source&_include:iterate=List:item&_sort=-date&code=http://loinc.org|47519-4`  
 
 #### Aktuelle Summary-Liste abrufen
 
