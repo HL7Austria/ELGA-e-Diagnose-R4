@@ -6,7 +6,7 @@ Dieses Kapitel beschreibt die lesenden Zugriffe der e-Diagnose-Fachanwendung auf
 
 ## Interaktionen auf Einzelressourcen
 
-### Einzelne Einträge abrufen 
+### Einträge abrufen 
 
 > Sub:UC_01_01 
 
