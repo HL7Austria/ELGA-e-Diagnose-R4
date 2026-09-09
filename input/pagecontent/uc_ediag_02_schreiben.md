@@ -35,7 +35,7 @@ Der GDA kann eine oder mehrere Einträge aufgrund einer falschen Eingabe stornie
 
 #### Ablauf
 
-1. Um einen Eintrag zu stornieren, führt der GDA die [`$entered-in-error`-Operation](tbd.html) auf den zu stornierenden Eintrag aus.
+1. Um einen Eintrag zu stornieren, führt der GDA die [`$entered-in-error`-Operation](OperationDefinition-at-ediag-operation-diagnose-entered-in-error.html) auf den zu stornierenden Eintrag aus.
 2. Optional kann der GDA einen Grund für die Stornierung angeben, der durch die Fachanwendung in den zu stornierenden Eintrag übernommen wird.
 3. Für den zu stornierenden Eintrag speichert die Fachanwendung, welcher GDA den Eintrag storniert hat sowie den Zeitpunkt der Stornierung.
 4. Sollte der zu stornierende Eintrag Teil der aktuellen Summary-Liste gewesen sein, erstellt die Fachanwendung eine neue Version der Summary-Liste ohne den stornierten Eintrag.
