@@ -56,28 +56,14 @@ participant eDiag_FA as "e-Diagnose Fachanwendung" COLOR_DIAG_FA
 
 autonumber
 activate GDA_1 COLOR_GDA_1
-
-GDA_1 -> eDiag_FA: GET /List?_include=List:patient&_include=List:source&_include:iterate=List:item&criteria...
-
 activate eDiag_FA COLOR_DIAG_FA
 
-eDiag_FA -> eDiag_FA: Auf bestehende\nListe(n) prüfen
+ref over GDA_1, eDiag_FA : [[uc_ediag_01_lesen.html#aktuelle-summary-liste-abrufen Aktuelle Summary-Liste abrufen]]
 
-group COLOR_OK alt: Liste(n) gefunden? [Liste(n) entsprechend der Suchparametern vorhanden]
+GDA_1 -> GDA_1: Ermittelt die ""id"" der Summary-Liste
 
-  note over GDA_1, eDiag_FA
-    Die Fachanwendung liefert die gespeicherte Liste 
-    (unverändert, inkl. aller referenzierten Ressourcen) zurück.
-  end note
+GDA_1 -> eDiag_FA: ""GET /List/[id]/_history""
 
-  eDiag_FA --> GDA_1: Bundle (type=searchset) mit zumindest einer Liste
-
-else COLOR_OK keine Liste entsprechend der Suchparameter vorhanden
-  eDiag_FA --> GDA_1: leeres Bundle (type=searchset)
-else COLOR_ERROR Fehler
-  eDiag_FA --> GDA_1: OperationOutcome
-  deactivate GDA_1
-  deactivate eDiag_FA
-end
+eDiag_FA --> GDA_1: Bundle (""type=history"")
 
 @enduml
