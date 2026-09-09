@@ -1,7 +1,7 @@
 Instance: AtDiagListWrite
 InstanceOf: OperationDefinition
 Title: "e-Diagnose Operation $write"  
-Description: """Die $write Operation wird aufgerufen, wenn eine Summary-Liste geschrieben wird."""
+Description: """Die `$write`-Operation wird aufgerufen, wenn eine Summary-Liste geschrieben wird."""
 Usage: #definition
 
 * id = "at-ediag-operation-list-write"
