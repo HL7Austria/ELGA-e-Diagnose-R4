@@ -4,7 +4,7 @@ Title: "Beispielinstanz einer Diagnose für die Summary-Liste"
 Description: "Beispiel einer dauerhaften Diagnose"
 Usage: #example
 
-* extension[AtReported].valueBoolean = false
+* extension[AtReported].valueBoolean = true
 
 * clinicalStatus = $condition-clinical#active
 

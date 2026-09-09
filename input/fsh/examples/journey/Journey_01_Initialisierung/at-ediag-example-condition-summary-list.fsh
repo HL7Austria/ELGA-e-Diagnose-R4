@@ -1,6 +1,6 @@
-Instance: ListExample02
+Instance: ListConditionExample
 InstanceOf: AtEdiagList
-Title: "Summary-Liste mit einem Summary-Eintrag"
+Title: "Condition Summary-Liste mit einem Summary-Eintrag"
 Description: "Beispiel einer Summary-Liste mit einem Eintrag, der auf eine Diagnose verweist."
 Usage: #example
 
@@ -15,4 +15,4 @@ Usage: #example
 
 * source = Reference(PractitionerExample)
 
-* entry[0].item = Reference(DiagnoseCurrentlyRelevantExample)
+* entry[0].item = Reference(ConditionSummaryExample)
