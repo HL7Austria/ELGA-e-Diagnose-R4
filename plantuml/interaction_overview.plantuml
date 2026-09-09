@@ -51,11 +51,14 @@ interface "/List" as List_type {
   «POST» $write [GDA]
 }
 
-interface "/List/[id]" as List_instance { 
+interface "/List/[id]" as List_instance {
+  «GET» /_history [GDA, PAT] 
+  «GET» /_history/[vid] [GDA, PAT] 
   «DELETE» [PAT]
 }
 
 interface "/Condition/[id]" as ICondition_instance {
+  «GET» [GDA, PAT]
   «POST» $delete [PAT]
   «POST» $entered-in-error [GDA]
 } 
@@ -66,6 +69,7 @@ interface "/Condition" as ICondition_type {
 } 
 
 interface "/Procedure/[id]" as IProcedure_instance {
+  «GET» [GDA, PAT]
   «POST» $delete [PAT]
   «POST» $entered-in-error [GDA]
 } 
@@ -76,6 +80,7 @@ interface "/Procedure" as IProcedure_type {
 } 
 
 interface "/AllergyIntolerance/[id]" as IAllergyIntolerance_instance {
+  «GET» [GDA, PAT]
   «POST» $delete [PAT]
   «POST» $entered-in-error [GDA]
 } 
