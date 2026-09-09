@@ -1,4 +1,4 @@
-Instance: ListConditionExample
+Instance: ListConditionExample1
 InstanceOf: AtEdiagList
 Title: "Condition Summary-Liste mit einem Summary-Eintrag"
 Description: "Beispiel einer Summary-Liste mit einem Eintrag, der auf eine Diagnose verweist."

@@ -17,12 +17,12 @@ Usage: #example
 
 * subject = Reference(PatientExample)
 
-* recordedDate = "2026-03-06T00:00:00+00:00"
+* recordedDate = "2026-03-09T00:00:00+00:00"
 
 * recorder = Reference(PractitionerExample)
 
 * asserter = Reference(PractitionerExample)
 
-* onsetDateTime = "2026-03-06"
+* onsetDateTime = "2026-03-09"
 
 * note.text = "Wässrige Durchfälle bei bestehender AB-Therapie"
