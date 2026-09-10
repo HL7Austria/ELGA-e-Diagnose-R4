@@ -1,7 +1,7 @@
 Instance: ListConditionExample3
 InstanceOf: AtEdiagList
-Title: "Condition Summary-Liste mit 2 Summary-Einträgen"
-Description: "Beispiel einer Summary-Liste mit 2 Einträgen."
+Title: "Condition Summary-Liste (Zweiter Arztbesuch - korrigiert)"
+Description: "Beispiel einer Summary-Liste nachdem ein Eintrag storniert wurde."
 Usage: #example
 
 * status = #current
@@ -11,7 +11,7 @@ Usage: #example
 
 * subject = Reference(PatientExample)
 
-* date = "2026-03-01T00:00:00+00:00"
+* date = "2026-03-09T10:00:00+00:00"
 
 * source = Reference(PractitionerExample)
 

@@ -1,7 +1,7 @@
 Instance: ListExample01
 InstanceOf: AtEdiagList
-Title: "Beispiel einer leeren Summary-Liste"
-Description: "Initiale Summary-Liste ohne Summary-Einträge."
+Title: "Condition-Summary-Liste (notstarted)"
+Description: "Initiale Summary-Liste ohne Summary-Einträge (Condition)."
 Usage: #example
 
 * status = #current
@@ -10,5 +10,5 @@ Usage: #example
 * code = $cs-loinc#11450-4
 * subject = Reference(PatientExample)
 * date = "2026-03-03T08:00:00+00:00"
-* source = Reference(PractitionerExample)
-* emptyReason = $cs-list-empty-reason#notstarted "notstarted"
+* source = Reference(DeviceExample)
+* emptyReason = $cs-list-empty-reason#notstarted "Not Started"

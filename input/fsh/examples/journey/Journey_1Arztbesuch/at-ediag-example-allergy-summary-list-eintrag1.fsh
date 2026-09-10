@@ -7,7 +7,7 @@ Description: "Beispiel einer bestätigten Allergie"
 
 * clinicalStatus = http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical#active
 
-* verificationStatus = http://terminology.hl7.org/CodeSystem/allergyintolerance-verification#refuted
+* verificationStatus = http://terminology.hl7.org/CodeSystem/allergyintolerance-verification#confirmed
 
 * code.coding.system = "http://snomed.info/sct"
 * code.coding.code = #372687004
@@ -15,7 +15,7 @@ Description: "Beispiel einer bestätigten Allergie"
 
 * patient = Reference(PatientExample)
 
-* recordedDate = "2026-03-01T00:00:00+00:00"
+* recordedDate = "2026-03-03T00:00:00+00:00"
 
 * recorder = Reference(PractitionerExample)
 
@@ -33,4 +33,4 @@ Description: "Beispiel einer bestätigten Allergie"
 
 * reaction.note.text = "Hautausschlag und Erbrechen nach Penicillin-Einnahme"
 
-* reaction.onset = "1908-03-01"
+* reaction.onset = "1983-03-01"

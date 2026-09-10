@@ -33,7 +33,7 @@ Usage: #example
 * telecom[=].value = "+436501234567890"
 * telecom[=].use = #home
 * gender = #male
-* birthDate = "1900-01-01"
+* birthDate = "1970-01-01"
 * address.use = #home
 * address.type = #both
 * address.line = "Landstrasse 1 Stock 9 Tür 42"
