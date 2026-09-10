@@ -11,11 +11,11 @@ Usage: #example
 // Coloskopie 
 * code = http://snomed.info/sct#73761001 "Colonoscopy"
 
-* subject = Reference(Patient)
+* subject = Reference(PatientExample)
 
 * performedDateTime = "2025-09-23T09:30:00+02:00"
 
-* recorder = Reference(Practitioner)
+* recorder = Reference(PractitionerExample)
 
-* asserter = Reference(Practitioner)
+* asserter = Reference(PractitionerExample)
 

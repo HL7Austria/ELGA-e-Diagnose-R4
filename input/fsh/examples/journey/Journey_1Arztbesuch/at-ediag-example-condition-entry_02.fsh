@@ -15,13 +15,13 @@ Usage: #example
 
 * code.coding[snomed].display = "Suppurative tonsillitis"
 
-* subject = Reference(Patient)
+* subject = Reference(PatientExample)
 
 * recordedDate = "2026-03-03T00:00:00+00:00"
 
-* recorder = Reference(Practitioner)
+* recorder = Reference(PractitionerExample)
 
-* asserter = Reference(Practitioner)
+* asserter = Reference(PractitionerExample)
 
 * onsetDateTime = "2026-02-28"
 

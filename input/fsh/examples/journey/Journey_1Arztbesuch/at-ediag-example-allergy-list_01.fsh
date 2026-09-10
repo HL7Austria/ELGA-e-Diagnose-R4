@@ -9,7 +9,7 @@ Usage: #example
 
 * code = $cs-loinc#48765-2
 
-* subject = Reference(Patient)
+* subject = Reference(PatientExample)
 
 * date = "2026-03-03T00:00:00+00:00"
 

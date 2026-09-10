@@ -9,11 +9,11 @@ Usage: #example
 
 * code = $cs-loinc#11450-4
 
-* subject = Reference(Patient)
+* subject = Reference(PatientExample)
 
 * date = "2026-03-01T00:00:00+00:00"
 
-* source = Reference(Practitioner)
+* source = Reference(PractitionerExample)
 
 * entry[0].item = Reference(ProcedureEntry01)
 

@@ -1,4 +1,4 @@
-Instance: Patient
+Instance: PatientExample
 InstanceOf: HL7ATCorePatient
 Title: "Beispiel Patient"
 Description: "Beispielinstanz eines Patienten"
