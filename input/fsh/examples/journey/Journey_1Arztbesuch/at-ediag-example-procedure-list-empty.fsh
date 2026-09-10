@@ -1,7 +1,7 @@
-Instance: ListExample01
+Instance: ListProcedureEmptyExample
 InstanceOf: AtEdiagList
-Title: "Condition-Summary-Liste (notstarted)"
-Description: "Initiale Summary-Liste ohne Summary-Einträge (Condition)."
+Title: "Procedure-Summary-Liste (notstarted)"
+Description: "Initiale Summary-Liste ohne Summary-Einträge (Procedure)."
 Usage: #example
 
 * status = #current
