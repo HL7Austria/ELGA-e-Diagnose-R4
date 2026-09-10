@@ -1,7 +1,7 @@
 Instance: ListConditionExample3
 InstanceOf: AtEdiagList
-Title: "Condition Summary-Liste mit einem Summary-Eintrag"
-Description: "Beispiel einer Summary-Liste mit einem Eintrag, der auf eine Diagnose verweist."
+Title: "Condition Summary-Liste mit 2 Summary-Einträgen"
+Description: "Beispiel einer Summary-Liste mit 2 Einträgen."
 Usage: #example
 
 * status = #current
