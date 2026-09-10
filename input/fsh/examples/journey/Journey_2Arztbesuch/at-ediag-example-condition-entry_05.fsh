@@ -16,13 +16,13 @@ Usage: #example
 
 * code.coding[snomed].display = "Crohn's disease"
 
-* subject = Reference(PatientExample)
+* subject = Reference(Patient)
 
 * recordedDate = "2026-03-09T00:00:00+00:00"
 
-* recorder = Reference(PractitionerExample)
+* recorder = Reference(Practitioner)
 
-* asserter = Reference(PractitionerExample)
+* asserter = Reference(Practitioner)
 
 * onsetDateTime = "2010-01-01"
 

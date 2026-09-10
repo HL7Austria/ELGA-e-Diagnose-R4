@@ -6,7 +6,7 @@ Usage: #example
 
 * extension[AtReported].valueBoolean = true
 
-* extension[entered-in-error].extension[practitioner].valueReference = Reference(PractitionerExample)
+* extension[entered-in-error].extension[practitioner].valueReference = Reference(Practitioner)
 * extension[entered-in-error].extension[datetime].valueDateTime = "2026-09-09T10:30:00+01:00"
 * extension[entered-in-error].extension[reason].valueString = "Diagnose irrtümlich erfasst"
 
@@ -19,13 +19,13 @@ Usage: #example
 
 * code.coding[snomed].display = "Hyperthyroidism"
 
-* subject = Reference(PatientExample)
+* subject = Reference(Patient)
 
 * recordedDate = "2026-03-09T00:00:00+00:00"
 
-* recorder = Reference(PractitionerExample)
+* recorder = Reference(Practitioner)
 
-* asserter = Reference(PractitionerExample)
+* asserter = Reference(Practitioner)
 
 * onsetDateTime = "2026-02-28"
 

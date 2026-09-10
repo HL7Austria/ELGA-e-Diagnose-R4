@@ -9,12 +9,12 @@ Usage: #example
 
 * code = $cs-loinc#11450-4
 
-* subject = Reference(PatientExample)
+* subject = Reference(Patient)
 
 * date = "2026-03-09T08:00:00+00:00"
 
-* source = Reference(PractitionerExample)
+* source = Reference(Practitioner)
 
-* entry[0].item = Reference(ConditionSummaryExample1)
-* entry[1].item = Reference(ConditionSummaryExample2)
-* entry[2].item = Reference(ConditionSummaryExample3)
+* entry[0].item = Reference(ConditionEntry01)
+* entry[1].item = Reference(ConditionEntry05)
+* entry[2].item = Reference(ConditionEnteredInError)

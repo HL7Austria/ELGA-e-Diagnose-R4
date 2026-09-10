@@ -8,7 +8,7 @@ Usage: #example
 * mode = #working
 // Problem List / general clinical items
 * code = $cs-loinc#47519-4
-* subject = Reference(PatientExample)
+* subject = Reference(Patient)
 * date = "2026-03-03T08:00:00+00:00"
-* source = Reference(DeviceExample)
+* source = Reference(DeviceFA)
 * emptyReason = $cs-list-empty-reason#notstarted "Not Started"
