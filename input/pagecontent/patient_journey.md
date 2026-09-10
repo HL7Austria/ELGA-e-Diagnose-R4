@@ -12,7 +12,11 @@ Die Patient Journey zeigt den Lebenszyklus der e-Diagnose von der erstmaligen In
 **Abruf und Initialisierung der Summary-Listen**
 
 <!-- TODO mit Architekten abklären, wann und wie die Summary-Listen für einen Patienten initialisiert werden -->
-Für Herrn Mustermann existieren bisher noch keine Summary-Listen, weshalb diese initialisiert werden. Für den Patienten wird für jede Kategorie eine leere Summary-Liste angelegt. Diese enthält den Patienten [Max Mustermann](Patient-PatientExample.html), die erstellende e-Diagnose [Fachanwendung](Device-DeviceExample.html) sowie das Datum der letzten Aktualisierung. Da noch keine Einträge vorhanden sind, wird zusätzlich der Grund für die leere Liste über `List.emptyReason` mit dem Code `notstarted` (siehe [Beispiel für eine leere Liste](List-ListExample01.html)) angegeben.
+Für Herrn Mustermann existieren bisher noch keine Summary-Listen, weshalb diese initialisiert werden. Für den Patienten wird für jede Kategorie eine leere Summary-Liste angelegt. Diese enthält den Patienten [Max Mustermann](Patient-PatientExample.html), die erstellende e-Diagnose [Fachanwendung](Device-DeviceExample.html) sowie das Datum der letzten Aktualisierung. Da noch keine Einträge vorhanden sind, wird zusätzlich der Grund für die leere Liste über `List.emptyReason` mit dem Code `notstarted` 
+siehe 
+- [Beispiel für eine leere Allergy-Summary-Liste](List-ListAllergyEmptyExample.html) 
+- [Beispiel für eine leere Condition-Summary-Liste](List-ListConditionEmptyExample.html) 
+- [Beispiel für eine leere Proceduren-Summary-Liste](List-ListProcedureEmptyExample.html) 
 
 
 **Erfassung bestehender Diagnosen und Allergien**

@@ -1,7 +1,7 @@
-Instance: ListExample01
+Instance: ListAllergyEmptyExample
 InstanceOf: AtEdiagList
-Title: "Condition-Summary-Liste (notstarted)"
-Description: "Initiale Summary-Liste ohne Summary-Einträge (Condition)."
+Title: "Allergy-Summary-Liste (notstarted)"
+Description: "Initiale Summary-Liste ohne Summary-Einträge (Allergy)."
 Usage: #example
 
 * status = #current
