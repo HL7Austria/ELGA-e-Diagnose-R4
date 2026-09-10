@@ -174,7 +174,7 @@ Der GDA kann die Reihenfolge der Einträge innerhalb einer Summary-Liste ändern
 3. Der GDA führt einen POST $list-write aus und übermittelt die aktualisierte Summary-Liste.
 4. Die Fachanwendung speichert die neue Reihenfolge als aktuelle Version der Summary-Liste. Die referenzierten Ressourcen bleiben unverändert.
 
-### Einträge in der Summary-Liste bearbeiten
+### Eintrag in der Summary-Liste bearbeiten
 > Sub:UC_02_08 
 <br> 
 Dieser Sub-UC beschreibt die fachliche Bearbeitung von Einträgen einer Summary-Liste. Die tatsächliche Reihenfolge der Bearbeitungsschritte kann je nach Anwendungsfall variieren. Ein berechtigter GDA kann alle bestehenden (eigene und fremde) Einträge bearbeiten. Es ist nicht notwendigerweise vorgesehen, dass $list-read am Anfang und $list-write am Ende des Ablaufs stehen.
