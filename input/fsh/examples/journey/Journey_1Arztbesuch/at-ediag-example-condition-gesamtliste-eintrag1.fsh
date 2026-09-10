@@ -17,7 +17,7 @@ Usage: #example
 
 * subject = Reference(PatientExample)
 
-* recordedDate = "2026-03-01T00:00:00+00:00"
+* recordedDate = "2026-03-03T00:00:00+00:00"
 
 * recorder = Reference(PractitionerExample)
 
@@ -25,4 +25,4 @@ Usage: #example
 
 * onsetDateTime = "2026-02-28"
 
-* note.text = "Temperatur >38.5, Gliederschmerzen"
+* note.text = "Temperatur >38.5, Schmerzen beim Schlucken"
