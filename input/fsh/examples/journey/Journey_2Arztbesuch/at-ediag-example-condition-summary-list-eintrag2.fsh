@@ -1,4 +1,4 @@
-Instance: ConditionGesamtlisteExample4
+Instance: ConditionSummaryExample2
 InstanceOf: AtEdiagCondition
 Title: "Beispielinstanz einer Diagnose für die Summary"
 Description: "Beispiel Diagnose, aktuelle Beschwerden des Patienten"

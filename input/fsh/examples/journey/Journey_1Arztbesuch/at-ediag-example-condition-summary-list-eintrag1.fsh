@@ -24,4 +24,4 @@ Usage: #example
 
 * onsetDateTime = "2024-06-01"
 
-* note.text = "Patient berichtet über bekannte Hypertonie seit 2024, Lisinopril 10mg 1-0-0."
+* note.text = "Patient berichtet über bekannte Hypotonie seit 2024, Lisinopril 10mg 1-0-0."

@@ -1,4 +1,4 @@
-Instance: ProcedureExample1
+Instance: ProcedureSummaryExample1
 InstanceOf: AtEdiagProcedure 
 Title: "Beispielinstanz einer Prozedur für die Summary-Liste"
 Description: "Beispiel einer Prozedur"

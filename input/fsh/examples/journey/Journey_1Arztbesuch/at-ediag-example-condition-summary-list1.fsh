@@ -15,4 +15,4 @@ Usage: #example
 
 * source = Reference(PractitionerExample)
 
-* entry[0].item = Reference(ConditionSummaryExample)
+* entry[0].item = Reference(ConditionSummaryExample1)
