@@ -1,4 +1,4 @@
-Instance: ListConditionExample2
+Instance: ConditionList02
 InstanceOf: AtEdiagList
 Title: "Condition Summary-Liste (Zweiter Arztbesuch - fehlerhafter Eintrag)"
 Description: "Beispiel einer Summary-Liste während des zweiten Arztbesuchs. Eine neue Diagnose wurde erfasst.Zusätzlich ist ein Eintrag enthalten, der irrtümlich erfasst wurde."

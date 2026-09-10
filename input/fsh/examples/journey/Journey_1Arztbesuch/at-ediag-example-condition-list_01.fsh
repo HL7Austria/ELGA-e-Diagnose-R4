@@ -1,4 +1,4 @@
-Instance: ListConditionExample1
+Instance: ConditionList01
 InstanceOf: AtEdiagList
 Title: "Condition Summary-Liste (Erster Arztbesuch)"
 Description: "Beispiel der Condition-Summary-Liste nach dem ersten Arztbesuch."

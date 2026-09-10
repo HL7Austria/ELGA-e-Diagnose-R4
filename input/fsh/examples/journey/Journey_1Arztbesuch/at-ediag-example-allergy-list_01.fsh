@@ -1,4 +1,4 @@
-Instance: ListAllergyExample1
+Instance: AllergyList01
 InstanceOf: AtEdiagList
 Title: "Allergie Summary-Liste mit einem Summary-Eintrag"
 Description: "Beispiel einer Summary-Liste mit einem Eintrag, der auf eine Allergie verweist."

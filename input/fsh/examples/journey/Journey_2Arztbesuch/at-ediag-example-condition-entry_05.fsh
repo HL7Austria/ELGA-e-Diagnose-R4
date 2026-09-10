@@ -1,6 +1,7 @@
-Instance: ConditionGesamtlisteExample1
+Instance: ConditionEntry05
+
 InstanceOf: AtEdiagCondition
-Title: "Beispielinstanz einer Diagnose für die Gesamtliste"
+Title: "Beispielinstanz einer Diagnose für die Summary"
 Description: "Beispiel Diagnose, aktuelle Beschwerden des Patienten"
 Usage: #example
 
@@ -11,18 +12,18 @@ Usage: #example
 * verificationStatus = http://terminology.hl7.org/CodeSystem/condition-ver-status#confirmed
 
 * code.coding[snomed].system = "http://snomed.info/sct"
-* code.coding[snomed].code = #10351008
+* code.coding[snomed].code = #34000006
 
-* code.coding[snomed].display = "Suppurative tonsillitis"
+* code.coding[snomed].display = "Crohn's disease"
 
 * subject = Reference(PatientExample)
 
-* recordedDate = "2026-03-03T00:00:00+00:00"
+* recordedDate = "2026-03-09T00:00:00+00:00"
 
 * recorder = Reference(PractitionerExample)
 
 * asserter = Reference(PractitionerExample)
 
-* onsetDateTime = "2026-02-28"
+* onsetDateTime = "2010-01-01"
 
-* note.text = "Temperatur >38.5, Schmerzen beim Schlucken"
+* note.text = "Seit 2010"

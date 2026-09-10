@@ -1,4 +1,4 @@
-Instance: ListAllergyEmptyExample
+Instance: AllergyListEmpty
 InstanceOf: AtEdiagList
 Title: "Allergy-Summary-Liste (notstarted)"
 Description: "Initiale Summary-Liste ohne Summary-Einträge (Allergy)."

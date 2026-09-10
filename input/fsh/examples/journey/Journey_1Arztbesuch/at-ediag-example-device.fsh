@@ -1,4 +1,4 @@
-Instance: DeviceExample
+Instance: DeviceFA
 InstanceOf: Device
 Title: "Beispiel Device"
 Description: "Beispielinstanz eines Devices dass die Fachanwendung initial erstellt"

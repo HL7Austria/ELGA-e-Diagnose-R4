@@ -1,4 +1,4 @@
-Instance: PractitionerExample
+Instance: Practitioner
 InstanceOf: HL7ATCorePractitioner
 Title: "Beispiel Practitioner"
 Description: "Beispielinstanz eines Arztes"

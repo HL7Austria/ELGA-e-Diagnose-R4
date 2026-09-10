@@ -1,4 +1,4 @@
-Instance: ConditionSummaryExample1
+Instance: ConditionEntry01
 InstanceOf: AtEdiagCondition
 Title: "Beispielinstanz einer Diagnose für die Summary-Liste"
 Description: "Beispiel einer dauerhaften Diagnose"

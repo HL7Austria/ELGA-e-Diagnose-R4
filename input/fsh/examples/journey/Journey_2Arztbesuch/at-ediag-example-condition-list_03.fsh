@@ -1,4 +1,4 @@
-Instance: ListConditionExample3
+Instance: ConditionList03
 InstanceOf: AtEdiagList
 Title: "Condition Summary-Liste (Zweiter Arztbesuch - korrigiert)"
 Description: "Beispiel einer Summary-Liste nachdem ein Eintrag storniert wurde."
