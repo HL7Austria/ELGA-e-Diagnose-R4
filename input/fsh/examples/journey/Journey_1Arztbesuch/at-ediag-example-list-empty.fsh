@@ -1,6 +1,6 @@
 Instance: ListExample01
 InstanceOf: AtEdiagList
-Title: "Beispiel einer leeren Summary-Liste für Conditions"
+Title: "Condition-Summary-Liste (notstarted)"
 Description: "Initiale Summary-Liste ohne Summary-Einträge (Condition)."
 Usage: #example
 
