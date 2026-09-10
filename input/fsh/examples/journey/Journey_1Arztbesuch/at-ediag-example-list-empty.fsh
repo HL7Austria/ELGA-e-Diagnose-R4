@@ -11,4 +11,4 @@ Usage: #example
 * subject = Reference(PatientExample)
 * date = "2026-03-03T08:00:00+00:00"
 * source = Reference(DeviceExample)
-* emptyReason = $cs-list-empty-reason#notstarted "notstarted"
+* emptyReason = $cs-list-empty-reason#notstarted "Not Started"

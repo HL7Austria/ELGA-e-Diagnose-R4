@@ -4,14 +4,14 @@ Das folgende Anwendungsbeispiel beschreibt anhand einer fiktiven **Patient Journ
 Die Patient Journey zeigt den Lebenszyklus der e-Diagnose von der erstmaligen Initialisierung der Summary-Listen über das Hinzufügen und Aktualisieren einzelner Einträge bis hin zur Korrektur bzw. Löschung eines Eintrags.
 
 
-### 1. Arztbesuch – Erstvorstellung und Initialisierung der e-Diagnose
+### 1. Arztbesuch - Erstvorstellung und Initialisierung der e-Diagnose
 
 [Dr Musterärztin Melanie](Practitioner-PractitionerExample.html) sieht [Max Mustermann](Patient-PatientExample.html) am **3. März 2026** erstmals in ihrer Ordination. Zur besseren klinischen Einschätzung ruft sie die vorhandenen medizinischen Informationen aus der e-Diagnose ab.
 
 
 **Abruf und Initialisierung der Summary-Listen**
 
-Für Herrn Mustermann existieren bisher noch keine Summary-Listen, weshalb diese initialisiert werden. Für den Patienten wird für jede Kategorie eine leere Summary-Liste angelegt. Diese enthält den Patienten [Max Mustermann](Patient-PatientExample.html), die erstellende e-Diagnose [Fachanwendung](Device-DeviceExample.html) sowie das Datum der letzten Aktualisierung. Da noch keine Einträge vorhanden sind, wird zusätzlich der Grund für die leere Liste über `List.emptyReason` mit dem Code `notstarted` (siehe [Beispiel für ](List-ListExample01.html)) angegeben.
+Für Herrn Mustermann existieren bisher noch keine Summary-Listen, weshalb diese initialisiert werden. Für den Patienten wird für jede Kategorie eine leere Summary-Liste angelegt. Diese enthält den Patienten [Max Mustermann](Patient-PatientExample.html), die erstellende e-Diagnose [Fachanwendung](Device-DeviceExample.html) sowie das Datum der letzten Aktualisierung. Da noch keine Einträge vorhanden sind, wird zusätzlich der Grund für die leere Liste über `List.emptyReason` mit dem Code `notstarted` (siehe [Beispiel für eine leere Liste](List-ListExample01.html)) angegeben.
 
 
 **Erfassung bestehender Diagnosen und Allergien**
@@ -33,18 +33,18 @@ Um eine Gesamtansicht aller Diagnoseeinträge zu erhalten, ruft Dr. Musterärzti
 ### 2. Arztbesuch - Auftreten von Nebenwirkungen und Bearbeitung
 
 Die Symptome der eitrigen Angina haben sich durch die antibiotische Therapie deutlich gebessert. 
-Allerdings berichtet Herr Mustermann bei seinem Ordinationsbesuch am **9. März 2026** über Durchfall sowie einem Juckreiz im Genitalbereich. 
+Allerdings berichtet Herr Mustermann bei seinem Ordinationsbesuch am **9. März 2026** über Durchfall sowie einen Juckreiz im Genitalbereich. 
 
-Bei der Untersuchung stellt Dr. Musterärztin eine Pilzinfektion fest, die vermutlich im Zusammenhang mit der vorausgegangenen Antibiothikatherapie steht. 
+Bei der Untersuchung stellt Dr. Musterärztin eine Pilzinfektion fest, die vermutlich im Zusammenhang mit der vorausgegangenen Antibiotikatherapie steht. 
 
 Herr Mustermann berichtet weiters, dass seit Beginn der Antibiotikatherapie Beschwerden seines seit 2010 bestehenden Morbus Crohn aufgetreten sind und er vermutet, dass die Behandlung einen Schub ausgelöst hat.
 
 Dr. Musterärztin berücksichtigt diese Angabe bei der weiteren Beurteilung. Da Durchfall sowohl als Nebenwirkung der Antibiotikatherapie als auch im Rahmen eines Morbus-Crohn-Schubs auftreten kann, wird die Ursache entsprechend abgeklärt.
 Im weiteren Gespräch erfährt Dr. Musterärztin, dass die letzte durchgeführte Koloskopie am 23. September 2025 stattgefunden hat.
 
-Dr. Musterärztin hält die Erkrankungen [Morbus Crohn](Condition-ConditionSummaryExample2.html) in der Summary-Liste fest ToDo - die muss ich noch erstellen, [Medikamenteninduzierte Diarrhö](Condition-ConditionGesamtlisteExample3.html), [Candida Balanitis](Condition-ConditionGesamtlisteExample2.html) in der Gesamtansicht aller Diagnosen fest und die [Coloskopie](Procedure-ProcedureSummaryExample1.html) als Prozedur in der Summary-Liste der Prozedure - die muss ich noch erstellen fest. Zur Behandlung der Candida-Balanitis verordnet sie Clotrimazol 1 % Creme zur lokalen Anwendung. Bezüglich der Diarrhö wird Herr Mustermann angewiesen, auf eine ausreichende Flüssigkeitszufuhr zu achten. Aufgrund der bestehenden Morbus-Crohn-Erkrankung und der vorausgegangenen Antibiotikatherapie erfolgt eine weitere klinische Abklärung der Beschwerden.
+Dr. Musterärztin hält die Erkrankungen [Morbus Crohn](Condition-ConditionSummaryExample2.html) in der Summary-Liste fest ToDo - die muss ich noch erstellen, [Medikamenteninduzierte Diarrhö](Condition-ConditionGesamtlisteExample3.html), [Candida Balanitis](Condition-ConditionGesamtlisteExample2.html) in der Gesamtansicht aller Diagnosen fest und die [Coloskopie](Procedure-ProcedureSummaryExample1.html) als Prozedur in der Summary-Liste der Prozedur - die muss ich noch erstellen fest. Zur Behandlung der Candida-Balanitis verordnet sie Clotrimazol 1 % Creme zur lokalen Anwendung. Bezüglich der Diarrhö wird Herr Mustermann angewiesen, auf eine ausreichende Flüssigkeitszufuhr zu achten. Aufgrund der bestehenden Morbus-Crohn-Erkrankung und der vorausgegangenen Antibiotikatherapie erfolgt eine weitere klinische Abklärung der Beschwerden.
 
-Dr. Musterärztin führt ein [Condtion-Summary-Liste](List-ListConditionExample2.html) aus, dabei fällt ihr ein Fehler auf. Es steht eine Diagnose in der Summary-Liste die nicht zu dem Patienten gehört. Sie führt ein [Eintrag in der Summary-Liste bearbeiten](uc_ediag_02_schreiben.html#eintrag-in-der-summary_liste-bearbeiten) aus und der Eintrag wird [Entered-in-Error](Condition-ConditionSummaryExample3.html) gesetzt und fällt aus der [Condtion-Summary-Liste](List-ListConditionExample3.html) raus.
+Dr. Musterärztin ruft die aktuelle [Condition-Summary-Liste](List-ListConditionExample2.html) ab, wobei ihr ein Fehler auffällt. Es steht eine Diagnose in der Summary-Liste, die irrtümlich erfasst wurde. Sie storniert den Eintrag [Entered-in-Error](Condition-ConditionSummaryExample3.html), welcher in der Folge durch die e-Diagnose Fachanwendung aus der [Condition-Summary-Liste](List-ListConditionExample3.html) entfernt wird.
 
 
 ### ELGA-Teilnehmer - Eintrag löschen
