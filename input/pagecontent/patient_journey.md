@@ -11,6 +11,7 @@ Die Patient Journey zeigt den Lebenszyklus der e-Diagnose von der erstmaligen In
 
 **Abruf und Initialisierung der Summary-Listen**
 
+<!-- TODO mit Architekten abklären, wann und wie die Summary-Listen für einen Patienten initialisiert werden -->
 Für Herrn Mustermann existieren bisher noch keine Summary-Listen, weshalb diese initialisiert werden. Für den Patienten wird für jede Kategorie eine leere Summary-Liste angelegt. Diese enthält den Patienten [Max Mustermann](Patient-PatientExample.html), die erstellende e-Diagnose [Fachanwendung](Device-DeviceExample.html) sowie das Datum der letzten Aktualisierung. Da noch keine Einträge vorhanden sind, wird zusätzlich der Grund für die leere Liste über `List.emptyReason` mit dem Code `notstarted` (siehe [Beispiel für eine leere Liste](List-ListExample01.html)) angegeben.
 
 
@@ -42,12 +43,12 @@ Herr Mustermann berichtet weiters, dass seit Beginn der Antibiotikatherapie Besc
 Dr. Musterärztin berücksichtigt diese Angabe bei der weiteren Beurteilung. Da Durchfall sowohl als Nebenwirkung der Antibiotikatherapie als auch im Rahmen eines Morbus-Crohn-Schubs auftreten kann, wird die Ursache entsprechend abgeklärt.
 Im weiteren Gespräch erfährt Dr. Musterärztin, dass die letzte durchgeführte Koloskopie am 23. September 2025 stattgefunden hat.
 
-Dr. Musterärztin hält die Erkrankungen [Morbus Crohn](Condition-ConditionSummaryExample2.html) in der Summary-Liste fest ToDo - die muss ich noch erstellen, [Medikamenteninduzierte Diarrhö](Condition-ConditionGesamtlisteExample3.html), [Candida Balanitis](Condition-ConditionGesamtlisteExample2.html) in der Gesamtansicht aller Diagnosen fest und die [Coloskopie](Procedure-ProcedureSummaryExample1.html) als Prozedur in der Summary-Liste der Prozedur - die muss ich noch erstellen fest. Zur Behandlung der Candida-Balanitis verordnet sie Clotrimazol 1 % Creme zur lokalen Anwendung. Bezüglich der Diarrhö wird Herr Mustermann angewiesen, auf eine ausreichende Flüssigkeitszufuhr zu achten. Aufgrund der bestehenden Morbus-Crohn-Erkrankung und der vorausgegangenen Antibiotikatherapie erfolgt eine weitere klinische Abklärung der Beschwerden.
+Dr. Musterärztin hält die Erkrankungen [Morbus Crohn](Condition-ConditionSummaryExample2.html), [Medikamenteninduzierte Diarrhö](Condition-ConditionGesamtlisteExample3.html), [Candida Balanitis](Condition-ConditionGesamtlisteExample2.html) fest und die [Koloskopie](Procedure-ProcedureSummaryExample1.html) als Prozedur, wobei sie Morbus Crohn sowie die Koloskopie in die jeweilige Summary-Liste aufnimmt (TODO). Zur Behandlung der Candida-Balanitis verordnet sie Clotrimazol 1 % Creme zur lokalen Anwendung. Bezüglich der Diarrhö wird Herr Mustermann angewiesen, auf eine ausreichende Flüssigkeitszufuhr zu achten. Aufgrund der bestehenden Morbus-Crohn-Erkrankung und der vorausgegangenen Antibiotikatherapie erfolgt eine weitere klinische Abklärung der Beschwerden.
 
-Dr. Musterärztin ruft die aktuelle [Condition-Summary-Liste](List-ListConditionExample2.html) ab, wobei ihr ein Fehler auffällt. Es steht eine Diagnose in der Summary-Liste, die irrtümlich erfasst wurde. Sie storniert den Eintrag [Entered-in-Error](Condition-ConditionSummaryExample3.html), welcher in der Folge durch die e-Diagnose Fachanwendung aus der [Condition-Summary-Liste](List-ListConditionExample3.html) entfernt wird.
+Dr. Musterärztin ruft die aktuelle [Condition-Summary-Liste](List-ListConditionExample2.html) ab, wobei ihr ein Fehler auffällt. Es steht eine Diagnose in der Summary-Liste, die irrtümlich erfasst wurde. Sie storniert den [irrtümlich erfassten Eintrag](Condition-ConditionSummaryExample3.html), welcher in der Folge durch die e-Diagnose Fachanwendung aus der [Condition-Summary-Liste](List-ListConditionExample3.html) entfernt wird.
 
 
 ### ELGA-Teilnehmer - Eintrag löschen
 
-Am **20. April 2026** nimmt Herr Mustermann über das Portal Einsicht in seine e-Diagnose. Dabei stellt er fest, dass die im März 2026 dokumentierte Pilzinfektion weiterhin in seiner Gesamtansicht aufscheint. Herr Mustermann möchte das nicht. Er wählt den Eintrag aus und [löscht](uc_ediag_03_teilnehmer.html#eintrag-löschen) ihn.
+Am **20. April 2026** nimmt Herr Mustermann über das Portal Einsicht in seine e-Diagnose. Dabei stellt er fest, dass die im März 2026 dokumentierte Pilzinfektion weiterhin in seiner Gesamtansicht aufscheint. Herr Mustermann möchte das nicht und [löscht](uc_ediag_03_teilnehmer.html#eintrag-löschen) den Eintrag.
 
