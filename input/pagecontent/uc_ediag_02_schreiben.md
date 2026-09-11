@@ -39,6 +39,10 @@ Der GDA kann eine oder mehrere Einträge aufgrund einer falschen Eingabe stornie
 3. Für den zu stornierenden Eintrag speichert die Fachanwendung, welcher GDA den Eintrag storniert hat sowie den Zeitpunkt der Stornierung.
 4. Sollte der zu stornierende Eintrag Teil der aktuellen Summary-Liste gewesen sein, erstellt die Fachanwendung eine neue Version der Summary-Liste ohne den stornierten Eintrag.
 
+##### Custom Operation
+
+[`$entered-in-error`](OperationDefinition-at-ediag-operation-diagnose-entered-in-error.html)
+
 #### Eintrag bearbeiten in der Gesamtansicht
 
 Der GDA kann über die Gesamtansicht bestehende Einträge fachlich "bearbeiten".
@@ -106,9 +110,9 @@ Die `$write`-Operation ist eine eigenständige Operation, die allerdings einen *
 17. **GDA 1** erhält eine Fehlermeldung, dass zwischenzeitlich eine Version der Liste gespeichert wurde.
 18. **GDA 1** muss erneut die [aktuelle Summary-Liste](uc_ediag_01_lesen.html#aktuelle-summary-liste-abrufen) abrufen, die zwischenzeitlich vorgenommenen Änderungen prüfen und gegebenenfalls seine Änderungen erneut durchführen, bevor ein neuer Schreibvorgang erfolgen kann.
 
-##### Custom Operations
+##### Custom Operation
 
-[$write](OperationDefinition-at-ediag-operation-list-write.html)
+[`$write`](OperationDefinition-at-ediag-operation-list-write.html)
 
 ##### Sequenzdiagramm
 
