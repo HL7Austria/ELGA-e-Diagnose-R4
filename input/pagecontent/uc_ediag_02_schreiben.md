@@ -180,21 +180,23 @@ Der GDA kann die Reihenfolge der Einträge innerhalb einer Summary-Liste ändern
 
 > Sub:UC_02_08 
 
-Dieser Sub-UC beschreibt die fachliche Bearbeitung von Einträgen einer Summary-Liste. Die tatsächliche Reihenfolge der Bearbeitungsschritte kann je nach Anwendungsfall variieren. Ein berechtigter GDA kann alle bestehenden (eigene und fremde) Einträge bearbeiten. Es ist nicht notwendigerweise vorgesehen, dass $list-read am Anfang und $list-write am Ende des Ablaufs stehen.
-Durch die Verwendung eines bereits bestehenden Business-Identifier wird bei der Bearbeitung die Zuordnung einer alten Version zu einer neuen Version einer Ressource ermöglicht. Dadurch bleibt die Verbindung zwischen den Versionen erhalten.
+Dieser Use-Case beschreibt die fachliche Bearbeitung von Einträgen einer Summary-Liste.  Ein berechtigter GDA kann alle bestehenden (eigene und fremde) Einträge "bearbeiten". Dabei ist es wichtig hervorzuheben, dass Daten bestehender Einträge nicht im Sinne eines Updates verändert werden können. Die Daten können nur in einen neuen Eintrag übernommen und vor dem Speichern in der e-Diagnose Fachanwendung angepasst werden.
 
-<!--Bestehende Einträge fachlich bearbeiten 
-TODo: Dieser UC setzt sich zusammen aus mehreren anderen und wird zum besseren Verständnis hier nochmals beschrieben. 
-Der GDA kann Einträge in einer Liste fachlich bearbeiten - stimmt nicht mehr? 1. Schritt, ich erstelle eine neue 2. Schritt: Will ich sie verknüpfen, muss ich auf die bestehenden Ressourcen zugreifen mit dem Identifier 123, der muss vom Client zwischengespeichert werden, damit dieser an die FA mitgesendet werden kann. Änderungen eines Eintrags werden referenziert und sind somit nachverfolgbar.-->
+Durch die Verwendung eines bereits bestehenden Business-Identifier wird bei der Bearbeitung die Zuordnung einer alten Version zu einer neuen Version einer Ressource ermöglicht. Dadurch bleibt die Verbindung zwischen den Einträgen erhalten.
+
+> Die tatsächliche Reihenfolge der Bearbeitungsschritte kann variieren.
 
 ##### Ablauf
 
-1. Der GDA führt einen POST $list-read aus und erhält das aktuelle Search-Bundle..
-2. Der GDA wählt die fachlich zu bearbeitenden Summary-Einträge aus.
-3. Der GDA führt die erforderlichen Bearbeitungsschritte für den jeweiligen Anwendungsfall aus. Dazu gehört beispielsweise:
-    * Übernahme des bestehenden Business-Identifier für die neue Version einer Ressource.
-    * Erfassung einer neuen bzw. fachlich geänderten Ressource gemäß Sub – Eintrag erfassen.
-5. Der GDA führt einen POST $list-write aus und übermittelt die aktualisierte Summary-Liste an die Fachanwendung. Die fachlich geänderte Ressource wird dabei neu angelegt und erhält durch die Übernahme des Business-Identifier die Verbindung zur bisherigen Ressource.
+1. Der GDA ruft die [aktuelle Summary-Liste](uc_ediag_01_lesen.html#aktuelle-summary-liste-abrufen) ab.
+2. Der GDA wählt den fachlich zu bearbeitenden Summary-Einträge aus.
+3. Der GDA übernimmt die Daten in einen neuen Eintrag.
+4. Der GDA ändert die Daten entsprechend.
+   1. Möchte der GDA den alten und den neuen Eintrag miteinander verknüpfen, übernimmt er den Business Identifier aus dem alten Eintrag.
+5. Der GDA [erfasst den neuen Eintrag](#eintrag-erfassen) in der e-Diagnose Fachanwendung.
+6. Der GDA entfernt den alten Eintrag aus der Summary-Liste.
+7. Der GDA fügt den neuen Eintrag zur Summary-Liste hinzu.
+8. Der GDA führt die [`$write`-Operation](uc_ediag_02_schreiben.html#summary-liste-aktualisieren-write) aus und übermittelt die aktualisierte Liste an die Fachanwendung.
 
 ##### Sequenzdiagramm
 
