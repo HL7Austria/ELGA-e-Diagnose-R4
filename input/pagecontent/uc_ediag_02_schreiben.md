@@ -58,8 +58,6 @@ Im Unterschied zur Bearbeitung innerhalb einer Summary-Liste erfolgt die Änderu
 
 ### Interaktionen auf Listenressourcen
 
-<!--$PatientWrite wäre das Löschen der gesamten Ressource (nicht nur die Listenbeteiligung) und das $PatientDelete wäre das Löschen der Ressource in der Historie -->
-
 #### Leere Summary-Liste fachlich bestätigen
 
 > Sub:UC_02_03 
