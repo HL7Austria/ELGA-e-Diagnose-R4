@@ -41,20 +41,20 @@ Der GDA kann eine oder mehrere Einträge aufgrund einer falschen Eingabe stornie
 
 #### Eintrag bearbeiten in der Gesamtansicht
 
-Der GDA kann über die Gesamtansicht bestehende Einträge suchen, auswählen und fachlich bearbeiten.
+Der GDA kann über die Gesamtansicht bestehende Einträge fachlich "bearbeiten".
+
+Dabei ist es wichtig hervorzuheben, dass Daten bestehender Einträge nicht im Sinne eines Updates verändert werden können. Die Daten können nur in einen neuen Eintrag übernommen und vor dem Speichern in der e-Diagnose Fachanwendung angepasst werden.
 
 Im Unterschied zur Bearbeitung innerhalb einer Summary-Liste erfolgt die Änderung hier unabhängig von der aktuellen Zuordnung in eine Summary-Liste. Die Bearbeitung betrifft die referenzierte medizinische Ressource.
 
 ##### Ablauf
 
-1. Der GDA wählt den gewünschten Ressourcentyp (Condition, Procedure oder AllergyIntolerance) aus.
-2. Der GDA ruft die gewünschte Ressource über die Gesamtansicht gemäß Sub:UC_01_03 – Einträge als Einzelressource abrufen ab.
+2. Der GDA ruft [alle Einträge](uc_ediag_01_lesen.html#alle-einträge-abrufen) oder [einen einzelnen Eintrag](uc_ediag_01_lesen.html#einzelnen-eintrag-abrufen) ab.
 3. Der GDA wählt den fachlich zu bearbeitenden Eintrag aus.
-4. Der GDA nimmt die erforderlichen fachlichen Änderungen an der Ressource vor.
-5. Der GDA erstellt die geänderte Ressource gemäß Sub:UC_02_07 – Eintrag erfassen. Dabei wird der Business-Identifier der bisherigen Ressource übernommen.
-6. Ist der bisherige Eintrag fachlich nicht mehr gültig, storniert der GDA die bisherige Ressource gemäß Sub:UC_02_08 – Eintrag stornieren.
-7. Die Fachanwendung validiert die neue Ressource und speichert sie als neue Version. Der Business-Identifier bleibt unverändert erhalten.
-8. Die Fachanwendung bestätigt die erfolgreiche Bearbeitung der Ressource.
+3. Der GDA übernimmt die Daten in einen neuen Eintrag.
+4. Der GDA ändert die Daten entsprechend.
+   1. Möchte der GDA den alten und den neuen Eintrag miteinander verknüpfen, übernimmt er den Business Identifier aus dem alten Eintrag.
+5. Der GDA [erfasst den neuen Eintrag](#eintrag-erfassen) in der e-Diagnose Fachanwendung.
 
 ### Interaktionen auf Listenressourcen
 
@@ -180,7 +180,9 @@ Der GDA kann die Reihenfolge der Einträge innerhalb einer Summary-Liste ändern
 
 > Sub:UC_02_08 
 
-Dieser Use-Case beschreibt die fachliche Bearbeitung von Einträgen einer Summary-Liste.  Ein berechtigter GDA kann alle bestehenden (eigene und fremde) Einträge "bearbeiten". Dabei ist es wichtig hervorzuheben, dass Daten bestehender Einträge nicht im Sinne eines Updates verändert werden können. Die Daten können nur in einen neuen Eintrag übernommen und vor dem Speichern in der e-Diagnose Fachanwendung angepasst werden.
+Dieser Use-Case beschreibt die fachliche Bearbeitung von Einträgen einer Summary-Liste.  Ein berechtigter GDA kann alle bestehenden (eigene und fremde) Einträge "bearbeiten". 
+
+Dabei ist es wichtig hervorzuheben, dass Daten bestehender Einträge nicht im Sinne eines Updates verändert werden können. Die Daten können nur in einen neuen Eintrag übernommen und vor dem Speichern in der e-Diagnose Fachanwendung angepasst werden.
 
 Durch die Verwendung eines bereits bestehenden Business-Identifier wird bei der Bearbeitung die Zuordnung einer alten Version zu einer neuen Version einer Ressource ermöglicht. Dadurch bleibt die Verbindung zwischen den Einträgen erhalten.
 
