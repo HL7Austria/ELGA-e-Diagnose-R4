@@ -20,11 +20,11 @@ Ein ELGA-Teilnehmer kann via ELGA-Portal einzelne oder alle Einträge unwiderruf
 
 > Sub:UC_03_02 
 
-Ein ELGA-Teilnehmer kann einzelne Versionen einer Summary-Liste unwiderruflich löschen. Gelöschte Summary-Listenversionen werden nicht mehr in der Historie angezeigt. Sind keine Summary-Listenversionen mehr vorhanden, liefert ein nachfolgender Abruf eine leere Summary-Liste mit `List.emptyReason=nilknown` zurück.
+Ein ELGA-Teilnehmer kann einzelne Versionen einer Summary-Liste unwiderruflich löschen. Gelöschte Summary-Listenversionen werden nicht mehr in der Historie angezeigt. Sind keine Summary-Listenversionen mehr vorhanden, liefert ein nachfolgender Abruf eine leere Summary-Liste mit `List.emptyReason = nilknown` zurück.
 
 ##### Ablauf
 
 1. Der ELGA-Teilnehmer ruft [alle Versionen einer Summary-Liste](uc_ediag_01_lesen.html#versionen-einer-summary-liste-abrufen) ab.
 2. Um eine Version der Summary-Liste zu löschen, führt der ELGA-Teilnehmer über das Portal die [`$delete-history-version`-Operation]() auf die zu löschende Summary-Listenversion aus.
 3. Die Fachanwendung löscht die entsprechende Summary-Listenversion.
-4. Wird die letzte Summary-Listenversion gelöscht, legt die e-Diagnose Fachanwendung eine neue Summary-Liste mit `List.emptyReason=nilknown` an.
+4. Wird die letzte Summary-Listenversion gelöscht, legt die e-Diagnose Fachanwendung eine neue Summary-Liste mit `List.emptyReason = nilknown` an.

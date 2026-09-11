@@ -62,16 +62,16 @@ Im Unterschied zur Bearbeitung innerhalb einer Summary-Liste erfolgt die Änderu
 
 > Sub:UC_02_03 
 
-Dieser Ablauf beschreibt die fachliche Bestätigung einer initialisierten, leeren Summary-Liste durch den GDA und die anschließende Speicherung des bestätigten Zustands in der Fachanwendung. Eine leere Summary-Liste mit dem Wert **emptyReason = nilknown** bedeutet, dass für den Patienten derzeit keine Summary-Einträge vorliegen. Der Status dokumentiert somit explizit das Fehlen von Summary-Einträgen und ist von einer noch nicht befüllten Liste **emptyReason = notstarted** zu unterscheiden.
+Dieser Use-Case beschreibt die fachliche Bestätigung einer initialisierten, leeren Summary-Liste durch den GDA und die anschließende Speicherung in der e-Diagnose Fachanwendung. 
+
+Eine leere Summary-Liste mit dem Wert **emptyReason = nilknown** bedeutet, dass für den Patienten derzeit keine Summary-Einträge vorliegen. Der Status dokumentiert somit explizit das Fehlen von Summary-Einträgen und ist von einer noch nicht befüllten Liste **emptyReason = notstarted** zu unterscheiden.
 
 ##### Ablauf
 
-1. Der GDA führt einen **POST $list-read** aus.
-2. Die Fachanwendung prüft die angeforderte Summary-Liste und stellt fest, dass kein List.entry vorhanden ist.
-3. Ist **List.emptyReason = notstarted**, handelt es sich um eine initialisierte, aber noch nicht fachlich bestätigte leere Summary-Liste.
-4. Bestätigt der GDA, dass für die Person aktuell keine Summary-Einträge dokumentiert werden müssen, setzt er **List.emptyReason = nilknown**.
-5. Der GDA führt anschließend einen **POST $list-write** mit der aktualisierten Summary-Liste durch, um den bestätigten Zustand zu speichern.
-6. Die Fachanwendung speichert die aktualisierte Summary-Liste inkl. ETag für [Optimistic Locking](https://hl7.org/fhir/http.html#concurrency) zurück.
+1. Der GDA ruft die [aktuelle Summary-Liste](uc_ediag_01_lesen.html#aktuelle-summary-liste-abrufen) ab.
+3. Ist `List.emptyReason = notstarted`, handelt es sich um eine initialisierte, aber noch nicht fachlich bestätigte leere Summary-Liste.
+4. Bestätigt der GDA, dass für die Person aktuell keine Summary-Einträge dokumentiert werden müssen, setzt er `List.emptyReason = nilknown`.
+5. Der GDA führt die [`$write`-Operation](uc_ediag_02_schreiben.html#summary-liste-aktualisieren-write) aus und übermittelt die aktualisierte Liste an die Fachanwendung.
 
 ##### Sequenzdiagramm
 
