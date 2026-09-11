@@ -13,6 +13,6 @@ Usage: #example
 
 * date = "2026-03-03T00:00:00+00:00"
 
-* source = Reference(Practitioner)
+* source = Reference(PractitionerExample)
 
 * entry[0].item = Reference(AllergyEntry01) 
