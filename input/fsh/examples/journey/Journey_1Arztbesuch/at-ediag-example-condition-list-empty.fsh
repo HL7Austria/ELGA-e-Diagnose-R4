@@ -1,4 +1,4 @@
-Instance: ListConditionEmptyExample
+Instance: ConditionListEmpty
 InstanceOf: AtEdiagList
 Title: "Condition-Summary-Liste (notstarted)"
 Description: "Initiale Summary-Liste ohne Summary-Einträge (Condition)."

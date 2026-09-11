@@ -1,4 +1,4 @@
-Instance: ConditionSummaryExample1
+Instance: ConditionEntry01
 InstanceOf: AtEdiagCondition
 Title: "Beispielinstanz einer Diagnose für die Summary-Liste"
 Description: "Beispiel einer dauerhaften Diagnose"
@@ -14,13 +14,13 @@ Usage: #example
 * code.coding[snomed].code = #38341003
 * code.coding[snomed].display = "Hypertensive disorder, systemic arterial"
 
-* subject = Reference(PatientExample)
+* subject = Reference(Patient)
 
 * recordedDate = "2026-03-03T00:00:00+00:00"
 
-* recorder = Reference(PractitionerExample)
+* recorder = Reference(Practitioner)
 
-* asserter = Reference(PractitionerExample)
+* asserter = Reference(Practitioner)
 
 * onsetDateTime = "2024-06-01"
 

@@ -1,4 +1,4 @@
-Instance: ListProcedureEmptyExample
+Instance: ProcedureListEmpty
 InstanceOf: AtEdiagList
 Title: "Procedure-Summary-Liste (notstarted)"
 Description: "Initiale Summary-Liste ohne Summary-Einträge (Procedure)."

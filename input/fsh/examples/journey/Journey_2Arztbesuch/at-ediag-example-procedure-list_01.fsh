@@ -1,4 +1,4 @@
-Instance: ListProcedureExample1
+Instance: ProcedureList01
 InstanceOf: AtEdiagList
 Title: "Procedure Summary-Liste mit einem Summary-Eintrag"
 Description: "Beispiel einer Summary-Liste mit einem Eintrag, der auf eine Prozedur verweist."
@@ -15,5 +15,5 @@ Usage: #example
 
 * source = Reference(PractitionerExample)
 
-* entry[0].item = Reference(ProcedureSummaryExample1)
+* entry[0].item = Reference(ProcedureEntry01)
 

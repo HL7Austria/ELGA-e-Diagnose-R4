@@ -1,4 +1,4 @@
-Instance: ListConditionExample3
+Instance: ConditionList03
 InstanceOf: AtEdiagList
 Title: "Condition Summary-Liste (Zweiter Arztbesuch - korrigiert)"
 Description: "Beispiel einer Summary-Liste nachdem ein Eintrag storniert wurde."
@@ -15,5 +15,5 @@ Usage: #example
 
 * source = Reference(PractitionerExample)
 
-* entry[0].item = Reference(ConditionSummaryExample1)
-* entry[1].item = Reference(ConditionSummaryExample2)
+* entry[0].item = Reference(ConditionEntry01)
+* entry[1].item = Reference(ConditionEntry05)

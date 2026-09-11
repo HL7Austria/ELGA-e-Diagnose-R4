@@ -1,4 +1,4 @@
-Instance: ConditionSummaryExample3
+Instance: ConditionEnteredInError
 InstanceOf: AtEdiagCondition
 Title: "Beispielinstanz einer stornierten Diagnose"
 Description: "Beispiel einer Diagnose nach Durchführung der $entered-in-error-Operation durch einen GDA"
