@@ -57,22 +57,18 @@ autonumber
 activate GDA_1 COLOR_GDA_1
 activate eDiag_FA COLOR_DIAG_FA
 
-ref over GDA_1, eDiag_FA : $list-read
+ref over GDA_1, eDiag_FA : [[uc_ediag_01_lesen.html#aktuelle-summary-liste-abrufen Aktuelle Summary-Liste abrufen]]
 
 group alt: List.emptyReason == notstarted
   note over GDA_1
-    GDA erhält das von der FA
-    übermittelte List-Bundle
-    und bestätigt, dass keine Einträge
-    (Condition/Procedure/AllergyIntolerance)
-    dokumentiert werden müssen.
-    GDA bestätigt den leeren fachlichen Zustand.
+    GDA erhält die Summary-Liste von der
+    e-Diagnose Fachanwendung und bestätigt, dass 
+    keine Einträge in diese aufgenommen werden müssen.
   end note
   
-else List.emptyReason == nilknown
   GDA_1 -> GDA_1: List.emptyReason = nilknown
   
-  ref over GDA_1, eDiag_FA : $list-write
+  ref over GDA_1, eDiag_FA : [[uc_ediag_02_schreiben.html#summary-liste-aktualisieren-write Summary-Liste aktualisieren ($write)]]
 
 end
 
