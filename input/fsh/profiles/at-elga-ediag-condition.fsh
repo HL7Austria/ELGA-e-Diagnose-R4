@@ -17,7 +17,6 @@ Description: "Das AT e-Diagnose Condition-Profil leitet sich vom Condition-Profi
 
 // 2026_05_18_Begriff: Klinischer Status der Diagnose- bei Änderungen Anja Schwab Bescheid geben!!!
 * clinicalStatus 1..1 MS
-* code only CodeableConcept
 * clinicalStatus ^short = "Klinischer Status der Diagnose (z. B. Status post); mögliche Codes: active | recurrence | relapse | inactive | remission | resolved."
 
 // 2026_06_ToDo: Klären der Kardinalität? optional? 
@@ -30,36 +29,10 @@ Description: "Das AT e-Diagnose Condition-Profil leitet sich vom Condition-Profi
 * severity 0..0
 * severity ^short = "Schweregrad der Erkrankung."
 
-
-//"Condition.code.text wird 0..0 (es soll keinen Freitext zum Code geben)
-// Condition.code.coding wird 1..2
-// Condition.code.coding[1].system wird auf snomed fixiert
-// Condition.code.coding[2].system wird auf orphanet fixiert
-// https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"
 * code 1..1 MS
-* code only CodeableConcept
-* code ^short = "Diagnosecode (Codierservice); Freitext ist nicht zulässig. Codesysteme: 1. SNOMED CT, 2. Orphanet."
-
+* code from AtEDiagConditionCode (required)
+* code ^short = "Diagnosecode (Codierservice); Freitext ist nicht zulässig."
 * code.text 0..0
-
-* code.coding 1..2
-
-* code.coding ^slicing.discriminator.type = #value
-* code.coding ^slicing.discriminator.path = "system"
-* code.coding ^slicing.rules = #closed
-* code.coding ^slicing.ordered = false
-
-* code.coding contains
-    snomed 1..1 and
-    orphanet 0..1
-
-* code.coding[snomed].system 1..1
-* code.coding[snomed].system = "http://snomed.info/sct" (exactly)
-* code.coding[snomed].code 1..1
-
-* code.coding[orphanet].system 1..1
-* code.coding[orphanet].system = "http://www.orpha.net/ORDO" (exactly)
-* code.coding[orphanet].code 1..1
 
 * bodySite 0..0
 * bodySite ^short = "Zuordnung der Diagnose zu einer Körperstelle."

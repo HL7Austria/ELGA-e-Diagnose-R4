@@ -10,10 +10,7 @@ Usage: #example
 
 * verificationStatus = http://terminology.hl7.org/CodeSystem/condition-ver-status#confirmed
 
-* code.coding[snomed].system = "http://snomed.info/sct"
-* code.coding[snomed].code = #52643007
-
-* code.coding[snomed].display = "Candidal balanitis"
+* code.coding[0] = http://snomed.info/sct#52643007 "Candidal balanitis"
 
 * subject = Reference(PatientExample)
 
