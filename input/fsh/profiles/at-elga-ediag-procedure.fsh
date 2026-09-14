@@ -29,21 +29,12 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom Procedure-Profi
 * partOf 0..0
 * partOf ^short = "Verweis der Ressource auf eine andere, übergeordnete Ressource."
 
-// es wird kein workflow abgebildet
-// bei therapien, die inprogress sein könnten - potentiell eher nicht
-// abgrenzung zu behandlungsplan / physiotherapie
-// es sollen stattgefundene procedures abgebildet werden
-// --> completed, entered-in-error
-
-// Einschränkung erfolgt über ein eigenes ValueSet (procedure-status) und required binding
 * status 1..1 MS
-* status from AtEdiagProcedureStatus (required)
-* status ^short = "Nur tatsächlich durchgeführte (completed) oder irrtümlich dokumentierte (entered-in-error) Prozeduren."
+* status = #completed (exactly)
+* status ^short = "Nur tatsächlich durchgeführte (completed) Prozeduren werden in der e-Diagnose dokumentiert."
 
-// korrekturvermerk ist noch in abstimmung in digimed, wird von dort dann übernommen
-// was ist korrigieren, stornieren, fachlich korrekturvermerk
-* statusReason 0..1
-* statusReason ^short = "ToDo: Korrekturvermerk wird von digimed übernommen, ist noch in Abstimmung."
+* statusReason 0..0
+* statusReason ^short = "Begründung für den Status der Prozedur nicht relevant."
 
 // wäre überkategorie von code, 
 * category 0..0
