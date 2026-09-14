@@ -36,23 +36,12 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom Procedure-Profi
 * statusReason 0..0
 * statusReason ^short = "Begründung für den Status der Prozedur nicht relevant."
 
-// wäre überkategorie von code, 
+// wäre überkategorie von code
 * category 0..0
 * category ^short = "Kategorisierung nach Verfahren."
 
-// IPS Free Set enthält nur 983 konzepte
-// eigenes value set, um alle procedures abzudecken (mit ausnahme derer, die in IPS entfernt wruden)
-
-// SGR: die Einschränkung erfolgt über ein eigenes ValueSet (procedure-codes) und required binding 
-// - codes kommen von IPS siehe https://build.fhir.org/ig/HL7/fhir-ips/en/ValueSet-procedures-uv-ips.html und https://github.com/HL7/fhir-ips/blob/master/input/fsh/valuesets/ProceduresUvIps.fsh
-
-// Display-text des synonyms soll jedenfalls als display übernommen werden. nicht nur FSN
-// validierung von synonymen prüfen (in zusammenhang mit austrian extension)
-// ToDo: am Publisher testen - Wrong Display Name 'Coloskopie' for http://snomed.info/sct#73761001. Valid display is one of 6 choices: 'Colonoscopy' (en), 'Colonoscopy, NOS' (en), 'Endoscopy of colon, NOS' (en), 'Endoscopy of colon' (en), 'Endoscopic examination of colon' (en) or 'Colonoscopy (procedure)' (en) (for the language(s) 'en-US') (from https://tx.fhir.org/r4, see log, or see the servers logic)
-
-// Terminolgen sollen es prüfen - evtl. gibt es nicht mehr präcodierte? - https://jira-elga.atlassian.net/jira/software/c/projects/STD/boards/496?selectedIssue=STD-7659
 * code 1..1 MS
-* code from AtEDiagProzedurenCodes (required)
+* code from AtEDiagProcedureCode (required)
 * code ^short = "Prozedurencode der durchgeführten Prozedur."
 * code.text 0..0
  
