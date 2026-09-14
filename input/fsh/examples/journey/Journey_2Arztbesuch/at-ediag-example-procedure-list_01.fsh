@@ -7,7 +7,7 @@ Usage: #example
 * status = #current
 * mode = #working
 
-* code = $cs-loinc#11450-4
+* code = $cs-loinc#47519-4
 
 * subject = Reference(PatientExample)
 
