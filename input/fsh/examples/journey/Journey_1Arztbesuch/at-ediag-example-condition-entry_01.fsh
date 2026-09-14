@@ -14,13 +14,13 @@ Usage: #example
 * code.coding[snomed].code = #38341003
 * code.coding[snomed].display = "Hypertensive disorder, systemic arterial"
 
-* subject = Reference(Patient)
+* subject = Reference(PatientExample)
 
 * recordedDate = "2026-03-03T00:00:00+00:00"
 
-* recorder = Reference(Practitioner)
+* recorder = Reference(PractitionerExample)
 
-* asserter = Reference(Practitioner)
+* asserter = Reference(PractitionerExample)
 
 * onsetDateTime = "2024-06-01"
 

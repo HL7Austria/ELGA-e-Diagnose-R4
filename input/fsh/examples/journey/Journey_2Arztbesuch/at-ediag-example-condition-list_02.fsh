@@ -16,5 +16,5 @@ Usage: #example
 * source = Reference(PractitionerExample)
 
 * entry[0].item = Reference(ConditionEntry01)
-* entry[1].item = Reference(ConditionEntry05)
+* entry[1].item = Reference(ConditionEntry03)
 * entry[2].item = Reference(ConditionEnteredInError)
