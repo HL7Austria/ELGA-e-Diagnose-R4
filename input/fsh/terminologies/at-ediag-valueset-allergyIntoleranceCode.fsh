@@ -1,4 +1,4 @@
-ValueSet: AtEdiagAllergyIntoleranceCode
+ValueSet: AtEDiagAllergyIntoleranceCode
 Id: at-ediag-allergyintolerance-code
 Title: "AT e-Diagnose AllergyIntolerance Code"
 Description: "ValueSet mit Codes für Substanzen und Stoffe, die als Auslöser von Allergien oder Intoleranzen erfasst werden."
