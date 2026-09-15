@@ -42,7 +42,7 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom Procedure-Profi
 
 * code 1..1 MS
 * code from AtEDiagProcedureCode (required)
-* code ^short = "Prozedurencode der durchgeführten Prozedur."
+* code ^short = "Prozedurencode der durchgeführten Prozedur; Freitext ist nicht zulässig."
 * code.text 0..0
  
 * subject 1..1 MS
