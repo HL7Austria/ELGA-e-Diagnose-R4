@@ -55,13 +55,9 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom Allerg
 // konkrete medikamente findet man nicht, man muss nach substanzen suchen (ggf. könnte man auch ASP-Liste durchsuchbar machen)
 
 * code 1..1 MS
-* code only CodeableConcept
+* code from AtEDiagAllergyIntoleranceCode (required)
 * code ^short = "Allergiecode; Freitext ist nicht zulässig."
-
 * code.text 0..0
-
-* code.coding 1..1 
-
 
 * patient 1..1 MS
 * patient only Reference(HL7ATCorePatient)
