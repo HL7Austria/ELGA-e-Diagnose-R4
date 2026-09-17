@@ -9,7 +9,7 @@ Description: "Beispiel einer bestätigten Allergie"
 
 * verificationStatus = http://terminology.hl7.org/CodeSystem/allergyintolerance-verification#confirmed
 
-* code.coding.system = "http://snomed.info/sct"
+* code.coding.system = "$cs-sct"
 * code.coding.code = #372687004
 * code.coding.display = "Amoxicillin"
 
@@ -21,11 +21,11 @@ Description: "Beispiel einer bestätigten Allergie"
 
 * asserter = Reference(PractitionerExample)
 
-* reaction.manifestation[0].coding.system = "http://snomed.info/sct"
+* reaction.manifestation[0].coding.system = "$cs-sct"
 * reaction.manifestation[0].coding.code = #271807003
 * reaction.manifestation[0].coding.display = "Exanthem"
 
-* reaction.manifestation[1].coding.system = "http://snomed.info/sct"
+* reaction.manifestation[1].coding.system = "$cs-sct"
 * reaction.manifestation[1].coding.code = #422400008
 * reaction.manifestation[1].coding.display = "Emesis"
 

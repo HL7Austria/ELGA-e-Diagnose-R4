@@ -70,10 +70,10 @@ pages:
     title: "Workflowmanagement"
   technische_use_cases.md:
     title: "Technische Use Cases"
-  fachliche_use_cases.md:
-    title: "Fachliche Use Cases"
-  uc_ediag_01_diagnosen_lesen.md:
-    title: "Diagnosen lesen"
+  #fachliche_use_cases.md:
+    #title: "Fachliche Use Cases"
+  #uc_ediag_01_diagnosen_lesen.md:
+    #title: "Diagnosen lesen"
   patient_journey.md:
       title: Patient Journey
   uc_ediag_01_lesen.md:
@@ -132,8 +132,8 @@ menu:
    Transaktionen: transaction.html
    Workflowmanagement: workflowmanagement.html
   Anwendungsfälle: 
-   Fachliche Use Cases: fachliche_use_cases.html
-   Diagnosen lesen: uc_ediag_01_diagnosen_lesen.html
+   #Fachliche Use Cases: fachliche_use_cases.html
+   #Diagnosen lesen: uc_ediag_01_diagnosen_lesen.html
    Patient Journey: patient_journey.html
    Technische Use Cases: technische_use_cases.html
    Lesen: uc_ediag_01_lesen.html
