@@ -1,7 +1,7 @@
 ValueSet: AtEDiagProcedureCode
 Id: at-ediag-procedure-code
 Title: "AT e-Diagnose Procedure Code"
-Description: "Dieses Value-Set bildet die Prozeduren ab, die in der e-Diagnose dokumentiert werden können."
+Description: "Value-Set für die Codierung von Prozeduren."
 * ^status = #active
 * ^experimental = true
 // https://build.fhir.org/ig/HL7/fhir-ips/en/ValueSet-procedures-uv-ips.html

@@ -17,3 +17,5 @@ Alias: $list-status = http://hl7.org/fhir/list-status
 Alias: $hl7-at-religionaustria = https://termgit.elga.gv.at/CodeSystem/hl7-at-religionaustria
 Alias: $iso-3166-1-alpha-3 = https://termgit.elga.gv.at/CodeSystem/iso-3166-1-alpha-3
 Alias: $v2-0203 = http://terminology.hl7.org/CodeSystem/v2-0203
+
+Alias: $vs-elga-wirkstoffe-ages = https://termgit.elga.gv.at/ValueSet/elga-wirkstoffe-ages
