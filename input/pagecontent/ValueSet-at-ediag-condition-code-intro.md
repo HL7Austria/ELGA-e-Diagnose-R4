@@ -3,3 +3,9 @@ Der Inhalt dieses Value-Sets bildet alle SNOMED CT Konzepte ab, die das [e-Healt
 <div class="note-to-balloters" markdown="1">
 Aktuell werden *alle* Klinisch relevante Erscheinungen zugelassen. Auf Basis des Codierservice wird diese Menge vermutlich noch reduziert.
 </div>
+
+<div class="note-to-balloters" markdown="1">
+- Dieses Value-Set wurde für die e-Diagnose entworfen und wird auf den <a href="https://termgit.elga.gv.at/">österreichische e-Health Terminologieserver</a> verschoben, abhängig vom Ergebnis des Ballots.
+- Der IG Publisher baut aktuell auf SNOMED Intl. Version 2025-XX auf, weshalb weniger Konzepte in diesem Value-Set angezeigt werden als in der aktuellen Version von SNOMED CT verfügbar sind. Dieses Problem wird bereinigt, sobald das Value-Set auf den österreichische e-Health Terminologieserver verschoben wird.
+- Aktuell werden österreichische Übersetzungen auf Basis der Austrian Extension in dem Value-Set noch nicht aufgelöst. Dieses Problem wird bereinigt, sobald das Value-Set auf den österreichische e-Health Terminologieserver verschoben wird.
+</div>
