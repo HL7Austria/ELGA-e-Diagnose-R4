@@ -1,4 +1,4 @@
-{% include styleheader.md %}
+
 
 Dieses Kapitel beschreibt die an der e-Diagnose beteiligten Akteure, deren Berechtigungen sowie die vorgesehenen Zugriffswege.
 

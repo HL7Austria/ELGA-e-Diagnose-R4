@@ -1,4 +1,4 @@
-{% include styleheader.md %}
+
 
 <!-- Transaktionen -->
 

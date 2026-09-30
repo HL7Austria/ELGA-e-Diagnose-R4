@@ -1,4 +1,4 @@
-{% include styleheader.md %}
+
 ### FHIR® R4
 Aktuell liegen die IPS und APS nur auf Basis von FHIR® R4 vor. Ob und wann die beiden auch in R5 bzw. R6 zur Verfügung stehen, ist noch nicht klar. Deshalb wird die e-Diagnose zurzeit auch nur in FHIR® R4 spezifiziert.
 

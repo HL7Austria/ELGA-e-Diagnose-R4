@@ -1,4 +1,4 @@
-{% include styleheader.md %}
+
 
 ### Begriffsdefinitionen
 Im Rahmen der Anwendung e-Diagnose werden folgenden Begriffe definiert:
