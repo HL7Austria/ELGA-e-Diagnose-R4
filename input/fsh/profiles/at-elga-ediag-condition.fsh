@@ -12,8 +12,7 @@ Description: "Das AT e-Diagnose Condition-Profil leitet sich vom Condition-Profi
 
 * extension contains AtElgaEdiagExtEnteredInError named entered-in-error 0..1
 
-* identifier 0..*
-* identifier ^short = "Zuordnung der Diagnose in einem internen Dokumentationssystem."
+* insert AtEDiagIdentifierRuleSet
 
 // 2026_05_18_Begriff: Klinischer Status der Diagnose- bei Änderungen Anja Schwab Bescheid geben!!!
 * clinicalStatus 1..1 MS

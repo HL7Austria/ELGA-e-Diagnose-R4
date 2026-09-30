@@ -2,7 +2,8 @@ ValueSet: AtEDiagConditionCode
 Id: at-ediag-condition-code
 Title: "AT e-Diagnose Condition Code"
 Description: "Value-Set für die Codierung von Diagnosen."
-* ^status = #active
+* ^status = #draft
 * ^experimental = true
-* include codes from system http://snomed.info/sct
+
+* include codes from system $cs-sct
     where concept is-a #404684003
