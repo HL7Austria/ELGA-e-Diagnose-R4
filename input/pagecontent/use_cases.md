@@ -1,4 +1,14 @@
+### Fachliche Anwendungsfälle
 
+Die fachlichen Anwendungsfälle sind hier nachzulesen: TODO Link ergänzen
+
+#### Anwendungsfalldiagramm
+
+Das folgende Anwendungsfalldiagramm zeigt die zentralen Anwendungsfälle der e-Diagnose und die Interaktion der verschiedenen Akteure.
+
+[![diagram](ediag_uc_diagramm.drawio.png){: style="width: 60%"}](ediag_uc_diagramm.drawio.png)
+
+### Technischen Anwendungsfälle
 
 Die nachfolgenden Kapitel beschreiben die fachlichen Anwendungsfälle der e-Diagnose in Form technischer Use Cases. Die zugehörigen Sequenzdiagramme stellen die beteiligten Akteure, Schnittstellen und Prozessabläufe dar.
 
@@ -13,8 +23,6 @@ Die nachfolgend beschriebenen Sub-Use-Cases definieren die erforderlichen Intera
 - [Lesen](uc_ediag_01_lesen.html)
 - [Schreiben](uc_ediag_02_schreiben.html)
 - [Teilnehmerrechte ausüben](uc_ediag_03_teilnehmer.html)
-
-[![diagram](ediag_uc_diagramm.drawio.png){: style="width: 60%"}](ediag_uc_diagramm.drawio.png)
 
 
 
