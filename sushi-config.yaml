@@ -68,16 +68,16 @@ pages:
     title: "Designentscheidungen"
   workflowmanagement.md:
     title: "Workflowmanagement"
-  technische_use_cases.md:
-    title: "Technische Use Cases"
-  patient_journey.md:
-      title: Patient Journey
+  use_cases.md:
+    title: "Überblick Anwendungsfälle"
   uc_ediag_01_lesen.md:
-      title: "Lesen"
+    title: "Lesen"
   uc_ediag_02_schreiben.md:
-      title: "Schreiben"
+    title: "Schreiben"
   uc_ediag_03_teilnehmer.md:
-      title: "Teilnehmerrechte ausüben"
+    title: "Teilnehmerrechte ausüben"
+  patient_journey.md:
+    title: Patient Journey
   contributors.md:
     title: Autoren und Mitwirkende
   download.md:
@@ -119,33 +119,30 @@ menu:
   Home: index.html
   Inhaltsverzeichnis: toc.html
   Einleitung:
-   Umfang und Inhalt: scope_and_content.html
-   Hintergrund: background.html
-   Herausforderungen: challenges.html 
+    Umfang und Inhalt: scope_and_content.html
+    Hintergrund: background.html
+    Herausforderungen: challenges.html 
   Funktionales:
-   Designentscheidungen: design_choices.html
-   Akteure: actors.html
-   Transaktionen: transaction.html
-   Workflowmanagement: workflowmanagement.html
+    Designentscheidungen: design_choices.html
+    Akteure: actors.html
+    Transaktionen: transaction.html
+    Workflowmanagement: workflowmanagement.html
   Anwendungsfälle: 
-   #Fachliche Use Cases: TODO Link zu Developer Portal / fachliche Use Cases
-   Patient Journey: patient_journey.html
-   Technische Use Cases: technische_use_cases.html
-   Lesen: uc_ediag_01_lesen.html
-   Schreiben: uc_ediag_02_schreiben.html
-   Teilnehmerrechte ausüben: uc_ediag_03_teilnehmer.html
+    #Fachliche Use Cases: TODO Link zu Developer Portal / fachliche Use Cases
+    Überblick Anwendungsfälle: use_cases.html
+    Lesen: uc_ediag_01_lesen.html
+    Schreiben: uc_ediag_02_schreiben.html
+    Teilnehmerrechte ausüben: uc_ediag_03_teilnehmer.html
+    Patient Journey: patient_journey.html
   Artifacts: artifacts.html
   About:
-   Autoren und Mitwirkende: contributors.html
-   Download: download.html
-   Publikationsinformationen: publication_info.html
-   Dependencies: dependencies.html
-   Copyright: copyright.html
-   Known Issues: https://github.com/HL7Austria/ELGA-e-Diagnose-R4/issues
-   Impressum: imprint.html
-   
-  
-  
+    Autoren und Mitwirkende: contributors.html
+    Download: download.html
+    Publikationsinformationen: publication_info.html
+    Dependencies: dependencies.html
+    Copyright: copyright.html
+    Known Issues: https://github.com/HL7Austria/ELGA-e-Diagnose-R4/issues
+    Impressum: imprint.html
 
 # ╭───────────────────────────Less Common Implementation Guide Properties──────────────────────────╮
 # │  Uncomment the properties below to configure additional properties on the ImplementationGuide  │
