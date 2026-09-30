@@ -1,29 +1,9 @@
 ValueSet: AtEDiagProcedureCode
 Id: at-ediag-procedure-code
 Title: "AT e-Diagnose Procedure Code"
-Description: "Dieses Value-Set bildet die Prozeduren ab, die in der e-Diagnose dokumentiert werden können."
-* ^status = #active
+Description: "Value-Set für die Codierung von Prozeduren."
+* ^status = #draft
 * ^experimental = true
-// https://build.fhir.org/ig/HL7/fhir-ips/en/ValueSet-procedures-uv-ips.html
-// https://github.com/HL7/fhir-ips/blob/master/input/fsh/valuesets/ProceduresUvIps.fsh
 
-* include codes from system http://snomed.info/sct
-    where concept descendent-of #71388002 "Procedure (procedure)"
-* include codes from system http://snomed.info/sct
-    where concept is-a #787480003 "No known procedures (situation)"
-* exclude codes from system http://snomed.info/sct
-    where concept is-a #14734007 "Administrative procedure (procedure)"
-* exclude codes from system http://snomed.info/sct
-    where concept is-a #59524001 "Blood bank procedure (procedure)"
-* exclude codes from system http://snomed.info/sct
-    where concept is-a #389067005 "Community health procedure (procedure)"
-* exclude codes from system http://snomed.info/sct
-    where concept is-a #442006003 "Determination of information related to transfusion (procedure)"
-* exclude codes from system http://snomed.info/sct
-    where concept is-a #225288009 "Environmental care procedure (procedure)"
-* exclude codes from system http://snomed.info/sct
-    where concept is-a #308335008 "Patient encounter procedure (procedure)"
-* exclude codes from system http://snomed.info/sct
-    where concept is-a #710135002 "Promotion (procedure)"
-* exclude codes from system http://snomed.info/sct
-    where concept is-a #389084004 "Staff related procedure (procedure)"
+* include codes from system $cs-sct
+    where constraint = "< 416940007 |History of procedure (situation)| . 363589002 |Associated procedure (attribute)|"

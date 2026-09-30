@@ -9,4 +9,7 @@ Alias: $cs-list-empty-reason = http://terminology.hl7.org/CodeSystem/list-empty-
 // termgit.elga.gv.at
 Alias: $hl7-at-religionaustria = https://termgit.elga.gv.at/CodeSystem/hl7-at-religionaustria
 Alias: $iso-3166-1-alpha-3 = https://termgit.elga.gv.at/CodeSystem/iso-3166-1-alpha-3
+Alias: $vs-elga-wirkstoffe-ages = https://termgit.elga.gv.at/ValueSet/elga-wirkstoffe-ages
+
+
 

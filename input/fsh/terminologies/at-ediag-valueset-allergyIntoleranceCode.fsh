@@ -1,10 +1,10 @@
 ValueSet: AtEDiagAllergyIntoleranceCode
 Id: at-ediag-allergyintolerance-code
 Title: "AT e-Diagnose AllergyIntolerance Code"
-Description: "ValueSet mit Codes für Substanzen und Stoffe, die als Auslöser von Allergien oder Intoleranzen erfasst werden."
+Description: "Value-Set für die Codierung von Allergien und Intoleranzen."
 * ^status = #active
 * ^experimental = true
-// https://hl7.org/fhir/R4/valueset-substance-code.html
 
-* include codes from system http://snomed.info/sct 
-    where concept is-a #105590001 "(Substance)"
+* include codes from valueset $vs-elga-wirkstoffe-ages
+* include codes from system $cs-sct
+    where concept is-a #105590001 "Substance"
