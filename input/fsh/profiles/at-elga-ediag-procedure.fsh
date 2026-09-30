@@ -14,8 +14,7 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom Procedure-Profi
 
 * extension contains AtElgaEdiagExtEnteredInError named entered-in-error 0..1
 
-* identifier 0..* 
-* identifier ^short = "Zuordnung der Diagnose in einem internen Dokumentationssystem."
+* insert AtEDiagIdentifierRuleSet
 
 * instantiatesCanonical 0..0
 * instantiatesCanonical ^short = "Verweis auf eine standardisierte FHIR-Ressource, ein Template oder einen Leitfaden, der beschreibt, wie die Prozedur durchgeführt werden soll."

@@ -11,8 +11,7 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom Allerg
 
 * extension contains AtElgaEdiagExtEnteredInError named entered-in-error 0..1
 
-* identifier 0..*
-* identifier ^short = "Zuordnung der Allergie in einem internen Dokumentationssystem."
+* insert AtEDiagIdentifierRuleSet
 
 // erfolgreiche desensibilisierung dokumentieren? oder selbst weggegangene allergien?
 // löschen von bereits dokumentierten eher nicht, sondern status setzen
