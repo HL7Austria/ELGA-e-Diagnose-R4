@@ -53,14 +53,12 @@ Dieser Anwendungsfall dient dem Abruf der aktuellen Summary-Liste für eine Art 
 
 #### Versionen einer Summary-Liste abrufen
 
-> Sub:UC_01_02 
-
-Dieser Use-Case dient ausschließlich der Anzeige historischer Versionen der Summary-Liste. Der Zugriff erfolgt lesend und ermöglicht keine Bearbeitung der jeweiligen Summary-Listenversion.
+Dieser Anwendungsfall dient der Anzeige aktuellen und historischer Versionen der Summary-Liste. Der Zugriff erfolgt lesend und ermöglicht keine Bearbeitung der jeweiligen Summary-Listenversion.
 
 ##### Ablauf
 
 1. Der GDA ruft die [aktuelle Summary-Liste](use_case_01_read.html#aktuelle-summary-liste-abrufen) ab, wodurch er das entsprechende SearchSet-Bundle und damit die `id` der Summary-Liste erhält.
-2. In einem zweiten Request kann der GDA jetzt auf die gesamte History von der Summary-Liste zugreifen. 
+2. In einem zweiten Request kann der GDA jetzt auf alle Versionen (auch die aktuelle) der Summary-Liste zugreifen. 
 3. Die e-Diagnose Fachanwendung liefert ein History-Bundle zurück, das alle Summary-Listenversionen enthält.
    `GET /List/[id]/_history`
 4. Zu einer Summary-Listenversion können die [referenzierten Diagnosen von der e-Diagnose Fachanwendung](#einzelnen-eintrag-abrufen) abgefragt werden.
@@ -73,6 +71,4 @@ Dieser Use-Case dient ausschließlich der Anzeige historischer Versionen der Sum
 
 ##### Sequenzdiagramm 
 
-<br>
 <div>{% include_relative plantuml/historyread.svg %}</div>
-<br> 
