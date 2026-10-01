@@ -10,19 +10,11 @@ Das folgende Anwendungsfalldiagramm zeigt die zentralen Anwendungsfälle der e-D
 
 ### Technischen Anwendungsfälle
 
-Die nachfolgenden Kapitel beschreiben die fachlichen Anwendungsfälle der e-Diagnose in Form technischer Use Cases. Die zugehörigen Sequenzdiagramme stellen die beteiligten Akteure, Schnittstellen und Prozessabläufe dar.
+In den folgenden Kapiteln werden die fachlichen Anwendungsfälle der e-Diagnose als technische Anwendungsfälle beschrieben. Die zugehörigen Sequenzdiagramme veranschaulichen die Interaktionen und Abläufe zwischen den beteiligten Akteuren.
 
-Die e-Diagnose dient der Verwaltung von Diagnosen, Prozeduren sowie Allergien und Intoleranzen für ELGA-Teilnehmer. Die Fachanwendung ermöglicht das Laden, Erfassen, Bearbeiten, Stornieren und Löschen der entsprechenden Daten. Darüber hinaus unterstützt sie die Verwaltung dieser Informationen in einer Gesamtansicht.
-
-Vor der Durchführung von Änderungen werden die aktuellen Datenbestände geladen. Anschließend können Listen bearbeitet sowie fachliche Einzelressourcen (z. B. Condition, Procedure, AllergyIntolerance) erfasst, geändert, storniert oder gelöscht werden.
-
-Die folgende Darstellung gibt einen Überblick über die in der e-Diagnose verwalteten Kategorien sowie deren Zuordnung auf der jeweiligen Listen- und Einzelressourcenebene.
-
-Die nachfolgend beschriebenen Sub-Use-Cases definieren die erforderlichen Interaktionen und Transaktionen zur Umsetzung dieser fachlichen Funktionen. Sie basieren auf den folgenden Interaktionsarten:
-
-- [Lesen](uc_ediag_01_lesen.html)
-- [Schreiben](uc_ediag_02_schreiben.html)
-- [Teilnehmerrechte ausüben](uc_ediag_03_teilnehmer.html)
+- [Lesenender Zugriff auf die e-Diagnose](uc_ediag_01_lesen.html)
+- [Schreibender Zugriff auf die e-Diagnose](uc_ediag_02_schreiben.html)
+- [Ausübung von Teilnehmerrechten](uc_ediag_03_teilnehmer.html)
 
 
 
