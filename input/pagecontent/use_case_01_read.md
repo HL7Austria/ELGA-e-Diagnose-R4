@@ -45,7 +45,7 @@ Dieser Use-Case dient ausschließlich der Anzeige historischer Versionen der Sum
 
 ##### Ablauf
 
-1. Der GDA ruft die [aktuelle Summary-Liste](uc_ediag_01_lesen.html#aktuelle-summary-liste-abrufen) ab, wodurch er das entsprechende SearchSet-Bundle und damit die `id` der Summary-Liste erhält.
+1. Der GDA ruft die [aktuelle Summary-Liste](use_case_01_read.html#aktuelle-summary-liste-abrufen) ab, wodurch er das entsprechende SearchSet-Bundle und damit die `id` der Summary-Liste erhält.
 2. In einem zweiten Request kann der GDA jetzt auf die gesamte History von der Summary-Liste zugreifen. 
 3. Die e-Diagnose Fachanwendung liefert ein History-Bundle zurück, das alle Summary-Listenversionen enthält.
    `GET /List/[id]/_history`

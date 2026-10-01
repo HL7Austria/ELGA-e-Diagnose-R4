@@ -58,7 +58,7 @@ autonumber
 activate GDA_1 COLOR_GDA_1
 activate eDiag_FA COLOR_DIAG_FA
 
-ref over GDA_1, eDiag_FA : [[uc_ediag_01_lesen.html#aktuelle-summary-liste-abrufen Aktuelle Summary-Liste abrufen]]
+ref over GDA_1, eDiag_FA : [[use_case_01_read.html#aktuelle-summary-liste-abrufen Aktuelle Summary-Liste abrufen]]
 
 GDA_1 -> GDA_1: Ermittelt die ""id"" der Summary-Liste
 

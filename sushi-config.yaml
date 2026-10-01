@@ -70,12 +70,12 @@ pages:
     title: "Workflowmanagement"
   use_cases.md:
     title: "Überblick Anwendungsfälle"
-  uc_ediag_01_lesen.md:
-    title: "Lesen"
+  use_case_01_read.md:
+    title: "Lesender Zugriff"
   uc_ediag_02_schreiben.md:
-    title: "Schreiben"
+    title: "Schreibender Zugriff"
   uc_ediag_03_teilnehmer.md:
-    title: "Teilnehmerrechte ausüben"
+    title: "Ausüben von Teilnehmerrechten"
   patient_journey.md:
     title: Patient Journey
   contributors.md:
@@ -130,9 +130,9 @@ menu:
   Anwendungsfälle: 
     #Fachliche Use Cases: TODO Link zu Developer Portal / fachliche Use Cases
     Überblick Anwendungsfälle: use_cases.html
-    Lesen: uc_ediag_01_lesen.html
-    Schreiben: uc_ediag_02_schreiben.html
-    Teilnehmerrechte ausüben: uc_ediag_03_teilnehmer.html
+    Lesender Zugriff: use_case_01_read.html
+    Schreibender Zugriff: uc_ediag_02_schreiben.html
+    Ausüben von Teilnehmerrechten: uc_ediag_03_teilnehmer.html
     Patient Journey: patient_journey.html
   Artifacts: artifacts.html
   About:
