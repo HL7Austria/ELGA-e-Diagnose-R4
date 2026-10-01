@@ -1,36 +1,32 @@
-> UC-01 
+Dieses Kapitel beschreibt die lesenden Zugriffe auf einzelne Einträge sowie die jeweiligen Summary-Listen der e-Diagnose-Fachanwendung. Je nach Anwendungsfall stehen unterschiedliche Interaktionen zur Verfügung.
 
-Dieses Kapitel beschreibt die lesenden Zugriffe der e-Diagnose-Fachanwendung auf einzelne Einträge sowie Summary-Listen. Je nach Anwendungsfall stehen unterschiedliche Interaktionen zur Verfügung.
+Die hier dargestellten technischen Anwendungsfälle ergänzen die fachlichen Anwendungsfälle ["Diagnosen lesen" TODO Link]().
 
 ### Interaktionen auf Einzelressourcen
 
 #### Einzelnen Eintrag abrufen
 
-> Sub:UC_01_XX
-
-Dieser Use-Case ermöglicht den lesenden Zugriff auf einen einzelnen Eintrag.
+Dieser Anwendungsfall ermöglicht den lesenden Zugriff auf einen einzelnen Eintrag.
 
 ##### Ablauf
 
 1. Der GDA oder ELGA-Teilnehmer hat einen der folgenden Requests durchgeführt: 
-   1. [Abruf der aktuelle Summary-Liste](#aktuelle-summary-liste-abrufen)
-   2. [Abruf der Summary-Listenversion](#versionen-einer-summary-liste-abrufen)
    3. [Abruf aller Einträge](#alle-einträge-abrufen)
-2. Auf Basis des zuvor ausgeführten Requests wählt der GDA oder ELGA-Teilnehmer einen Eintrag aus der durch seine `id` eindeutig identifiziert wird.
-3. Der GDA führt ein `GET /[Condition|Procedure|AllergyIntolerance]/[id]` aus, um den ausgewählten Eintrag von der e-Diagnose Fachanwendung abzurufen.
+   1. [Abruf der aktuellen Summary-Liste](#aktuelle-summary-liste-abrufen)
+   2. [Abruf der Summary-Listenversionen](#versionen-einer-summary-liste-abrufen)
+2. Auf Basis des zuvor ausgeführten Requests wählt der GDA oder ELGA-Teilnehmer einen Eintrag aus, der durch dessen `id` eindeutig identifiziert wird.
+3. Der GDA führt ein `GET /[Condition|Procedure|AllergyIntolerance]/[id]` aus, um den ausgewählten Eintrag von der e-Diagnose-Fachanwendung abzurufen.
 
-#### Alle Einträge abrufen 
+#### Alle Einträge abrufen
 
-> Sub:UC_01_01 
-
-Dieser Use-Case ermöglicht den lesenden Zugriff auf jeweils alle Einträge von Diagnosen, Prozeduren sowie Allergien und Intoleranzen eines Patienten als Gesamtansicht.
+Dieser Anwendungsfall ermöglicht den lesenden Zugriff auf alle Einträge eines bestimmten Typs eines Patienten in Form einer Gesamtansicht.
 
 Die Interaktion liefert standardmäßig die 30 zuletzt erstellten Einträge, absteigend nach Erstellungsdatum sortiert, zurück. Da eine fachliche Bearbeitung eines Eintrags die Erstellung einer neuen Ressource impliziert, entspricht das Erstellungsdatum dem Zeitpunkt der letzten fachlichen Bearbeitung. Die Fachanwendung stellt die vorhandenen Einträge des gewählten Ressourcentyps als SearchSet-Bundle bereit.
 
 ##### Ablauf
 
 1. Der GDA oder ELGA-Teilnehmer wählt den gewünschten Ressourcentyp (Condition, Procedure oder AllergyIntolerance) der abzurufenden Einträge aus.
-1. Der GDA oder ELGA-Teilnehmer führt ein `GET` auf `/Condition`, `/Procedure` und/oder `/AllergyIntolerance` aus, siehe [Transaktionen](transaction.html#transaktionen).
+2. Der GDA oder ELGA-Teilnehmer führt ein `GET /[Condition|Procedure|AllergyIntolerance]` aus.
 3. **Optional** kann der Abfrageparameter `_count` angegeben werden, um die Anzahl der zurückgelieferten Ressourcen festzulegen. Standardmäßig werden die 30 zuletzt erstellten Ressourcen, absteigend nach Erstellungsdatum sortiert, zurückgeliefert.
 4. Die Fachanwendung liefert ein SearchSet-Bundle mit den gefundenen Einträgen zurück.
 5. Sind keine Ressourcen vorhanden bzw. entsprechen keine Ressourcen den Suchkriterien, wird ein leeres SearchSet-Bundle zurückgeliefert.
