@@ -75,7 +75,7 @@ Eine leere Summary-Liste mit dem Wert **emptyReason = nilknown** bedeutet, dass 
 1. Der GDA ruft die [aktuelle Summary-Liste](use_case_01_read.html#aktuelle-summary-liste-abrufen) ab.
 3. Ist `List.emptyReason = notstarted`, handelt es sich um eine initialisierte, aber noch nicht fachlich bestätigte leere Summary-Liste.
 4. Bestätigt der GDA, dass für die Person aktuell keine Summary-Einträge dokumentiert werden müssen, setzt er `List.emptyReason = nilknown`.
-5. Der GDA führt die [`$write`-Operation](uc_ediag_02_schreiben.html#summary-liste-aktualisieren-write) aus und übermittelt die aktualisierte Liste an die Fachanwendung.
+5. Der GDA führt die [`$write`-Operation](use_case_02_write.html#summary-liste-aktualisieren-write) aus und übermittelt die aktualisierte Liste an die Fachanwendung.
 
 ##### Sequenzdiagramm
 
@@ -101,11 +101,11 @@ Die `$write`-Operation ist eine eigenständige Operation, die allerdings einen *
 4. Währenddessen ruft **GDA 2** ebenfalls die [aktuelle Summary-Liste](use_case_01_read.html#aktuelle-summary-liste-abrufen). 
 5. Die Fachanwendung liefert das SearchSet-Bundle zurück. Auch in diesem Fall hat `List.meta.versionId` den Wert `123`.
 6. **GDA 2** macht **fachliche Änderungen** an der Summary-Liste.
-7. **GDA 2** aktualisiert zuerst mittels [$write-Operation](uc_ediag_02_schreiben.html#summary-liste-aktualisieren-write) die Summary-Liste.
+7. **GDA 2** aktualisiert zuerst mittels [$write-Operation](use_case_02_write.html#summary-liste-aktualisieren-write) die Summary-Liste.
 8. Im Rahmen der Validierung der übermittelten Summary-Liste prüft die Fachanwendung, ob der mitgeschickte `If-Match`-Header mit der aktuellen `versionId` der Summary-Liste übereinstimmt.
 9.  Die Prüfung verläuft erfolgreich, weil beide den Wert `123` haben. Die Änderungen werden übernommen und die neue Version der Summary-Liste wird persistiert. Dabei erhält die Summary-Liste die neue `List.meta.version` mit dem Wert `124`.
 12. **GDA 2** erhält die Meldung, dass die Aktualisierung erfolgreich durchgeführt wurde.
-13. Anschließend will **GDA 1** mittels [$write-Operation](uc_ediag_02_schreiben.html#summary-liste-aktualisieren-write) ebenfalls seine Version der Summary-Liste speichern.
+13. Anschließend will **GDA 1** mittels [$write-Operation](use_case_02_write.html#summary-liste-aktualisieren-write) ebenfalls seine Version der Summary-Liste speichern.
 14. Die Fachanwendung validiert erneut die übermittelte Summary-Liste. Die Prüfung schlägt fehl, weil die aktuelle Summary-Liste in der Fachanwendung mittlerweile die `List.meta.versionId` mit dem Wert `124` besitzt. Die Fachanwendung lehnt das Speichern ab.
 17. **GDA 1** erhält eine Fehlermeldung, dass zwischenzeitlich eine Version der Liste gespeichert wurde.
 18. **GDA 1** muss erneut die [aktuelle Summary-Liste](use_case_01_read.html#aktuelle-summary-liste-abrufen) abrufen, die zwischenzeitlich vorgenommenen Änderungen prüfen und gegebenenfalls seine Änderungen erneut durchführen, bevor ein neuer Schreibvorgang erfolgen kann.
@@ -134,7 +134,7 @@ Der GDA möchte einen bestehenden Eintrag in die Summary-Liste aufnehmen.
 2. Der GDA wählt den bestehenden Eintrag aus. 
 3. Der GDA fügt den Eintrag als `List.entry` in die Liste ein.
 * **`List.entry.item`** referenziert den bestehenden Eintrag. 
-1. Der GDA führt die [`$write`-Operation](uc_ediag_02_schreiben.html#summary-liste-aktualisieren-write) aus und übermittelt die aktualisierte Liste an die Fachanwendung.
+1. Der GDA führt die [`$write`-Operation](use_case_02_write.html#summary-liste-aktualisieren-write) aus und übermittelt die aktualisierte Liste an die Fachanwendung.
 
 ##### Sequenzdiagramm
 
@@ -157,7 +157,7 @@ Ein bestehender Eintrag kann aus der Summary-Liste entfernt werden, ohne dass di
 
 1. Der GDA ruft die [aktuelle Summary-Liste](use_case_01_read.html#aktuelle-summary-liste-abrufen) ab und erhält das entsprechende SearchSet-Bundle.
 2. Der GDA entfernt den Eintrag oder die Einträge aus der Summary-Liste. Das bedeutet, dass der entsprechende `List.entry` entfernt wird.
-1. Der GDA führt die [`$write`-Operation](uc_ediag_02_schreiben.html#summary-liste-aktualisieren-write) aus und übermittelt die aktualisierte Liste an die Fachanwendung.
+1. Der GDA führt die [`$write`-Operation](use_case_02_write.html#summary-liste-aktualisieren-write) aus und übermittelt die aktualisierte Liste an die Fachanwendung.
 
 ##### Sequenzdiagramm
 
@@ -200,7 +200,7 @@ Durch die Verwendung eines bereits bestehenden Business-Identifier wird bei der 
 5. Der GDA [erfasst den neuen Eintrag](#eintrag-erfassen) in der e-Diagnose Fachanwendung.
 6. Der GDA entfernt den alten Eintrag aus der Summary-Liste.
 7. Der GDA fügt den neuen Eintrag zur Summary-Liste hinzu.
-8. Der GDA führt die [`$write`-Operation](uc_ediag_02_schreiben.html#summary-liste-aktualisieren-write) aus und übermittelt die aktualisierte Liste an die Fachanwendung.
+8. Der GDA führt die [`$write`-Operation](use_case_02_write.html#summary-liste-aktualisieren-write) aus und übermittelt die aktualisierte Liste an die Fachanwendung.
 
 ##### Sequenzdiagramm
 

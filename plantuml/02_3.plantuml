@@ -68,7 +68,7 @@ group alt: List.emptyReason == notstarted
   
   GDA_1 -> GDA_1: List.emptyReason = nilknown
   
-  ref over GDA_1, eDiag_FA : [[uc_ediag_02_schreiben.html#summary-liste-aktualisieren-write Summary-Liste aktualisieren ($write)]]
+  ref over GDA_1, eDiag_FA : [[use_case_02_write.html#summary-liste-aktualisieren-write Summary-Liste aktualisieren ($write)]]
 
 end
 

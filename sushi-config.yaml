@@ -72,7 +72,7 @@ pages:
     title: "Überblick Anwendungsfälle"
   use_case_01_read.md:
     title: "Lesender Zugriff"
-  uc_ediag_02_schreiben.md:
+  use_case_02_write.md:
     title: "Schreibender Zugriff"
   uc_ediag_03_teilnehmer.md:
     title: "Ausüben von Teilnehmerrechten"
@@ -131,7 +131,7 @@ menu:
     #Fachliche Use Cases: TODO Link zu Developer Portal / fachliche Use Cases
     Überblick Anwendungsfälle: use_cases.html
     Lesender Zugriff: use_case_01_read.html
-    Schreibender Zugriff: uc_ediag_02_schreiben.html
+    Schreibender Zugriff: use_case_02_write.html
     Ausüben von Teilnehmerrechten: uc_ediag_03_teilnehmer.html
     Patient Journey: patient_journey.html
   Artifacts: artifacts.html
