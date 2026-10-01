@@ -33,6 +33,27 @@ Die Interaktion liefert standardmäßig die 30 zuletzt erstellten Einträge, abs
 
 ### Interaktionen auf Listenressourcen
 
+#### Aktuelle Summary-Liste abrufen
+
+> Sub:UC_01_03  
+
+Diese Abfrage dient dem Abruf der aktuellen Summary-Liste für eine Art von Einträgen.
+
+##### Ablauf
+
+1. Der GDA führt ein `GET /List?code=[code]&_sort=-date&_count=1&include=*` aus. 
+2. Die Fachanwendung liefert als Ergebnis ein SearchSet-Bundle, das die Summary-Liste inklusive aller referenzierter Ressourcen enthält, an den GDA. Die Information für [Optimistic Locking](https://hl7.org/fhir/http.html#concurrency) ist in `List.meta.versionId`.
+3. Die zurückgelieferte Summary-Liste bildet die Grundlage für nachfolgende Änderungsoperationen.
+
+###### Alternativer Ablauf
+
+1. Es kann auch `GET /List?code=[code]&_sort=-date&_count=1` ausgeführt werden, um die Summary-Liste OHNE referenzierte Ressourcen abzurufen.
+
+##### Sequenzdiagramm 
+<br>
+<div>{% include_relative plantuml/read.svg %}</div>
+<br> 
+
 #### Versionen einer Summary-Liste abrufen
 
 > Sub:UC_01_02 
@@ -58,29 +79,3 @@ Dieser Use-Case dient ausschließlich der Anzeige historischer Versionen der Sum
 <br>
 <div>{% include_relative plantuml/historyread.svg %}</div>
 <br> 
-
-#### Aktuelle Summary-Liste abrufen
-
-> Sub:UC_01_03  
-
-Diese Abfrage dient dem Abruf der aktuellen Summary-Liste für eine Art von Einträgen.
-
-##### Ablauf
-
-1. Der GDA führt ein `GET /List?code=[code]&_sort=-date&_count=1&include=*` aus. 
-2. Die Fachanwendung liefert als Ergebnis ein SearchSet-Bundle, das die Summary-Liste inklusive aller referenzierter Ressourcen enthält, an den GDA. Die Information für [Optimistic Locking](https://hl7.org/fhir/http.html#concurrency) ist in `List.meta.versionId`.
-3. Die zurückgelieferte Summary-Liste bildet die Grundlage für nachfolgende Änderungsoperationen.
-
-###### Alternativer Ablauf
-
-1. Es kann auch `GET /List?code=[code]&_sort=-date&_count=1` ausgeführt werden, um die Summary-Liste OHNE referenzierte Ressourcen abzurufen.
-
-##### Sequenzdiagramm 
-<br>
-<div>{% include_relative plantuml/read.svg %}</div>
-<br> 
-
-
-
-
-
