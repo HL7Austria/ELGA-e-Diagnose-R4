@@ -71,7 +71,7 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom Procedure-Profi
     HL7ATCorePractitioner
     or HL7ATCorePractitionerRole
     or HL7ATCorePatient
-    or http://hl7.org/fhir/StructureDefinition/RelatedPerson
+    or AtEdiagRelatedPerson
 )
 * asserter ^short = "Quelle der Information zur Prozedur (z. B. behandelnde Person, Patient oder Dritter)."
 

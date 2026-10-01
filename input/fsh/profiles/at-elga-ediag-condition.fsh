@@ -70,7 +70,7 @@ Description: "Das AT e-Diagnose Condition-Profil leitet sich vom Condition-Profi
     HL7ATCorePractitioner
     or HL7ATCorePractitionerRole
     or HL7ATCorePatient
-    or http://hl7.org/fhir/StructureDefinition/RelatedPerson
+    or AtEdiagRelatedPerson
 )
 * asserter ^short = "Quelle der Information zur Diagnose (z. B. behandelnde GDA, Patient oder Dritter)."
 
