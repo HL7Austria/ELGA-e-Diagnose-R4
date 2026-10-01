@@ -73,6 +73,6 @@ Dr. Musterärztin ruft die [Condition-Summary-Liste](List-ConditionList02.html) 
 ### ELGA-Teilnehmer - Eintrag löschen
 <br>
 
-Am **20. April 2026** nimmt Herr Mustermann über das Portal Einsicht in seine e-Diagnose und ruft [alle Diagnosen](Bundle-ConditionSearchSet02.html) ab. Dabei stellt er fest, dass die im März 2026 dokumentierte Pilzinfektion weiterhin in seiner Gesamtansicht aufscheint. Herr Mustermann möchte das nicht und [löscht](uc_ediag_03_teilnehmer.html#eintrag-löschen) den Eintrag.
+Am **20. April 2026** nimmt Herr Mustermann über das Portal Einsicht in seine e-Diagnose und ruft [alle Diagnosen](Bundle-ConditionSearchSet02.html) ab. Dabei stellt er fest, dass die im März 2026 dokumentierte Pilzinfektion weiterhin in seiner Gesamtansicht aufscheint. Herr Mustermann möchte das nicht und [löscht](use_case_03_participant.html#eintrag-löschen) den Eintrag.
 
 Dieser Eintrag wird daraufhin aus der Gesamtansicht [aller Diagnosen](Bundle-ConditionSearchSet03.html) gelöscht. Ist die Diagnose auch Bestandteil der Summary-Liste der Diagnosen, wird sie ebenfalls aus dieser entfernt. In diesem Fall wird List.source auf den Patienten gesetzt.

@@ -14,7 +14,7 @@ In den folgenden Kapiteln werden die fachlichen Anwendungsfälle der e-Diagnose 
 
 - [Lesenender Zugriff auf die e-Diagnose](use_case_01_read.html)
 - [Schreibender Zugriff auf die e-Diagnose](use_case_02_write.html)
-- [Ausübung von Teilnehmerrechten](uc_ediag_03_teilnehmer.html)
+- [Ausübung von Teilnehmerrechten](use_case_03_participant.html)
 
 
 

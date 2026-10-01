@@ -74,7 +74,7 @@ pages:
     title: "Lesender Zugriff"
   use_case_02_write.md:
     title: "Schreibender Zugriff"
-  uc_ediag_03_teilnehmer.md:
+  use_case_03_participant.md:
     title: "Ausüben von Teilnehmerrechten"
   patient_journey.md:
     title: Patient Journey
@@ -132,7 +132,7 @@ menu:
     Überblick Anwendungsfälle: use_cases.html
     Lesender Zugriff: use_case_01_read.html
     Schreibender Zugriff: use_case_02_write.html
-    Ausüben von Teilnehmerrechten: uc_ediag_03_teilnehmer.html
+    Ausüben von Teilnehmerrechten: use_case_03_participant.html
     Patient Journey: patient_journey.html
   Artifacts: artifacts.html
   About:
