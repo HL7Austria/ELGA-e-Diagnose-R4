@@ -64,6 +64,6 @@ GDA_1 -> GDA_1: Ermittelt die ""id"" der Summary-Liste
 
 GDA_1 -> eDiag_FA: ""GET /List/[id]/_history""
 
-eDiag_FA --> GDA_1: Bundle (""type=history"")
+eDiag_FA --> GDA_1: History-Bundle
 
 @enduml
