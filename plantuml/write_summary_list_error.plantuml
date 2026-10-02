@@ -1,5 +1,5 @@
 @startuml
-title ListWriteError
+title Abgelehnte $write-Operation
 
 skinparam borderColor #000000
 skinparam backgroundColor #f5f5f5
@@ -54,55 +54,54 @@ actor GDA_2 as "GDA 2" COLOR_GDA_2
 
 autonumber
 
-== $list-read durch GDA 1 ==
+== Abruf der aktuellen Summary-Liste durch GDA 1 ==
 
 activate GDA_1 COLOR_GDA_1
-GDA_1 -> eDiag_FA: GET /List?code=http://loinc.org|11450-4&_sort=-date&_count=1&_include=*
+GDA_1 -> eDiag_FA: ""GET /List?code=http://loinc.org|11450-4&_include=*""
 
 activate eDiag_FA COLOR_DIAG_FA
-eDiag_FA --> GDA_1: SearchSet-Bundle\n(List.meta.versionId=123)
+eDiag_FA --> GDA_1: SearchSet-Bundle\n""List.meta.versionId = 123"""
 deactivate eDiag_FA
 
-GDA_1 -> GDA_1: GDA 1 bearbeitet Summary-Liste
+GDA_1 -> GDA_1: Summary-Liste bearbeiten
 
-== $list-read durch GDA 2 ==
+== Abruf der aktuellen Summary-Liste durch GDA 2 ==
 
-GDA_2 -> eDiag_FA:  GET /List?code=http://loinc.org|11450-4&_sort=-date&_count=1&_include=*
-activate GDA_2 COLOR_GDA_2 
+GDA_2 -> eDiag_FA:  ""GET /List?code=http://loinc.org|11450-4&_include=*""
+activate GDA_2 COLOR_GDA_2
 
 activate eDiag_FA COLOR_DIAG_FA
-
-eDiag_FA --> GDA_2: SearchSet-Bundle\n(List.meta.versionId=123)
+eDiag_FA --> GDA_2: SearchSet-Bundle\n""List.meta.versionId=123""
 deactivate eDiag_FA
 
-GDA_2 -> GDA_2: GDA 2 bearbeitet Summary-Liste
+GDA_2 -> GDA_2: Summary-Liste bearbeiten
 
-== $list-write durch GDA 2 ==
+== Aktualisieren der Summary-Liste durch GDA 2 ==
 
-GDA_2 -> eDiag_FA: POST /List/$write + If-Match-Header "123"
+GDA_2 -> eDiag_FA: ""POST /List/$write""\n""If-Match""-Header = ""123""
 
 activate eDiag_FA COLOR_DIAG_FA
-eDiag_FA -> eDiag_FA: Validierung der übermittelten Daten\nIf-Match "123" im Header ==\nList.meta.versionId der Fachanwendung "123"
+eDiag_FA -> eDiag_FA: Übermittelte Daten validieren\nIf-Match ""123"" im Header entspricht\n""List.meta.versionId"" der Fachanwendung ""123""
 
-eDiag_FA -> eDiag_FA: Fachanwendung persistiert neue Summary-Liste
+eDiag_FA -> eDiag_FA: Neue Summary-Liste persistieren
 
-eDiag_FA --> GDA_2: HTTP 200 OK 
+eDiag_FA --> GDA_2: Summary-Liste
 deactivate GDA_2
 
 deactivate eDiag_FA
 
 == Error für GDA 1 ==
 
-GDA_1 -> eDiag_FA: POST /List/$write + If-Match-Header "123"
+GDA_1 -> eDiag_FA: ""POST /List/$write""\n""If-Match""-Header = ""123""
 
 activate eDiag_FA COLOR_DIAG_FA
-eDiag_FA -> eDiag_FA: Validierung der übermittelten Daten schlägt fehl\nIf-Match "123" im Header stimmt nicht\nmit List.meta.versionId der Fachanwendung\nüberein.
+eDiag_FA -> eDiag_FA: Validierung der übermittelten Daten schlägt fehl\n""If-Match"" ""123"" im Header stimmt nicht\nmit ""List.meta.versionId"" der Fachanwendung\nüberein.
 
 note over eDiag_FA
-  Fachanwendung lehnt Speichern ab.
+  e-Diagnose-Fachanwendung lehnt Speichern ab.
 end note
 
-eDiag_FA --> GDA_1: HTTP 4xx Fehler / OperationOutcome
+eDiag_FA --> GDA_1: OperationOutcome
 deactivate GDA_1
 
 note over GDA_1

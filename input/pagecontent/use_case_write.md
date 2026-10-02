@@ -99,7 +99,7 @@ Die `$write`-Operation ist eine eigenständige Operation, die allerdings einen *
 4. Währenddessen ruft **GDA 2** ebenfalls die [aktuelle Summary-Liste](use_case_read.html#aktuelle-summary-liste-abrufen). 
 5. Die Fachanwendung liefert das SearchSet-Bundle zurück. Auch in diesem Fall hat `List.meta.versionId` den Wert `123`.
 6. **GDA 2** macht **fachliche Änderungen** an der Summary-Liste.
-7. **GDA 2** aktualisiert zuerst mittels [$write-Operation](use_case_write.html#summary-liste-aktualisieren-write) die Summary-Liste.
+7. **GDA 2** aktualisiert mittels [$write-Operation](use_case_write.html#summary-liste-aktualisieren-write) die Summary-Liste.
 8. Im Rahmen der Validierung der übermittelten Summary-Liste prüft die Fachanwendung, ob der mitgeschickte `If-Match`-Header mit der aktuellen `versionId` der Summary-Liste übereinstimmt.
 9.  Die Prüfung verläuft erfolgreich, weil beide den Wert `123` haben. Die Änderungen werden übernommen und die neue Version der Summary-Liste wird persistiert. Dabei erhält die Summary-Liste die neue `List.meta.version` mit dem Wert `124`.
 12. **GDA 2** erhält die Meldung, dass die Aktualisierung erfolgreich durchgeführt wurde.
@@ -118,7 +118,7 @@ Die `$write`-Operation ist eine eigenständige Operation, die allerdings einen *
 
 ###### Alternativer Ablauf: Abgelehnte $write-Operation
 
-<div>{% include_relative plantuml/diagram_write_error.svg %}</div>
+<div>{% include_relative plantuml/write_summary_list_error.svg %}</div>
 
 #### Eintrag zur Summary-Liste hinzufügen
 
