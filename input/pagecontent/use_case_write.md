@@ -1,4 +1,4 @@
-Dieses Kapitel beschreibt die schreibenden Zugriffe (mit Ausnahme der Teilnehmerrechte) auf einzelne Einträge sowie auf die jeweiligen Summary-Listen der e-Diagnose-Fachanwendung.
+Dieses Kapitel beschreibt die schreibenden Zugriffe (mit Ausnahme der [Teilnehmerrechte](use_case_participant.html)) auf einzelne Einträge sowie auf die jeweiligen Summary-Listen der e-Diagnose-Fachanwendung.
 
 Die hier dargestellten technischen Anwendungsfälle ergänzen die fachlichen Anwendungsfälle ["Diagnosen schreiben" TODO Link]().
 
@@ -22,9 +22,7 @@ Dieser Anwendungsfall ermöglicht dem GDA das Erfassen eines neuen Eintrags in d
 
 #### Eintrag stornieren
 
-> Sub:UC_02_02 
-
-Der GDA kann eine oder mehrere Einträge aufgrund einer falschen Eingabe stornieren. Dabei ist es irrelevant, ob ein zu stornierender Eintrag in der Summary-List referenziert wird oder nicht. Im Zuge der Stornierung kann der GDA einen Vermerk festhalten.
+Dieser Anwedungsfall erlaubt dem GDA die Stornierung eines Eintrags. Dabei ist es irrelevant, ob ein zu stornierender Eintrag in der Summary-Liste referenziert wird oder nicht. Im Zuge der Stornierung kann der GDA einen Vermerk festhalten.
 
 ##### Ablauf
 
