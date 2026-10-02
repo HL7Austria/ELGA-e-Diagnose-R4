@@ -58,11 +58,9 @@ activate eDiag_FA COLOR_DIAG_FA
 
 note over GDA_1
   Vorbedingung: Im System des GDA 1 liegt ein 
-  Eintrag vor, der in eine Summary-Liste 
+  Eintrag vor, der bereits in der e-Diagnose-Fachanwendung
+  gespeichert ist, der in eine Summary-Liste 
   aufgenommen werden soll.
-
-  Dieser kann gerade erst erstellt worden sein oder 
-  aus der Gesamtansicht abgerufen worden sein.
 end note
 
 ref over GDA_1, eDiag_FA : [[use_case_read.html#aktuelle-summary-liste-abrufen Aktuelle Summary-Liste abrufen]]
@@ -74,13 +72,13 @@ note over GDA_1
 end note
 
 GDA_1 -> GDA_1: Bestehenden Eintrag auswählen
-GDA_1 -> GDA_1: List.entry hinzufügen\n- List.entry.item = Referenz auf bestehenden Eintrag
+GDA_1 -> GDA_1: List.entry hinzufügen\n""List.entry.item"" enthält Referenz\nauf bestehenden Eintrag
 
 note over GDA_1
   Der ausgewählte Eintrag
   ist Teil der Summary-Liste.
 end note
 
-ref over GDA_1, eDiag_FA : [[use_case_write.html#summary-liste-aktualisieren-write $write]] 
+ref over GDA_1, eDiag_FA : [[use_case_write.html#summary-liste-aktualisieren-write Summary-Liste aktualisieren ($write)]]
 
 @enduml

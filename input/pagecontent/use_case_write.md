@@ -122,21 +122,21 @@ Die `$write`-Operation ist eine eigenständige Operation, die allerdings einen *
 
 #### Eintrag zur Summary-Liste hinzufügen
 
-> Sub:UC_02_05 
+Dieser Anwendungsfall ermöglicht dem GDA die Aufnahme eines bestimmten Eintrags in die Summary-Liste.
 
-Der GDA möchte einen bestehenden Eintrag in die Summary-Liste aufnehmen.
+Dieser Anwendungsfall setzt voraus, dass der Eintrag, den der GDA der Summary-Liste hinzufügen will, schon in der e-Diagnose-Fachanwendung vorhanden ist und dem GDA die ID des Eintrags bekannt ist.
 
 ##### Ablauf
 
 1. Der GDA ruft die [aktuelle Summary-Liste](use_case_read.html#aktuelle-summary-liste-abrufen) ab und erhält das entsprechende SearchSet-Bundle.
 2. Der GDA wählt den bestehenden Eintrag aus. 
 3. Der GDA fügt den Eintrag als `List.entry` in die Liste ein.
-* **`List.entry.item`** referenziert den bestehenden Eintrag. 
+  * `List.entry.item` enthält die Referenz auf den bestehenden Eintrag. 
 1. Der GDA führt die [`$write`-Operation](use_case_write.html#summary-liste-aktualisieren-write) aus und übermittelt die aktualisierte Liste an die Fachanwendung.
 
 ##### Sequenzdiagramm
 
-<div>{% include_relative plantuml/02_5.svg %}</div>
+<div>{% include_relative plantuml/write_summary_list_add_entry.svg %}</div>
 
 #### Eintrag aus Summary-Liste entfernen
 
