@@ -35,13 +35,15 @@ Dieser Anwedungsfall erlaubt dem GDA die Stornierung eines Eintrags. Dabei ist e
 
 [`$entered-in-error`](OperationDefinition-at-ediag-operation-diagnose-entered-in-error.html)
 
-#### Eintrag bearbeiten in der Gesamtansicht
+#### Eintrag in der Gesamtansicht bearbeiten
 
-Der GDA kann über die Gesamtansicht bestehende Einträge fachlich "bearbeiten".
+Dieser Anwendungsfall beschreibt die Bearbeitung eines Eintrags in der Gesamtansicht.
 
-Dabei ist es wichtig hervorzuheben, dass Daten bestehender Einträge nicht im Sinne eines Updates verändert werden können. Die Daten können nur in einen neuen Eintrag übernommen und vor dem Speichern in der e-Diagnose Fachanwendung angepasst werden.
+<div class="dragon" markdown="1">
+Daten bestehender Einträge können nicht im Sinne eines Updates (`PUT`) verändert werden. Die Daten können von der Client-Anwendung in einen neuen Eintrag übernommen, angepasst und als [neuer Eintrag](#eintrag-erfassen) in der e-Diagnose-Fachanwendung gespeichert werden.
+</div>
 
-Im Unterschied zur Bearbeitung innerhalb einer Summary-Liste erfolgt die Änderung hier unabhängig von der aktuellen Zuordnung in eine Summary-Liste. Die Bearbeitung betrifft die referenzierte medizinische Ressource.
+Die Bearbeitung innerhalb einer Summary-Liste wird [hier](#eintrag-in-der-summary-liste-bearbeiten) beschrieben.
 
 ##### Ablauf
 
@@ -49,7 +51,7 @@ Im Unterschied zur Bearbeitung innerhalb einer Summary-Liste erfolgt die Änderu
 3. Der GDA wählt den fachlich zu bearbeitenden Eintrag aus.
 3. Der GDA übernimmt die Daten in einen neuen Eintrag.
 4. Der GDA ändert die Daten entsprechend.
-   1. Möchte der GDA den alten und den neuen Eintrag miteinander verknüpfen, übernimmt er den Business Identifier aus dem alten Eintrag.
+   1. Eine Verknüpfung des alten mit dem neuen Eintrag erfolgt dadurch, dass beide Einträge denselben Business Identifier erhalten.
 5. Der GDA [erfasst den neuen Eintrag](#eintrag-erfassen) in der e-Diagnose Fachanwendung.
 
 ### Interaktionen auf Listenressourcen
