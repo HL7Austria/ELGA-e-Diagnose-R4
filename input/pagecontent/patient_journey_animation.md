@@ -8,6 +8,7 @@
   --line:#dbe0ea;
   --track:#e3e7ef;
   --blue:#3b62b5;
+  --blue-soft:#e9eff9;
   --gold-field:#fdf4d6;
   --gold-line:#c9a227;
   --gold-ink:#7a5c05;
@@ -26,6 +27,7 @@
     --line:#2a3040;
     --track:#262c3a;
     --blue:#8badf0;
+    --blue-soft:#1a2333;
     --gold-field:#2b2413;
     --gold-line:#a8842a;
     --gold-ink:#e6c76b;
@@ -44,6 +46,7 @@
   --line:#2a3040;
   --track:#262c3a;
   --blue:#8badf0;
+  --blue-soft:#1a2333;
   --gold-field:#2b2413;
   --gold-line:#a8842a;
   --gold-ink:#e6c76b;
@@ -103,6 +106,20 @@ h1{font-size:26px;font-weight:700;letter-spacing:-.015em;margin:0 0 14px;text-wr
 .field .tag{border-color:var(--gold-line)}
 .tag::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--blue);opacity:.55;flex:none}
 .tag::after{font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+
+/* exchange between client and server */
+.wire{margin:28px 0 0;padding-top:18px;border-top:1px solid var(--line)}
+.wire h2{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);margin:0 0 10px}
+.lanes{display:flex;justify-content:space-between;gap:12px;font-size:12px;font-weight:600;color:var(--ink-2);margin-bottom:9px}
+.msgs{display:flex;flex-direction:column;gap:5px}
+.msg{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;padding:6px 11px;border-radius:7px;font-size:12.5px;color:var(--ink-2)}
+.msg code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px;font-weight:600;color:var(--ink);overflow-wrap:anywhere}
+.msg .t{min-width:0}
+.req{background:var(--blue-soft);border-left:3px solid var(--blue);margin-right:12%}
+.req::after{content:"\2192";margin-left:auto;padding-left:8px;color:var(--blue);font-weight:700}
+.res{background:var(--surface);border-right:3px solid var(--line);margin-left:12%;text-align:right}
+.res::before{content:"\2190";margin-right:auto;padding-right:8px;color:var(--ink-3);font-weight:700}
+.note{font-size:12px;font-style:italic;color:var(--ink-3);text-align:center;padding:1px 10px;margin:0}
 
 /* timeline (radio labels) */
 .bar{
@@ -170,6 +187,8 @@ h1{font-size:26px;font-weight:700;letter-spacing:-.015em;margin:0 0 14px;text-wr
   .cats{grid-template-columns:1fr}
   .gesamt{min-height:0}
   .stop .n{display:none}
+  .req{margin-right:0}
+  .res{margin-left:0}
 }
 </style>
 
@@ -245,6 +264,47 @@ h1{font-size:26px;font-weight:700;letter-spacing:-.015em;margin:0 0 14px;text-wr
       </div>
     </section>
   </div>
+
+  <section class="wire">
+    <h2>Datenaustausch in diesem Schritt</h2>
+    <div class="lanes"><span>Client &ndash; GDA-Software bzw. ELGA-Portal</span><span>e-Diagnose Fachanwendung</span></div>
+    <div class="msgs">
+      <!-- 0 Initialisierung -->
+      <div class="msg req st on0"><code>GET /List?code=11450-4&amp;_include=*</code><span class="t">aktuelle Summary-Liste abrufen</span></div>
+      <div class="msg res st on0"><code>200 Bundle</code><span class="t">leere Liste, emptyReason notstarted, v1</span></div>
+      <p class="note st on0">ebenso für 47519-4 (Prozeduren) und 48765-2 (Allergien) · List.source = Device</p>
+
+      <!-- 1 Erstvorstellung -->
+      <div class="msg req st on1"><code>POST /Condition</code><span class="t">2× Diagnose, dazu 1× POST /AllergyIntolerance</span></div>
+      <div class="msg res st on1"><code>201 Created</code><span class="t">je eine id pro Eintrag</span></div>
+      <div class="msg req st on1"><code>GET /List?code=11450-4&amp;_include=*</code><span class="t">Liste inkl. versionId holen</span></div>
+      <div class="msg res st on1"><code>200 Bundle</code><span class="t">List v1, leer</span></div>
+      <div class="msg req st on1"><code>POST /List/$write</code><span class="t">Parameters: code, list (+ Hypertonie) · If-Match: W/"1"</span></div>
+      <div class="msg res st on1"><code>200 OK</code><span class="t">List v2 gespeichert</span></div>
+      <p class="note st on1">gleicher Ablauf für die Allergie-Summary-Liste (48765-2)</p>
+
+      <!-- 2 Zweiter Arztbesuch -->
+      <div class="msg req st on2"><code>POST /Condition</code><span class="t">4× Diagnose, dazu 1× POST /Procedure</span></div>
+      <div class="msg res st on2"><code>201 Created</code><span class="t">je eine id pro Eintrag</span></div>
+      <div class="msg req st on2"><code>GET /List?code=11450-4&amp;_include=*</code><span class="t">Liste inkl. versionId holen</span></div>
+      <div class="msg res st on2"><code>200 Bundle</code><span class="t">List v2, 1 Eintrag</span></div>
+      <div class="msg req st on2"><code>POST /List/$write</code><span class="t">+ Morbus Crohn, + Hyperthyreose · If-Match: W/"2"</span></div>
+      <div class="msg res st on2"><code>200 OK</code><span class="t">List v3 gespeichert</span></div>
+      <p class="note st on2">ebenso für die Prozeduren-Liste (47519-4) mit der Koloskopie</p>
+
+      <!-- 3 Storno -->
+      <div class="msg req st on3"><code>POST /Condition/[id]/$entered-in-error</code><span class="t">Parameters: reason = "Diagnose irrtümlich erfasst"</span></div>
+      <div class="msg res st on3"><code>200 OK</code><span class="t">Storno vermerkt: practitioner, datetime, reason</span></div>
+      <p class="note st on3">die Fachanwendung entfernt den Eintrag selbst aus der Summary-Liste – kein $write durch den Client</p>
+      <div class="msg req st on3"><code>GET /List?code=11450-4&amp;_include=*</code><span class="t">Ergebnis prüfen</span></div>
+      <div class="msg res st on3"><code>200 Bundle</code><span class="t">List v4, ohne Hyperthyreose</span></div>
+
+      <!-- 4 Löschung -->
+      <div class="msg req st on4"><code>POST /Condition/[id]/$delete</code><span class="t">durch den ELGA-Teilnehmer über das Portal</span></div>
+      <div class="msg res st on4"><code>200 OK</code><span class="t">Eintrag unwiderruflich gelöscht</span></div>
+      <p class="note st on4">wäre der Eintrag in der Summary-Liste: neue Listenversion ohne ihn, List.source = Patient</p>
+    </div>
+  </section>
 
   <nav class="bar" aria-label="Zeitpunkt wählen">
     <div class="stops">
