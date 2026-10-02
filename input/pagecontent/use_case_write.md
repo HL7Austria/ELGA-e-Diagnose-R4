@@ -169,13 +169,11 @@ Der GDA kann die Reihenfolge der Einträge innerhalb einer Summary-Liste ändern
 
 #### Eintrag in der Summary-Liste bearbeiten
 
-> Sub:UC_02_08 
+Dieser Anwendungsfall beschreibt die fachliche Bearbeitung von Einträgen, die Teil einer Summary-Liste sind.
 
-Dieser Use-Case beschreibt die fachliche Bearbeitung von Einträgen einer Summary-Liste.  Ein berechtigter GDA kann alle bestehenden (eigene und fremde) Einträge "bearbeiten". 
-
-Dabei ist es wichtig hervorzuheben, dass Daten bestehender Einträge nicht im Sinne eines Updates verändert werden können. Die Daten können nur in einen neuen Eintrag übernommen und vor dem Speichern in der e-Diagnose Fachanwendung angepasst werden.
-
-Durch die Verwendung eines bereits bestehenden Business-Identifier wird bei der Bearbeitung die Zuordnung einer alten Version zu einer neuen Version einer Ressource ermöglicht. Dadurch bleibt die Verbindung zwischen den Einträgen erhalten.
+<div class="dragon" markdown="1">
+Daten bestehender Einträge können nicht im Sinne eines Updates (`PUT`) verändert werden. Die Daten können von der Client-Anwendung in einen neuen Eintrag übernommen, angepasst und als [neuer Eintrag](#eintrag-erfassen) in der e-Diagnose-Fachanwendung gespeichert werden.
+</div>
 
 > Die tatsächliche Reihenfolge der Bearbeitungsschritte kann variieren.
 
@@ -185,12 +183,13 @@ Durch die Verwendung eines bereits bestehenden Business-Identifier wird bei der 
 2. Der GDA wählt den fachlich zu bearbeitenden Summary-Einträge aus.
 3. Der GDA übernimmt die Daten in einen neuen Eintrag.
 4. Der GDA ändert die Daten entsprechend.
-   1. Möchte der GDA den alten und den neuen Eintrag miteinander verknüpfen, übernimmt er den Business Identifier aus dem alten Eintrag.
-5. Der GDA [erfasst den neuen Eintrag](#eintrag-erfassen) in der e-Diagnose Fachanwendung.
-6. Der GDA entfernt den alten Eintrag aus der Summary-Liste.
-7. Der GDA fügt den neuen Eintrag zur Summary-Liste hinzu.
+   1. Eine Verknüpfung des alten mit dem neuen Eintrag erfolgt dadurch, dass beide Einträge denselben Business Identifier erhalten.
+5. Der GDA [erfasst den neuen Eintrag](#eintrag-erfassen) in der e-Diagnose-Fachanwendung.
+6. Der GDA entfernt den alten Eintrag aus der Summary-Liste, indem der entsprechende `List.entry` entfernt wird.
+7. Der GDA fügt den neuen Eintrag zur Summary-Liste hinzu, indem der Eintrag als neuer `List.entry` in die Liste eingefügt wird.
+   * `List.entry.item` enthält die Referenz auf den bestehenden Eintrag.
 8. Der GDA führt die [`$write`-Operation](use_case_write.html#summary-liste-aktualisieren-write) aus und übermittelt die aktualisierte Liste an die Fachanwendung.
 
 ##### Sequenzdiagramm
 
-<div>{% include_relative plantuml/02_8.svg %}</div>
+<div>{% include_relative plantuml/write_summary_list_edit_entry.svg %}</div>
