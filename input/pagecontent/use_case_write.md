@@ -140,16 +140,7 @@ Dieser Anwendungsfall setzt voraus, dass der Eintrag, den der GDA der Summary-Li
 
 #### Eintrag aus Summary-Liste entfernen
 
-> Sub:UC_02_06 
-
-<!--FHIR Spezifikation über Historie - nachlesen, wie die Regel ist! Was bedeutet eine Aktualisierung auf eine historische Version?
--->
-
-<!--Nur entfernen, das weitere Vorgehen wird hier nicht beschrieben. Stornieren kann als Folge durchgeführt werden. 
-Die Referenz auf die Ressource wird aus der Summary-Liste entfernt (removed). Die referenzierte Ressource bleibt unverändert bestehen. Die Fachanwendung entfernt die Kennzeichnung als relevant (meta.tag = relevant).
-
-ToDo: Aus Liste entfernen, Ressource bleibt bestehen, verliert nur Listzugehörigkeit oder Löschen - Ressource wird vollständig entfernt Ausblenden und Löschen? Löscht der Teilnehmer einen Eintrag, muss die Historienversion mitgelöscht werden? Bestehende Referenzen auf gelöschte Ressourcen. Lösche ich C, sage ich such mir alle List-Versionen mit C, und lösch mir alle C. Wie weit greifen, muss ich mich als Bürger durch alle Vorversionen durchklicken. -->
-Ein bestehender Eintrag kann aus der Summary-Liste entfernt werden, ohne dass die Ressource selbst gelöscht oder geändert wird. Hierzu wird die Referenz auf die Ressource aus der Summary-Liste entfernt. Die Ressource bleibt weiterhin verfügbar und kann zu einem späteren Zeitpunkt erneut in die Summary-Liste aufgenommen werden.
+Dieser Anwendungsfall erlaubt das entfernen eines Eintrags aus einer Summary-Liste. Dabei wird lediglich die Referenz innerhalb der Summary-Liste entfernt, der Eintrag selbst bleibt unverändert und kann über die [Gesamtansicht](use_case_read.html#alle-einträge-abrufen) abgerufen werden.
 
 ##### Ablauf
 
@@ -159,7 +150,7 @@ Ein bestehender Eintrag kann aus der Summary-Liste entfernt werden, ohne dass di
 
 ##### Sequenzdiagramm
 
-<div>{% include_relative plantuml/02_6.svg %}</div>
+<div>{% include_relative plantuml/write_summary_list_remove_entry.svg %}</div>
 
 #### Reihenfolge der Einträge in der Summary-Liste ändern
 

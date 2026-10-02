@@ -64,8 +64,8 @@ note over GDA_1
   Summary-Liste.
 end note
 
-GDA_1 -> GDA_1: Eintrag aus Summary-Liste entfernen,\n indem List.entry entfernt wird
+GDA_1 -> GDA_1: Eintrag aus Summary-Liste entfernen,\nindem ""List.entry"" entfernt wird
 
-ref over GDA_1, eDiag_FA : [[use_case_write.html#summary-liste-aktualisieren-write $write]] 
+ref over GDA_1, eDiag_FA : [[use_case_write.html#summary-liste-aktualisieren-write Summary-Liste aktualisieren ($write)]] 
 
 @enduml
