@@ -130,7 +130,7 @@ Dieser Anwendungsfall setzt voraus, dass der Eintrag, den der GDA der Summary-Li
 
 1. Der GDA ruft die [aktuelle Summary-Liste](use_case_read.html#aktuelle-summary-liste-abrufen) ab und erhält das entsprechende SearchSet-Bundle.
 2. Der GDA wählt den bestehenden Eintrag aus. 
-3. Der GDA fügt den Eintrag als `List.entry` in die Liste ein.
+3. Der GDA fügt den Eintrag als neuen `List.entry` in die Liste ein.
   * `List.entry.item` enthält die Referenz auf den bestehenden Eintrag. 
 1. Der GDA führt die [`$write`-Operation](use_case_write.html#summary-liste-aktualisieren-write) aus und übermittelt die aktualisierte Liste an die Fachanwendung.
 
@@ -154,18 +154,13 @@ Dieser Anwendungsfall erlaubt das entfernen eines Eintrags aus einer Summary-Lis
 
 #### Reihenfolge der Einträge in der Summary-Liste ändern
 
-> Sub:UC_02_07 
-
-<!--Der GDA kann die Reihenfolge der Summary-Einträge ändern. Die Einträge selbst bleiben dabei unverändert. 
-ToDo: Evtl. auch in den ELGA Core mitnehmen. -->
-Der GDA kann die Reihenfolge der Einträge innerhalb einer Summary-Liste ändern. Dabei werden ausschließlich die Listeneinträge neu angeordnet; die referenzierten Ressourcen und deren fachliche Inhalte bleiben unverändert. Durch das Speichern entsteht eine neue Version der Summary-Liste.
+Dieser Anwendungsfall erlaubt es dem GDA, die Reihenfolge der Einträge innerhalb einer Summary-Liste zu ändern. Dabei werden ausschließlich die Listeneinträge neu angeordnet; die referenzierten Ressourcen und deren fachliche Inhalte bleiben unverändert.
 
 ##### Ablauf
 
-1. Der GDA führt ein **POST $list-read** aus und erhält das aktuelle Search-Bundle.
+1. Der GDA ruft die [aktuelle Summary-Liste](use_case_read.html#aktuelle-summary-liste-abrufen) ab und erhält das entsprechende SearchSet-Bundle.
 2. Der GDA ordnet die Einträge der Summary-Liste in die gewünschte Reihenfolge.
-3. Der GDA führt einen POST $list-write aus und übermittelt die aktualisierte Summary-Liste.
-4. Die Fachanwendung speichert die neue Reihenfolge als aktuelle Version der Summary-Liste. Die referenzierten Ressourcen bleiben unverändert.
+1. Der GDA führt die [`$write`-Operation](use_case_write.html#summary-liste-aktualisieren-write) aus und übermittelt die aktualisierte Liste an die Fachanwendung.
 
 #### Eintrag in der Summary-Liste bearbeiten
 
