@@ -52,7 +52,7 @@ participant eDiag_FA as "e-Diagnose Fachanwendung" COLOR_DIAG_FA
 
 autonumber
 
-GDA_1 -> eDiag_FA: ""GET /List?code={code}&_sort=-date[&_include=*]""
+GDA_1 -> eDiag_FA: ""GET /List?code={code}[&_include=*]""
 activate GDA_1 COLOR_GDA_1
 activate eDiag_FA COLOR_DIAG_FA
 

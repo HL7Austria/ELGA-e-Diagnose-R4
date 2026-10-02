@@ -39,13 +39,13 @@ Dieser Anwendungsfall dient dem Abruf der aktuellen Summary-Liste für eine Art 
 
 ##### Ablauf
 
-1. Der GDA führt ein `GET /List?code=[code]&_sort=-date&include=*` aus. 
+1. Der GDA führt ein `GET /List?code=[code]&include=*` aus. 
 2. Die Fachanwendung liefert als Ergebnis ein SearchSet-Bundle, das die Summary-Liste inklusive aller referenzierter Ressourcen enthält, an den GDA. Die Information für [Optimistic Locking](https://hl7.org/fhir/http.html#concurrency) ist in `List.meta.versionId` enthalten.
 3. Die zurückgelieferte Summary-Liste bildet die Grundlage für nachfolgende Änderungsoperationen.
 
 ###### Alternativer Ablauf
 
-1. Es kann auch `GET /List?code=[code]&_sort=-date` ausgeführt werden, um die Summary-Liste OHNE referenzierte Ressourcen abzurufen.
+1. Es kann auch `GET /List?code=[code]` ausgeführt werden, um die Summary-Liste OHNE referenzierte Ressourcen abzurufen.
 
 ##### Sequenzdiagramm 
 
