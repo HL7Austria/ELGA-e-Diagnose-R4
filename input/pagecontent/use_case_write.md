@@ -58,7 +58,7 @@ Die Bearbeitung innerhalb einer Summary-Liste wird [hier](#eintrag-in-der-summar
 
 #### Leere Summary-Liste fachlich bestätigen
 
-Dieser Use-Case beschreibt die fachliche Bestätigung einer initialisierten, leeren Summary-Liste durch den GDA und die anschließende Speicherung in der e-Diagnose-Fachanwendung. 
+Dieser Anwendungsfall beschreibt die fachliche Bestätigung einer initialisierten, leeren Summary-Liste durch den GDA und die anschließende Speicherung in der e-Diagnose-Fachanwendung. 
 
 Eine leere Summary-Liste mit dem Wert `List.emptyReason = nilknown` bedeutet, dass für den Patienten derzeit keine Summary-Einträge vorliegen. Der Status dokumentiert somit explizit das Fehlen von Summary-Einträgen und ist von einer initial noch nicht befüllten Summary-Liste `List.emptyReason = notstarted` zu unterscheiden.
 
@@ -79,15 +79,17 @@ Dieser Anwendungsfall kann pro Patient maximal einmal auftreten.
 
 #### Summary-Liste aktualisieren ($write)
 
-> Sub:UC_02_04 
+Dieser Anwendungsfall erlaubt es, eine aktualisierte Summary-Liste an die e-Diagnose-Fachanwendung zu übermitteln.
 
 Die `$write`-Operation ist eine eigenständige Operation, die allerdings einen **zuvor ausgeführten** [Abruf der aktuellen Summary-Liste](use_case_read.html#aktuelle-summary-liste-abrufen) voraussetzt.
 
 ##### Ablauf
 
-1. Der GDA übermittelt via `POST /List/$write` die aktualisierte Summary-Liste.
-2. Die Fachanwendung [validiert](OperationDefinition-at-ediag-operation-list-write.html#validierung--fehlerbehandlung) die empfangenen Daten entsprechend.
-3. Nach erfolgreicher Validierung wird die Summary-Liste persistiert.
+1. Der GDA ruft die [aktuelle Summary-Liste](use_case_read.html#aktuelle-summary-liste-abrufen) ab.
+2. Der GDA nimmt Änderungen an der Summary-Liste vor.
+3. Der GDA übermittelt via `POST /List/$write` die aktualisierte Summary-Liste.
+4. Die e-Diagnose-Fachanwendung [validiert](OperationDefinition-at-ediag-operation-list-write.html#validierung--fehlerbehandlung) die empfangenen Daten entsprechend.
+5. Nach erfolgreicher Validierung wird die Summary-Liste persistiert.
 
 ###### Alternativer Ablauf: Abgelehnte $write-Operation
 
@@ -112,7 +114,7 @@ Die `$write`-Operation ist eine eigenständige Operation, die allerdings einen *
 
 ##### Sequenzdiagramm
 
-<div>{% include_relative plantuml/write.svg %}</div>
+<div>{% include_relative plantuml/write_summary_list.svg %}</div>
 
 ###### Alternativer Ablauf: Abgelehnte $write-Operation
 

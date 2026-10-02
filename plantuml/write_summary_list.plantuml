@@ -1,5 +1,5 @@
 @startuml
-title Liste aktualisieren ($list-write)
+title Summary-Liste aktualisieren ($write)
 
 skinparam borderColor #000000
 skinparam backgroundColor #f5f5f5
@@ -57,14 +57,11 @@ autonumber
 
 activate GDA_1 COLOR_GDA_1
 
-note over GDA_1
-  Vorbedingung: Nach einem $list-read
-  wurde die Liste bearbeitet.
-end note
+ref over GDA_1, eDiag_FA : [[use_case_read.html#aktuelle-summary-liste-abrufen Aktuelle Summary-Liste abrufen]]
 
-GDA_1 -> GDA_1 : List.date = aktueller Zeitpunkt\nList.source = aktueller GDA
+GDA_1 -> GDA_1 : Liste bearbeiten
 
-GDA_1 -> eDiag_FA: POST /List/$write (List + ETag)
+GDA_1 -> eDiag_FA: ""POST /List/$write""
 
 activate eDiag_FA COLOR_DIAG_FA
 
@@ -74,11 +71,11 @@ group COLOR_OK alt: Validierung erfolgreich [ja]
   
   eDiag_FA -> eDiag_FA: Neue Version persistieren
 
-  eDiag_FA --> GDA_1: HTTP 200 OK
+  eDiag_FA --> GDA_1: Summary-Liste
 
-else COLOR_ERROR nein
+else COLOR_ERROR nein: Fehler
 
-  eDiag_FA --> GDA_1: HTTP 4xx Fehler / OperationOutcome
+  eDiag_FA --> GDA_1: OperationOutcome
 
 end
   
