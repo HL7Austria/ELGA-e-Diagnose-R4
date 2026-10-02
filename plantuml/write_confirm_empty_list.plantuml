@@ -50,7 +50,7 @@ skinparam sequence {
 !define COLOR_ERROR    #FF8C0035
 
 actor GDA_1 as "GDA 1" COLOR_GDA_1
-participant eDiag_FA as "e-Diagnose Fachanwendung" COLOR_DIAG_FA
+participant eDiag_FA as "e-Diagnose-Fachanwendung" COLOR_DIAG_FA
 
 autonumber
  
@@ -62,7 +62,7 @@ ref over GDA_1, eDiag_FA : [[use_case_read.html#aktuelle-summary-liste-abrufen A
 group alt: List.emptyReason == notstarted
   note over GDA_1
     GDA erhält die Summary-Liste von der
-    e-Diagnose Fachanwendung und bestätigt, dass 
+    e-Diagnose-Fachanwendung und bestätigt, dass 
     keine Einträge in diese aufgenommen werden müssen.
   end note
   
