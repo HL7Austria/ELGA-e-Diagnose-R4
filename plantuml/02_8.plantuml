@@ -56,7 +56,7 @@ autonumber
 
 activate GDA_1 COLOR_GDA_1
 
-ref over GDA_1, eDiag_FA : [[use_case_01_read.html#aktuelle-summary-liste-abrufen Aktuelle Summary-Liste abrufen]]
+ref over GDA_1, eDiag_FA : [[use_case_read.html#aktuelle-summary-liste-abrufen Aktuelle Summary-Liste abrufen]]
 
 note over GDA_1
   GDA wählt bestehenden Eintrag
@@ -70,12 +70,12 @@ GDA_1 -> GDA_1 : Referenzierte Ressource (Condition/Procedure/AllergyIntolerance
 
 GDA_1 -> GDA_1 : Fachliche Änderungen durchführen
 
-ref over GDA_1, eDiag_FA : [[use_case_02_write.html#eintrag-erfassen Eintrag erfassen]]
+ref over GDA_1, eDiag_FA : [[use_case_write.html#eintrag-erfassen Eintrag erfassen]]
 
 GDA_1 -> GDA_1 : Alten Eintrag aus Liste entfernen
 
 GDA_1 -> GDA_1 : Neuen Eintrag zu Liste an passender Stelle hinzufügen
 
-ref over GDA_1, eDiag_FA : [[use_case_02_write.html#summary-liste-aktualisieren-write Summary-Liste aktualisieren ($write)]]
+ref over GDA_1, eDiag_FA : [[use_case_write.html#summary-liste-aktualisieren-write Summary-Liste aktualisieren ($write)]]
 
 @enduml

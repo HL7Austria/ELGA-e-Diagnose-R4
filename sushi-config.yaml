@@ -70,11 +70,11 @@ pages:
     title: "Workflowmanagement"
   use_cases.md:
     title: "Überblick Anwendungsfälle"
-  use_case_01_read.md:
+  use_case_read.md:
     title: "Lesender Zugriff"
-  use_case_02_write.md:
+  use_case_write.md:
     title: "Schreibender Zugriff"
-  use_case_03_participant.md:
+  use_case_participant.md:
     title: "Ausüben von Teilnehmerrechten"
   patient_journey.md:
     title: Patient Journey
@@ -130,9 +130,9 @@ menu:
   Anwendungsfälle: 
     #Fachliche Use Cases: TODO Link zu Developer Portal / fachliche Use Cases
     Überblick Anwendungsfälle: use_cases.html
-    Lesender Zugriff: use_case_01_read.html
-    Schreibender Zugriff: use_case_02_write.html
-    Ausüben von Teilnehmerrechten: use_case_03_participant.html
+    Lesender Zugriff: use_case_read.html
+    Schreibender Zugriff: use_case_write.html
+    Ausüben von Teilnehmerrechten: use_case_participant.html
     Patient Journey: patient_journey.html
   Artifacts: artifacts.html
   About:

@@ -57,7 +57,7 @@ Dieser Anwendungsfall dient der Anzeige aktuellen und historischer Versionen der
 
 ##### Ablauf
 
-1. Der GDA ruft die [aktuelle Summary-Liste](use_case_01_read.html#aktuelle-summary-liste-abrufen) ab, wodurch er das entsprechende SearchSet-Bundle und damit die `id` der Summary-Liste erhält.
+1. Der GDA ruft die [aktuelle Summary-Liste](use_case_read.html#aktuelle-summary-liste-abrufen) ab, wodurch er das entsprechende SearchSet-Bundle und damit die `id` der Summary-Liste erhält.
 2. In einem zweiten Request kann der GDA jetzt auf alle Versionen (auch die aktuelle) der Summary-Liste zugreifen. 
 3. Die e-Diagnose Fachanwendung liefert ein History-Bundle zurück, das alle Summary-Listenversionen enthält.
    `GET /List/[id]/_history`

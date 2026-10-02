@@ -57,7 +57,7 @@ autonumber
 activate GDA_1 COLOR_GDA_1
 activate eDiag_FA COLOR_DIAG_FA
 
-ref over GDA_1, eDiag_FA : [[use_case_01_read.html#aktuelle-summary-liste-abrufen Aktuelle Summary-Liste abrufen]]
+ref over GDA_1, eDiag_FA : [[use_case_read.html#aktuelle-summary-liste-abrufen Aktuelle Summary-Liste abrufen]]
 
 group alt: List.emptyReason == notstarted
   note over GDA_1
@@ -68,7 +68,7 @@ group alt: List.emptyReason == notstarted
   
   GDA_1 -> GDA_1: List.emptyReason = nilknown
   
-  ref over GDA_1, eDiag_FA : [[use_case_02_write.html#summary-liste-aktualisieren-write Summary-Liste aktualisieren ($write)]]
+  ref over GDA_1, eDiag_FA : [[use_case_write.html#summary-liste-aktualisieren-write Summary-Liste aktualisieren ($write)]]
 
 end
 

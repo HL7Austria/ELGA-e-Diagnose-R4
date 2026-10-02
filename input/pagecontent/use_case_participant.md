@@ -28,7 +28,7 @@ Ein ELGA-Teilnehmer kann einzelne Versionen einer Summary-Liste unwiderruflich l
 
 ##### Ablauf
 
-1. Der ELGA-Teilnehmer ruft [alle Versionen einer Summary-Liste](use_case_01_read.html#versionen-einer-summary-liste-abrufen) ab.
+1. Der ELGA-Teilnehmer ruft [alle Versionen einer Summary-Liste](use_case_read.html#versionen-einer-summary-liste-abrufen) ab.
 2. Um eine Version der Summary-Liste zu löschen, führt der ELGA-Teilnehmer über das Portal die [`$delete-history-version`-Operation](OperationDefinition-at-ediag-operation-list-delete-history-version.html) auf die zu löschende Summary-Listenversion aus.
 3. Die Fachanwendung löscht die entsprechende Summary-Listenversion.
 4. Wird die letzte Summary-Listenversion gelöscht, legt die e-Diagnose Fachanwendung eine neue Summary-Liste mit `List.emptyReason = nilknown` an.

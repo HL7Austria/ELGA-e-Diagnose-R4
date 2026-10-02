@@ -12,9 +12,9 @@ Das folgende Anwendungsfalldiagramm zeigt die zentralen Anwendungsfälle der e-D
 
 In den folgenden Kapiteln werden die fachlichen Anwendungsfälle der e-Diagnose als technische Anwendungsfälle beschrieben. Die zugehörigen Sequenzdiagramme veranschaulichen die Interaktionen und Abläufe zwischen den beteiligten Akteuren.
 
-- [Lesenender Zugriff auf die e-Diagnose](use_case_01_read.html)
-- [Schreibender Zugriff auf die e-Diagnose](use_case_02_write.html)
-- [Ausübung von Teilnehmerrechten](use_case_03_participant.html)
+- [Lesenender Zugriff auf die e-Diagnose](use_case_read.html)
+- [Schreibender Zugriff auf die e-Diagnose](use_case_write.html)
+- [Ausübung von Teilnehmerrechten](use_case_participant.html)
 
 
 
