@@ -58,13 +58,13 @@ GDA_1 -> GDA_1 : Neue Ressource erstellen
 
 GDA_1 -> GDA_1 : Fachliche Informationen erfassen
 
-GDA_1 -> eDiag_FA: POST /[Condition|Procedure|AllergyIntolerance]
+GDA_1 -> eDiag_FA: ""POST /[Condition|Procedure|AllergyIntolerance]""
 
 activate eDiag_FA COLOR_DIAG_FA
 
 eDiag_FA -> eDiag_FA: Ressource validieren
 
-group COLOR_OK alt: Ressource valide? [Validierung erfolgreich] 
+group COLOR_OK alt: Validierung erfolgreich? [ja] 
 
   eDiag_FA -> eDiag_FA: Neue Ressource persistieren
 
@@ -72,9 +72,9 @@ group COLOR_OK alt: Ressource valide? [Validierung erfolgreich]
     Neue Ressource gespeichert.
   end note
 
-  eDiag_FA --> GDA_1: HTTP 201 Created
+  eDiag_FA --> GDA_1: OK
 
-else COLOR_ERROR Validierung fehlgeschlagen
+else COLOR_ERROR nein: Fehler
 
   eDiag_FA --> GDA_1: OperationOutcome
   deactivate eDiag_FA

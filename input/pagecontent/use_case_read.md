@@ -1,4 +1,4 @@
-Dieses Kapitel beschreibt die lesenden Zugriffe auf einzelne Einträge sowie die jeweiligen Summary-Listen der e-Diagnose-Fachanwendung. Je nach Anwendungsfall stehen unterschiedliche Interaktionen zur Verfügung.
+Dieses Kapitel beschreibt die lesenden Zugriffe auf einzelne Einträge sowie die jeweiligen Summary-Listen der e-Diagnose-Fachanwendung.
 
 Die hier dargestellten technischen Anwendungsfälle ergänzen die fachlichen Anwendungsfälle ["Diagnosen lesen" TODO Link]().
 

@@ -1,30 +1,24 @@
-> UC-02 
+Dieses Kapitel beschreibt die schreibenden Zugriffe (mit Ausnahme der Teilnehmerrechte) auf einzelne Einträge sowie auf die jeweiligen Summary-Listen der e-Diagnose-Fachanwendung.
 
-Dieses Kapitel beschreibt die Schreiboperationen der e-Diagnose-Fachanwendung. Im Mittelpunkt stehen die Aktualisierung von Summary-Listen sowie die Erfassung, Zuordnung, Entfernung, Stornierung und Löschung von medizinischen Einzeleinträgen (Ressourcen).
+Die hier dargestellten technischen Anwendungsfälle ergänzen die fachlichen Anwendungsfälle ["Diagnosen schreiben" TODO Link]().
 
 ### Interaktionen auf Einzelressourcen
 
 #### Eintrag erfassen
 
-> Sub:UC_02_01
-
-Der GDA erfasst einen neuen Eintrag über die e-Diagnose-Fachanwendung. Ein neuer Eintrag ist standardmäßig nicht Teil der Summary-Liste, kann aber in Folge durch Sub:UC_02_03 zur Summary-Liste hinzugefügt werden.<br>
+Dieser Anwendungsfall ermöglicht dem GDA das Erfassen eines neuen Eintrags in der e-Diagnose-Fachanwendung. Ein neuer Eintrag ist standardmäßig nicht Teil der Summary-Liste, kann aber zur [Summary-Liste hinzugefügt](#eintrag-zur-summary-liste-hinzufügen) werden.
 
 ##### Ablauf
 
-1. Der GDA wählt den gewünschten Ressourcentyp (Condition, Procedure oder AllergyIntolerance) aus.
+1. Der GDA wählt den gewünschten Art des Eintrags (Condition, Procedure oder AllergyIntolerance) aus.
 2. Der GDA erstellt einen neuen Eintrag und erfasst die erforderlichen fachlichen Informationen.
-3. Der GDA führt ein **POST** auf
-`/Condition`,
-`/Procedure` oder
-`/AllergyIntolerance`
-aus und übermittelt die neue Ressource an die e-Diagnose Fachanwendung.
-4. Die **Fachanwendung** validiert die übermittelte Ressource.
-5. Ist die Validierung erfolgreich, wird die neue Ressource gespeichert und dem GDA eine erfolgreiche Erstellung mittels **HTTP 201 Created** bestätigt. Ist die Validierung nicht erfolgreich, wird die Ressource nicht gespeichert. Die Fachanwendung liefert ein **OperationOutcome** mit den aufgetretenen Validierungsfehlern zurück.
+3. Der GDA führt ein `POST /[Condition|Procedure|AllergyIntolerance` aus und übermittelt die neue Ressource an die e-Diagnose-Fachanwendung.
+4. Die e-Diagnose-Fachanwendung validiert die übermittelte Ressource.
+5. Ist die Validierung erfolgreich, wird die neue Ressource gespeichert. Ist die Validierung nicht erfolgreich, wird die Ressource nicht gespeichert. Die Fachanwendung liefert ein **OperationOutcome** mit den aufgetretenen Validierungsfehlern zurück.
 
 ##### Sequenzdiagramm 
 
-<div>{% include_relative plantuml/02_1.svg %}</div>
+<div>{% include_relative plantuml/write_entry.svg %}</div>
 
 #### Eintrag stornieren
 
