@@ -57,7 +57,7 @@ Dr. Musterärztin dokumentiert die Diagnosen [Morbus Crohn](Condition-ConditionE
 
 **Abruf und Korrektur der Summary-Listen**
 
-Dr. Musterärztin befürchtet, dass ihr bei einer Diagnose ein Fehler unterlaufen ist und ruft die [Condition-Summary-Liste](List-ConditionList02.html) ab, wobei ihr auffällt, dass sie einen falschen Code für Morbus Crohn gewählt hat. Sie storniert den [Eintrag mit dem falschen Code](Condition-ConditionEntry03EnteredInError.html), der in Folge durch die e-Diagnose-Fachanwendung aus der [Condition-Summary-Liste](List-ConditionList03.html) entfernt wird. Anschließend erfasst sie [Morbus Crohn](Condition-ConditionEntry06.html) richtig und nimmt die Diagnose in die Summary-Liste auf.
+Dr. Musterärztin befürchtet, dass ihr bei einer Diagnose ein Fehler unterlaufen ist und ruft die [Condition-Summary-Liste](List-ConditionList02.html) ab, wobei ihr auffällt, dass sie einen falschen Code für Morbus Crohn gewählt hat. Sie storniert den [Eintrag mit dem falschen Code](Condition-ConditionEntry03EnteredInError.html), der in Folge durch die e-Diagnose-Fachanwendung aus der [Condition-Summary-Liste](List-ConditionList03.html) entfernt wird. Anschließend erfasst sie [Morbus Crohn](Condition-ConditionEntry06.html) richtig und nimmt die Diagnose in die [Condition-Summary-Liste](List-ConditionList04.html) auf.
 
 ### Einsicht in e-Diagnose durch ELGA-Teilnehmer - Eintrag löschen
 

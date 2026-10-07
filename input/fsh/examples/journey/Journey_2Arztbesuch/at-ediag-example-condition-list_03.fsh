@@ -1,7 +1,7 @@
 Instance: ConditionList03
 InstanceOf: AtEdiagList
-Title: "Condition Summary-Liste (Zweiter Arztbesuch - korrigiert)"
-Description: "Beispiel einer Summary-Liste nachdem ein Eintrag storniert wurde."
+Title: "Condition Summary-Liste (Zweiter Arztbesuch - nach Stornierung)"
+Description: "Beispiel einer Summary-Liste, nachdem die e-Diagnose-Fachanwendung den stornierten Eintrag entfernt hat."
 Usage: #example
 
 * status = #current
@@ -11,9 +11,10 @@ Usage: #example
 
 * subject = Reference(PatientExample)
 
-* date = "2026-03-09T10:35:00+00:00"
+// Zeitpunkt der Stornierung (ConditionEntry03EnteredInError: 2026-03-09T10:30:00+01:00)
+* date = "2026-03-09T09:30:00+00:00"
 
-* source = Reference(PractitionerExample)
+// Änderung erfolgt durch die e-Diagnose-Fachanwendung, nicht durch den GDA
+* source = Reference(DeviceExample)
 
 * entry[0].item = Reference(ConditionEntry01)
-* entry[1].item = Reference(ConditionEntry06)
