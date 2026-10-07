@@ -4,6 +4,8 @@ Title: "Condition-Summary-Liste (notstarted)"
 Description: "Initiale Summary-Liste ohne Summary-Einträge (Condition)."
 Usage: #example
 
+* meta.versionId = "1"
+
 * status = #current
 * mode = #working
 // Problem List / general clinical items

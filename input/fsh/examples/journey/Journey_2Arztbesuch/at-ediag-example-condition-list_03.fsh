@@ -4,6 +4,8 @@ Title: "Condition Summary-Liste (Zweiter Arztbesuch - nach Stornierung)"
 Description: "Beispiel einer Summary-Liste, nachdem die e-Diagnose-Fachanwendung den stornierten Eintrag entfernt hat."
 Usage: #example
 
+* meta.versionId = "4"
+
 * status = #current
 * mode = #working
 

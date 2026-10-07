@@ -4,6 +4,8 @@ Title: "Condition Summary-Liste (Erster Arztbesuch)"
 Description: "Beispiel der Condition-Summary-Liste nach dem ersten Arztbesuch."
 Usage: #example
 
+* meta.versionId = "2"
+
 * status = #current
 * mode = #working
 

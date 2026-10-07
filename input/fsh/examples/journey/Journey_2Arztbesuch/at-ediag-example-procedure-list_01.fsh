@@ -4,6 +4,8 @@ Title: "Procedure Summary-Liste mit einem Summary-Eintrag"
 Description: "Beispiel einer Summary-Liste mit einem Eintrag, der auf eine Prozedur verweist."
 Usage: #example
 
+* meta.versionId = "2"
+
 * status = #current
 * mode = #working
 

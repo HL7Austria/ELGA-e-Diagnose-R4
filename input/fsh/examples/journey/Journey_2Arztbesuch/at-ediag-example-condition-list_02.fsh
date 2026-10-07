@@ -4,6 +4,8 @@ Title: "Condition Summary-Liste (Zweiter Arztbesuch - fehlerhafter Eintrag)"
 Description: "Beispiel einer Summary-Liste während des zweiten Arztbesuchs. Eine neue Diagnose wurde erfasst, die allerdings fehlerhaft ist und daher storniert werden muss."
 Usage: #example
 
+* meta.versionId = "3"
+
 * status = #current
 * mode = #working
 
