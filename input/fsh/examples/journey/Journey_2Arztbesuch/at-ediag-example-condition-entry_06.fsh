@@ -1,4 +1,4 @@
-Instance: ConditionEntry03
+Instance: ConditionEntry06
 InstanceOf: AtEdiagCondition
 Title: "Beispielinstanz einer Diagnose für die Summary"
 Description: "Beispiel Diagnose, aktuelle Beschwerden des Patienten"
@@ -13,7 +13,7 @@ Usage: #example
 
 * verificationStatus = http://terminology.hl7.org/CodeSystem/condition-ver-status#confirmed
 
-* code.coding[0] = http://snomed.info/sct#34486009 "Hyperthyroidism"
+* code.coding[0] = http://snomed.info/sct#34000006 "Crohn's disease"
 
 * subject = Reference(PatientExample)
 

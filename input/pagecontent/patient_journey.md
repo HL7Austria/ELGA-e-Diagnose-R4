@@ -6,20 +6,15 @@ Die Patient Journey zeigt den Lebenszyklus der e-Diagnose von der erstmaligen In
 {% include patient_journey_animation.md %}
 
 ### 1. Arztbesuch - Erstvorstellung und Initialisierung der e-Diagnose
-<br>
 
 **Abruf und Initialisierung der Summary-Listen**
 
 [Dr Musterärztin Melanie](Practitioner-PractitionerExample.html) sieht [Max Mustermann](Patient-PatientExample.html) am **3. März 2026** erstmals in ihrer Ordination. Zur besseren klinischen Einschätzung ruft sie die vorhandenen medizinischen Informationen aus der e-Diagnose ab.
 
-<!-- TODO mit Architekten abklären, wann und wie die Summary-Listen für einen Patienten initialisiert werden -->
-Für Herrn Mustermann existieren bisher noch keine Summary-Listen, weshalb diese initialisiert werden. Für den Patienten wird für jede Kategorie eine leere Summary-Liste angelegt. Diese enthält den Patienten [Max Mustermann](Patient-PatientExample.html), die erstellende e-Diagnose [Fachanwendung](Device-DeviceExample.html) sowie das Datum der letzten Aktualisierung. Da noch keine Einträge vorhanden sind, wird zusätzlich der Grund für die leere Liste über `List.emptyReason` mit dem Code `notstarted` 
-siehe: 
+Für Herrn Mustermann existieren bisher noch keine Summary-Listen, weshalb diese initialisiert werden. Für den Patienten wird für jede Kategorie eine leere Summary-Liste angelegt. Diese referenziert den Patienten [Max Mustermann](Patient-PatientExample.html), die [e-Diagnose-Fachanwendung](Device-DeviceExample.html) als erstellendes System sowie das Initialisierungsdatum. Außerdem wird im Rahmen der Initialisierung der `List.emptyReason` auf `notstarted` gesetzt als Begründung dafür, warum die Summary-Liste leer ist, siehe: 
 - [Beispiel für eine leere Allergy-Summary-Liste](List-AllergyListEmpty.html) 
 - [Beispiel für eine leere Condition-Summary-Liste](List-ConditionListEmpty.html) 
 - [Beispiel für eine leere Proceduren-Summary-Liste](List-ProcedureListEmpty.html) 
-<br>
-<br>
 
 **Erfassung bestehender Diagnosen und Allergien**
 
@@ -30,19 +25,17 @@ Weiters gibt Herr Mustermann an, seit seiner Kindheit an einer Penicillinallergi
 Aktuell bestehen bei Herrn Mustermann Schmerzen beim Schlucken und Fieber über 38,5°C. Bei der körperlichen Untersuchung zeigt sich eine eitrige Angina.
 Aufgrund der bekannten Penicillinallergie wird auf eine Behandlung mit Amoxicillin verzichtet. Die Ärztin entscheidet sich für eine antibiotische Behandlung mit Clarithromycin. Zusätzlich wird Mexalen 500 mg bei Bedarf zur Schmerz- und Fieberbehandlung verordnet.
 
-Die relevanten Informationen werden in den jeweiligen Ressourcen dokumentiert. Für die [Hypertonie](Condition-ConditionEntry01.html) und [Suppurative tonsillitis](Condition-ConditionEntry02.html) werden jeweils eine Condition und für die [Amoxicillin](AllergyIntolerance-AllergyEntry01.html)-Allergie eine AllergyIntolerance angelegt.
-<br>
-<br>
+Die relevanten Informationen werden in den jeweiligen Ressourcen dokumentiert. Für die [Hypertonie](Condition-ConditionEntry01.html) und [Suppurative tonsillitis](Condition-ConditionEntry02.html) werden jeweils eine Condition angelegt. Die Hypertonie wird dabei explizit in der Summary-Liste der Diagnosen angelegt, damit sie auch anderen GDA in Zukunft bei Abruf der Summary-Liste in dieser angezeigit wird. 
+Für die [Amoxicillin](AllergyIntolerance-AllergyEntry01.html)-Allergie wird eine AllergyIntolerance angelegt. Aufgrund der medizinischen Relevanz wird dieser Eintrag durch Dr. Musterärztin in der Summary-Liste der Allergien und Intoleranzen gespeichrt.
 
 **Abruf der Summary-Listen und aller Diagnoseeinträge**
 
 Bei einem neuerlichen Abruf der e-Diagnose werden die eingetragenen Summary-Einträge (Hypertonie und Amoxicillin-Allergie) in den jeweiligen Kategorien der Summary-Listen zurückgegeben [Condition-Summary-Liste](List-ConditionList01.html) und [Allergy-Summary-Liste](List-AllergyList01.html). 
 
 Um eine Gesamtansicht aller Diagnoseeinträge zu erhalten, ruft Dr. Musterärztin [alle Einträge](use_case_read.html#alle-einträge-abrufen) ab
-und erhält [alle Diagnosen](Bundle-ConditionSearchSet01.html).
+und erhält [alle dokumentierten Diagnosen](Bundle-ConditionSearchSet01.html) von Herrn Mustermann.
 
 ### 2. Arztbesuch - Auftreten von Nebenwirkungen und Bearbeitung
-<br>
 
 **Neue Beschwerden und diagnostische Abklärung**
 
@@ -55,25 +48,19 @@ Herr Mustermann berichtet weiters, dass seit Beginn der Antibiotikatherapie Besc
 
 Dr. Musterärztin berücksichtigt diese Angabe bei der weiteren Beurteilung. Da Durchfall sowohl als Nebenwirkung der Antibiotikatherapie als auch im Rahmen eines Morbus-Crohn-Schubs auftreten kann, wird die Ursache entsprechend abgeklärt.
 Im weiteren Gespräch erfährt Dr. Musterärztin, dass die letzte durchgeführte Koloskopie am 23. September 2025 stattgefunden hat.
-<br>
-<br>
 
 **Behandlung und Dokumentation**
 
 Zur Behandlung der Candida-Balanitis verordnet sie Clotrimazol 1 % Creme zur lokalen Anwendung. Bezüglich der Diarrhö wird Herr Mustermann angewiesen, auf eine ausreichende Flüssigkeitszufuhr zu achten. Aufgrund der bestehenden Morbus-Crohn-Erkrankung und der vorausgegangenen Antibiotikatherapie erfolgt eine weitere klinische Abklärung der Beschwerden.
 
-Dr. Musterärztin hält die Erkrankungen [Morbus Crohn](Condition-ConditionEntry03.html), [Medikamenteninduzierte Diarrhö](Condition-ConditionEntry04.html), [Candida Balanitis](Condition-ConditionEntry05.html) und die [Koloskopie](Procedure-ProcedureEntry01.html) als Prozedur fest, wobei sie Morbus Crohn sowie die Koloskopie in die jeweilige Summary-Liste aufnimmt.
-<br>
-<br>
+Dr. Musterärztin dokumentiert die Diagnosen [Morbus Crohn](Condition-ConditionEntry03.html), [Medikamenteninduzierte Diarrhö](Condition-ConditionEntry04.html), sowie [Candida Balanitis](Condition-ConditionEntry05.html). Die [Koloskopie](Procedure-ProcedureEntry01.html) wird als Prozedur dokumentiert.  Die Diagnose Morbus Crohn sowie die Prozedur Koloskopie werden durch Dr. Musterärztin in die jeweilige Summary-Liste aufgenommen.
 
 **Abruf und Korrektur der Summary-Listen**
 
-Dr. Musterärztin ruft die [Condition-Summary-Liste](List-ConditionList02.html) und [Procedure-Summary-Liste](List-ProcedureList01.html) ab, wobei ihr ein Fehler auffällt. In der Summary-Liste steht eine Diagnose, die irrtümlich erfasst wurde. Sie storniert den [irrtümlich erfassten Eintrag](Condition-ConditionEnteredInError.html), der in Folge durch die e-Diagnose-Fachanwendung aus der [Condition-Summary-Liste](List-ConditionList03.html) entfernt wird.
-
+Dr. Musterärztin befürchtet, dass ihr bei einer Diagnose ein Fehler unterlaufen ist und ruft die [Condition-Summary-Liste](List-ConditionList02.html) ab, wobei ihr auffällt, dass sie einen falschen Code für Morbus Crohn gewählt hat. Sie storniert den [Eintrag mit dem falschen Code](Condition-ConditionEnteredInError.html). Der in Folge durch die e-Diagnose-Fachanwendung aus der [Condition-Summary-Liste](List-ConditionList03.html) entfernt wird. Anschließend erfasst sie [Morbus Crohn](Condition-ConditionEntry06.html) richtig und nimmt die Diagnose in die Summary-Liste auf.
 
 ### ELGA-Teilnehmer - Eintrag löschen
-<br>
 
-Am **20. April 2026** nimmt Herr Mustermann über das Portal Einsicht in seine e-Diagnose und ruft [alle Diagnosen](Bundle-ConditionSearchSet02.html) ab. Dabei stellt er fest, dass die im März 2026 dokumentierte Pilzinfektion weiterhin in seiner Gesamtansicht aufscheint. Herr Mustermann möchte das nicht und [löscht](use_case_participant.html#eintrag-löschen) den Eintrag.
+Am **20. April 2026** nimmt Herr Mustermann über das Portal Einsicht in seine e-Diagnose und ruft [alle Diagnosen](Bundle-ConditionSearchSet02.html) ab. Dabei stellt er fest, dass die im März 2026 dokumentierte Pilzinfektion in seiner Gesamtansicht aufscheint. Herr Mustermann möchte das nicht und [löscht](use_case_participant.html#eintrag-löschen) den Eintrag.
 
 Dieser Eintrag wird daraufhin aus der Gesamtansicht [aller Diagnosen](Bundle-ConditionSearchSet03.html) gelöscht. Ist die Diagnose auch Bestandteil der Summary-Liste der Diagnosen, wird sie ebenfalls aus dieser entfernt. In diesem Fall wird List.source auf den Patienten gesetzt.

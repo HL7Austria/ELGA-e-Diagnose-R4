@@ -1,4 +1,4 @@
-Instance: ConditionEnteredInError
+Instance: ConditionEntry03EnteredInError
 InstanceOf: AtEdiagCondition
 Title: "Beispielinstanz einer stornierten Diagnose"
 Description: "Beispiel einer Diagnose nach Durchführung der $entered-in-error-Operation durch einen GDA"
@@ -11,7 +11,7 @@ Usage: #example
 
 * extension[entered-in-error].extension[practitioner].valueReference = Reference(PractitionerExample)
 * extension[entered-in-error].extension[datetime].valueDateTime = "2026-09-09T10:30:00+01:00"
-* extension[entered-in-error].extension[reason].valueString = "Diagnose irrtümlich erfasst"
+* extension[entered-in-error].extension[reason].valueString = "Falscher Code ausgewählt"
 
 * clinicalStatus = $condition-clinical#active
 
@@ -27,5 +27,6 @@ Usage: #example
 
 * asserter = Reference(PractitionerExample)
 
-* onsetDateTime = "2026-02-28"
+* onsetDateTime = "2010-01-01"
 
+* note.text = "Seit 2010"
