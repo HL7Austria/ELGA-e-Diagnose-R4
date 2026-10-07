@@ -11,7 +11,7 @@ Usage: #example
 
 * subject = Reference(PatientExample)
 
-* date = "2026-03-03T00:00:00+00:00"
+* date = "2026-03-03T08:10:00+00:00"
 
 * source = Reference(PractitionerExample)
 

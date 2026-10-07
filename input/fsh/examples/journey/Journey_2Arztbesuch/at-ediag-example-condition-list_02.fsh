@@ -1,7 +1,7 @@
 Instance: ConditionList02
 InstanceOf: AtEdiagList
 Title: "Condition Summary-Liste (Zweiter Arztbesuch - fehlerhafter Eintrag)"
-Description: "Beispiel einer Summary-Liste während des zweiten Arztbesuchs. Eine neue Diagnose wurde erfasst.Zusätzlich ist ein Eintrag enthalten, der irrtümlich erfasst wurde."
+Description: "Beispiel einer Summary-Liste während des zweiten Arztbesuchs. Eine neue Diagnose wurde erfasst, die allerdings fehlerhaft ist und daher storniert werden muss."
 Usage: #example
 
 * status = #current
@@ -17,4 +17,3 @@ Usage: #example
 
 * entry[0].item = Reference(ConditionEntry01)
 * entry[1].item = Reference(ConditionEntry03)
-* entry[2].item = Reference(ConditionEnteredInError)

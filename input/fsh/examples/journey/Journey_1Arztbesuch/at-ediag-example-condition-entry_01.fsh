@@ -7,7 +7,7 @@ Usage: #example
 * extension[AtReported].valueBoolean = true
 
 * identifier[0].system = Canonical(AtEdiagBusinessIdentifier)
-* identifier[=].value = "123456789"
+* identifier[=].value = "1234"
 
 * clinicalStatus = $condition-clinical#active
 
@@ -23,6 +23,6 @@ Usage: #example
 
 * asserter = Reference(PractitionerExample)
 
-* onsetDateTime = "2024-06-01"
+* onsetDateTime = "2022-06-01"
 
-* note.text = "Patient berichtet über bekannte Hypertonie seit 2024, Lisinopril 10mg 1-0-0."
+* note.text = "Patient berichtet über bekannte Hypertonie seit 2022, Lisinopril 10mg 1-0-0."

@@ -2,6 +2,7 @@ Instance: AllergyEntry01
 InstanceOf: AtEdiagAllergyIntolerance
 Title: "Beispielinstanz einer Allergie für die Summary-Liste"
 Description: "Beispiel einer bestätigten Allergie"
+Usage: #example
 
 * extension[reported].valueBoolean = true
 

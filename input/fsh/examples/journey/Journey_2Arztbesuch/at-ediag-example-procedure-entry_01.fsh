@@ -4,7 +4,7 @@ Title: "Beispielinstanz einer Prozedur für die Summary-Liste"
 Description: "Beispiel einer Prozedur"
 Usage: #example
 
-* extension[reported].valueBoolean = false
+* extension[reported].valueBoolean = true
 
 * status = #completed
 

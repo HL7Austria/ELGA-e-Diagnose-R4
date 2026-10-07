@@ -7,10 +7,10 @@ Usage: #example
 * extension[AtReported].valueBoolean = true
 
 * identifier[0].system = Canonical(AtEdiagBusinessIdentifier)
-* identifier[=].value = "123456789"
+* identifier[=].value = "1236"
 
 * extension[entered-in-error].extension[practitioner].valueReference = Reference(PractitionerExample)
-* extension[entered-in-error].extension[datetime].valueDateTime = "2026-09-09T10:30:00+01:00"
+* extension[entered-in-error].extension[datetime].valueDateTime = "2026-03-09T10:30:00+01:00"
 * extension[entered-in-error].extension[reason].valueString = "Falscher Code ausgewählt"
 
 * clinicalStatus = $condition-clinical#active

@@ -11,9 +11,9 @@ Usage: #example
 
 * subject = Reference(PatientExample)
 
-* date = "2026-03-09T10:00:00+00:00"
+* date = "2026-03-09T10:35:00+00:00"
 
 * source = Reference(PractitionerExample)
 
 * entry[0].item = Reference(ConditionEntry01)
-* entry[1].item = Reference(ConditionEntry03)
+* entry[1].item = Reference(ConditionEntry06)
