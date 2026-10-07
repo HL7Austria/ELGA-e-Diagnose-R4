@@ -15,9 +15,9 @@ Usage: #example
 
 * clinicalStatus = $condition-clinical#active
 
-* verificationStatus = http://terminology.hl7.org/CodeSystem/condition-ver-status#confirmed
+* verificationStatus = $cs-condition-ver-status#confirmed
 
-* code.coding[0] = http://snomed.info/sct#34486009 "Hyperthyroidism"
+* code.coding[0] = $cs-sct#34486009 "Hyperthyroidism"
 
 * subject = Reference(PatientExample)
 

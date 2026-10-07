@@ -29,7 +29,7 @@ Möchte der ELGA-Teilnehmer eine Version einer Summary-Liste aus der e-Diagnose 
 """
 * affectsState = true  // Ändert den Zustand am Server
 * code = #delete-history-version
-* resource[0] = http://hl7.org/fhir/resource-types#List
+* resource[0] = $cs-resource-types#List
 * system = false       
 * type = false 
 * instance = true   // Id von Instanz muss beim Aufruf bekannt sein

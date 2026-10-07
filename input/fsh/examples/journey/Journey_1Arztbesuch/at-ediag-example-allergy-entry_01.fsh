@@ -6,9 +6,9 @@ Usage: #example
 
 * extension[reported].valueBoolean = true
 
-* clinicalStatus = http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical#active
+* clinicalStatus = $cs-allergyintolerance-clinical#active
 
-* verificationStatus = http://terminology.hl7.org/CodeSystem/allergyintolerance-verification#confirmed
+* verificationStatus = $cs-allergyintolerance-verification#confirmed
 
 * code.coding.system = $cs-sct
 * code.coding.code = #372687004

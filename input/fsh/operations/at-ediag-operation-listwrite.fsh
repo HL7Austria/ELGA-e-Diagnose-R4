@@ -13,7 +13,7 @@ Usage: #definition
 * type = true   // Aufruf auf Typeebene (Ressourcentyp)
 * instance = false   // Id von Instanz muss beim Aufruf nicht bekannt sein, nur Patient-ID
 * code = #write
-* resource[0] = http://hl7.org/fhir/resource-types#List
+* resource[0] = $cs-resource-types#List
 * parameter[+]
 * parameter[=].name = #code   // prüfen
 * parameter[=].use = #in

@@ -30,9 +30,9 @@ Möchte der ELGA-Teilnehmer eine Diagnose aus der e-Diagnose Fachanwendung lösc
 """
 * affectsState = true  // Ändert den Zustand am Server
 * code = #delete
-* resource[0] = http://hl7.org/fhir/resource-types#Condition
-* resource[+] = http://hl7.org/fhir/resource-types#Procedure
-* resource[+] = http://hl7.org/fhir/resource-types#AllergyIntolerance
+* resource[0] = $cs-resource-types#Condition
+* resource[+] = $cs-resource-types#Procedure
+* resource[+] = $cs-resource-types#AllergyIntolerance
 * system = false       
 * type = false 
 * instance = true   // Id von Instanz muss beim Aufruf bekannt sein

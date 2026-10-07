@@ -11,9 +11,9 @@ Usage: #example
 
 * clinicalStatus = $condition-clinical#active
 
-* verificationStatus = http://terminology.hl7.org/CodeSystem/condition-ver-status#confirmed
+* verificationStatus = $cs-condition-ver-status#confirmed
 
-* code.coding[0] = http://snomed.info/sct#38341003 "Hypertensive disorder, systemic arterial"
+* code.coding[0] = $cs-sct#38341003 "Hypertensive disorder, systemic arterial"
 
 * subject = Reference(PatientExample)
 
