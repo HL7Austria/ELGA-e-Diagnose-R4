@@ -30,7 +30,7 @@ Für die [Amoxicillin](AllergyIntolerance-AllergyEntry01.html)-Allergie wird ein
 
 **Abruf der Summary-Listen und aller Diagnoseeinträge**
 
-Bei einem neuerlichen Abruf der e-Diagnose werden die eingetragenen Summary-Einträge (Hypertonie und Amoxicillin-Allergie) in den jeweiligen Kategorien der Summary-Listen zurückgegeben [Condition-Summary-Liste](List-ConditionList01.html) und [Allergy-Summary-Liste](List-AllergyList01.html). 
+Bei einem neuerlichen Abruf der e-Diagnose werden die eingetragenen Summary-Einträge (Hypertonie und Amoxicillin-Allergie) in den jeweiligen Kategorien der Summary-Listen zurückgegeben [Condition-Summary-Liste](Bundle-ConditionListSearchSet01.html) und [Allergy-Summary-Liste](Bundle-AllergyListSearchSet01.html). 
 
 Um eine Gesamtansicht aller Diagnoseeinträge zu erhalten, ruft Dr. Musterärztin [alle Einträge](use_case_read.html#alle-einträge-abrufen) ab
 und erhält [alle dokumentierten Diagnosen](Bundle-ConditionSearchSet01.html) von Herrn Mustermann.
@@ -53,11 +53,11 @@ Im weiteren Gespräch erfährt Dr. Musterärztin, dass die letzte durchgeführte
 
 Zur Behandlung der Candida-Balanitis verordnet sie Clotrimazol 1 % Creme zur lokalen Anwendung. Bezüglich der Diarrhö wird Herr Mustermann angewiesen, auf eine ausreichende Flüssigkeitszufuhr zu achten. Aufgrund der bestehenden Morbus-Crohn-Erkrankung und der vorausgegangenen Antibiotikatherapie erfolgt eine weitere klinische Abklärung der Beschwerden.
 
-Dr. Musterärztin dokumentiert die Diagnosen [Morbus Crohn](Condition-ConditionEntry03.html), [Medikamenteninduzierte Diarrhö](Condition-ConditionEntry04.html), sowie [Candida Balanitis](Condition-ConditionEntry05.html). Die [Koloskopie](Procedure-ProcedureEntry01.html) wird als Prozedur dokumentiert.  Die Diagnose Morbus Crohn sowie die Prozedur Koloskopie werden durch Dr. Musterärztin in die jeweilige Summary-Liste aufgenommen.
+Dr. Musterärztin dokumentiert die Diagnosen [Morbus Crohn](Condition-ConditionEntry03.html), [Medikamenteninduzierte Diarrhö](Condition-ConditionEntry04.html), sowie [Candida Balanitis](Condition-ConditionEntry05.html). Die [Koloskopie](Procedure-ProcedureEntry01.html) wird als Prozedur dokumentiert.  Die Diagnose Morbus Crohn sowie die Prozedur Koloskopie werden durch Dr. Musterärztin in die jeweilige Summary-Liste aufgenommen, siehe [Procedure-Summary-Liste](Bundle-ProcedureListSearchSet01.html).
 
 **Abruf und Korrektur der Summary-Listen**
 
-Dr. Musterärztin befürchtet, dass ihr bei einer Diagnose ein Fehler unterlaufen ist und ruft die [Condition-Summary-Liste](List-ConditionList02.html) ab, wobei ihr auffällt, dass sie einen falschen Code für Morbus Crohn gewählt hat. Sie storniert den [Eintrag mit dem falschen Code](Condition-ConditionEntry03EnteredInError.html), der in Folge durch die e-Diagnose-Fachanwendung aus der [Condition-Summary-Liste](List-ConditionList03.html) entfernt wird. Anschließend erfasst sie [Morbus Crohn](Condition-ConditionEntry06.html) richtig und nimmt die Diagnose in die [Condition-Summary-Liste](List-ConditionList04.html) auf.
+Dr. Musterärztin befürchtet, dass ihr bei einer Diagnose ein Fehler unterlaufen ist und ruft die [Condition-Summary-Liste](Bundle-ConditionListSearchSet02.html) ab, wobei ihr auffällt, dass sie einen falschen Code für Morbus Crohn gewählt hat. Sie storniert den [Eintrag mit dem falschen Code](Condition-ConditionEntry03EnteredInError.html), der in Folge durch die e-Diagnose-Fachanwendung aus der [Condition-Summary-Liste](Bundle-ConditionListSearchSet03.html) entfernt wird. Anschließend erfasst sie [Morbus Crohn](Condition-ConditionEntry06.html) richtig und nimmt die Diagnose in die [Condition-Summary-Liste](Bundle-ConditionListSearchSet04.html) auf.
 
 ### Einsicht in e-Diagnose durch ELGA-Teilnehmer - Eintrag löschen
 

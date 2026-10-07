@@ -1,6 +1,6 @@
 Instance: ConditionSearchSet01
 InstanceOf: Bundle
-Title: "SearchSet-Bundle der Diagnosen eines Patienten"
+Title: "SearchSet-Bundle aller Diagnosen (Gesamtansicht) eines Patienten"
 Description: "Beispiel eines SearchSet-Bundles mit mehreren Condition-Ressourcen eines Patienten"
 Usage: #example
 
