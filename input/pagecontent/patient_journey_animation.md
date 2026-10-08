@@ -43,6 +43,13 @@
 .pj .caption b{color:var(--ink);font-weight:600}
 .pj .caption .d{font-variant-numeric:tabular-nums;color:var(--blue);font-weight:600;margin-right:6px}
 
+/* clinical narrative of the current step */
+.pj .stories{margin:-12px 0 26px;padding-left:17px}
+.pj .story{max-width:80ch;font-size:14px;color:var(--ink)}
+.pj .story p{margin:0 0 8px}
+.pj .story p:last-child{margin-bottom:0}
+.pj .story a{color:var(--blue);text-decoration:underline;text-underline-offset:2px}
+
 /* three categories */
 .pj .cats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:stretch}
 .pj .cat{display:flex;flex-direction:column;min-width:0}
@@ -227,11 +234,40 @@
 
   <div class="caption">
     <p class="st on0"><span class="d">03.03.2026</span><b>Initialisierung.</b> Die e-Diagnose Fachanwendung legt je Kategorie eine leere Summary-Liste an.</p>
-    <p class="st on1"><span class="d">03.03.2026</span><b>1. Arztbesuch.</b> Hypertonie und Amoxicillin-Allergie kommen in die Summary-Listen, die akute Angina nur in die Gesamtansicht.</p>
+    <p class="st on1"><span class="d">03.03.2026</span><b>1. Arztbesuch.</b> Hypertonie und Amoxicillin-Allergie kommen in die Summary-Listen, die eitrige Angina nur in die Gesamtansicht.</p>
     <p class="st on2"><span class="d">09.03.2026</span><b>2. Arztbesuch.</b> Morbus Crohn und Koloskopie werden in die Summary-Listen aufgenommen – Morbus Crohn allerdings irrtümlich mit dem Code für Hyperthyreose. Diarrhö und Candida-Balanitis kommen nur in die Gesamtansicht.</p>
     <p class="st on3"><span class="d">09.03.2026</span><b>Storno.</b> Die Ärztin bemerkt den falschen Code und storniert den Eintrag. Die Fachanwendung entfernt ihn selbst aus der Summary-Liste.</p>
     <p class="st on4"><span class="d">09.03.2026</span><b>Korrektur.</b> Die Ärztin erfasst Morbus Crohn korrekt und nimmt ihn in die Summary-Liste auf. Der stornierte Eintrag bleibt in der Gesamtansicht sichtbar.</p>
     <p class="st on5"><span class="d">20.04.2026</span><b>Löschung durch den Patienten.</b> Max Mustermann löscht die Candida-Balanitis über das Portal aus seiner Gesamtansicht.</p>
+  </div>
+
+  <div class="stories">
+    <div class="story st on0">
+      <p><a href="Practitioner-PractitionerExample.html">Dr. Musterärztin</a> sieht <a href="Patient-PatientExample.html">Max Mustermann</a> am 3. März 2026 erstmals in ihrer Ordination. Zur besseren klinischen Einschätzung ruft sie die vorhandenen medizinischen Informationen aus der e-Diagnose ab.</p>
+      <p>Für Herrn Mustermann existieren bisher noch keine Summary-Listen, weshalb diese initialisiert werden: Je Kategorie wird eine leere Summary-Liste angelegt. Sie referenziert den Patienten, die <a href="Device-DeviceExample.html">e-Diagnose-Fachanwendung</a> als erstellendes System sowie das Initialisierungsdatum. Als Begründung, warum die Liste leer ist, wird <code>List.emptyReason</code> auf <code>notstarted</code> gesetzt.</p>
+    </div>
+    <div class="story st on1">
+      <p>Im Rahmen der Anamnese berichtet Herr Mustermann über einen seit mehreren Jahren bestehenden, mit Lisinopril 10 mg behandelten Bluthochdruck sowie über eine Penicillinallergie seit seiner Kindheit.</p>
+      <p>Aktuell hat er Schmerzen beim Schlucken und Fieber über 38,5 °C; die Untersuchung zeigt eine eitrige Angina. Wegen der Penicillinallergie verzichtet die Ärztin auf Amoxicillin und verordnet Clarithromycin, dazu Mexalen 500 mg bei Bedarf.</p>
+      <p>Hypertonie und eitrige Angina werden jeweils als Condition erfasst, die Amoxicillin-Allergie als AllergyIntolerance. Hypertonie und Allergie nimmt die Ärztin in die Summary-Listen auf, damit sie auch anderen GDA beim Abruf angezeigt werden. Ein neuerlicher Abruf liefert die Summary-Einträge; über <a href="use_case_read.html#alle-einträge-abrufen">alle Einträge abrufen</a> erhält sie die Gesamtansicht aller Diagnosen.</p>
+    </div>
+    <div class="story st on2">
+      <p>Am 9. März 2026 hat sich die Angina deutlich gebessert. Herr Mustermann berichtet jedoch über Durchfall und Juckreiz im Genitalbereich. Die Ärztin stellt eine Pilzinfektion (Candida-Balanitis) fest, vermutlich als Folge der Antibiotikatherapie, und verordnet Clotrimazol 1 % Creme.</p>
+      <p>Herr Mustermann vermutet zudem, dass die Antibiotikatherapie einen Schub seines seit 2010 bestehenden Morbus Crohn ausgelöst hat. Da der Durchfall sowohl Nebenwirkung als auch Teil eines Schubs sein kann, wird die Ursache weiter abgeklärt; bis dahin soll er auf ausreichende Flüssigkeitszufuhr achten. Die letzte Koloskopie fand am 23. September 2025 statt.</p>
+      <p>Die Ärztin dokumentiert Morbus Crohn, die medikamenteninduzierte Diarrhö und die Candida-Balanitis sowie die Koloskopie als Prozedur. Morbus Crohn und Koloskopie nimmt sie in die jeweilige Summary-Liste auf.</p>
+    </div>
+    <div class="story st on3">
+      <p>Die Ärztin befürchtet, dass ihr ein Fehler unterlaufen ist, und ruft die Condition-Summary-Liste ab. Dabei fällt ihr auf, dass sie für Morbus Crohn den Code für Hyperthyreose gewählt hat.</p>
+      <p>Sie <a href="use_case_write.html#eintrag-stornieren">storniert</a> den Eintrag. Die e-Diagnose-Fachanwendung vermerkt die Stornierung und entfernt den Eintrag selbst aus der Summary-Liste.</p>
+    </div>
+    <div class="story st on4">
+      <p>Anschließend erfasst die Ärztin Morbus Crohn mit dem richtigen Code und nimmt die Diagnose in die Summary-Liste auf.</p>
+      <p>Stornierte Einträge bleiben Teil der Gesamtansicht. Der falsch codierte Eintrag ist daher in jedem Abruf aller Diagnosen enthalten – als storniert gekennzeichnet.</p>
+    </div>
+    <div class="story st on5">
+      <p>Am 20. April 2026 nimmt Herr Mustermann über das Portal Einsicht in seine e-Diagnose und ruft alle Diagnosen ab. Dabei sieht er, dass die im März dokumentierte Pilzinfektion in seiner Gesamtansicht aufscheint. Er möchte das nicht und <a href="use_case_participant.html#eintrag-löschen">löscht</a> den Eintrag.</p>
+      <p>Der Eintrag wird daraufhin aus der Gesamtansicht gelöscht. Wäre die Diagnose auch Bestandteil der Summary-Liste, würde sie ebenfalls aus dieser entfernt; <code>List.source</code> wird in diesem Fall auf den Patienten gesetzt.</p>
+    </div>
   </div>
 
   <div class="cats">
