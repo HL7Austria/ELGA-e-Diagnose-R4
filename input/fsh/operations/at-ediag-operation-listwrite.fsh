@@ -12,12 +12,12 @@ Usage: #definition
 * purpose = """
 ### Wer ruft diese Operation in welchem Zusammenhang auf?
 
-Möchte der GDA die Summary-Liste für eine bestimmte Art von Einträgen (z.B.. Allergien, Diagnosen, Prozeduren) aktualisieren (Einträge werden hinzugefügt/entfernt)
+Möchte der GDA die Summary-Liste für eine bestimmte Art von Einträgen (Diagnosen, Prozeduren, Allergien) aktualisieren (Einträge werden hinzugefügt/entfernt)
 oder möchte der GDA die Reihenfolge der Einträge ändern, so muss diese Operation ausgeführt werden.
 
 ### Voraussetzung für den Aufruf
 
-- Der GDA hat durch einen vorangeganenen Abruf (siehe Definition vom Abruf der aktuellen Summary-Liste) die aktuelle `versionId` der Summary-Liste ermittelt. Diese muss beim Aufruf dieser Operation als `If-Match`-Header mitgeschickt werden.
+- Der GDA hat durch einen [vorangeganenen Abruf](https://build.fhir.org/ig/HL7Austria/ELGA-e-Diagnose-R4/branches/main/en/use_case_read.html#aktuelle-summary-liste-abrufen) die aktuelle `versionId` der Summary-Liste ermittelt. Diese muss beim Aufruf dieser Operation als `If-Match`-Header mitgeschickt werden.
 
 ### Detaillierte Business-Logik
 
@@ -44,7 +44,7 @@ oder möchte der GDA die Reihenfolge der Einträge ändern, so muss diese Operat
 * parameter[=].min = 1
 * parameter[=].max = "1"
 * parameter[=].documentation = "Der Parameter gibt an, welche Art von Einträgen in der Summary-Liste enthalten sind. Der Wert muss aus dem Value-Set [AtEdiagListCodeVS](ValueSet-at-ediag-list-code-vs.html) stammen."
-* parameter[=].type = #code
+* parameter[=].type = #CodeableConcept
 * parameter[=].binding.strength = #required
 * parameter[=].binding.valueSet = Canonical(AtEdiagListCodeVS)
 * parameter[+]
@@ -53,5 +53,13 @@ oder möchte der GDA die Reihenfolge der Einträge ändern, so muss diese Operat
 * parameter[=].min = 1
 * parameter[=].max = "1"
 * parameter[=].documentation = "Der Parameter dient der Übermittlung der Summary-Liste."
+* parameter[=].type = #List
+* parameter[=].targetProfile[+] = Canonical(AtEdiagList)
+* parameter[+]
+* parameter[=].name = #list   
+* parameter[=].use = #out
+* parameter[=].min = 1
+* parameter[=].max = "1"
+* parameter[=].documentation = "Die Summary-Liste, die nach erfolgreichem Aufruf der Operation gespeichert wurde."
 * parameter[=].type = #List
 * parameter[=].targetProfile[+] = Canonical(AtEdiagList)
