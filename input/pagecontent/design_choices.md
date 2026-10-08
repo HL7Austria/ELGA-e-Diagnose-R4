@@ -6,6 +6,7 @@ In Arbeit.
 - Liste mit `GET` und $write
   - ob History für Liste nötig, wird in https://github.com/HL7Austria/ELGA-e-Diagnose-R4/issues/13 noch diskutiert
 - Info über unsicherheit bezüglich Patient Compartment
+- Abgrenzung zwischen e-Diagnose Anwendungsfällen und allem, was eine Client-Applikation vielleicht noch implementieren kann/soll
 
 ### Informationen über GDA und Patienten
 
