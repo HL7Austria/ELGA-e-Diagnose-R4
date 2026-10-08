@@ -36,3 +36,19 @@ Möchte der ELGA-Teilnehmer eine Diagnose aus der e-Diagnose Fachanwendung lösc
 * system = false       
 * type = false 
 * instance = true   // Id von Instanz muss beim Aufruf bekannt sein
+
+* parameter[+]
+* parameter[=].name = #diagnoseUrl
+* parameter[=].use = #out
+* parameter[=].min = 1
+* parameter[=].max = "1"
+* parameter[=].documentation = "Die vollständige URL der zu löschenden Diagnose."
+* parameter[=].type = #url
+
+* parameter[+]
+* parameter[=].name = #listUrl
+* parameter[=].use = #out
+* parameter[=].min = 0
+* parameter[=].max = "1"
+* parameter[=].documentation = "Die vollständige URL der Summary-Liste, aus der die Diagnose gegebenenfalls gelöscht wird."
+* parameter[=].type = #url

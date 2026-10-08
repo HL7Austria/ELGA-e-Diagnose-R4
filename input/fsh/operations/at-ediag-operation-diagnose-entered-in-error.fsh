@@ -47,3 +47,19 @@ Möchte der GDA eine Diagnose in der e-Diagnose Fachanwendung stornieren, muss d
 * parameter[=].max = "1"
 * parameter[=].documentation = "Grund für die Stornierung der Diagnose."
 * parameter[=].type = #string
+
+* parameter[+]
+* parameter[=].name = #resource
+* parameter[=].use = #out
+* parameter[=].min = 1
+* parameter[=].max = "1"
+* parameter[=].documentation = "Die aktualisierte Diagnose nach der Stornierung."
+* parameter[=].type = #Resource
+
+* parameter[+]
+* parameter[=].name = #listUrl
+* parameter[=].use = #out
+* parameter[=].min = 0
+* parameter[=].max = "1"
+* parameter[=].documentation = "Die vollständige URL der Summary-Liste, aus der die Diagnose gegebenenfalls entfernt wird."
+* parameter[=].type = #url
