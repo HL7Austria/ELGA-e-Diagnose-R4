@@ -8,7 +8,7 @@ Usage: #example
 * total = 2
 
 * link[0].relation = #self
-* link[0].url = "https://example.org/fhir/Condition?patient=Patient/example"
+* link[0].url = "https://example.org/fhir/Condition"
 
 * entry[0].fullUrl = "https://example.org/fhir/Condition/ConditionEntry01"
 * entry[0].resource = ConditionEntry01
