@@ -11,7 +11,6 @@ Usage: #example
 
 * clinicalStatus = $condition-clinical#active
 
-* verificationStatus = $cs-condition-ver-status#confirmed
 
 * code.coding[0] = $cs-sct#34000006 "Crohn's disease"
 

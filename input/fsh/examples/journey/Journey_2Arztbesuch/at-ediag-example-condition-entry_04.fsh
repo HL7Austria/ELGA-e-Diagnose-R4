@@ -11,7 +11,6 @@ Usage: #example
 
 * clinicalStatus = $condition-clinical#active
 
-* verificationStatus = $cs-condition-ver-status#confirmed
 
 * code.coding[0] = $cs-sct#428867008 "Diarrhea caused by drug"
 

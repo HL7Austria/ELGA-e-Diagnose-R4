@@ -5,6 +5,7 @@ Title: "AT ELGA e-Diagnose Condition"
 Description: "Das AT e-Diagnose Condition-Profil leitet sich vom Condition-Profil ab und passt dieses für die Anforderungen der e-Diagnose an."
 * ^status = #active
 * . ^short = "AT e-Diagnose Condition"
+* obeys condition-status-combination
 
 // EHE einfach überall eine extension für reported mit boolean
 // ob es sich um eine Fremddiagnose handelt wird durch extension für reported mit boolean gelöst
@@ -16,12 +17,15 @@ Description: "Das AT e-Diagnose Condition-Profil leitet sich vom Condition-Profi
 
 // 2026_05_18_Begriff: Klinischer Status der Diagnose- bei Änderungen Anja Schwab Bescheid geben!!!
 * clinicalStatus 1..1 MS
-* clinicalStatus ^short = "Klinischer Status der Diagnose (z. B. Status post); mögliche Codes: active | recurrence | relapse | inactive | remission | resolved."
+* clinicalStatus from AtEdiagConditionClinicalStatusVS (required)
+* clinicalStatus ^short = "Klinischer Status der Diagnose (z. B. Status post); mögliche Codes: active | inactive."
 
 // 2026_06_ToDo: Klären der Kardinalität? optional? 
-* verificationStatus 1..1 MS
+// 2026_10: gesichert (active) und Zustand nach (inactive) werden ohne verificationStatus erfasst, siehe workflowmanagement.md
+* verificationStatus 0..1 MS
 * verificationStatus only CodeableConcept
-* verificationStatus ^short = "Verifizierungsstatus der Diagnose, mögliche Codes: unconfirmed | provisional | differential | confirmed | refuted | entered-in-error."
+* verificationStatus from AtEdiagConditionVerificationStatusVS (required)
+* verificationStatus ^short = "Verifizierungsstatus der Diagnose, mögliche Codes: provisional | differential | refuted."
 
 * category 0..0
 * category ^short = "Differenzierung nach Kontext ist nicht relevant."
@@ -94,3 +98,9 @@ Description: "Das AT e-Diagnose Condition-Profil leitet sich vom Condition-Profi
 * note.author[x] 0..0
 * note.time 0..0
 * note ^short = "Freitext zur Diagnose als Zusatzinformation."
+
+// Erlaubte Kombinationen clinicalStatus/verificationStatus, siehe workflowmanagement.md
+Invariant: condition-status-combination
+Description: "Erlaubte Kombinationen von clinicalStatus und verificationStatus: active mit provisional, differential oder ohne verificationStatus; inactive mit refuted oder ohne verificationStatus."
+Severity: #error
+Expression: "verificationStatus.exists() implies ((verificationStatus.coding.exists(code = 'provisional' or code = 'differential') and clinicalStatus.coding.exists(code = 'active')) or (verificationStatus.coding.exists(code = 'refuted') and clinicalStatus.coding.exists(code = 'inactive')))"

@@ -5,6 +5,7 @@ Title: "AT ELGA e-Diagnose AllergyIntolerance"
 Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AllergyIntolerance-Profil ab und passt dieses für die Anforderungen der e-Diagnose an."
 * ^status = #active
 * . ^short = "AT e-Diagnose AllergyIntolerance"
+* obeys allergy-status-combination
 
 // EHE einfach überall eine extension für reported mit boolean
 * extension contains AtReported named reported 0..1
@@ -21,7 +22,8 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom Allerg
 // 2026_04_29_ Status 1..1 gesetzt, synchrone zur Condition
 * clinicalStatus 1..1 MS
 * code only CodeableConcept
-* clinicalStatus ^short = "Status der Allergie; mögliche Codes: active | inactive | resolved."
+* clinicalStatus from AtEdiagAllergyIntoleranceClinicalStatusVS (required)
+* clinicalStatus ^short = "Status der Allergie; mögliche Codes: active | resolved."
 
 // "presumed" in R5 ist großer wunsch von MBU - wie könnte das abgebildet werden? MBU redet mit allergologen, ob wirklich notwendig
 // um das abzubilden, müssten wir unconfirmed auswählen und zusätzlich presumed um das abzubilden
@@ -34,7 +36,8 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom Allerg
 // 2026-06_ToDo: Klären der Kardinalität? Optional?
 * verificationStatus 1..1 MS
 * verificationStatus only CodeableConcept
-* verificationStatus ^short = "Verifizierungsstatus der Allergie; mögliche Codes: unconfirmed | confirmed | refuted | entered-in-error."
+* verificationStatus from AtEdiagAllergyIntoleranceVerificationStatusVS (required)
+* verificationStatus ^short = "Verifizierungsstatus der Allergie; mögliche Codes: unconfirmed | presumed | confirmed | refuted."
 
 
 // ungenaue unterscheidung
@@ -137,13 +140,10 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom Allerg
 * reaction.note ^short = "Freitext zu Allergie und Intoleranzen als Zusatzinformation."
 
 // referenz auf befund, laborbefund, etc wäre noch interessant - extension!
-// SGR: Siehe condition - evidence 
+// SGR: Siehe condition - evidence
 
-
-// SGR verificationStatus = refuted dann clinicalStatus = inaktiv
-//Invariant: allergy-verification-refuted-means-inactive
-//Severity: #error
-//Description: "Wenn der verificationStatus 'refuted' ist, muss der clinicalStatus 'inactive' sein."
-//Expression: "verificationStatus.coding.where(code = 'refuted').exists() implies clinicalStatus.coding.where(code = 'inactive').exists()"
-
-
+// Erlaubte Kombinationen clinicalStatus/verificationStatus, siehe workflowmanagement.md
+Invariant: allergy-status-combination
+Description: "Erlaubte Kombinationen von clinicalStatus und verificationStatus: active mit unconfirmed, presumed oder confirmed; resolved mit refuted."
+Severity: #error
+Expression: "(clinicalStatus.coding.exists(code = 'active') and verificationStatus.coding.exists(code = 'unconfirmed' or code = 'presumed' or code = 'confirmed')) or (clinicalStatus.coding.exists(code = 'resolved') and verificationStatus.coding.exists(code = 'refuted'))"
