@@ -33,6 +33,7 @@ contact:
 dependencies:
 #  hl7.fhir.eu.mpd: 0.1.0-ballot
   hl7.at.fhir.core.r4: current
+  ihe.iti.mhd: 4.2.4
 #   hl7.fhir.us.core: 3.1.0
 #   hl7.fhir.us.mcode:
 #     id: mcode

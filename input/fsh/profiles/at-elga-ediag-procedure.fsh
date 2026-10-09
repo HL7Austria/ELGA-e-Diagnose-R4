@@ -109,6 +109,7 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom Procedure-Profi
 // ToDo: Wie macht man das?
 * report 0..*
 * report ^short = "Verweis auf ELGA-Befunde als medizinische Evidenz."
+* report only Reference(MinimalDocumentReference)
 
 // e-diagnose ist keine op-berichts-dokumentationssystem
 * complication 0..0

@@ -89,7 +89,8 @@ Description: "Das AT e-Diagnose Condition-Profil leitet sich vom Condition-Profi
 * evidence 0..*
 //* evidence.detail only Reference(ELGABefund)
 * evidence ^short = "Verweis auf ELGA-Befunde als medizinische Evidenz."
-
+  * detail only Reference(MinimalDocumentReference)
+    * ^short = "Verweis auf ELGA-Befunde als medizinische Evidenz."
 
 // https://www.hl7.org/fhir/elementdefinition-definitions.html#ElementDefinition.maxLength
 // * note.text ^maxLength = 500
