@@ -43,9 +43,9 @@ Möchte der ELGA-Teilnehmer eine Version einer Summary-Liste aus der e-Diagnose 
 * parameter[=].type = #id
 
 * parameter[+]
-* parameter[=].name = #fullUrl
+* parameter[=].name = #listHistoryUrl
 * parameter[=].use = #out
 * parameter[=].min = 1
 * parameter[=].max = "1"
-* parameter[=].documentation = "Die vollständige URL der zu löschenden Version der Summary-Liste."
+* parameter[=].documentation = "Die vollständige URL der gelöschten Version der Summary-Liste."
 * parameter[=].type = #url

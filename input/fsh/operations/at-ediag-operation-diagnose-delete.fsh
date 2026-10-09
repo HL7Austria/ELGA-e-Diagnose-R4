@@ -50,5 +50,5 @@ Möchte der ELGA-Teilnehmer eine Diagnose aus der e-Diagnose Fachanwendung lösc
 * parameter[=].use = #out
 * parameter[=].min = 0
 * parameter[=].max = "1"
-* parameter[=].documentation = "Die vollständige URL der Summary-Liste, aus der die Diagnose gegebenenfalls gelöscht wird."
+* parameter[=].documentation = "Die vollständige URL der Summary-Liste, aus der die Diagnose gegebenenfalls gelöscht wurde."
 * parameter[=].type = #url
