@@ -3,4 +3,8 @@ Das folgende Anwendungsbeispiel beschreibt anhand einer fiktiven **Patient Journ
 
 Die Patient Journey zeigt den Lebenszyklus der e-Diagnose von der erstmaligen Initialisierung der Summary-Listen über das Hinzufügen und Aktualisieren einzelner Einträge bis hin zur Korrektur bzw. Löschung eines Eintrags.
 
+<div class="dragon" markdown="1">
+Übermittelte Ressourcen (Beispiele mit Suffix `Request`) enthalten logische Referenzen auf Patient und GDA, abgerufene Ressourcen die von der e-Diagnose-Fachanwendung aufgelösten Referenzen, siehe [Designentscheidungen](design_choices.html#logische-referenzen).
+</div>
+
 {% include patient_journey_animation.md %}
