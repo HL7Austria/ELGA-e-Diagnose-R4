@@ -4,6 +4,8 @@ Title: "Beispielinstanz einer Diagnose für die Summary"
 Description: "Beispiel Diagnose, aktuelle Beschwerden des Patienten"
 Usage: #example
 
+* meta.versionId = "1"
+
 * extension[AtReported].valueBoolean = true
 
 * identifier[0].system = Canonical(AtEdiagBusinessIdentifier)

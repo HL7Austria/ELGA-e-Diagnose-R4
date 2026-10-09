@@ -16,7 +16,7 @@ Usage: #example
 * entry[+].fullUrl = "https://example.org/fhir/Condition/ConditionEntry02"
 * entry[=].resource = ConditionEntry02
 
-* entry[+].fullUrl = "https://example.org/fhir/Condition/ConditionEntry03"
+* entry[+].fullUrl = "https://example.org/fhir/Condition/ConditionEntry03EnteredInError"
 * entry[=].resource = ConditionEntry03EnteredInError
 
 * entry[+].fullUrl = "https://example.org/fhir/Condition/ConditionEntry04"

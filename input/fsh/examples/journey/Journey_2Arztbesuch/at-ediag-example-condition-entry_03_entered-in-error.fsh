@@ -4,6 +4,10 @@ Title: "Beispielinstanz einer stornierten Diagnose"
 Description: "Beispiel einer Diagnose nach Durchführung der $entered-in-error-Operation durch einen GDA"
 Usage: #example
 
+// Version 2 von ConditionEntry03 nach $entered-in-error.
+// Eigene ID, da IG-Beispiele eindeutige IDs benötigen.
+* meta.versionId = "2"
+
 * extension[AtReported].valueBoolean = true
 
 * identifier[0].system = Canonical(AtEdiagBusinessIdentifier)

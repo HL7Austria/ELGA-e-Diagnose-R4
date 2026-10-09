@@ -259,6 +259,7 @@
     <div class="story st on3">
       <p>Die Ärztin befürchtet, dass ihr ein Fehler unterlaufen ist, und ruft die Condition-Summary-Liste ab. Dabei fällt ihr auf, dass sie für Morbus Crohn den Code für Hyperthyreose gewählt hat.</p>
       <p>Sie <a href="use_case_write.html#eintrag-stornieren">storniert</a> den Eintrag. Die e-Diagnose-Fachanwendung vermerkt die Stornierung und entfernt den Eintrag selbst aus der Summary-Liste.</p>
+      <p>Der stornierte Eintrag ist Version 2 derselben Diagnose. Da Beispiele im Leitfaden eindeutige IDs benötigen, ist er als <a href="Condition-ConditionEntry03EnteredInError.html">eigenes Beispiel</a> abgebildet; auf dem Server behält er seine ursprüngliche ID.</p>
     </div>
     <div class="story st on4">
       <p>Anschließend erfasst die Ärztin Morbus Crohn mit dem richtigen Code und nimmt die Diagnose in die Summary-Liste auf.</p>
