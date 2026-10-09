@@ -20,7 +20,7 @@ Usage: #example
 
 * recorder = Reference(PractitionerExample)
 
-* asserter = Reference(PractitionerExample)
+* asserter = Reference(PatientExample)
 
 * reaction.manifestation[0].coding.system = $cs-sct
 * reaction.manifestation[0].coding.code = #271807003

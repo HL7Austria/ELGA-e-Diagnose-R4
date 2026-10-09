@@ -17,5 +17,5 @@ Usage: #example
 
 * recorder = Reference(PractitionerExample)
 
-* asserter = Reference(PractitionerExample)
+* asserter = Reference(PatientExample)
 

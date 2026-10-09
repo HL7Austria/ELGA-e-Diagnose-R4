@@ -20,7 +20,7 @@ Usage: #example
 
 * recorder = Reference(PractitionerExample)
 
-* asserter = Reference(PractitionerExample)
+* asserter = Reference(PatientExample)
 
 * onsetDateTime = "2022-06-01"
 
