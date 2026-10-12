@@ -1,7 +1,7 @@
 Instance: ProcedureListWrite01
 InstanceOf: Parameters
 Title: "Parameters für $write der Procedure-Summary-Liste (Version 2)"
-Description: "Beispiel der Eingabeparameter der $write-Operation, mit der Dr. Musterärztin die Koloskopie in die Procedure-Summary-Liste aufnimmt."
+Description: "Beispiel der Eingabeparameter der $write-Operation, mit der Dr. Musterärztin die partielle Resektion des Dickdarms in die Procedure-Summary-Liste aufnimmt."
 Usage: #example
 
 // POST /List/$write  ·  If-Match: W/"1"  (Ergebnis: Version 2)

@@ -235,7 +235,7 @@
   <div class="caption">
     <p class="st on0"><span class="d">03.03.2026</span><b>Initialisierung.</b> Die e-Diagnose Fachanwendung legt je Kategorie eine leere Summary-Liste an.</p>
     <p class="st on1"><span class="d">03.03.2026</span><b>1. Arztbesuch.</b> Hypertonie und Amoxicillin-Allergie kommen in die Summary-Listen, die eitrige Angina nur in die Gesamtansicht.</p>
-    <p class="st on2"><span class="d">09.03.2026</span><b>2. Arztbesuch.</b> Morbus Crohn und Koloskopie werden in die Summary-Listen aufgenommen – Morbus Crohn allerdings irrtümlich mit dem Code für Hyperthyreose. Diarrhö und Candida-Balanitis kommen nur in die Gesamtansicht.</p>
+    <p class="st on2"><span class="d">09.03.2026</span><b>2. Arztbesuch.</b> Morbus Crohn und partielle Resektion des Dickdarms werden in die Summary-Listen aufgenommen – Morbus Crohn allerdings irrtümlich mit dem Code für Hyperthyreose. Diarrhö und Candida-Balanitis kommen nur in die Gesamtansicht.</p>
     <p class="st on3"><span class="d">09.03.2026</span><b>Storno.</b> Die Ärztin bemerkt den falschen Code und storniert den Eintrag. Die Fachanwendung entfernt ihn selbst aus der Summary-Liste.</p>
     <p class="st on4"><span class="d">09.03.2026</span><b>Korrektur.</b> Die Ärztin erfasst Morbus Crohn korrekt und nimmt ihn in die Summary-Liste auf. Der stornierte Eintrag bleibt in der Gesamtansicht sichtbar.</p>
     <p class="st on5"><span class="d">20.04.2026</span><b>Löschung durch den Patienten.</b> Max Mustermann löscht die Candida-Balanitis über das Portal aus seiner Gesamtansicht.</p>
@@ -253,8 +253,8 @@
     </div>
     <div class="story st on2">
       <p>Am 9. März 2026 hat sich die Angina deutlich gebessert. Herr Mustermann berichtet jedoch über Durchfall und Juckreiz im Genitalbereich. Die Ärztin stellt eine Pilzinfektion (Candida-Balanitis) fest, vermutlich als Folge der Antibiotikatherapie, und verordnet Clotrimazol 1 % Creme.</p>
-      <p>Herr Mustermann vermutet zudem, dass die Antibiotikatherapie einen Schub seines seit 2010 bestehenden Morbus Crohn ausgelöst hat. Da der Durchfall sowohl Nebenwirkung als auch Teil eines Schubs sein kann, wird die Ursache weiter abgeklärt; bis dahin soll er auf ausreichende Flüssigkeitszufuhr achten. Die letzte Koloskopie fand am 23. September 2025 statt.</p>
-      <p>Die Ärztin dokumentiert Morbus Crohn, die medikamenteninduzierte Diarrhö und die Candida-Balanitis sowie die Koloskopie als Prozedur. Morbus Crohn und Koloskopie nimmt sie in die jeweilige Summary-Liste auf.</p>
+      <p>Herr Mustermann vermutet zudem, dass die Antibiotikatherapie einen Schub seines seit 2010 bestehenden Morbus Crohn ausgelöst hat. Da der Durchfall sowohl Nebenwirkung als auch Teil eines Schubs sein kann, wird die Ursache weiter abgeklärt; bis dahin soll er auf ausreichende Flüssigkeitszufuhr achten. Eine partielle Resektion des Dickdarms fand am 23. September 2025 statt.</p>
+      <p>Die Ärztin dokumentiert Morbus Crohn, die medikamenteninduzierte Diarrhö und die Candida-Balanitis sowie die partielle Resektion des Dickdarms als Prozedur. Morbus Crohn und partielle Resektion des Dickdarms nimmt sie in die jeweilige Summary-Liste auf.</p>
     </div>
     <div class="story st on3">
       <p>Die Ärztin befürchtet, dass ihr ein Fehler unterlaufen ist, und ruft die Condition-Summary-Liste ab. Dabei fällt ihr auf, dass sie für Morbus Crohn den Code für Hyperthyreose gewählt hat.</p>
@@ -300,7 +300,7 @@
           <span class="field-t">Summary-Liste</span>
           <p class="empty st on0 on1">leer</p>
           <ul class="tags">
-            <li class="tag st on2 on3 on4 on5 new2"><a href="Procedure-ProcedureEntry01.html"><span>Koloskopie</span></a></li>
+            <li class="tag st on2 on3 on4 on5 new2"><a href="Procedure-ProcedureEntry01.html"><span>Partielle Resektion des Dickdarms</span></a></li>
           </ul>
         </div>
       </div>
@@ -343,13 +343,13 @@
       <div class="msg res st on1"><code>200 Bundle</code><span class="t"><a href="Bundle-ConditionSearchSet01.html">2 Diagnosen</a></span></div>
 
       <!-- 2 Zweiter Arztbesuch -->
-      <div class="msg req st on2"><code>POST /Condition</code><span class="t">3× Diagnose (<a href="Condition-ConditionEntry03.html">Morbus Crohn, falsch codiert</a>, <a href="Condition-ConditionEntry04.html">Diarrhö</a>, <a href="Condition-ConditionEntry05.html">Candida</a>), dazu 1× POST /Procedure (<a href="Procedure-ProcedureEntry01.html">Koloskopie</a>)</span></div>
+      <div class="msg req st on2"><code>POST /Condition</code><span class="t">3× Diagnose (<a href="Condition-ConditionEntry03.html">Morbus Crohn, falsch codiert</a>, <a href="Condition-ConditionEntry04.html">Diarrhö</a>, <a href="Condition-ConditionEntry05.html">Candida</a>), dazu 1× POST /Procedure (<a href="Procedure-ProcedureEntry01.html">Partielle Resektion des Dickdarms</a>)</span></div>
       <div class="msg res st on2"><code>201 Created</code><span class="t">je eine id pro Eintrag</span></div>
       <div class="msg req st on2"><code>GET /List?code=11450-4&amp;_include=*</code><span class="t">Liste inkl. versionId holen</span></div>
       <div class="msg res st on2"><code>200 Bundle</code><span class="t"><a href="Bundle-ConditionListSearchSet01.html">List v2, 1 Eintrag</a></span></div>
       <div class="msg req st on2"><code>POST /List/$write</code><span class="t"><a href="Parameters-ConditionListWrite02.html">Parameters</a>: + Morbus Crohn (Code: Hyperthyreose) · If-Match: W/"2"</span></div>
       <div class="msg res st on2"><code>200 OK</code><span class="t"><a href="List-ConditionList02.html">List v3</a> gespeichert</span></div>
-      <p class="note st on2">ebenso für die Prozeduren-Liste (47519-4): <a href="Parameters-ProcedureListWrite01.html">$write</a> mit If-Match: W/"1" → <a href="Bundle-ProcedureListSearchSet01.html">List v2 + Koloskopie</a></p>
+      <p class="note st on2">ebenso für die Prozeduren-Liste (47519-4): <a href="Parameters-ProcedureListWrite01.html">$write</a> mit If-Match: W/"1" → <a href="Bundle-ProcedureListSearchSet01.html">List v2 + Partielle Resektion des Dickdarms</a></p>
 
       <!-- 3 Storno -->
       <div class="msg req st on3"><code>GET /List?code=11450-4&amp;_include=*</code><span class="t">Summary-Liste prüfen</span></div>

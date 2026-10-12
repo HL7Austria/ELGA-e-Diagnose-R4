@@ -11,8 +11,8 @@ Usage: #example
 
 * status = #completed
 
-// Coloskopie
-* code = $cs-sct#73761001 "Colonoscopy"
+// Partial excision of large intestine
+* code = $cs-sct#27010001 "Partial excision of large intestine"
 
 * subject
   * identifier[0]
