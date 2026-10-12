@@ -37,7 +37,7 @@ skinparam sequence {
   GroupBorderThickness 2
 }
 
-!define COLOR_GDA_1    #0078D460
+!define COLOR_USER_1    #0078D460
 !define COLOR_GDA_2    #8764B860
 !define COLOR_PATIENT  #00950560
 !define COLOR_APO      #00B7C360
@@ -47,18 +47,18 @@ skinparam sequence {
 !define COLOR_OK       #50E6FF25
 !define COLOR_ERROR    #FF8C0035
 
-actor GDA_1 as "GDA 1" COLOR_GDA_1
+actor USER_1 as "GDA / ELGA-Teilnehmer" COLOR_USER_1
 participant eDiag_FA as "e-Diagnose Fachanwendung" COLOR_DIAG_FA
 
 autonumber
 
-GDA_1 -> eDiag_FA: ""GET /List?code={code}[&_include=*]""
-activate GDA_1 COLOR_GDA_1
+USER_1 -> eDiag_FA: ""GET /List?code=[code]{&_include=*}""
+activate USER_1 COLOR_USER_1
 activate eDiag_FA COLOR_DIAG_FA
 
-eDiag_FA --> GDA_1: SearchSet-Bundle (Summary-Liste\n ggf. inkl. referenzierter Resourcen)
+eDiag_FA --> USER_1: SearchSet-Bundle (Summary-Liste\n ggf. inkl. referenzierter Resourcen)
 
-deactivate GDA_1
+deactivate USER_1
 deactivate eDiag_FA
 
 @enduml

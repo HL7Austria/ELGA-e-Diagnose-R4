@@ -325,19 +325,19 @@
     <div class="lanes"><span>Client &ndash; GDA-Software bzw. ELGA-Portal</span><span>e-Diagnose Fachanwendung</span></div>
     <div class="msgs">
       <!-- 0 Initialisierung -->
-      <div class="msg req st on0"><code>GET /List?code=11450-4&amp;_include=*</code><span class="t">aktuelle Summary-Liste abrufen</span></div>
+      <div class="msg req st on0"><code>GET /List?code=http://loinc.org|11450-4&_include=*</code><span class="t">aktuelle Summary-Liste abrufen</span></div>
       <div class="msg res st on0"><code>200 Bundle</code><span class="t"><a href="List-ConditionListEmpty.html">leere Liste</a>, emptyReason notstarted, v1</span></div>
       <p class="note st on0">ebenso für <a href="List-ProcedureListEmpty.html">47519-4 (Prozeduren)</a> und <a href="List-AllergyListEmpty.html">48765-2 (Allergien)</a> · List.source = <a href="Device-DeviceExample.html">e-Diagnose Fachanwendung</a></p>
 
       <!-- 1 Erstvorstellung -->
       <div class="msg req st on1"><code>POST /Condition</code><span class="t">2× Diagnose (<a href="Condition-ConditionEntry01.html">Hypertonie</a>, <a href="Condition-ConditionEntry02.html">Angina</a>), dazu 1× POST /AllergyIntolerance (<a href="AllergyIntolerance-AllergyEntry01.html">Amoxicillin</a>)</span></div>
       <div class="msg res st on1"><code>201 Created</code><span class="t">je eine id pro Eintrag</span></div>
-      <div class="msg req st on1"><code>GET /List?code=11450-4&amp;_include=*</code><span class="t">Liste inkl. versionId holen</span></div>
+      <div class="msg req st on1"><code>GET /List?code=http://loinc.org|11450-4&_include=*</code><span class="t">Liste inkl. versionId holen</span></div>
       <div class="msg res st on1"><code>200 Bundle</code><span class="t"><a href="List-ConditionListEmpty.html">List v1, leer</a></span></div>
       <div class="msg req st on1"><code>POST /List/$write</code><span class="t"><a href="Parameters-ConditionListWrite01.html">Parameters</a>: code, list (+ Hypertonie) · If-Match: W/"1"</span></div>
       <div class="msg res st on1"><code>200 OK</code><span class="t"><a href="List-ConditionList01.html">List v2</a> gespeichert</span></div>
       <p class="note st on1">gleicher Ablauf für die Allergie-Summary-Liste (48765-2): <a href="Parameters-AllergyListWrite01.html">$write</a> → <a href="List-AllergyList01.html">List v2</a></p>
-      <div class="msg req st on1"><code>GET /List?code=11450-4&amp;_include=*</code><span class="t">Summary-Liste erneut abrufen</span></div>
+      <div class="msg req st on1"><code>GET /List?code=http://loinc.org|11450-4&_include=*</code><span class="t">Summary-Liste erneut abrufen</span></div>
       <div class="msg res st on1"><code>200 Bundle</code><span class="t"><a href="Bundle-ConditionListSearchSet01.html">List v2 + Hypertonie</a> · Allergien: <a href="Bundle-AllergyListSearchSet01.html">List v2 + Amoxicillin</a></span></div>
       <div class="msg req st on1"><code>GET /Condition</code><span class="t">Gesamtansicht abrufen</span></div>
       <div class="msg res st on1"><code>200 Bundle</code><span class="t"><a href="Bundle-ConditionSearchSet01.html">2 Diagnosen</a></span></div>
@@ -345,19 +345,19 @@
       <!-- 2 Zweiter Arztbesuch -->
       <div class="msg req st on2"><code>POST /Condition</code><span class="t">3× Diagnose (<a href="Condition-ConditionEntry03.html">Morbus Crohn, falsch codiert</a>, <a href="Condition-ConditionEntry04.html">Diarrhö</a>, <a href="Condition-ConditionEntry05.html">Candida</a>), dazu 1× POST /Procedure (<a href="Procedure-ProcedureEntry01.html">Partielle Resektion des Dickdarms</a>)</span></div>
       <div class="msg res st on2"><code>201 Created</code><span class="t">je eine id pro Eintrag</span></div>
-      <div class="msg req st on2"><code>GET /List?code=11450-4&amp;_include=*</code><span class="t">Liste inkl. versionId holen</span></div>
+      <div class="msg req st on2"><code>GET /List?code=http://loinc.org|11450-4&_include=*</code><span class="t">Liste inkl. versionId holen</span></div>
       <div class="msg res st on2"><code>200 Bundle</code><span class="t"><a href="Bundle-ConditionListSearchSet01.html">List v2, 1 Eintrag</a></span></div>
       <div class="msg req st on2"><code>POST /List/$write</code><span class="t"><a href="Parameters-ConditionListWrite02.html">Parameters</a>: + Morbus Crohn (Code: Hyperthyreose) · If-Match: W/"2"</span></div>
       <div class="msg res st on2"><code>200 OK</code><span class="t"><a href="List-ConditionList02.html">List v3</a> gespeichert</span></div>
       <p class="note st on2">ebenso für die Prozeduren-Liste (47519-4): <a href="Parameters-ProcedureListWrite01.html">$write</a> mit If-Match: W/"1" → <a href="Bundle-ProcedureListSearchSet01.html">List v2 + Partielle Resektion des Dickdarms</a></p>
 
       <!-- 3 Storno -->
-      <div class="msg req st on3"><code>GET /List?code=11450-4&amp;_include=*</code><span class="t">Summary-Liste prüfen</span></div>
+      <div class="msg req st on3"><code>GET /List?code=http://loinc.org|11450-4&_include=*</code><span class="t">Summary-Liste prüfen</span></div>
       <div class="msg res st on3"><code>200 Bundle</code><span class="t"><a href="Bundle-ConditionListSearchSet02.html">List v3</a> – falscher Code für Morbus Crohn</span></div>
       <div class="msg req st on3"><code>POST /Condition/[id]/$entered-in-error</code><span class="t"><a href="Parameters-ConditionEnteredInErrorParameters01.html">Parameters</a>: reason = "Falscher Code ausgewählt"</span></div>
       <div class="msg res st on3"><code>200 OK</code><span class="t"><a href="Condition-ConditionEntry03EnteredInError.html">Storno vermerkt</a>: practitioner, datetime, reason</span></div>
       <p class="note st on3">die Fachanwendung entfernt den Eintrag selbst aus der Summary-Liste – kein $write durch den Client · List.source = e-Diagnose Fachanwendung</p>
-      <div class="msg req st on3"><code>GET /List?code=11450-4&amp;_include=*</code><span class="t">Ergebnis prüfen</span></div>
+      <div class="msg req st on3"><code>GET /List?code=http://loinc.org|11450-4&_include=*</code><span class="t">Ergebnis prüfen</span></div>
       <div class="msg res st on3"><code>200 Bundle</code><span class="t"><a href="Bundle-ConditionListSearchSet03.html">List v4</a>, ohne den stornierten Eintrag</span></div>
 
       <!-- 4 Korrektur -->

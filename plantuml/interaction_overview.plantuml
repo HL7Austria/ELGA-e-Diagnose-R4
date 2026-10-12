@@ -46,47 +46,47 @@ title REST-Schnittstellen: [base]
 
 
 interface "/List" as List_type {
-  «GET» ?code=[code]{&_include=*} [GDA, PAT] 
-  «POST» $write [GDA]
+  {field} «GET» ?code=[code]{&_include=*} (GDA, PAT) 
+  {field} «POST» $write (GDA)
 }
 
 interface "/List/[id]" as List_instance {
-  «GET» /_history [GDA, PAT] 
-  «GET» /_history/[vid] [GDA, PAT] 
-  «POST» $delete-history-version [PAT]
+  {field} «GET» /_history (GDA, PAT) 
+  {field} «GET» /_history/[vid] (GDA, PAT) 
+  {field} «POST» $delete-history-version (PAT)
 }
 
 interface "/Condition/[id]" as ICondition_instance {
-  «GET» [GDA, PAT]
-  «POST» $delete [PAT]
-  «POST» $entered-in-error [GDA]
+  {field} «GET» (GDA, PAT)
+  {field} «POST» $delete (PAT)
+  {field} «POST» $entered-in-error (GDA)
 } 
 
 interface "/Condition" as ICondition_type {
-  «POST» [GDA]
-  «GET» [GDA, PAT]
+  {field} «POST» (GDA)
+  {field} «GET» {?_count=[n]} (GDA, PAT)
 } 
 
 interface "/Procedure/[id]" as IProcedure_instance {
-  «GET» [GDA, PAT]
-  «POST» $delete [PAT]
-  «POST» $entered-in-error [GDA]
+  {field} «GET» (GDA, PAT)
+  {field} «POST» $delete (PAT)
+  {field} «POST» $entered-in-error (GDA)
 } 
 
 interface "/Procedure" as IProcedure_type {
-  «POST» [GDA]
-  «GET» [GDA, PAT]
+  {field} «POST» (GDA)
+  {field} «GET» {?_count=[n]} (GDA, PAT)
 } 
 
 interface "/AllergyIntolerance/[id]" as IAllergyIntolerance_instance {
-  «GET» [GDA, PAT]
-  «POST» $delete [PAT]
-  «POST» $entered-in-error [GDA]
+  {field} «GET» (GDA, PAT)
+  {field} «POST» $delete (PAT)
+  {field} «POST» $entered-in-error (GDA)
 } 
 
 interface "/AllergyIntolerance" as IAllergyIntolerance_type {
-  «POST» [GDA]
-  «GET» [GDA, PAT]
+  {field} «POST» (GDA)
+  {field} «GET» {?_count=[n]} (GDA, PAT)
 } 
 
 ' --- SYSTEMKOMPONENTE (ZENTRALER SERVER) ---
@@ -109,8 +109,8 @@ p4 -up- IAllergyIntolerance_instance
 
 legend right
   **Legende Berechtigungen:**
-  [GDA] = Gesundheitsdiensteanbieter
-  [PAT] = PATIENT: ELGA-Teilnehmer
+  (GDA) = Gesundheitsdiensteanbieter
+  (PAT) = PATIENT: ELGA-Teilnehmer
 end legend
 
 @enduml
