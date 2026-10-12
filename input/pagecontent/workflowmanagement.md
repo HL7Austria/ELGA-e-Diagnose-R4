@@ -13,6 +13,7 @@ Für jede erlaubte Kombination sind die fachliche Übersetzung sowie die Begrün
 | `active` | - | gesichert |  |
 | `inactive` | `refuted` | Ausschluss von | nur Angabe falls explizit notwendig und medizinisch sinnvoll (sonst: bei jeder Fiebermessung: Ausschluss von Fieber) |
 | `inactive` | - | Zustand nach | Erfassen einer Diagnose, ohne Angabe eines expliziten `verificationStatus` |
+{: .grid}
 
 #### Erlaubte Kombinationen für AllergyIntolerance
 
@@ -22,3 +23,4 @@ Für jede erlaubte Kombination sind die fachliche Übersetzung sowie die Begrün
 | `active` | `presumed` | Verdacht auf | |
 | `active` | `confirmed` | gesichert | |
 | `resolved` | `refuted` | Widerlegt/Ausschluss von | |
+{: .grid}
