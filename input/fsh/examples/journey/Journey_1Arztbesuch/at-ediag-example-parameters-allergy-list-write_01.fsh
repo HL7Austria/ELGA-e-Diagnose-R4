@@ -6,7 +6,7 @@ Usage: #example
 
 // POST /List/$write  ·  If-Match: W/"1"  (Ergebnis: Version 2)
 * parameter[0].name = "code"
-* parameter[=].valueCode = #48765-2
+* parameter[=].valueCoding = $cs-loinc#48765-2
 
 * parameter[+].name = "list"
 * parameter[=].resource = AllergyList01Request

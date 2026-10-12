@@ -39,12 +39,12 @@ oder möchte der GDA die Reihenfolge der Einträge ändern, so muss diese Operat
 * code = #write
 * resource[0] = $cs-resource-types#List
 * parameter[+]
-* parameter[=].name = #code   // prüfen
+* parameter[=].name = #code
 * parameter[=].use = #in
 * parameter[=].min = 1
 * parameter[=].max = "1"
 * parameter[=].documentation = "Der Parameter gibt an, welche Art von Einträgen in der Summary-Liste enthalten sind. Der Wert muss aus dem Value-Set [AtEdiagListCodeVS](ValueSet-at-ediag-list-code-vs.html) stammen."
-* parameter[=].type = #CodeableConcept
+* parameter[=].type = #Coding
 * parameter[=].binding.strength = #required
 * parameter[=].binding.valueSet = Canonical(AtEdiagListCodeVS)
 * parameter[+]
@@ -56,7 +56,7 @@ oder möchte der GDA die Reihenfolge der Einträge ändern, so muss diese Operat
 * parameter[=].type = #List
 * parameter[=].targetProfile[+] = Canonical(AtEdiagList)
 * parameter[+]
-* parameter[=].name = #list   
+* parameter[=].name = #return
 * parameter[=].use = #out
 * parameter[=].min = 1
 * parameter[=].max = "1"

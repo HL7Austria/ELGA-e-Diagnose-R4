@@ -349,14 +349,14 @@
       <div class="msg res st on2"><code>200 Bundle</code><span class="t"><a href="Bundle-ConditionListSearchSet01.html">List v2, 1 Eintrag</a></span></div>
       <div class="msg req st on2"><code>POST /List/$write</code><span class="t"><a href="Parameters-ConditionListWrite02.html">Parameters</a>: + Morbus Crohn (Code: Hyperthyreose) · If-Match: W/"2"</span></div>
       <div class="msg res st on2"><code>200 OK</code><span class="t"><a href="List-ConditionList02.html">List v3</a> gespeichert</span></div>
-      <p class="note st on2">ebenso für die Prozeduren-Liste (47519-4): <a href="Parameters-ProcedureListWrite01.html">$write</a> mit If-Match: W/"1" → <a href="Bundle-ProcedureListSearchSet01.html">List v2 + Partielle Resektion des Dickdarms</a></p>
+      <p class="note st on2">ebenso für die Prozeduren-Liste (47519-4): <a href="Parameters-ProcedureListWrite01.html">$write</a> mit If-Match: W/"1" → <a href="List-ProcedureList01.html">List v2</a></p>
 
       <!-- 3 Storno -->
       <div class="msg req st on3"><code>GET /List?code=http://loinc.org|11450-4&_include=*</code><span class="t">Summary-Liste prüfen</span></div>
       <div class="msg res st on3"><code>200 Bundle</code><span class="t"><a href="Bundle-ConditionListSearchSet02.html">List v3</a> – falscher Code für Morbus Crohn</span></div>
       <div class="msg req st on3"><code>POST /Condition/[id]/$entered-in-error</code><span class="t"><a href="Parameters-ConditionEnteredInErrorParameters01.html">Parameters</a>: reason = "Falscher Code ausgewählt"</span></div>
-      <div class="msg res st on3"><code>200 OK</code><span class="t"><a href="Condition-ConditionEntry03EnteredInError.html">Storno vermerkt</a>: practitioner, datetime, reason</span></div>
-      <p class="note st on3">die Fachanwendung entfernt den Eintrag selbst aus der Summary-Liste – kein $write durch den Client · List.source = e-Diagnose Fachanwendung</p>
+      <div class="msg res st on3"><code>200 OK</code><span class="t"><a href="Parameters-ConditionEnteredInErrorResponse01.html">Parameters</a>: diagnose = <a href="Condition-ConditionEntry03EnteredInError.html">stornierter Eintrag</a> (practitioner, datetime, reason), list = <a href="List-ConditionList03.html">List v4</a></span></div>
+      <p class="note st on3">die Fachanwendung entfernt den Eintrag selbst aus der Summary-Liste und liefert die neue Listenversion in der Antwort mit – kein $write durch den Client · List.source = e-Diagnose Fachanwendung</p>
       <div class="msg req st on3"><code>GET /List?code=http://loinc.org|11450-4&_include=*</code><span class="t">Ergebnis prüfen</span></div>
       <div class="msg res st on3"><code>200 Bundle</code><span class="t"><a href="Bundle-ConditionListSearchSet03.html">List v4</a>, ohne den stornierten Eintrag</span></div>
 
@@ -364,14 +364,14 @@
       <div class="msg req st on4"><code>POST /Condition</code><span class="t"><a href="Condition-ConditionEntry06.html">Morbus Crohn</a>, korrekt codiert</span></div>
       <div class="msg res st on4"><code>201 Created</code><span class="t">neue id</span></div>
       <div class="msg req st on4"><code>POST /List/$write</code><span class="t"><a href="Parameters-ConditionListWrite03.html">Parameters</a>: + Morbus Crohn · If-Match: W/"4"</span></div>
-      <div class="msg res st on4"><code>200 OK</code><span class="t"><a href="Bundle-ConditionListSearchSet04.html">List v5</a> gespeichert</span></div>
+      <div class="msg res st on4"><code>200 OK</code><span class="t"><a href="List-ConditionList04.html">List v5</a> gespeichert</span></div>
       <p class="note st on4">der stornierte Eintrag ist weiterhin Teil der Gesamtansicht</p>
 
       <!-- 5 Löschung -->
       <div class="msg req st on5"><code>GET /Condition</code><span class="t">Gesamtansicht über das Portal abrufen</span></div>
       <div class="msg res st on5"><code>200 Bundle</code><span class="t"><a href="Bundle-ConditionSearchSet02.html">6 Diagnosen</a>, inkl. storniertem Eintrag</span></div>
       <div class="msg req st on5"><code>POST /Condition/[id]/$delete</code><span class="t">Candida-Balanitis, durch den ELGA-Teilnehmer über das Portal</span></div>
-      <div class="msg res st on5"><code>200 OK</code><span class="t">Eintrag unwiderruflich gelöscht</span></div>
+      <div class="msg res st on5"><code>200 OK</code><span class="t"><a href="Parameters-ConditionDeleteResponse01.html">Parameters</a>: diagnose = <a href="Condition-ConditionEntry05.html">gelöschter Eintrag</a> · Eintrag unwiderruflich gelöscht</span></div>
       <div class="msg req st on5"><code>GET /Condition</code><span class="t">Ergebnis prüfen</span></div>
       <div class="msg res st on5"><code>200 Bundle</code><span class="t"><a href="Bundle-ConditionSearchSet03.html">5 Diagnosen</a>, ohne Candida-Balanitis</span></div>
       <p class="note st on5">wäre der Eintrag in der Summary-Liste: neue Listenversion ohne ihn, List.source = Patient</p>

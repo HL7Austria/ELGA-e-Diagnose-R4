@@ -43,7 +43,7 @@ Möchte der ELGA-Teilnehmer eine Version einer Summary-Liste aus der e-Diagnose 
 * parameter[=].type = #id
 
 * parameter[+]
-* parameter[=].name = #list
+* parameter[=].name = #return
 * parameter[=].use = #out
 * parameter[=].min = 1
 * parameter[=].max = "1"

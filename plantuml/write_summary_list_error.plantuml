@@ -60,7 +60,7 @@ activate GDA_1 COLOR_GDA_1
 GDA_1 -> eDiag_FA: ""GET /List?code=http://loinc.org|11450-4&_include=*""
 
 activate eDiag_FA COLOR_DIAG_FA
-eDiag_FA --> GDA_1: SearchSet-Bundle\n""List.meta.versionId = 123"""
+eDiag_FA --> GDA_1: SearchSet-Bundle\n""List.meta.versionId = 123""
 deactivate eDiag_FA
 
 GDA_1 -> GDA_1: Summary-Liste bearbeiten
@@ -71,17 +71,17 @@ GDA_2 -> eDiag_FA:  ""GET /List?code=http://loinc.org|11450-4&_include=*""
 activate GDA_2 COLOR_GDA_2
 
 activate eDiag_FA COLOR_DIAG_FA
-eDiag_FA --> GDA_2: SearchSet-Bundle\n""List.meta.versionId=123""
+eDiag_FA --> GDA_2: SearchSet-Bundle\n""List.meta.versionId = 123""
 deactivate eDiag_FA
 
 GDA_2 -> GDA_2: Summary-Liste bearbeiten
 
 == Aktualisieren der Summary-Liste durch GDA 2 ==
 
-GDA_2 -> eDiag_FA: ""POST /List/$write""\n""If-Match""-Header = ""123""
+GDA_2 -> eDiag_FA: ""POST /List/$write""\n""If-Match""-Header = ""W/"123"""
 
 activate eDiag_FA COLOR_DIAG_FA
-eDiag_FA -> eDiag_FA: Übermittelte Daten validieren\nIf-Match ""123"" im Header entspricht\n""List.meta.versionId"" der Fachanwendung ""123""
+eDiag_FA -> eDiag_FA: Übermittelte Daten validieren\n""If-Match = W/"123""" im Header entspricht\n""List.meta.versionId"" der Fachanwendung ""123""
 
 eDiag_FA -> eDiag_FA: Neue Summary-Liste persistieren
 
@@ -92,10 +92,10 @@ deactivate eDiag_FA
 
 == Error für GDA 1 ==
 
-GDA_1 -> eDiag_FA: ""POST /List/$write""\n""If-Match""-Header = ""123""
+GDA_1 -> eDiag_FA: ""POST /List/$write""\n""If-Match""-Header = ""W/"123"""
 
 activate eDiag_FA COLOR_DIAG_FA
-eDiag_FA -> eDiag_FA: Validierung der übermittelten Daten schlägt fehl\n""If-Match"" ""123"" im Header stimmt nicht\nmit ""List.meta.versionId"" der Fachanwendung\nüberein.
+eDiag_FA -> eDiag_FA: Validierung der übermittelten Daten schlägt fehl\n""If-Match = W/"123""" im Header stimmt nicht\nmit ""List.meta.versionId"" der Fachanwendung\nüberein.
 
 note over eDiag_FA
   e-Diagnose-Fachanwendung lehnt Speichern ab.
