@@ -253,7 +253,7 @@
     </div>
     <div class="story st on2">
       <p>Am 9. März 2026 hat sich die Angina deutlich gebessert. Herr Mustermann berichtet jedoch über Durchfall und Juckreiz im Genitalbereich. Die Ärztin stellt eine Pilzinfektion (Candida-Balanitis) fest, vermutlich als Folge der Antibiotikatherapie, und verordnet Clotrimazol 1 % Creme.</p>
-      <p>Herr Mustermann vermutet zudem, dass die Antibiotikatherapie einen Schub seines seit 2010 bestehenden Morbus Crohn ausgelöst hat. Da der Durchfall sowohl Nebenwirkung als auch Teil eines Schubs sein kann, wird die Ursache weiter abgeklärt; bis dahin soll er auf ausreichende Flüssigkeitszufuhr achten. Eine partielle Resektion des Dickdarms fand am 23. September 2025 statt.</p>
+      <p>Herr Mustermann vermutet zudem, dass die Antibiotikatherapie einen Schub seines seit 2010 bestehenden Morbus Crohn ausgelöst hat. Da der Durchfall sowohl Nebenwirkung als auch Teil eines Schubs sein kann, wird die Ursache weiter abgeklärt; bis dahin soll er auf ausreichende Flüssigkeitszufuhr achten. Im Zuge der Behandlung berichtet Herr Mustermann zudem von einer partiellen Resektion des Dickdarms, die im September 2025 durchgeführt wurde.</p>
       <p>Die Ärztin dokumentiert Morbus Crohn, die medikamenteninduzierte Diarrhö und die Candida-Balanitis sowie die partielle Resektion des Dickdarms als Prozedur. Morbus Crohn und partielle Resektion des Dickdarms nimmt sie in die jeweilige Summary-Liste auf.</p>
     </div>
     <div class="story st on3">
