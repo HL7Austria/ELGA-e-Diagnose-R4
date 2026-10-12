@@ -1,7 +1,7 @@
 ValueSet: AtEdiagListCodeVS
 Id: at-ediag-list-code-vs
-Title: "ELGA AT e-Diagnose List Entry Code Value Set"
-Description: "ValueSet mit zulässigen Codes für das Flag eines List-Entries in ELGA."
+Title: "ELGA AT e-Diagnose List Entry Code"
+Description: "ValueSet mit zulässigen Codes für Summary-Listen."
 * ^experimental = true
 
 // Problem list
