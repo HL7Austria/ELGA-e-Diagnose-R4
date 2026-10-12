@@ -38,17 +38,21 @@ Möchte der ELGA-Teilnehmer eine Diagnose aus der e-Diagnose Fachanwendung lösc
 * instance = true   // Id von Instanz muss beim Aufruf bekannt sein
 
 * parameter[+]
-* parameter[=].name = #diagnoseUrl
+* parameter[=].name = #diagnose
 * parameter[=].use = #out
 * parameter[=].min = 1
 * parameter[=].max = "1"
-* parameter[=].documentation = "Die vollständige URL der zu löschenden Diagnose."
-* parameter[=].type = #url
+* parameter[=].documentation = "Die gelöschte Diagnose."
+* parameter[=].type = #Resource
+* parameter[=].targetProfile[+] = Canonical(AtEdiagCondition)
+* parameter[=].targetProfile[+] = Canonical(AtEdiagProcedure)
+* parameter[=].targetProfile[+] = Canonical(AtEdiagAllergyIntolerance)
 
 * parameter[+]
-* parameter[=].name = #listUrl
+* parameter[=].name = #list
 * parameter[=].use = #out
 * parameter[=].min = 0
 * parameter[=].max = "1"
-* parameter[=].documentation = "Die vollständige URL der Summary-Liste, aus der die Diagnose gegebenenfalls gelöscht wurde."
-* parameter[=].type = #url
+* parameter[=].documentation = "Die Summary-Liste, aus der die Diagnose gegebenenfalls gelöscht wurde."
+* parameter[=].type = #List
+* parameter[=].targetProfile[+] = Canonical(AtEdiagList)

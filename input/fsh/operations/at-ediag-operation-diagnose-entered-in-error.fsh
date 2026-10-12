@@ -49,17 +49,21 @@ Möchte der GDA eine Diagnose in der e-Diagnose Fachanwendung stornieren, muss d
 * parameter[=].type = #string
 
 * parameter[+]
-* parameter[=].name = #resource
+* parameter[=].name = #diagnose
 * parameter[=].use = #out
 * parameter[=].min = 1
 * parameter[=].max = "1"
 * parameter[=].documentation = "Die aktualisierte Diagnose nach der Stornierung."
 * parameter[=].type = #Resource
+* parameter[=].targetProfile[+] = Canonical(AtEdiagCondition)
+* parameter[=].targetProfile[+] = Canonical(AtEdiagProcedure)
+* parameter[=].targetProfile[+] = Canonical(AtEdiagAllergyIntolerance)
 
 * parameter[+]
-* parameter[=].name = #listUrl
+* parameter[=].name = #list
 * parameter[=].use = #out
 * parameter[=].min = 0
 * parameter[=].max = "1"
-* parameter[=].documentation = "Die vollständige URL der Summary-Liste, aus der die Diagnose gegebenenfalls entfernt wurde."
-* parameter[=].type = #url
+* parameter[=].documentation = "Die Summary-Liste, aus der die Diagnose gegebenenfalls entfernt wurde."
+* parameter[=].type = #List
+* parameter[=].targetProfile[+] = Canonical(AtEdiagList)
