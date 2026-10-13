@@ -182,7 +182,7 @@ Daten bestehender Einträge können nicht im Sinne eines Updates (`PUT`) veränd
 5. Der GDA [erfasst den neuen Eintrag](#eintrag-erfassen) in der e-Diagnose-Fachanwendung.
 6. Der GDA entfernt den alten Eintrag aus der Summary-Liste, indem der entsprechende `List.entry` entfernt wird.
 7. Der GDA fügt den neuen Eintrag zur Summary-Liste hinzu, indem der Eintrag als neuer `List.entry` in die Liste eingefügt wird.
-   * `List.entry.item` enthält die Referenz auf den bestehenden Eintrag.
+   * `List.entry.item` enthält die Referenz auf den neuen Eintrag.
 8. Der GDA führt die [`$write`-Operation](use_case_write.html#summary-liste-aktualisieren-write) aus und übermittelt die aktualisierte Liste an die Fachanwendung.
 
 ##### Sequenzdiagramm
