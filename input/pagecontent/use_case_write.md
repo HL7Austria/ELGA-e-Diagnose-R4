@@ -40,7 +40,7 @@ Dieser Anwedungsfall erlaubt dem GDA die Stornierung eines Eintrags. Dabei ist e
 Dieser Anwendungsfall beschreibt die Bearbeitung eines Eintrags in der Gesamtansicht.
 
 <div class="dragon" markdown="1">
-Daten bestehender Einträge können nicht im Sinne eines Updates (`PUT`) verändert werden. Die Daten können von der Client-Anwendung in einen neuen Eintrag übernommen, angepasst und als [neuer Eintrag](#eintrag-erfassen) in der e-Diagnose-Fachanwendung gespeichert werden.
+Daten bestehender Einträge können nicht im Sinne eines Updates (`PUT`) verändert werden (siehe [Designentscheidungen](design_choices.html)). Die Daten können von der Client-Anwendung in einen neuen Eintrag übernommen, angepasst und als [neuer Eintrag](#eintrag-erfassen) in der e-Diagnose-Fachanwendung gespeichert werden.
 </div>
 
 Die Bearbeitung innerhalb einer Summary-Liste wird [hier](#eintrag-in-der-summary-liste-bearbeiten) beschrieben.
@@ -167,7 +167,7 @@ Dieser Anwendungsfall erlaubt es dem GDA, die Reihenfolge der Einträge innerhal
 Dieser Anwendungsfall beschreibt die fachliche Bearbeitung von Einträgen, die Teil einer Summary-Liste sind.
 
 <div class="dragon" markdown="1">
-Daten bestehender Einträge können nicht im Sinne eines Updates (`PUT`) verändert werden. Die Daten können von der Client-Anwendung in einen neuen Eintrag übernommen, angepasst und als [neuer Eintrag](#eintrag-erfassen) in der e-Diagnose-Fachanwendung gespeichert werden.
+Daten bestehender Einträge können nicht im Sinne eines Updates (`PUT`) verändert werden (siehe [Designentscheidungen](design_choices.html)). Die Daten können von der Client-Anwendung in einen neuen Eintrag übernommen, angepasst und als [neuer Eintrag](#eintrag-erfassen) in der e-Diagnose-Fachanwendung gespeichert werden.
 </div>
 
 > Die tatsächliche Reihenfolge der Bearbeitungsschritte kann variieren.
