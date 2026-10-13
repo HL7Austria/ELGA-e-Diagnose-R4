@@ -101,7 +101,7 @@ Die `$write`-Operation ist eine eigenständige Operation, die allerdings einen *
 6. **GDA 2** macht **fachliche Änderungen** an der Summary-Liste.
 7. **GDA 2** aktualisiert mittels [$write-Operation](use_case_write.html#summary-liste-aktualisieren-write) die Summary-Liste.
 8. Im Rahmen der Validierung der übermittelten Summary-Liste prüft die Fachanwendung, ob der mitgeschickte `If-Match`-Header mit der aktuellen `versionId` der Summary-Liste übereinstimmt.
-9.  Die Prüfung verläuft erfolgreich, weil beide den Wert `123` haben. Die Änderungen werden übernommen und die neue Version der Summary-Liste wird persistiert. Dabei erhält die Summary-Liste die neue `List.meta.version` mit dem Wert `124`.
+9.  Die Prüfung verläuft erfolgreich, weil beide den Wert `123` haben. Die Änderungen werden übernommen und die neue Version der Summary-Liste wird persistiert. Dabei erhält die Summary-Liste die neue `List.meta.versionId` mit dem Wert `124`.
 12. **GDA 2** erhält die Meldung, dass die Aktualisierung erfolgreich durchgeführt wurde.
 13. Anschließend will **GDA 1** mittels [$write-Operation](use_case_write.html#summary-liste-aktualisieren-write) ebenfalls seine Version der Summary-Liste speichern.
 14. Die Fachanwendung validiert erneut die übermittelte Summary-Liste. Die Prüfung schlägt fehl, weil die aktuelle Summary-Liste in der Fachanwendung mittlerweile die `List.meta.versionId` mit dem Wert `124` besitzt. Die Fachanwendung lehnt das Speichern ab.
