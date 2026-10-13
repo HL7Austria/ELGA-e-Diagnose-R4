@@ -85,6 +85,12 @@ eDiag_FA -> eDiag_FA: Übermittelte Daten validieren\n""If-Match = W/"123""" im 
 
 eDiag_FA -> eDiag_FA: Neue Summary-Liste persistieren
 
+note over eDiag_FA
+  Nach Persistieren der Summary-Liste wird die 
+  ""List.meta.versionId"" der Fachanwendung 
+  auf ""124"" erhöht.
+end note
+
 eDiag_FA --> GDA_2: Summary-Liste
 deactivate GDA_2
 
