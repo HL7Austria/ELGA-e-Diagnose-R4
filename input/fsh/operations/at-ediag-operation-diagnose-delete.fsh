@@ -1,6 +1,6 @@
 Instance: AtDiagDiagnoseDelete
 InstanceOf: OperationDefinition
-Title: "e-Diagnose Operation $delete"  //TODO
+Title: "e-Diagnose Operation $delete"
 Description: """Die `$delete`-Operation löscht eine bestimmte Diagnose aus der e-Diagnose Fachanwendung."""
 Usage: #definition
 
