@@ -1,9 +1,11 @@
+<a name="update-entry"></a>
+### Kein Update auf einzelne Einträge
 
+Einträge (`Condition`, `Procedure`, `AllergyIntolerance`) werden ausschließlich per `POST` angelegt und können von Client-Anwendungen nicht per `PUT` verändert werden. Jeder Eintrag ist damit eine eigenständige Ressource ohne inhaltliche Versionen.
 
-In Arbeit.
+Hintergrund ist die Versionierung der Summary-Liste: Jede Listenversion soll genau die Einträge zeigen, die zum jeweiligen Zeitpunkt eingetragen waren. Wären Einträge veränderbar, ließe sich das nur über versionierte Referenzen in `List.entry.item` sicherstellen. Diese wollte man für die e-Diagnose vermeiden, weil die Komplexität der Anwendung höher gewesen wäre. Stattdessen wird bei einer inhaltlichen Korrektur ein neuer Eintrag angelegt und die Summary-Liste aktualisiert.
 
-- Nur `POST` für Einträge.
-
+Davon unberührt sind die Operationen [`$entered-in-error`](OperationDefinition-at-ediag-operation-diagnose-entered-in-error.html) und [`$delete`](OperationDefinition-at-ediag-operation-diagnose-delete.html). Bei einer Stornierung ergänzt die e-Diagnose-Fachanwendung lediglich die Angaben zur Stornierung (GDA, Zeitpunkt, Grund); alle weiteren Informationen des Eintrags bleiben unverändert. Bei einer Löschung durch den ELGA-Teilnehmer wird der Eintrag als Ganzes entfernt.
 
 <a name="logische-referenzen"></a>
 ### Informationen über GDA und Patienten
