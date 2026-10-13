@@ -17,7 +17,7 @@ oder möchte der GDA die Reihenfolge der Einträge ändern, so muss diese Operat
 
 ### Voraussetzung für den Aufruf
 
-- Der GDA hat durch einen [vorangeganenen Abruf](https://build.fhir.org/ig/HL7Austria/ELGA-e-Diagnose-R4/branches/main/en/use_case_read.html#aktuelle-summary-liste-abrufen) die aktuelle `versionId` der Summary-Liste ermittelt. Diese muss beim Aufruf dieser Operation als `If-Match`-Header mitgeschickt werden.
+- Der GDA hat durch einen [vorangegangenen Abruf](use_case_read.html#aktuelle-summary-liste-abrufen) die aktuelle `versionId` der Summary-Liste ermittelt. Diese muss beim Aufruf dieser Operation als `If-Match`-Header mitgeschickt werden.
 
 ### Detaillierte Business-Logik
 
