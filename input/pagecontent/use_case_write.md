@@ -63,7 +63,7 @@ Dieser Anwendungsfall beschreibt die fachliche Bestätigung einer initialisierte
 Eine leere Summary-Liste mit dem Wert `List.emptyReason = nilknown` bedeutet, dass für den Patienten derzeit keine Summary-Einträge vorliegen. Der Status dokumentiert somit explizit das Fehlen von Summary-Einträgen und ist von einer initial noch nicht befüllten Summary-Liste `List.emptyReason = notstarted` zu unterscheiden.
 
 <div class="dragon" markdown="1">
-Dieser Anwendungsfall kann pro Patient maximal einmal auftreten.
+Dieser Anwendungsfall kann pro Patient für jede der drei Summary-Listen maximal einmal auftreten.
 </div>
 
 ##### Ablauf
