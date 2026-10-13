@@ -1,6 +1,6 @@
 @startuml
 
-title Bestehenden Eintrag innerhalb einer Liste fachlich bearbeiten
+title Eintrag in der Summary-Liste bearbeiten
 
 skinparam borderColor #000000
 skinparam backgroundColor #f5f5f5

@@ -59,7 +59,7 @@ activate eDiag_FA COLOR_DIAG_FA
 ref over GDA_1, eDiag_FA : [[use_case_read.html#aktuelle-summary-liste-abrufen Aktuelle Summary-Liste abrufen]]
 
 note over GDA_1
-  GDA erhält ein Search-Bundle von der 
+  GDA erhält ein SearchSet-Bundle von der 
   Fachanwendung und bearbeitet die enthaltene
   Summary-Liste.
 end note

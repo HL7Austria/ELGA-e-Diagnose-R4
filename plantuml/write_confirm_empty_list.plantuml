@@ -1,6 +1,6 @@
 @startuml
 
-title Leere Liste fachlich bestätigen
+title Leere Summary-Liste fachlich bestätigen
 
 skinparam borderColor #000000
 skinparam backgroundColor #f5f5f5
