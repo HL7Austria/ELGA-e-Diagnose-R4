@@ -25,9 +25,10 @@ Das Systemumfeld der e-Diagnose umfasst alle Akteure, Systeme und organisatorisc
 [![diagram](ediag_systemumfeld.png){: style="width: 80%"}](ediag_systemumfeld.png)
 
 #### ELGA-Teilnehmer und Vertretungen
+
 Im Fokus der e-Diagnose steht der ELGA-Teilnehmer und dessen Gesamtheit der dokumentierten Conditions, Procedures und AllergiesIntolerances, welche von GDA festgestellt werden und die interdisziplinäre Zusammenarbeit des Behandlungsteams unterstützen sollen, um so einen bestmöglichen Outcome für den ELGA-Teilnehmer zu ermöglichen.
 
-Der Zugriff von ELGA-Teilnehmern und deren Vertretungen auf die e-Diagnose erfolgt über das Gesundheitsportal unter Nutzung der bestehenden Identifikationsmechanismen. ELGA-Teilnehmer können Einsicht in ihre gespeicherten Daten nehmen sowie Teilnehmerrechte wahrnehmen. Eine direkte medizinische Dokumentation durch ELGA-Teilnehmer und deren Vertretungen ist nicht vorgesehen.
+Der Zugriff von ELGA-Teilnehmern und deren Vertretungen auf die e-Diagnose erfolgt über das Gesundheitsportal unter Nutzung der bestehenden Identifikationsmechanismen. ELGA-Teilnehmer können Einsicht in ihre gespeicherten Daten nehmen sowie Teilnehmerrechte wahrnehmen. Eine direkte medizinische Dokumentation durch ELGA-Teilnehmer und deren Vertretungen ist zum jetzigen Zeitpunkt nicht vorgesehen.
 
 Die Einsichtnahme in die e-Diagnose sowie die Wahrnehmung von Teilnehmerrechten kann auch durch gesetzlich oder rechtswirksam bevollmächtigte Vertretungsbefugte (Vertretung) im Rahmen der jeweils geltenden rechtlichen Bestimmungen erfolgen. Der Zugriff erfolgt dabei – analog zu ELGA-Teilnehmern – über das Gesundheitsportal unter Nutzung der bestehenden Identifikationsmechanismen.
 
