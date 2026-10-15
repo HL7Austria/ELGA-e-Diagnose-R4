@@ -267,7 +267,7 @@
     </div>
     <div class="story st on5">
       <p>Am 20. April 2026 nimmt Herr Mustermann über das Portal Einsicht in seine e-Diagnose und ruft alle Diagnosen ab. Dabei sieht er, dass die im März dokumentierte Pilzinfektion in seiner Gesamtansicht aufscheint. Er möchte das nicht und <a href="use_case_participant.html#eintrag-löschen">löscht</a> den Eintrag.</p>
-      <p>Der Eintrag wird daraufhin aus der Gesamtansicht gelöscht. Wäre die Diagnose auch Bestandteil der Summary-Liste, würde sie ebenfalls aus dieser entfernt; <code>List.source</code> wird in diesem Fall auf den Patienten gesetzt.</p>
+      <p>Der Eintrag wird daraufhin aus der Gesamtansicht gelöscht. Wäre der Eintrag auch Bestandteil der Summary-Liste, würde er ebenfalls aus dieser entfernt; <code>List.source</code> wird in diesem Fall auf den Patienten gesetzt.</p>
     </div>
   </div>
 

@@ -61,7 +61,7 @@ Dieser Anwendungsfall dient der Anzeige aktuellen und historischer Versionen der
 2. In einem zweiten Request kann der GDA oder der ELGA-Teilnehmer jetzt auf alle Versionen (auch die aktuelle) der Summary-Liste zugreifen. 
 3. Die e-Diagnose Fachanwendung liefert ein History-Bundle zurück, das alle Summary-Listenversionen enthält.
    `GET /List/[id]/_history`
-4. Zu einer Summary-Listenversion können die [referenzierten Diagnosen von der e-Diagnose Fachanwendung](#einzelnen-eintrag-abrufen) abgefragt werden.
+4. Zu einer Summary-Listenversion können die [referenzierten Einträge von der e-Diagnose-Fachanwendung](#einzelnen-eintrag-abrufen) abgefragt werden.
 
 ###### Alternativer Ablauf
 
