@@ -26,9 +26,6 @@ oder möchte der GDA die Reihenfolge der Einträge ändern, so muss diese Operat
 ### Validierung / Fehlerbehandlung
 
 * Die übermittelte List-Ressource wird laut Profil geprüft.
-* `List.code` muss mit dem `code` der Operation übereinstimmen.
-* `List.subject` muss mit dem im Token enthaltenen Patienten übereinstimmen.
-* `List.source` muss mit dem im Token enthaltenen GDA übereinstimmen.
 * Der übermittelte `If-Match`-Header stimmt mit der `versionId` der Ressource am Server überein.
 * Für die List-Ressource gilt außerdem `entry.item.empty() implies emptyReason.coding.exists(system='http://terminology.hl7.org/CodeSystem/list-empty-reason' and code='nilknown')`.
 """
@@ -38,15 +35,7 @@ oder möchte der GDA die Reihenfolge der Einträge ändern, so muss diese Operat
 * instance = false   // Id von Instanz muss beim Aufruf nicht bekannt sein, nur Patient-ID
 * code = #write
 * resource[0] = $cs-resource-types#List
-* parameter[+]
-* parameter[=].name = #code
-* parameter[=].use = #in
-* parameter[=].min = 1
-* parameter[=].max = "1"
-* parameter[=].documentation = "Der Parameter gibt an, welche Art von Einträgen in der Summary-Liste enthalten sind. Der Wert muss aus dem Value-Set [AtEdiagListCodeVS](ValueSet-at-ediag-list-code-vs.html) stammen."
-* parameter[=].type = #Coding
-* parameter[=].binding.strength = #required
-* parameter[=].binding.valueSet = Canonical(AtEdiagListCodeVS)
+
 * parameter[+]
 * parameter[=].name = #list   
 * parameter[=].use = #in
@@ -55,6 +44,7 @@ oder möchte der GDA die Reihenfolge der Einträge ändern, so muss diese Operat
 * parameter[=].documentation = "Der Parameter dient der Übermittlung der Summary-Liste."
 * parameter[=].type = #List
 * parameter[=].targetProfile[+] = Canonical(AtEdiagList)
+
 * parameter[+]
 * parameter[=].name = #return
 * parameter[=].use = #out
