@@ -32,7 +32,8 @@ Der Zugriff von ELGA-Teilnehmern und deren Vertretungen auf die e-Diagnose erfol
 Die Einsichtnahme in die e-Diagnose sowie die Wahrnehmung von Teilnehmerrechten kann auch durch gesetzlich oder rechtswirksam bevollmächtigte Vertretungsbefugte (Vertretung) im Rahmen der jeweils geltenden rechtlichen Bestimmungen erfolgen. Der Zugriff erfolgt dabei – analog zu ELGA-Teilnehmern – über das Gesundheitsportal unter Nutzung der bestehenden Identifikationsmechanismen.
 
 #### GDA
-GDA dokumentieren und nutzen die Inhalte der e-Diagnose im Rahmen eines aktiven Behandlungsverhältnisses. Die Conditions, Procedures, Alerts/Flags und AllergiesIntolerances werden von GDA dokumentiert und stehen auch allen weiteren behandelnden bzw. berechtigten GDA zur Verfügung.
+
+GDA dokumentieren und nutzen die Inhalte der e-Diagnose im Rahmen eines aktiven Behandlungsverhältnisses. Die Conditions, Procedures und AllergiesIntolerances werden von GDA dokumentiert und stehen auch allen weiteren behandelnden bzw. berechtigten GDA zur Verfügung.
 
 Der Zugriff erfolgt primär über angebundene Primärsysteme (z. B. AIS/KIS) oder alternativ über das GDA-Portal. Die Authentifizierung und Autorisierung erfolgen gemäß GTelG 2012 unter Nutzung des bestehenden ELGA-Berechtigungssystems. Der Zugriff ist ausschließlich im Rahmen eines aktiven Behandlungsverhältnisses zulässig. Perspektivisch ist sicherzustellen, dass die e-Diagnose allen Berufsgruppen zugänglich gemacht wird, für welche dies nach berufsrechtlichen und datenschutzrechtlichen Vorgaben zulässig und geboten ist.
 
