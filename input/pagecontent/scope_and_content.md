@@ -20,7 +20,7 @@ Im Rahmen der Anwendung e-Diagnose werden folgenden Begriffe definiert:
 [![diagram](ediag_kategorie.png){: style="width: 60%"}](ediag_kategorie.png)
 
 ### Systemumfeld
-Das Systemumfeld der e-Diagnose umfasst alle Akteure, Systeme und organisatorischen Einheiten, die im Rahmen der Dokumentation, Einsichtnahme oder Nutzung der gespeicherten Conditions, Procedures und AllergiesIntolerances eingebunden sind. 
+Das Systemumfeld der e-Diagnose umfasst alle Akteure, Systeme und organisatorische Einheiten, die im Rahmen der Dokumentation, Einsichtnahme oder Nutzung der gespeicherten Conditions, Procedures und AllergiesIntolerances eingebunden sind. 
 
 [![diagram](ediag_systemumfeld.png){: style="width: 80%"}](ediag_systemumfeld.png)
 
