@@ -6,13 +6,13 @@
 id: hl7.at.fhir.elga.ediag.r4
 canonical: https://fhir.hl7.at/elga/ediag/r4
 name: ELGAeDiagnoseR4
-title: ELGA e-Diagnose R4 (Draft)
+title: ELGA e-Diagnose R4
 description: The FHIR® implementation guide ELGA e-Diagnose (R4)
 status: draft # draft | active | retired | unknown
 version: 0.1.0
 fhirVersion: 4.0.1 # https://www.hl7.org/fhir/valueset-FHIR-version.html
 copyrightYear: 2026+
-releaseLabel: ci-build
+releaseLabel: Normativ
 # license: CC0-1.0 # https://www.hl7.org/fhir/valueset-spdx-license.html
 # jurisdiction: urn:iso:std:iso:3166#US "United States of America" # https://www.hl7.org/fhir/valueset-jurisdiction.html
 publisher:
