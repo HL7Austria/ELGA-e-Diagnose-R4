@@ -5,7 +5,8 @@ Dieses Value-Set gliedert sich in zwei große Bereiche:
 <div class="note-to-balloters" markdown="1">
 - Für Allergien und Intoleranzen, die keinen Medikamentenbezug haben, orientieren sich die Inhalte am Value-Set eHDSIAllergenNoDrug des Master Valueset Catalogue (MVC) von MyHealth@EU.
 - Dieses Value-Set wurde für die e-Diagnose entworfen und wird auf den <a href="https://termgit.elga.gv.at/">österreichische e-Health Terminologieserver</a> verschoben, abhängig vom Ergebnis des Ballots.
-- Der IG Publisher baut aktuell auf SNOMED Intl. Version http://snomed.info/sct/900000000000207008/version/20250201 auf, weshalb weniger Konzepte in diesem Value-Set angezeigt werden als in der aktuellen Version von SNOMED CT verfügbar sind. Dieses Problem wird bereinigt, sobald das Value-Set auf den österreichische e-Health Terminologieserver verschoben wird.
-- Aktuell werden österreichische Übersetzungen auf Basis der Austrian Extension in dem Value-Set noch nicht aufgelöst. Dieses Problem wird bereinigt, sobald das Value-Set auf den österreichische e-Health Terminologieserver verschoben wird.
 - Eine Expansion dieses Value-Sets ist zurzeit nicht möglich, weil das referenzierte Value-Set ([https://termgit.elga.gv.at/ValueSet/elga-wirkstoffe-ages](https://termgit.elga.gv.at/ValueSet/elga-wirkstoffe-ages)) vom IG Publisher nicht aufgelöst werden kann.
+- Mit der Bereitstellung der aktuellen Version der International Edition von SNOMED CT inklusive der Austrian Extension am österreichische e-Health Terminologieserver werden folgende Punkte aufgelöst:
+  - Der IG Publisher hat zurzeit nur Zugriff auf die International Edition von SNOMED CT in der Version http://snomed.info/sct/900000000000207008/version/20250201, weshalb weniger Konzepte in diesem Value-Set angezeigt werden als in der aktuellen Version von SNOMED CT verfügbar sind.
+  - Aktuell werden österreichische Übersetzungen auf Basis der Austrian Extension in dem Value-Set noch nicht aufgelöst.
 </div>
