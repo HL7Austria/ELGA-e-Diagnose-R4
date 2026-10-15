@@ -37,9 +37,10 @@ GDA dokumentieren und nutzen die Inhalte der e-Diagnose im Rahmen eines aktiven 
 Der Zugriff erfolgt primär über angebundene Primärsysteme (z. B. AIS/KIS) oder alternativ über das GDA-Portal. Die Authentifizierung und Autorisierung erfolgen gemäß GTelG 2012 unter Nutzung des bestehenden ELGA-Berechtigungssystems. Der Zugriff ist ausschließlich im Rahmen eines aktiven Behandlungsverhältnisses zulässig. Perspektivisch ist sicherzustellen, dass die e-Diagnose allen Berufsgruppen zugänglich gemacht wird, für welche dies nach berufsrechtlichen und datenschutzrechtlichen Vorgaben zulässig und geboten ist.
 
 #### Unterstützende ELGA-Einrichtungen
-Zur organisatorischen Unterstützung bestehen als Teile der ELGA und e-Health Supporteinrichtung die ELGA-Ombudsstelle (OBST), die Widerspruchstelle (WIST) sowie die Serviceline (SEL): 
 
-- OBST: Zur Wahrung der Teilnehmerrechte für ELGA-Teilnehmer und deren Vertretungen. 
+Zur organisatorischen Unterstützung bestehen als Teile der ELGA und e-Health Supporteinrichtung die ELGA-Ombudsstelle (OBST)/e-Health Servicestelle (EHS), die Widerspruchstelle (WIST) sowie die Serviceline (SEL): 
+
+- OBST/EHS: Zur Wahrung der Teilnehmerrechte für ELGA-Teilnehmer und deren Vertretungen. 
 
 - WIST: Zum Einbringen von Opt-Out bzw. GDA-Sperren für ELGA-Teilnehmer und deren Vertretungen (ohne Verwendung des ELGA-Portals). 
 
