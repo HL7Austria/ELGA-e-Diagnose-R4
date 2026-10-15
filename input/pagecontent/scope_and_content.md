@@ -48,12 +48,9 @@ Zur organisatorischen Unterstützung bestehen als Teile der ELGA und e-Health Su
 
 - SEL: Für Fragen und Auskünfte von ELGA-Teilnehmer und deren Vertretungen (Nutzung) und GDA (Nutzung und Anbindung an ELGA). Die SEL hat keinen Zugriff auf Gesundheitsdaten der ELGA-Teilnehmer, unterstützt allerdings in Verwendung der Systeme – beispielsweise indem die Verfügbarkeit von Systemen überprüft wird. 
 
-### Diagnosencodierung
-Die Erfassung der Daten erfolgt dabei strukturiert und standardisiert auf Basis von HL7 FHIR sowie SNOMED CT. 
+### Abgrenzung
 
-[![diagram](ediag_datenwege.png){: style="width: 60%"}](ediag_datenwege.png)
-
-Unterstützt durch das e-Health-Codierservice kann parallel die Dokumentation gemäß Bundesgesetz über die Dokumentation im Gesundheitswesen (DokuG) gegenüber der Sozialversicherung (SV) und dem BMASGPK abgewickelt werden. 
+Die e-Diagnose regelt keine Abrechnungs- und Verrechnungsprozesse gegenüber der Sozialversicherung. Ebenso ist die ambulante Diagnosecodierung – im Sinne sämtlicher Tätigkeiten im Rahmen der Aufgaben gemäß DokuG samt dazugehöriger Durchführungsverordnung – nicht Teil der e-Diagnose.
 
 
 
