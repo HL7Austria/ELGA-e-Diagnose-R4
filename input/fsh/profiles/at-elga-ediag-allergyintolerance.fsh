@@ -8,9 +8,9 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom Allerg
 * obeys allergy-status-combination
 
 // EHE einfach überall eine extension für reported mit boolean
-* extension contains AtReported named reported 0..1
+* extension contains AtReported named reported 0..1 MS
 
-* extension contains AtElgaEdiagExtEnteredInError named entered-in-error 0..1
+* extension contains AtElgaEdiagExtEnteredInError named entered-in-error 0..1 MS
 
 * insert AtEDiagIdentifierRuleSet
 
@@ -85,7 +85,7 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom Allerg
 )
 * recorder ^short = "GDA, der die Allergie im System erfasst bzw. dokumentiert hat."
 
-* asserter 0..1
+* asserter 0..1 MS
 * asserter only Reference(
     HL7ATCorePractitioner
     or HL7ATCorePractitionerRole
@@ -121,7 +121,7 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom Allerg
 * reaction.description 0..0
 * reaction.description ^short = "Textbasierte Zusammenfassung der allergischen Reaktion."
 
-* reaction.onset 0..1
+* reaction.onset 0..1 MS
 * reaction.onset only dateTime 
 * reaction.onset ^short = "Beginn der Reaktion."
 
@@ -131,9 +131,10 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom Allerg
 * reaction.exposureRoute 0..0
 * reaction.exposureRoute ^short = "Art der Exposition der betroffenen Person gegenüber der Substanz."
 
-* reaction.note 0..1
+* reaction.note 0..1 MS
 * reaction.note.author[x] 0..0
 * reaction.note.time 0..0
+* reaction.note.text 1..1 MS
 // https://www.hl7.org/fhir/elementdefinition-definitions.html#ElementDefinition.maxLength
 // * note.text ^maxLength = 500
 // 2026_04_23 500 ausreichend. Es ist eine Freitextergänzung zum SNOMED Textes (schlecht eingestellter - zur Ergänzung zu DD) nicht * sondern nur 1 bei Bedarf
