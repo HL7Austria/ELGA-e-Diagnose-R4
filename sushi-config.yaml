@@ -54,7 +54,7 @@ dependencies:
 #
 pages:
   index.md:
-    title: "Home"
+    title: "e-Diagnose"
   scope_and_content.md:
     title: "Umfang und Inhalt"
   background.md:
