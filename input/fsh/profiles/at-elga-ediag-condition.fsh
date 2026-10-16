@@ -74,6 +74,7 @@ Description: "Dieses Condition-Profil passt die Condition-Resource für die Anfo
 
 * evidence 0..* MS
 * evidence ^short = "Verweis auf e-Befunde als medizinische Evidenz."
+  * detail 1..* MS
   * detail only Reference(MinimalDocumentReference)
     * ^short = "Verweis auf e-Befunde als medizinische Evidenz."
 
