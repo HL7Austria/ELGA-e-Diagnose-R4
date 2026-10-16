@@ -134,8 +134,9 @@ Description: "Dieses AllergyIntolerance-Profil passt die AllergyIntolerance-Reso
 * reaction.note.text 1..1 MS
 * reaction.note.text ^maxLength = 500
 
-// referenz auf befund, laborbefund, etc wäre noch interessant - extension!
-// SGR: Siehe condition - evidence
+// referenz auf befund, laborbefund, etc. - analog zu Condition.evidence.detail
+* extension contains AtEdiagEvidence named evidence 0..* MS
+* extension[evidence] ^short = "Verweis auf e-Befunde als medizinische Evidenz."
 
 // Erlaubte Kombinationen clinicalStatus/verificationStatus, siehe workflowmanagement.md
 Invariant: allergy-status-combination
