@@ -118,3 +118,9 @@ Basis bildet dabei jeweils `[base]/[Condition|Procedure|AllergyIntolerance]?_id=
 | `.report` | nicht zutreffend | `&_include=Procedure:report` | nicht zutreffend | 
 | `.extension:evidence` | nicht zutreffend | nicht zutreffend | `&_include=AllergyIntolerance:evidence` |
 {: .grid}
+
+### Optimistisches Locking
+
+Damit zwei unterschiedliche Clients nicht zur gleichen Zeit schreibend auf die e-Diagnose-Fachanwendung zugreifen können, wird auf das Konzept des [optimistischen Lockings](https://hl7.org/fhir/R4/http.html#concurrency) zurückgegriffen.
+
+Für die e-Diagnose-Fachanwendung bedeutet das, dass beim [Abruf einer aktuellen Summary-Liste](use_case_read.html#aktuelle-summary-liste-abrufen) die List-Ressource im SearchSet-Bundle auch die aktuelle `List.meta.versionId` enthält. Diese wird von der e-Diagnose-Fachanwendung verwaltet. Beim Ausführen der [`$write`-Operation](use_case_write.html#summary-liste-aktualisieren-write) muss der Wert von `List.meta.versionId` als `If-Match`-Header mitgeschickt werden. Die e-Diagnose-Fachanwendung prüft in der Folge, ob der Wert des `If-Match`-Headers mit der gespeicherten `List.meta.versionId` der zu aktualisierenden Summary-Liste übereinstimmt. Nur im Falle einer Übereinstimmung wird die Summary-Liste am Server aktualisiert und die `List.meta.versionId` erhält einen neuen Wert.
