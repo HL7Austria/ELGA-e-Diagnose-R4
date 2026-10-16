@@ -126,7 +126,6 @@ menu:
     Akteure: actors.html
     Transaktionen: transaction.html
   Anwendungsfälle: 
-    #Fachliche Use Cases: TODO Link zu Developer Portal / fachliche Use Cases
     Überblick Anwendungsfälle: use_cases.html
     Lesender Zugriff: use_case_read.html
     Schreibender Zugriff: use_case_write.html
