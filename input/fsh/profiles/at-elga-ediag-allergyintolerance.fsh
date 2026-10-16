@@ -124,12 +124,6 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom Allerg
 * reaction.onset only dateTime 
 * reaction.onset ^short = "Beginn der Reaktion."
 
-* reaction.severity 0..0
-* reaction.severity ^short = "Schweregrad der Reaktion, z. B. mild oder moderat."
-
-* reaction.exposureRoute 0..0
-* reaction.exposureRoute ^short = "Art der Exposition der betroffenen Person gegenüber der Substanz."
-
 * reaction.note 0..1 MS
 * reaction.note ^short = "Freitext zu Allergie und Intoleranzen als Zusatzinformation."
 * reaction.note.author[x] 0..0
