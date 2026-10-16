@@ -2,31 +2,28 @@ Profile: AtEdiagProcedure
 Parent: Procedure
 Id: at-elga-ediag-procedure
 Title: "AT ELGA e-Diagnose Procedure"
-Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom Procedure-Profil ab und passt dieses für die Anforderungen der e-Diagnose an."
+Description: "Dieses Procedure-Profil passt die Procedure-Resource für die Anforderungen der e-Diagnose an."
+
 * ^status = #active
 * . ^short = "AT e-Diagnose Procedure"
- 
-// EHE einfach überall eine extension für reported mit boolean
-// fremddiagnose
-// reported in R6 dazugekommen
-// forward extension -> EHE einfach überall eine extension für reported mit boolean
-* extension contains AtReported named reported 0..1
 
-* extension contains AtElgaEdiagExtEnteredInError named entered-in-error 0..1
+* implicitRules 0..0
+
+* extension contains AtReported named reported 0..1 MS
+* extension[reported] ^short = "True wenn diese Allergie fremdberichtet ist."
+
+* extension contains AtElgaEdiagExtEnteredInError named entered-in-error 0..1 MS
+* extension[entered-in-error] ^short = "Dokumentation des GDA der den Eintrag storniert hat."
+
+* modifierExtension 0..0
 
 * insert AtEDiagIdentifierRuleSet
 
-* instantiatesCanonical 0..0
-* instantiatesCanonical ^short = "Verweis auf eine standardisierte FHIR-Ressource, ein Template oder einen Leitfaden, der beschreibt, wie die Prozedur durchgeführt werden soll."
-
-* instantiatesUri 0..0
-* instantiatesUri ^short = "Verweis auf ein externes Dokument."
-
 * basedOn 0..0
-* basedOn ^short = "Verweis auf eine Anforderung."
+* basedOn ^short = "Anforderungen werden in der e-Diagnose nicht dokumentiert."
 
 * partOf 0..0
-* partOf ^short = "Verweis der Ressource auf eine andere, übergeordnete Ressource."
+* partOf ^short = "Hierarchische Dokumentation von Prozeduren werden in der e-Diagnose nicht unterstützt."
 
 * status 1..1 MS
 * status = #completed (exactly)
@@ -35,26 +32,23 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom Procedure-Profi
 * statusReason 0..0
 * statusReason ^short = "Begründung für den Status der Prozedur nicht relevant."
 
-// wäre überkategorie von code
 * category 0..0
-* category ^short = "Kategorisierung nach Verfahren."
+* category ^short = "Kategorisierungen von Prozeduren werden in der e-Diagnose nicht angewendet."
 
 * code 1..1 MS
 * code from AtEDiagProcedureCode (required)
 * code ^short = "Prozedurencode der durchgeführten Prozedur; Freitext ist nicht zulässig."
 * code.text 0..0
+* code.text ^short = "Die ursprüngliche textuelle Eingabe soll im Feld note.text dokumentiert werden."
  
 * subject 1..1 MS
 * subject only Reference(HL7ATCorePatient)
 * subject ^short = "Person, auf die sich die Prozedur bezieht."
 
 * encounter 0..0
-* encounter ^short = "Behandlungskontakt."
+* encounter ^short = "In e-Diagnose werden keine Behandlungskontakte dokumentiert."
 
-// Was ist wenn es der Patient nicht genau weiß? https://build.fhir.org/ig/hl7-eu/base/StructureDefinition-procedure-eu-core.html
-// Procedure (EU core) - HL7 Europe Base and Core FHIR IG v2.0.0
-// SGR: 2026_04_23_wir belassen es optional und schauen uns bis zum Ballot an, was die EU zu dem Zeitpunkt vorgibt
-* performed[x] 0..1
+* performed[x] 0..1 MS
 * performed[x] only dateTime
 * performed[x] ^short = "Zeitpunkt der Durchführung."
 
@@ -63,8 +57,7 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom Procedure-Profi
     HL7ATCorePractitioner
     or HL7ATCorePractitionerRole
 )
-* recorder ^short = "GDA, der die Prozedur eingetragen bzw. dokumentiert hat."
-
+* recorder ^short = "GDA, der die Prozedur in der e-Diagnose erfasst bzw. dokumentiert hat."
 
 * asserter 0..1
 * asserter only Reference(
@@ -73,69 +66,29 @@ Description: "Das AT e-Diagnose Procedure-Profil leitet sich vom Procedure-Profi
     or HL7ATCorePatient
     or AtEdiagRelatedPerson
 )
-* asserter ^short = "Quelle der Information zur Prozedur (z. B. behandelnde Person, Patient oder Dritter)."
+* asserter ^short = "Quelle der Information zur Allergie, z. B. Patient, behandelnde Person oder Dritter."
 
-// soll erst in einer neuen version von e-diagnose berücksichtigt werden
-// in erster version noch nicht relevant
-* performer 0..0
-* performer ^short = "Person, die die Prozedur durchgeführt hat."
-
-// soll erst in einer neuen version von e-diagnose berücksichtigt werden (e-befund neu)
-// in erster version noch nicht relevant
-* location 0..0
-* location ^short = "Durchführungsort."
-
-// potential für unbegrenzte komplexität
 * reasonCode 0..0
-* reasonCode ^short = "Code des medizinischen Grundes für die Durchführung der Prozedur."
+* reasonCode ^short = "Begründung für Prozedur wird nicht codiert erfasst."
 
-// potential für unbegrenzte komplexität
 * reasonReference 0..0
-* reasonReference ^short = "Begründung für die Durchführung der Prozedur; Verweis auf eine andere Ressource wie z.B. Condition oder Observation."
+* reasonReference ^short = "Begründung für Prozedur in Form von Referenzen wird in e-Diagnose nicht unterstützt."
 
-// grundsätzlich interessant
-// potentielle überdeckung mit dem code
-// ggf. konsistenzproblem (code, bodysite), wenn mans codiert ists kompliziert
-// außer es kommen konkrete anforderungen; sonst als freitext
-* bodySite 0..0
-* bodySite ^short = "Betroffene Körperstelle."
-
-* outcome 0..0
-* outcome ^short = "Ergebnis der Prozedur."
-
-// vergleichbar mit evidence in condition
-// verlinkte entlassbriefe könnten ggf. mal nicht mehr erreichbar sein (20 jahre aufbehaltungspflicht)
-// 2026_04_23_MBU URL, um einen Mehrwert zu haben. Damit der pdf-Friedhof aufhört, sondern eine saubere Lösung mittels URL, auf genau die DokuementenID 
-// ToDo: Wie macht man das?
-* report 0..*
-* report ^short = "Verweis auf ELGA-Befunde als medizinische Evidenz."
+* report 0..* MS
+* report ^short = "Verweis auf e-Befunde als medizinische Evidenz."
 * report only Reference(MinimalDocumentReference)
 
-// e-diagnose ist keine op-berichts-dokumentationssystem
 * complication 0..0
-* complication ^short = "Komplikation während dem Eingriff."
+* complication ^short = "Komplikation sollen in e-Diagnose nicht dokumentiert werden."
 
 * complicationDetail 0..0
-* complicationDetail ^short = "Diagnose, die durch die durchgeführte Prozedur entstanden ist."
+* complicationDetail ^short = "Komplikationen in Form von Referenzen werden in e-Diagnose nicht unterstützt."
 
-* followUp 0..0
-* followUp ^short = "Nachkontrolle (Code)."
-
-* note 0..1
-// note.autor und .time werden 0..0
-// note.text soll eine Zeichenbeschränkung bekommen (TBD)
-// 2026_04_23 500 ausreichend. Es ist eine Freitextergänzung zum SNOMED Textes (schlecht eingestellter - zur Ergänzung zu DD) nicht * sondern nur 1 bei Bedarf
+* note 0..1 MS
+* note ^short = "Freitext zur Diagnose als Zusatzinformation."
 * note.author[x] 0..0
+* note.author[x] ^short = "Wird über recorder abgebildet."
 * note.time 0..0
-// https://www.hl7.org/fhir/elementdefinition-definitions.html#ElementDefinition.maxLength
-// * note.text ^maxLength = 500
-* note ^short = "Freitext zur Prozedur als Zusatzinformation."
-
-* focalDevice 0..0
-* focalDevice ^short = "Gerät, das zur Durchführung der Prozedur verwendet wurde."
-
-* usedReference 0..0
-* usedReference ^short = "Verweis auf während der Prozedur verwendete Materialien, z. B. Medikamente."
-
-* usedCode 0..0
-* usedCode ^short = "Code der während der Prozedur verwendeten Materialien."
+* note.time ^short = "Wird über recordedDate abgebildet."
+* note.text 1..1 MS
+* note.text ^maxLength = 500
