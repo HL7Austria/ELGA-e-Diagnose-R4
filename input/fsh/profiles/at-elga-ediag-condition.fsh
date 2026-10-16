@@ -2,63 +2,58 @@ Profile: AtEdiagCondition
 Parent: Condition
 Id: at-elga-ediag-condition
 Title: "AT ELGA e-Diagnose Condition"
-Description: "Das AT e-Diagnose Condition-Profil leitet sich vom Condition-Profil ab und passt dieses für die Anforderungen der e-Diagnose an."
+Description: "Dieses Condition-Profil passt die Condition-Resource für die Anforderungen der e-Diagnose an."
+
 * ^status = #active
 * . ^short = "AT e-Diagnose Condition"
+
 * obeys condition-status-combination
 
-// EHE einfach überall eine extension für reported mit boolean
-// ob es sich um eine Fremddiagnose handelt wird durch extension für reported mit boolean gelöst
-* extension contains AtReported named reported 0..1
+* implicitRules 0..0
 
-* extension contains AtElgaEdiagExtEnteredInError named entered-in-error 0..1
+* extension contains AtReported named reported 0..1 MS
+* extension[reported] ^short = "True wenn diese Allergie fremdberichtet ist."
+
+* extension contains AtElgaEdiagExtEnteredInError named entered-in-error 0..1 MS
+* extension[entered-in-error] ^short = "Dokumentation des GDA der den Eintrag storniert hat."
+
+* modifierExtension 0..0
 
 * insert AtEDiagIdentifierRuleSet
 
-// 2026_05_18_Begriff: Klinischer Status der Diagnose- bei Änderungen Anja Schwab Bescheid geben!!!
 * clinicalStatus 1..1 MS
 * clinicalStatus from AtEdiagConditionClinicalStatusVS (required)
-* clinicalStatus ^short = "Klinischer Status der Diagnose (z. B. Status post); mögliche Codes: active | inactive."
+* clinicalStatus ^short = "Status der Diagnose; mögliche Codes: active | inactive."
 
-// 2026_06_ToDo: Klären der Kardinalität? optional? 
-// 2026_10: gesichert (active) und Zustand nach (inactive) werden ohne verificationStatus erfasst, siehe workflowmanagement.md
 * verificationStatus 0..1 MS
-* verificationStatus only CodeableConcept
 * verificationStatus from AtEdiagConditionVerificationStatusVS (required)
 * verificationStatus ^short = "Verifizierungsstatus der Diagnose, mögliche Codes: provisional | differential | refuted."
 
 * category 0..0
-* category ^short = "Differenzierung nach Kontext ist nicht relevant."
-* severity 0..0
-* severity ^short = "Schweregrad der Erkrankung."
+* category ^short = "Diagnosen werden dadurch kategorisiert, ob eine Diagnose Teil der Summary-Liste ist oder nicht."
 
 * code 1..1 MS
 * code from AtEDiagConditionCode (required)
 * code ^short = "Diagnosecode (Codierservice); Freitext ist nicht zulässig."
 * code.text 0..0
-
-* bodySite 0..0
-* bodySite ^short = "Zuordnung der Diagnose zu einer Körperstelle."
+* code.text ^short = "Die ursprüngliche textuelle Eingabe soll im Feld note.text dokumentiert werden."
 
 * subject 1..1 MS
 * subject only Reference(HL7ATCorePatient)
 * subject ^short = "Person, auf die sich die Diagnose bezieht."
 
 * encounter 0..0
-* encounter ^short = "Behandlungskontakt."
+* encounter ^short = "In e-Diagnose werden keine Behandlungskontakte dokumentiert."
 
-// dateTime
-* onset[x] 0..1
+* onset[x] 0..1 MS
 * onset[x] only dateTime 
 * onset[x] ^short = "Beginn der Erkrankung bzw. Diagnosezeitpunkt."
 
-// dateTime
-* abatement[x] 0..1
+* abatement[x] 0..1 MS
 * abatement[x] only dateTime 
 * abatement[x] ^short = "Ende der Erkrankung."
 
 * recordedDate 1..1 MS
-* recordedDate only dateTime
 * recordedDate ^short = "Zeitpunkt der Dokumentation der Diagnose."
 
 * recorder 1..1 MS
@@ -66,41 +61,32 @@ Description: "Das AT e-Diagnose Condition-Profil leitet sich vom Condition-Profi
     HL7ATCorePractitioner
     or HL7ATCorePractitionerRole
 )
-* recorder ^short = "GDA, der die Diagnose eingetragen hat."
+* recorder ^short = "GDA, der die Diagnose in der e-Diagnose erfasst bzw. dokumentiert hat."
 
-
-* asserter 0..1
+* asserter 0..1 MS
 * asserter only Reference(
     HL7ATCorePractitioner
     or HL7ATCorePractitionerRole
     or HL7ATCorePatient
     or AtEdiagRelatedPerson
 )
-* asserter ^short = "Quelle der Information zur Diagnose (z. B. behandelnde GDA, Patient oder Dritter)."
+* asserter ^short = "Quelle der Information zur Diagnose, z. B. Patient, behandelnde Person oder Dritter."
 
-* stage 0..0
-* stage ^short = "Stadium der Erkrankung."
-
-// muss profiliert werden für .detail (Reference) als Link auf 
-// ELGA-Befunde = Metadaten werden eingetragen
-// verlinkte entlassbriefe könnten ggf. mal nicht mehr erreichbar sein (20 jahre aufbehaltungspflicht)
-// ToDo; muss noch erarbeitet werden
-
-* evidence 0..*
-//* evidence.detail only Reference(ELGABefund)
-* evidence ^short = "Verweis auf ELGA-Befunde als medizinische Evidenz."
+* evidence 0..* MS
+* evidence ^short = "Verweis auf e-Befunde als medizinische Evidenz."
   * detail only Reference(MinimalDocumentReference)
-    * ^short = "Verweis auf ELGA-Befunde als medizinische Evidenz."
+    * ^short = "Verweis auf e-Befunde als medizinische Evidenz."
 
-// https://www.hl7.org/fhir/elementdefinition-definitions.html#ElementDefinition.maxLength
-// * note.text ^maxLength = 500
-// 2026_04_23 500 ausreichend. Es ist eine Freitextergänzung zum SNOMED Textes (schlecht eingestellter - zur Ergänzung zu DD) nicht * sondern nur 1 bei Bedarf
-* note 0..1
-* note.author[x] 0..0
-* note.time 0..0
+* note 0..1 MS
 * note ^short = "Freitext zur Diagnose als Zusatzinformation."
+* note.author[x] 0..0
+* note.author[x] ^short = "Wird über recorder abgebildet."
+* note.time 0..0
+* note.time ^short = "Wird über recordedDate abgebildet."
+* note.text 1..1 MS
+* note.text ^maxLength = 500
 
-// Erlaubte Kombinationen clinicalStatus/verificationStatus, siehe workflowmanagement.md
+// Erlaubte Kombinationen clinicalStatus/verificationStatus
 Invariant: condition-status-combination
 Description: "Erlaubte Kombinationen von clinicalStatus und verificationStatus: active mit provisional, differential oder ohne verificationStatus; inactive mit refuted oder ohne verificationStatus."
 Severity: #error
