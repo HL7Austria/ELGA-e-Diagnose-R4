@@ -12,10 +12,19 @@ Usage: #example
 * code = $cs-sct#27010001 "Partial excision of large intestine"
 
 * subject = Reference(PatientExample)
+  * identifier[0]
+    * system = "urn:oid:1.2.40.0.10.2.1.1.149"
+    * value = "GH:oeLdSEb0l+8kSdJWjOYyYmnYki0="
 
 * performedDateTime = "2025-09-23T09:30:00+02:00"
 
 * recorder = Reference(PractitionerExample)
+  * identifier[0]
+    * system = "urn:ietf:rfc:3986"
+    * value = "urn:oid:1.2.40.0.34.99.4613.4"
 
 * asserter = Reference(PatientExample)
+  * identifier[0]
+    * system = "urn:oid:1.2.40.0.10.2.1.1.149"
+    * value = "GH:oeLdSEb0l+8kSdJWjOYyYmnYki0="
 
