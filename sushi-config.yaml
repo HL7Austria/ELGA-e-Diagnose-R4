@@ -67,8 +67,6 @@ pages:
     title: "Akteure"
   design_choices.md:
     title: "Designentscheidungen"
-  workflowmanagement.md:
-    title: "Workflowmanagement"
   use_cases.md:
     title: "Überblick Anwendungsfälle"
   use_case_read.md:
@@ -127,7 +125,6 @@ menu:
     Designentscheidungen: design_choices.html
     Akteure: actors.html
     Transaktionen: transaction.html
-    Workflowmanagement: workflowmanagement.html
   Anwendungsfälle: 
     #Fachliche Use Cases: TODO Link zu Developer Portal / fachliche Use Cases
     Überblick Anwendungsfälle: use_cases.html
