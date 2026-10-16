@@ -43,39 +43,32 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom Allerg
 * verificationStatus from AtEdiagAllergyIntoleranceVerificationStatusVS (required)
 * verificationStatus ^short = "Verifizierungsstatus der Allergie; mögliche Codes: unconfirmed | presumed | confirmed | refuted."
 
-
-// ungenaue unterscheidung
 * type 0..0
-* type ^short = "Kennzeichnung, ob es sich um eine Allergie oder Intoleranz handelt."
+* type ^short = "Unterscheidung zwischen Allergie und Intoleranz fachlich oft nicht einfach. Für die e-Diagnose insofern nicht relevant."
 
-// 
 * category 0..0
-* category ^short = "ToDo - falls nur med. rele. dann ist es nicht notwendig, fachlich klären: Differenzierung nach Kontext z. B. Medikamente, Lebensmittel oder Umwelt."
+* category ^short = "Unterscheidung zwischen Kategorien wird über den code abgebildet. Für die e-Diagnose insofern nicht relevant."
 
-// 
 * criticality 0..0
-* criticality ^short = "Einschätzung des Schweregrads, z. B. im Hinblick auf eine Anaphylaxie."
-
-// kein text wird zugelassen, wie bei condition/procedure/etc.
-// substanz wird dokumentiert
-// konkrete medikamente findet man nicht, man muss nach substanzen suchen (ggf. könnte man auch ASP-Liste durchsuchbar machen)
+* criticality ^short = "Value-Set mit beschränkter Aussagekraft. Für die e-Diagnose insofern nicht relevant."
 
 * code 1..1 MS
 * code from AtEDiagAllergyIntoleranceCode (required)
-* code ^short = "Allergiecode; Freitext ist nicht zulässig."
+* code ^short = "Allergiecode"
 * code.text 0..0
+* code.text ^short = "Die ursprüngliche textuelle Eingabe soll im Feld reaction.note.text dokumentiert werden."
 
 * patient 1..1 MS
 * patient only Reference(HL7ATCorePatient)
 * patient ^short = "Betroffene Person, auf die sich die Allergie bezieht."
 
 * encounter 0..0
-* encounter ^short = "Behandlungskontakt."
+* encounter ^short = "In e-Diagnose werden keine Behandlungskontakte dokumentiert."
 
 // beginn der allergie wohl nicht bekannt
 // beginn der reaction kann sehr wohl bekannt sein, wird deshalb nur reaction.onset dokumentiert
 * onset[x] 0..0
-* onset[x] ^short = "Erstes Aufzeichnungsdatum der Allergie bzw. Allergiesymptomatik."
+* onset[x] ^short = "Für e-Diagnose ist insbesondere der Beginn der Reaktion relevant."
 
 * recordedDate 1..1 MS
 * recordedDate only dateTime 
@@ -99,10 +92,10 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom Allerg
 * asserter ^short = "Quelle der Information zur Allergie, z. B. Patient, behandelnde Person oder Dritter."
 
 * lastOccurrence 0..0
-* lastOccurrence ^short = "Letztes Auftreten der Symptomatik; siehe Manifestation."
+* lastOccurrence ^short = "Es wird nur eine Reaktion dokumentiert, weshalb dieses Datum gleichbedeutend mit reaction.onset ist."
 
 * note 0..0
-* note ^short = "Zusätzliche Informationen; Freitext wird in reaction beschrieben."
+* note ^short = "Weitere textuelle Eingaben sollen im Feld reaction.note.text dokumentiert werden."
 
 * reaction 1..1 MS
 * reaction ^short = "Details zur allergischen Reaktion."
@@ -110,7 +103,7 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom Allerg
 * reaction.modifierExtension 0..0
 
 * reaction.substance 0..0
-* reaction.substance ^short = "Spezifische Substanz, die zur Allergie führt; wird über AllergyIntolerance.code abgebildet."
+* reaction.substance ^short = "Wird über code abgebildet."
 
 // ggf. pflicht in snomed
 * reaction.manifestation 1..* MS
@@ -125,7 +118,7 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom Allerg
 
 
 * reaction.description 0..0
-* reaction.description ^short = "Textbasierte Zusammenfassung der allergischen Reaktion."
+* reaction.description ^short = "Weitere textuelle Eingaben sollen im Feld reaction.note.text dokumentiert werden."
 
 * reaction.onset 0..1 MS
 * reaction.onset only dateTime 
@@ -138,13 +131,13 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom Allerg
 * reaction.exposureRoute ^short = "Art der Exposition der betroffenen Person gegenüber der Substanz."
 
 * reaction.note 0..1 MS
-* reaction.note.author[x] 0..0
-* reaction.note.time 0..0
-* reaction.note.text 1..1 MS
-// https://www.hl7.org/fhir/elementdefinition-definitions.html#ElementDefinition.maxLength
-// * note.text ^maxLength = 500
-// 2026_04_23 500 ausreichend. Es ist eine Freitextergänzung zum SNOMED Textes (schlecht eingestellter - zur Ergänzung zu DD) nicht * sondern nur 1 bei Bedarf
 * reaction.note ^short = "Freitext zu Allergie und Intoleranzen als Zusatzinformation."
+* reaction.note.author[x] 0..0
+* reaction.note.author[x] ^short = "Wird über recorder abgebildet."
+* reaction.note.time 0..0
+* reaction.note.time ^short = "Wird über recordedDate abgebildet."
+* reaction.note.text 1..1 MS
+* reaction.note.text ^maxLength = 500
 
 // referenz auf befund, laborbefund, etc wäre noch interessant - extension!
 // SGR: Siehe condition - evidence
