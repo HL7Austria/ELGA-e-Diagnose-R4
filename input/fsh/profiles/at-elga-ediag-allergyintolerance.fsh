@@ -5,6 +5,10 @@ Title: "AT ELGA e-Diagnose AllergyIntolerance"
 Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AllergyIntolerance-Profil ab und passt dieses für die Anforderungen der e-Diagnose an."
 * ^status = #active
 * . ^short = "AT e-Diagnose AllergyIntolerance"
+
+* implicitRules 0..0
+* modifierExtension 0..0
+
 * obeys allergy-status-combination
 
 // EHE einfach überall eine extension für reported mit boolean
@@ -102,6 +106,8 @@ Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom Allerg
 
 * reaction 1..1 MS
 * reaction ^short = "Details zur allergischen Reaktion."
+
+* reaction.modifierExtension 0..0
 
 * reaction.substance 0..0
 * reaction.substance ^short = "Spezifische Substanz, die zur Allergie führt; wird über AllergyIntolerance.code abgebildet."
