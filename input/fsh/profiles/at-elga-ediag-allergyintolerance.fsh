@@ -97,7 +97,6 @@ Description: "Dieses AllergyIntolerance-Profil passt die AllergyIntolerance-Reso
 * reaction.substance 0..0
 * reaction.substance ^short = "Wird über code abgebildet."
 
-// ggf. pflicht in snomed
 * reaction.manifestation 1..* MS
 * reaction.manifestation from AtEDiagConditionCode
 * reaction.manifestation ^short = "Aufgezeichnete klinische Symptome der allergischen Reaktion."
@@ -117,7 +116,7 @@ Description: "Dieses AllergyIntolerance-Profil passt die AllergyIntolerance-Reso
 * reaction.note.text 1..1 MS
 * reaction.note.text ^maxLength = 500
 
-// Erlaubte Kombinationen clinicalStatus/verificationStatus, siehe workflowmanagement.md
+// Erlaubte Kombinationen clinicalStatus/verificationStatus
 Invariant: allergy-status-combination
 Description: "Erlaubte Kombinationen von clinicalStatus und verificationStatus: active mit unconfirmed, presumed oder confirmed; resolved mit refuted."
 Severity: #error
