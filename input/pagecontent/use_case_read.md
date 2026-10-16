@@ -2,6 +2,12 @@ Dieses Kapitel beschreibt die lesenden Zugriffe auf einzelne Einträge sowie die
 
 Die hier dargestellten technischen Anwendungsfälle ergänzen die fachlichen Anwendungsfälle ["Diagnosen lesen" TODO Link]().
 
+### Verwendung von _include
+
+Im Rahmen der lesenden Anwendungsfälle ist es ratsam, den [Abschnitt über die Verwendung von `_include`](design_choices.html#verwendung-von-_include) zu lesen.
+
+In der folgenden Beschreibung der Anwendungsfälle wird die Verwendung von `_include` aus Gründen der einfacheren Lesbarkeit verzichtet.
+
 ### Interaktionen auf Einzelressourcen
 
 #### Einzelnen Eintrag abrufen
@@ -15,7 +21,8 @@ Dieser Anwendungsfall ermöglicht den lesenden Zugriff auf einen einzelnen Eintr
    1. [Abruf der aktuellen Summary-Liste](#aktuelle-summary-liste-abrufen)
    2. [Abruf der Summary-Listenversionen](#versionen-einer-summary-liste-abrufen)
 2. Auf Basis des zuvor ausgeführten Requests wählt der GDA oder ELGA-Teilnehmer einen Eintrag aus, der durch dessen `id` eindeutig identifiziert wird.
-3. Der GDA oder ELGA-Teilnehmer führen ein `GET /[Condition|Procedure|AllergyIntolerance]/[id]` aus, um den ausgewählten Eintrag von der e-Diagnose-Fachanwendung abzurufen.
+3. Der GDA oder ELGA-Teilnehmer führen ein `GET /[Condition|Procedure|AllergyIntolerance]?_id=[id]` aus, um den ausgewählten Eintrag von der e-Diagnose-Fachanwendung abzurufen.
+4. Die e-Diagnose-Fachanwendung gibt ein SearchSet-Bundle zurück, das zumindest den abgefragten Eintrag enthält, sollte dieser vorhanden sein.
 
 #### Alle Einträge abrufen
 
@@ -39,13 +46,9 @@ Dieser Anwendungsfall dient dem Abruf der aktuellen Summary-Liste für eine Art 
 
 ##### Ablauf
 
-1. Der GDA oder der ELGA-Teilnehmer führen ein `GET /List?code=[code]&_include=*` aus. 
-2. Die Fachanwendung liefert als Ergebnis ein SearchSet-Bundle, das die Summary-Liste inklusive aller referenzierter Ressourcen enthält, an den GDA oder den ELGA-Teilnehmer. Die Information für [Optimistic Locking](https://hl7.org/fhir/http.html#concurrency) ist in `List.meta.versionId` enthalten.
+1. Der GDA oder der ELGA-Teilnehmer führen ein `GET /List?code=[code]` aus. 
+2. Die Fachanwendung liefert als Ergebnis ein SearchSet-Bundle, das die Summary-Liste enthält, an den GDA oder den ELGA-Teilnehmer. Die Information für [Optimistic Locking](https://hl7.org/fhir/http.html#concurrency) ist in `List.meta.versionId` enthalten.
 3. Die zurückgelieferte Summary-Liste bildet die Grundlage für nachfolgende Änderungsoperationen.
-
-###### Alternativer Ablauf
-
-1. Es kann auch `GET /List?code=[code]` ausgeführt werden, um die Summary-Liste OHNE referenzierte Ressourcen abzurufen.
 
 ##### Sequenzdiagramm 
 
