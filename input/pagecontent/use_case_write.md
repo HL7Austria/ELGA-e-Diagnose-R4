@@ -10,11 +10,11 @@ Dieser Anwendungsfall ermöglicht dem GDA das Erfassen eines neuen Eintrags in d
 
 ##### Ablauf
 
-1. Der GDA wählt den gewünschten Art des Eintrags (Condition, Procedure oder AllergyIntolerance) aus.
+1. Der GDA wählt die gewünschten Art des Eintrags (Condition, Procedure oder AllergyIntolerance) aus.
 2. Der GDA erstellt einen neuen Eintrag und erfasst die erforderlichen fachlichen Informationen.
 3. Der GDA führt ein `POST /[Condition|Procedure|AllergyIntolerance]` aus und übermittelt die neue Ressource an die e-Diagnose-Fachanwendung.
 4. Die e-Diagnose-Fachanwendung validiert die übermittelte Ressource.
-5. Ist die Validierung erfolgreich, wird die neue Ressource gespeichert. Ist die Validierung nicht erfolgreich, wird die Ressource nicht gespeichert. Die Fachanwendung liefert ein **OperationOutcome** mit den aufgetretenen Validierungsfehlern zurück.
+5. Ist die Validierung erfolgreich, wird die neue Ressource gespeichert. Ist die Validierung nicht erfolgreich, wird die Ressource nicht gespeichert. Die Fachanwendung liefert ein OperationOutcome mit den aufgetretenen Validierungsfehlern zurück.
 
 ##### Sequenzdiagramm 
 
@@ -22,7 +22,7 @@ Dieser Anwendungsfall ermöglicht dem GDA das Erfassen eines neuen Eintrags in d
 
 #### Eintrag stornieren
 
-Dieser Anwedungsfall erlaubt dem GDA die Stornierung eines Eintrags. Dabei ist es irrelevant, ob ein zu stornierender Eintrag in der Summary-Liste referenziert wird oder nicht. Im Zuge der Stornierung kann der GDA einen Vermerk festhalten.
+Dieser Anwendungsfall erlaubt dem GDA die Stornierung eines Eintrags. Dabei ist es irrelevant, ob ein zu stornierender Eintrag in der Summary-Liste referenziert wird oder nicht. Im Zuge der Stornierung kann der GDA einen Vermerk festhalten.
 
 ##### Ablauf
 
@@ -42,6 +42,7 @@ Dieser Anwendungsfall beschreibt die Bearbeitung eines Eintrags in der Gesamtans
 <div class="dragon" markdown="1">
 Daten bestehender Einträge können nicht im Sinne eines Updates (`PUT`) verändert werden (siehe [Designentscheidungen](design_choices.html)). Die Daten können von der Client-Anwendung in einen neuen Eintrag übernommen, angepasst und als [neuer Eintrag](#eintrag-erfassen) in der e-Diagnose-Fachanwendung gespeichert werden.
 </div>
+<br/>
 
 Die Bearbeitung innerhalb einer Summary-Liste wird [hier](#eintrag-in-der-summary-liste-bearbeiten) beschrieben.
 
@@ -51,7 +52,7 @@ Die Bearbeitung innerhalb einer Summary-Liste wird [hier](#eintrag-in-der-summar
 3. Der GDA wählt den fachlich zu bearbeitenden Eintrag aus.
 3. Der GDA übernimmt die Daten in einen neuen Eintrag.
 4. Der GDA ändert die Daten entsprechend.
-   1. Eine Verknüpfung des alten mit dem neuen Eintrag erfolgt dadurch, dass beide Einträge denselben Business Identifier erhalten.
+   1. Eine Verknüpfung des alten mit dem neuen Eintrag erfolgt dadurch, dass beide Einträge denselben Business Identifier (`[Condition|Procedure|AllergyIntolerance].identifier`) erhalten.
 5. Der GDA [erfasst den neuen Eintrag](#eintrag-erfassen) in der e-Diagnose-Fachanwendung.
 
 ### Interaktionen auf Listenressourcen
