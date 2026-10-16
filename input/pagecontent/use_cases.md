@@ -1,6 +1,6 @@
 ### Fachliche Anwendungsfälle
 
-Die fachlichen Anwendungsfälle sind hier nachzulesen: TODO Link ergänzen
+Die fachlichen Anwendungsfälle sind [**hier**](https://dev.elga.gv.at/apis/ediag/use-cases/) nachzulesen.
 
 #### Anwendungsfalldiagramm
 
