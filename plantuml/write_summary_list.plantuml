@@ -65,6 +65,8 @@ GDA_1 -> eDiag_FA: ""POST /List/$write""
 
 activate eDiag_FA COLOR_DIAG_FA
 
+eDiag_FA -> eDiag_FA: Patienten, GDA und Uhrzeit in Summary-Liste festhalten
+
 eDiag_FA -> eDiag_FA: Inhalte [[OperationDefinition-at-ediag-operation-list-write.html#validierung--fehlerbehandlung validieren]]
 
 group COLOR_OK alt: Validierung erfolgreich [ja]
