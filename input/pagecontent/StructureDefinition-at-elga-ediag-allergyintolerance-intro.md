@@ -16,4 +16,8 @@ Die Elemente `clinicalStatus` und `verificationStatus` stehen fachlich in engem 
 | `resolved` | `refuted` | Widerlegt/Ausschluss von |
 {: .grid}
 
-#### 
+#### MustSupport-Kennzeichnung
+
+Im Sinne der [Designentscheidungen](design_choices.html#kennzeichnung-der-relevanten-datenfelder) wurden alle relevanten Elemente mit MustSupport gekennzeichnet. 
+
+In Bezug auf die verbotenen Elementen wird hervorgehoben, dass Freitext nur in `reaction.note.text` festgehalten werden darf. Für alle anderen verbotenen Elemente wird eine entsprechende Begründung angegeben.
