@@ -1,6 +1,6 @@
 Dieses Kapitel beschreibt die schreibenden Zugriffe (mit Ausnahme der [Teilnehmerrechte](use_case_participant.html)) auf einzelne Einträge sowie auf die jeweiligen Summary-Listen der e-Diagnose-Fachanwendung.
 
-Die hier dargestellten technischen Anwendungsfälle ergänzen die fachlichen Anwendungsfälle ["Diagnosen schreiben" TODO Link]().
+Die hier dargestellten technischen Anwendungsfälle ergänzen die fachlichen Anwendungsfälle ["Diagnosen schreiben"](https://dev.elga.gv.at/apis/ediag/use-cases/).
 
 ### Interaktionen auf Einzelressourcen
 
