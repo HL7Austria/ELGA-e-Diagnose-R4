@@ -80,3 +80,41 @@ Grundsätzlich werden alle [Modifier](https://hl7.org/fhir/R4/conformance-rules.
 Für alle anderen Elemente gilt folgendes:
 - Ist ein Element optional (`0..1`, `0..*`) und ist es nicht durch MustSupport gekennzeichnet, wird es von der e-Diagnose-Fachanwendung ignoriert und nicht weiter verarbeitet.
 - Ist ein Element verboten (`0..0`), darf es nicht befüllt werden.
+
+### Verwendung von _include
+
+Die e-Diagnose-Fachanwendung hat nur für die folgenden Ressourcen Endpunkte freigeschaltet:
+
+- `/List`
+- `/Condition`
+- `/Procedure`
+- `/AllergyIntolerance`
+
+Alle Informationen, die sich auf `Patient`, `Practitioner`, `PractitionerRole`, `Organization`, `RelatedPerson`, `Device` beziehen, müssen über den Suchergebnisparameter [`_include`](https://hl7.org/fhir/R4/search.html#include) aufgelöst werden.
+
+#### Summary-Liste
+
+Für die [listenbezogenen Anwendungsfälle](use_cases.html) werden an dieser Stelle Beispiele genannt, wie `_include` verwendet werden kann, um mit einem Request mehr als nur die Summary-Liste abrufen zu können. Dabei können die einzelnen Beispiele in einem Abruf auch aneinander gereiht werden (z. B. `&_include=List:patient&_include=List:item`).
+
+Basis bildet dabei `[base]/List?code=[code]`
+
+- `&_include=List:item`: Das resultierende SearchSet-Bundle enthält neben der List-Ressource auch noch die referenzierten Einträge (z. B. Condition-Ressourcen).
+- `&_include=List:patient`: Das resultierende SearchSet-Bundle enthält neben der List-Ressource auch noch den referenzierten Patienten.
+- `&_include=List:source`: Das resultierende SearchSet-Bundle enthält neben der List-Ressource auch noch die Person oder das Device, das die Summary-Liste erstellt hat.
+- `&_include:iterate=[Suchparameter einer referenzierten Ressource]`: Man kann iterativ weitere referenzierte Ressourcen auflösen. Dabei muss man sich deren Suchparameter bedienen. Will man also zusätzlich zu den Condition-Ressourcen auch den `Condition.asserter` auflösen, muss man `&_include:iterate=Condition:asserter` angeben.
+
+#### Einzelne Einträge
+
+Für die [eintragsbezogenen Anwendungsfälle](use_cases.html) werden an dieser Stelle Beispiele genannt, wie `_include` im Zusammenhang mit den jeweiligen Ressourcen verwendet werden kann. Dabei können die einzelnen Beispiel in einem Abruf auch aneinander gereiht werden (z.B. `&_include=Condition:patient&_include=Condition:evidence-detail`).
+
+Basis bildet dabei jeweils `[base]/[Condition|Procedure|AllergyIntolerance]?_id=[id]`
+
+| Suchparameter | `Condition` | `Procedure` | `AllergyIntolerance` |
+|---|---|---|---|
+| `.patient` | `&_include=Condition:patient` | `&_include=Procedure:patient` | `&_include=AllergyIntolerance:patient` |
+| `.recorder` | `&_include=Condition:recorder` | `&_include=Procedure:recorder` | `&_include=AllergyIntolerance:recorder` |
+| `.asserter` | `&_include=Condition:asserter` | `&_include=Procedure:asserter` | `&_include=AllergyIntolerance:asserter` |
+| `.evidence.detail` | `&_include=Condition:evidence-detail` | nicht zutreffend | nicht zutreffend |
+| `.report` | nicht zutreffend | `&_include=Procedure:report` | nicht zutreffend | 
+| `.extension:evidence` | nicht zutreffend | nicht zutreffend | `&_include=AllergyIntolerance:evidence` |
+{: .grid}
