@@ -2,11 +2,17 @@ Profile: AtEdiagRelatedPerson
 Parent: RelatedPerson
 Id: at-elga-ediag-relatedperson
 Title: "AT ELGA e-Diagnose RelatedPerson"
-    Description: "Das AT e-Diagnose RelatedPerson-Profil leitet sich vom RelatedPerson-Profil ab und passt dieses für die Anforderungen der e-Diagnose an."
+    Description: "Dieses RelatedPerson-Profil passt die RelatedPerson-Resource für die Anforderungen der e-Diagnose an."
+
 * ^status = #active
 * . ^short = "AT e-Diagnose RelatedPerson"
 
+* implicitRules 0..0
+
+* modifierExtension 0..0
+
 * identifier 0..0
+
 * active 1..1 MS
 * active = true (exactly)
   * ^short = "Für den jeweiligen Eintrag der e-Diagnose ist diese Bezugsperson als aktiv zu kennzeichnen."
@@ -14,7 +20,7 @@ Title: "AT ELGA e-Diagnose RelatedPerson"
 * relationship 1..1 MS
   * coding 0..0
   * text 1..1 MS
-    * ^short = "Beziehung der Bezugsperson zum Patienten (z. B. Mutter, Vater, Ehepartner)."
+    * ^short = "Beziehung der Bezugsperson zum Patienten (z. B. Mutter, Vater, Ehepartner) wird nur als Freitext festgehalten."
 
 * name 1..1 MS
   * ^short = "Name der Bezugsperson."
