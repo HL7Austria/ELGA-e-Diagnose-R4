@@ -53,7 +53,7 @@ Dieser Anwendungsfall dient dem Abruf der aktuellen Summary-Liste für eine Art 
 
 #### Versionen einer Summary-Liste abrufen
 
-Dieser Anwendungsfall dient der Anzeige aktuellen und historischer Versionen der Summary-Liste. Der Zugriff erfolgt lesend und ermöglicht keine Bearbeitung der jeweiligen Summary-Listenversion.
+Dieser Anwendungsfall dient der Anzeige aktueller und historischer Versionen der Summary-Liste. Der Zugriff erfolgt lesend und ermöglicht keine Bearbeitung der jeweiligen Summary-Listenversion.
 
 ##### Ablauf
 
