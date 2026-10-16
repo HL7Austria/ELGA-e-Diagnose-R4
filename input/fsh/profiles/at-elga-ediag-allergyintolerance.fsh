@@ -7,40 +7,29 @@ Description: "Dieses AllergyIntolerance-Profil passt die AllergyIntolerance-Reso
 * ^status = #active
 * . ^short = "AT e-Diagnose AllergyIntolerance"
 
-* implicitRules 0..0
-* modifierExtension 0..0
-
 * obeys allergy-status-combination
 
-// EHE einfach überall eine extension für reported mit boolean
+* implicitRules 0..0
+
 * extension contains AtReported named reported 0..1 MS
+* extension[reported] ^short = "True wenn diese Allergie fremdberichtet ist."
 
 * extension contains AtElgaEdiagExtEnteredInError named entered-in-error 0..1 MS
+* extension[entered-in-error] ^short = "Dokumentation des GDA der den Eintrag storniert hat."
+
+// referenz auf befund, laborbefund, etc. - analog zu Condition.evidence.detail
+* extension contains AtEdiagEvidence named evidence 0..* MS
+* extension[evidence] ^short = "Verweis auf e-Befunde als medizinische Evidenz."
+
+* modifierExtension 0..0
 
 * insert AtEDiagIdentifierRuleSet
 
-// erfolgreiche desensibilisierung dokumentieren? oder selbst weggegangene allergien?
-// löschen von bereits dokumentierten eher nicht, sondern status setzen
-// invarianten in zshg mit verificationstatus sobald fachlich geklärt
-
-// SGR: invariante-Bsp siehe Ende Profil
-// 2026_04_29_ Status 1..1 gesetzt, synchrone zur Condition
 * clinicalStatus 1..1 MS
-* code only CodeableConcept
 * clinicalStatus from AtEdiagAllergyIntoleranceClinicalStatusVS (required)
 * clinicalStatus ^short = "Status der Allergie; mögliche Codes: active | resolved."
 
-// "presumed" in R5 ist großer wunsch von MBU - wie könnte das abgebildet werden? MBU redet mit allergologen, ob wirklich notwendig
-// um das abzubilden, müssten wir unconfirmed auswählen und zusätzlich presumed um das abzubilden
-// "refuted" ist laut MBU auch relevant
-// kardinalität von clinicalStatus & verificationStatus muss noch erarbeitet werden
-// siehe https://jira.hl7.org/browse/FHIR-54914
-
-// 2026_04_23: MBU ist nicht geklärt. Wir machen R4 und keine andere Version. Wir glauben nicht der erfassenden Person, sondern zwingen sie zu einer genaueren Doku durch reaction
-// eigenen Termin zur Statustabelle - Anforderung geht an die Anwenungsmanager
-// 2026-06_ToDo: Klären der Kardinalität? Optional?
 * verificationStatus 1..1 MS
-* verificationStatus only CodeableConcept
 * verificationStatus from AtEdiagAllergyIntoleranceVerificationStatusVS (required)
 * verificationStatus ^short = "Verifizierungsstatus der Allergie; mögliche Codes: unconfirmed | presumed | confirmed | refuted."
 
@@ -66,22 +55,18 @@ Description: "Dieses AllergyIntolerance-Profil passt die AllergyIntolerance-Reso
 * encounter 0..0
 * encounter ^short = "In e-Diagnose werden keine Behandlungskontakte dokumentiert."
 
-// beginn der allergie wohl nicht bekannt
-// beginn der reaction kann sehr wohl bekannt sein, wird deshalb nur reaction.onset dokumentiert
 * onset[x] 0..0
 * onset[x] ^short = "Für e-Diagnose ist insbesondere der Beginn der Reaktion relevant."
 
 * recordedDate 1..1 MS
-* recordedDate only dateTime 
-* recordedDate ^short = "Dokumentationsdatum."
+* recordedDate ^short = "Dokumentationsdatum"
 
-// analog zu procedure, kein patient keine related person
 * recorder 1..1 MS
 * recorder only Reference(
     HL7ATCorePractitioner
     or HL7ATCorePractitionerRole
 )
-* recorder ^short = "GDA, der die Allergie im System erfasst bzw. dokumentiert hat."
+* recorder ^short = "GDA, der die Allergie in der e-Diagnose erfasst bzw. dokumentiert hat."
 
 * asserter 0..1 MS
 * asserter only Reference(
@@ -101,6 +86,12 @@ Description: "Dieses AllergyIntolerance-Profil passt die AllergyIntolerance-Reso
 * reaction 1..1 MS
 * reaction ^short = "Details zur allergischen Reaktion."
 
+// https://hub.kbv.de/spaces/ALDOK1X0X0/pages/375456332/Weitere+m%C3%B6gliche+Inhalte#Weiterem%C3%B6glicheInhalte-ArtderReaktion%2FzeitlicherVerlaufderReaktion
+// codes noch aktualisieren/anders benennen
+// extension soll verpflichtend ausgefüllt werden
+* reaction.extension contains AtEdiagReactionTime named reactionTime 1..1 MS
+* reaction.extension[reactionTime] ^short = "Zeitlicher Verlauf der Manifestation."
+
 * reaction.modifierExtension 0..0
 
 * reaction.substance 0..0
@@ -108,21 +99,13 @@ Description: "Dieses AllergyIntolerance-Profil passt die AllergyIntolerance-Reso
 
 // ggf. pflicht in snomed
 * reaction.manifestation 1..* MS
-* reaction.manifestation only CodeableConcept
+* reaction.manifestation from AtEDiagConditionCode
 * reaction.manifestation ^short = "Aufgezeichnete klinische Symptome der allergischen Reaktion."
-
-// https://hub.kbv.de/spaces/ALDOK1X0X0/pages/375456332/Weitere+m%C3%B6gliche+Inhalte#Weiterem%C3%B6glicheInhalte-ArtderReaktion%2FzeitlicherVerlaufderReaktion
-// codes noch aktualisieren/anders benennen
-// extension soll verpflichtend ausgefüllt werden
-* reaction.extension contains AtEdiagReactionTime named reactionTime 1..1 MS
-* reaction.extension[reactionTime] ^short = "Zeitlicher Verlauf der Manifestation."
-
 
 * reaction.description 0..0
 * reaction.description ^short = "Weitere textuelle Eingaben sollen im Feld reaction.note.text dokumentiert werden."
 
 * reaction.onset 0..1 MS
-* reaction.onset only dateTime 
 * reaction.onset ^short = "Beginn der Reaktion."
 
 * reaction.note 0..1 MS
@@ -133,10 +116,6 @@ Description: "Dieses AllergyIntolerance-Profil passt die AllergyIntolerance-Reso
 * reaction.note.time ^short = "Wird über recordedDate abgebildet."
 * reaction.note.text 1..1 MS
 * reaction.note.text ^maxLength = 500
-
-// referenz auf befund, laborbefund, etc. - analog zu Condition.evidence.detail
-* extension contains AtEdiagEvidence named evidence 0..* MS
-* extension[evidence] ^short = "Verweis auf e-Befunde als medizinische Evidenz."
 
 // Erlaubte Kombinationen clinicalStatus/verificationStatus, siehe workflowmanagement.md
 Invariant: allergy-status-combination
