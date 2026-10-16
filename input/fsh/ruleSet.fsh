@@ -1,14 +1,16 @@
 RuleSet: AtEDiagIdentifierRuleSet
 
-* identifier 0..*
+* identifier 0..* MS
   * ^slicing.discriminator.type = #value
   * ^slicing.discriminator.path = "system"
   * ^slicing.rules = #open
   * ^slicing.ordered = false
 * identifier contains 
-  businessIdentifier 0..1
+  businessIdentifier 0..1 MS
 
+* identifier[businessIdentifier].use 0..0
+* identifier[businessIdentifier].system 1..1 MS
 * identifier[businessIdentifier].system = Canonical(AtEdiagBusinessIdentifier)
-* identifier[businessIdentifier].value 1..1
+* identifier[businessIdentifier].value 1..1 MS
 * identifier[businessIdentifier] ^short = "Identifier innerhalb der e-Diagnose für einen Eintrag."
 * identifier[businessIdentifier] ^definition = "Dieser Identifier wird von der Fachanwendung e-Diagnose vergeben, sollte dieser durch den Client nicht gesetzt werden. Ein Client kann diesen Identifier nutzen, um einzelne Einträge im Zuge einer Bearbeitung miteinander zu verknüpfen."
