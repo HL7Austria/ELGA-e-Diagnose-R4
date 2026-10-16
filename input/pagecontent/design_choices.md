@@ -49,6 +49,16 @@ Das folgende Beispiel zeigt denselben Eintrag einmal als übermittelte und einma
 ### Abgrenzung der e-Diagnose-Fachanwendungen zu Client-Applikationen
 
 Die e-Diagnose-Fachanwendung bietet ein Mindestmaß an Funktionalität, um den Anforderungen gerecht zu werden. Darüber hinaus liegt es aber in der Verantwortung der Softwarehersteller für Client-Applikationen weiter Funktionen (z.B. Suche nach bestimmten Diagnosen auf Basis vom Code, Einschränkung auf einen bestimmten Zeitraum) zu implementieren.
+### Patientenkontext
+
+Für alle Transaktionen wird vorausgesetzt, dass entsprechend der [FHIR RESTful API](https://hl7.org/fhir/R4/http.html) ein `[base]` bekannt ist und für alle Interaktionen verwendet werden kann.
+
+<div class="note-to-balloters" markdown="1">
+Die Umsetzung des Patientenkontakts in den Transaktionen ist nicht Teil des Ballots. Der konkrete Zugriff wird in der Lösungsarchitektur beschrieben. 
+
+In diesem IG werden daher alle Requests ab dem `/[type]` dargestellt.
+</div>
+
 ### MustSupport-Kennzeichnung von relevanten Elementen
 
 Relevanten Elemente innerhalb der Profile werden mit [MustSupport](https://hl7.org/fhir/R4/conformance-rules.html#mustSupport) gekennzeichnet.
