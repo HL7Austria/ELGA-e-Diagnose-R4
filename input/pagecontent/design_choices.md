@@ -48,7 +48,15 @@ Das folgende Beispiel zeigt denselben Eintrag einmal als übermittelte und einma
 
 ### Abgrenzung der e-Diagnose-Fachanwendungen zu Client-Applikationen
 
-Die e-Diagnose-Fachanwendung bietet ein Mindestmaß an Funktionalität, um den Anforderungen gerecht zu werden. Darüber hinaus liegt es aber in der Verantwortung der Softwarehersteller für Client-Applikationen weiter Funktionen (z.B. Suche nach bestimmten Diagnosen auf Basis vom Code, Einschränkung auf einen bestimmten Zeitraum) zu implementieren.
+Die e-Diagnose-Fachanwendung bietet ein Mindestmaß an Funktionalität, um den Anforderungen gerecht zu werden. Darüber hinaus liegt es aber in der Verantwortung der Softwarehersteller für Client-Applikationen weitere Funktionen zu implementieren.
+
+Mögliche Funktionen umfassen beispielsweise
+- die Suche nach bestimmten Einträgen auf Basis des dokumentierten Codes;
+- die Einschränkung der Suche auf einen bestimmten Zeitraum;
+- die Filterung von Einträgen nach dem `recorder`;
+- die Sortierung nach anderen Kriterien;
+- etc.
+
 ### Patientenkontext
 
 Für alle Transaktionen wird vorausgesetzt, dass entsprechend der [FHIR RESTful API](https://hl7.org/fhir/R4/http.html) ein `[base]` bekannt ist und für alle Interaktionen verwendet werden kann.
