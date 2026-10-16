@@ -1,8 +1,8 @@
 Profile: AtEdiagList
 Parent: List
 Id: at-elga-ediag-list
-Title: "AT ELGA e-Diagnose List"
-Description: "Das AT e-Diagnose List-Profil dient der strukturierten Listung von Einträgen."
+Title: "AT ELGA e-Diagnose Summary-Liste"
+Description: "Dieses List-Profil passt die List-Resource für die Anforderungen der e-Diagnose an."
 
 * ^status = #active
 * . ^short = "AT e-Diagnose List"
@@ -10,8 +10,12 @@ Description: "Das AT e-Diagnose List-Profil dient der strukturierten Listung von
 * obeys list-integrity
 * obeys list-emptyreason-required
 
+* implicitRules 0..0
+
+* modifierExtension 0..0
+
 * identifier 0..0
-* identifier ^short = "Kein logischer Identifier für die Liste erforderlich."
+* identifier ^short = "Es gibt keinen logischen Identifier für die Summary-Liste."
 
 * status 1..1 MS
 * status = #current (exactly)
@@ -30,19 +34,17 @@ Description: "Das AT e-Diagnose List-Profil dient der strukturierten Listung von
 
 * subject 1..1 MS
 * subject only Reference(HL7ATCorePatient)
-* subject ^short = "Patient, für den die Liste geführt wird, der über den 
-Zentralen Patientenindex identifizierbar und Teilnehmer der e-Diagnose ist."
+* subject ^short = "Patient, für den die Summary-Liste geführt wird."
 
 * encounter 0..0
-* encounter ^short = "Es wird kein Behandlungskontext dokumentiert."
+* encounter ^short = "In e-Diagnose werden keine Behandlungskontakte dokumentiert."
 
 * date 1..1 MS
-* date ^short = "Datum der letzten Aktualisierung der Liste."
+* date ^short = "Datum der letzten Aktualisierung der Summary-Liste."
 
 * source 1..1 MS
 * source only Reference(HL7ATCorePractitioner or HL7ATCorePractitionerRole or HL7ATCorePatient or Device)
-* source ^short = "Person, die die Liste erstellt hat und für den Inhalt verantwortlich ist. Im Falle eines GDA ist sie eindeutig über den GDA-Index identifiziert und zum Zugriff auf die ELGA-Anwendung des Patienten berechtigt. 
- Im Falle eines Patienten erfolgt die eindeutige Identifizierung über den Z-PI."
+* source ^short = "Person, die die Summary-Liste erstellt hat und für den Inhalt verantwortlich ist. Für die Fälle, in denen die e-Diagnose-Fachanwendung die Summary-Liste aktualisiert, ist ein Device zu referenzieren."
 
 * orderedBy 0..0
 * orderedBy ^short = "Die Reihenfolge der Einträge wird über die List.entries durch den Ersteller vorgegeben."
@@ -55,13 +57,13 @@ Zentralen Patientenindex identifizierbar und Teilnehmer der e-Diagnose ist."
 * entry ^short = "Die Reihenfolge der Listeneinträge kann in die Fachanwendung zurückgeschrieben werden. Gleichzeitig kann die Sortierung in lokalen Systemen erfolgen."
 
 * entry.flag 0..0
-* entry.flag ^short = "Kennzeichnung des Status entsprechend Workflow nicht relevant."
+* entry.flag ^short = "Kennzeichnung des Status entsprechend eines Workflows ist für die e-Diagnose nicht relevant."
 
 * entry.deleted 0..0 
-* entry.deleted ^short = "Eine Kennzeichnung des Eintrags als gelöscht ist nicht zulässig (siehe Invariant list-emptyreason-required)."
+* entry.deleted ^short = "Eine Kennzeichnung des Eintrags als gelöscht ist nicht zulässig."
 
 * entry.date 0..0
-* entry.date ^short = "Das Datum der Aufnahme des Eintrags in die Liste wird nicht dokumentiert, da die Liste laufend gepflegt wird. Dokumentiert wird das Datum der letzten Aktualisierung der Liste (List.date)."
+* entry.date ^short = "Das Datum der Aufnahme des Eintrags in die Summary-Liste wird nicht dokumentiert, da die Liste laufend gepflegt wird. Dokumentiert wird das Datum der letzten Aktualisierung der Summary-Liste (List.date)."
 
 * entry.item 1..1 MS
 * entry.item ^short = "Referenz auf einen Eintrag."
