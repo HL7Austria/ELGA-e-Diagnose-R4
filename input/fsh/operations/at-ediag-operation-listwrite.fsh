@@ -21,7 +21,10 @@ oder möchte der GDA die Reihenfolge der Einträge ändern, so muss diese Operat
 
 ### Detaillierte Business-Logik
 
-1. Nach erfolgreicher Validierung wird die Summary-Liste gespeichert.
+1. Als `List.subject` wird durch die e-Diagnose Fachanwendung der Patient dokumentiert.
+2. Als `List.source` wird  durch die e-Diagnose Fachanwendung der GDA, der die Änderung durchführt, dokumentiert.
+3. Als `List.date` wird durch die e-Diagnose Fachanwendung das Datum und die Uhrzeit der Änderung dokumentiert.
+4. Nach erfolgreicher Validierung wird die Summary-Liste gespeichert.
 
 ### Validierung / Fehlerbehandlung
 
