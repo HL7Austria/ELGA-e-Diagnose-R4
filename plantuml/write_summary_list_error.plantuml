@@ -57,7 +57,7 @@ autonumber
 == Abruf der aktuellen Summary-Liste durch GDA 1 ==
 
 activate GDA_1 COLOR_GDA_1
-GDA_1 -> eDiag_FA: ""GET /List?code=http://loinc.org|11450-4&_include=*""
+GDA_1 -> eDiag_FA: ""GET /List?code=http://loinc.org|11450-4""
 
 activate eDiag_FA COLOR_DIAG_FA
 eDiag_FA --> GDA_1: SearchSet-Bundle\n""List.meta.versionId = 123""
@@ -67,7 +67,7 @@ GDA_1 -> GDA_1: Summary-Liste bearbeiten
 
 == Abruf der aktuellen Summary-Liste durch GDA 2 ==
 
-GDA_2 -> eDiag_FA:  ""GET /List?code=http://loinc.org|11450-4&_include=*""
+GDA_2 -> eDiag_FA:  ""GET /List?code=http://loinc.org|11450-4""
 activate GDA_2 COLOR_GDA_2
 
 activate eDiag_FA COLOR_DIAG_FA

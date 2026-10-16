@@ -46,7 +46,7 @@ title REST-Schnittstellen: [base]
 
 
 interface "/List" as List_type {
-  {field} «GET» ?code=[code]{&_include=*} (GDA, PAT) 
+  {field} «GET» ?code=[code] (GDA, PAT) 
   {field} «POST» $write (GDA)
 }
 

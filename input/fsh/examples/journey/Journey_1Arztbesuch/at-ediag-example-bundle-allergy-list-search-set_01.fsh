@@ -9,7 +9,7 @@ Usage: #example
 * total = 1
 
 * link[0].relation = #self
-* link[0].url = "https://example.org/fhir/List?code=http://loinc.org|48765-2&_include=*"
+* link[0].url = "https://example.org/fhir/List?code=http://loinc.org|48765-2&_include=List:item"
 
 * entry[0].fullUrl = "https://example.org/fhir/List/AllergyList01"
 * entry[=].resource = AllergyList01
