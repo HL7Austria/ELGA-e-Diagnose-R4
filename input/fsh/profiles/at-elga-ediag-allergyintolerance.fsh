@@ -2,7 +2,8 @@ Profile: AtEdiagAllergyIntolerance
 Parent: AllergyIntolerance
 Id: at-elga-ediag-allergyintolerance
 Title: "AT ELGA e-Diagnose AllergyIntolerance"
-Description: "Das AT e-Diagnose AllergyIntolerance-Profil leitet sich vom AllergyIntolerance-Profil ab und passt dieses für die Anforderungen der e-Diagnose an."
+Description: "Dieses AllergyIntolerance-Profil passt die AllergyIntolerance-Resource für die Anforderungen der e-Diagnose an."
+
 * ^status = #active
 * . ^short = "AT e-Diagnose AllergyIntolerance"
 
