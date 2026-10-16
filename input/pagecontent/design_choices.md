@@ -15,28 +15,30 @@ Stammdaten zu Gesundheitsdiensteanbietern (GDA) und Patienten werden ausschließ
 - **GDA:** OID des GDA laut GDA-Index (GDA-I)
 - **Patient:** bereichsspezifisches Personenkennzeichen Gesundheit (bPK-GH)
 
-Die e-Diagnose-Fachanwendung löst diese Identifier gegen den GDA-I bzw. den Zentralen Patientenindex (ZPI) auf. Bei Bedarf legt sie die zugehörigen Ressourcen an und ersetzt die logischen Referenzen durch Referenzen auf diese Ressourcen. Beim Abruf von Daten enthalten die Ressourcen daher die aufgelösten Referenzen; die referenzierten Ressourcen können über die Fachanwendung abgerufen werden.
+Die e-Diagnose-Fachanwendung löst diese Identifier gegen den GDA-I bzw. den Zentralen Patientenindex (ZPI) auf. Bei Bedarf legt sie die zugehörigen Ressourcen an und ergänzt die logischen Referenzen um Referenzen auf diese Ressourcen (`Reference.reference`). Die übermittelten logischen Referenzen (`Reference.identifier`) dürfen dabei nicht ersetzt werden, sondern bleiben unverändert erhalten. Beim Abruf von Daten enthalten die Ressourcen daher sowohl die logischen als auch die aufgelösten Referenzen; die referenzierten Ressourcen können über die Fachanwendung nur mittels `_include` abgerufen werden (siehe TODO).
 
 Bei Referenzen, die auf mehrere Ressourcentypen verweisen können (z. B. `recorder`, `asserter` oder `List.source`), ergibt sich aus dem jewiligen `Reference.identifer.system`, ob es sich um eine OID oder ein bPK-GH handelt. Die e-Diagnose-Fachanwendung kann daraus den Identifier eindeutig zuordnen. Verweise auf Einträge (`List.entry.item`) sind hingegen immer Referenzen auf bereits in der e-Diagnose-Fachanwendung gespeicherte Ressourcen (`Reference.reference`).
 
 <div class="dragon" markdown="1">
 Aktuell wird in einer AG des TC FHIR daran gearbeitet, wie die e-Diagnose-Fachanwendung die Informationen aus dem GDA-I auf Basis einer OID auf die `Practitioner`-, `PractitionerRole`- und/oder `Organization`-Ressourcen umlegen kann. Die Ergebnisse dieser AG werden in die Implementierung der e-Diagnose-Fachanwendung einfließen.
 </div>
-
-| | Übermittelt durch die Client-Anwendung | Gespeichert bzw. abgerufen von der Fachanwendung |
-|---|---|---|
-| Referenz | logisch (`Reference.identifier`) | aufgelöst (`Reference.reference`) |
-| Patient | `subject.identifier.system` = `urn:oid:1.2.40.0.10.2.1.1.149`<br/>`subject.identifier.value` = bPK-GH | `subject.reference` = `Patient/PatientExample` |
-| GDA | `recorder.identifier.system` = `urn:ietf:rfc:3986`<br/>`recorder.identifier.value` = OID laut GDA-I | `recorder.reference` = `Practitioner/PractitionerExample` |
+<br/>
 
 Das folgende Beispiel zeigt denselben Eintrag einmal als übermittelte und einmal als gespeicherte Ressource:
 
 <table class="grid">
   <tr>
-    <th>Request: <a href="AllergyIntolerance-AllergyEntry01Request.html">AllergyEntry01Request</a></th>
-    <th>Gespeichert: <a href="AllergyIntolerance-AllergyEntry01.html">AllergyEntry01</a></th>
+    <th></th>
+    <th>Request</th>
+    <th>Gespeichert</th>
   </tr>
   <tr>
+    <td><strong>Beispieldateien</strong></td>
+    <td><a href="AllergyIntolerance-AllergyEntry01Request.html">AllergyEntry01Request</a></td>
+    <td><a href="AllergyIntolerance-AllergyEntry01.html">AllergyEntry01</a></td>
+  </tr>
+  <tr>
+    <td><strong>Beispielfragmente</strong></td>
     <td>{% fragment AllergyIntolerance/AllergyEntry01Request JSON EXCEPT:patient|recorder %}</td>
     <td>{% fragment AllergyIntolerance/AllergyEntry01 JSON EXCEPT:patient|recorder %} </td>
   </tr>
