@@ -26,7 +26,7 @@ Dieser Anwendungsfall erlaubt dem GDA die Stornierung eines Eintrags. Dabei ist 
 
 ##### Ablauf
 
-1. Um einen Eintrag zu stornieren, führt der GDA die [`$entered-in-error`-Operation](OperationDefinition-at-ediag-operation-diagnose-entered-in-error.html) auf den zu stornierenden Eintrag aus.
+1. Um einen Eintrag zu stornieren, führt der GDA die [`$entered-in-error`-Operation](OperationDefinition-at-ediag-operation-diagnose-entered-in-error.html) auf (`POST /[Condition|Procedure|AllergyIntolerance]/[id]/$entered-in-error`) den zu stornierenden Eintrag aus.
 2. Optional kann der GDA einen Grund für die Stornierung angeben, der durch die Fachanwendung in den zu stornierenden Eintrag übernommen wird.
 3. Für den zu stornierenden Eintrag speichert die Fachanwendung, welcher GDA den Eintrag storniert hat sowie den Zeitpunkt der Stornierung.
 4. Sollte der zu stornierende Eintrag Teil der aktuellen Summary-Liste gewesen sein, erstellt die Fachanwendung eine neue Version der Summary-Liste ohne den stornierten Eintrag.
