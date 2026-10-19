@@ -4,6 +4,6 @@ Eine Prozedur beschreibt eine durchgeführte medizinische Maßnahme, Interventio
 
 ### MustSupport-Kennzeichnung
 
-Im Sinne der [Designentscheidungen](design_choices.html#kennzeichnung-der-relevanten-datenfelder) wurden alle relevanten Elemente mit MustSupport gekennzeichnet. 
+Im Sinne der [Designentscheidungen](design_choices.html#mustsupport-kennzeichnung-von-relevanten-elementen) wurden alle relevanten Elemente mit MustSupport gekennzeichnet. 
 
 In Bezug auf die verbotenen Elementen wird hervorgehoben, dass Freitext nur in `note.text` festgehalten werden darf. Für alle anderen verbotenen Elemente wird eine entsprechende Begründung angegeben.
