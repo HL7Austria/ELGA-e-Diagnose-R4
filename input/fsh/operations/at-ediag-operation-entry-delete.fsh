@@ -1,11 +1,11 @@
-Instance: AtDiagDiagnoseDelete
+Instance: AtEdiagEntryDelete
 InstanceOf: OperationDefinition
 Title: "e-Diagnose Operation $delete"
 Description: """Die `$delete`-Operation löscht einen bestimmten Eintrag aus der e-Diagnose Fachanwendung."""
 Usage: #definition
 
 * id = "at-ediag-operation-entry-delete"
-* name = "AtDiagDiagnoseDelete"
+* name = "AtDiagEntryDelete"
 * status = #active
 * kind = #operation
 * experimental = false

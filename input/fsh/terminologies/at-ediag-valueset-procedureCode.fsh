@@ -1,4 +1,4 @@
-ValueSet: AtEDiagProcedureCode
+ValueSet: AtEdiagProcedureCode
 Id: at-ediag-procedure-code
 Title: "AT e-Diagnose Procedure Code"
 Description: "Value-Set für die Codierung von Prozeduren."

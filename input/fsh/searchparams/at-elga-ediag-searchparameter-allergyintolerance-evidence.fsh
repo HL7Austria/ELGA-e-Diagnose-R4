@@ -1,4 +1,4 @@
-Instance: AllergyIntoleranceEvidence
+Instance: AtEdiagAllergyIntoleranceEvidence
 InstanceOf: SearchParameter
 Title: "AllergyIntolerance Evidence"
 Usage: #definition

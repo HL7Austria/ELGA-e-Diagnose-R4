@@ -1,5 +1,5 @@
 Extension: AtEdiagExtReactionTime
-Id: at-elga-ediag-reaction-time
+Id: at-elga-ediag-ext-reaction-time
 Title: "AT e-Diagnose Reaktionszeit"
 Description: "Zeitlicher Verlauf der Manifestation (<6h, 6-24h, >24h, unknown)"
 

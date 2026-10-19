@@ -1,4 +1,4 @@
-Instance: ProcedureReport
+Instance: AtEdiagProcedureReport
 InstanceOf: SearchParameter
 Title: "Procedure Report"
 Usage: #definition

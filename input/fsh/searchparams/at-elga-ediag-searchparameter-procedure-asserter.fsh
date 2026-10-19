@@ -1,4 +1,4 @@
-Instance: ProcedureAsserter
+Instance: AtEdiagProcedureAsserter
 InstanceOf: SearchParameter
 Title: "Procedure Asserter"
 Usage: #definition

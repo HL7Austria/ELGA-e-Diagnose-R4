@@ -1,11 +1,11 @@
-Instance: AtDiagDiagnoseEnteredInError
+Instance: AtEdiagEntryEnteredInError
 InstanceOf: OperationDefinition
 Title: "e-Diagnose Operation $entered-in-error"
 Description: """Die `$entered-in-error`-Operation storniert einen bestimmten Eintrag in der e-Diagnose Fachanwendung."""
 Usage: #definition
 
 * id = "at-ediag-operation-entry-entered-in-error"
-* name = "AtDiagDiagnoseEnteredInError"
+* name = "AtEdiagEntryEnteredInError"
 * status = #active
 * kind = #operation
 * experimental = false

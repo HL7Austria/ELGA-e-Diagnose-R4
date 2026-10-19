@@ -1,4 +1,4 @@
-Instance: AtDiagListWrite
+Instance: AtEdiagListWrite
 InstanceOf: OperationDefinition
 Title: "e-Diagnose Operation $write"  
 Description: """Die `$write`-Operation wird aufgerufen, wenn eine Summary-Liste geschrieben wird."""

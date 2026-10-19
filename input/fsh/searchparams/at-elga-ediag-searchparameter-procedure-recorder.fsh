@@ -1,4 +1,4 @@
-Instance: ProcedureRecorder
+Instance: AtEdiagProcedureRecorder
 InstanceOf: SearchParameter
 Title: "Procedure Recorder"
 Usage: #definition

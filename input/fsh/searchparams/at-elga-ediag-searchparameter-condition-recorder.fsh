@@ -1,4 +1,4 @@
-Instance: ConditionRecorder
+Instance: AtEdiagConditionRecorder
 InstanceOf: SearchParameter
 Title: "Condition Recorder"
 Usage: #definition

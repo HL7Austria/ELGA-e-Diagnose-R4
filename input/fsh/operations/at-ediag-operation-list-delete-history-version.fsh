@@ -1,4 +1,4 @@
-Instance: AtDiagListDeleteHistoryVersion
+Instance: AtEdiagListDeleteHistoryVersion
 InstanceOf: OperationDefinition
 Title: "e-Diagnose Operation $delete-history-version"
 Description: """Die `$delete-history-version`-Operation löscht eine bestimmte Version einer Summary-Liste aus der e-Diagnose Fachanwendung."""
