@@ -13,9 +13,9 @@ Usage: #example
 
 * verificationStatus = $cs-allergyintolerance-verification#confirmed
 
-* code.coding.system = $cs-sct
-* code.coding.code = #372687004
-* code.coding.display = "Amoxicillin"
+* code.coding.system = $cs-medikation-ages-wirkstoffe
+* code.coding.code = #1708923
+* code.coding.display = "AMOXICILLIN"
 
 * patient
   * identifier[0]

@@ -14,6 +14,7 @@ Alias: $cs-allergyintolerance-verification = http://terminology.hl7.org/CodeSyst
 // termgit.elga.gv.at
 Alias: $hl7-at-religionaustria = https://termgit.elga.gv.at/CodeSystem/hl7-at-religionaustria
 Alias: $iso-3166-1-alpha-3 = https://termgit.elga.gv.at/CodeSystem/iso-3166-1-alpha-3
+Alias: $cs-medikation-ages-wirkstoffe = https://termgit.elga.gv.at/CodeSystem/medikation-ages-wirkstoffe
 
 // value sets
 // termgit.elga.gv.at
