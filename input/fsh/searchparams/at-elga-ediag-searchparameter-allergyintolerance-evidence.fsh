@@ -9,4 +9,4 @@ Usage: #definition
 * code = #evidence
 * base = #AllergyIntolerance
 * type = #reference
-* expression = "AllergyIntolerance.extension('https://fhir.hl7.at/elga/ediag/r4/StructureDefinition/at-elga-ediag-ext-evidence').valueReference"
+* expression = "AllergyIntolerance.extension('https://fhir.hl7.at/elga/ediag/r4/StructureDefinition/at-elga-ediag-ext-evidence').value.ofType(Reference)"
