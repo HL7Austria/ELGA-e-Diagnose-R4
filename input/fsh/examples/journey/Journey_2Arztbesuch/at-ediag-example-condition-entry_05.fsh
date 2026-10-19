@@ -1,6 +1,6 @@
 Instance: ConditionEntry05
 InstanceOf: AtEdiagCondition
-Title: "Beispielinstanz einer Diagnose für die Gesamtliste"
+Title: "Beispielinstanz einer Diagnose für die Gesamtansicht"
 Description: "Beispiel Diagnose, aktuelle Beschwerden des Patienten"
 Usage: #example
 

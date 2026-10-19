@@ -90,7 +90,7 @@ Description: "Dieses Procedure-Profil passt die Procedure-Resource für die Anfo
 * complicationDetail ^short = "Komplikationen in Form von Referenzen werden in e-Diagnose nicht unterstützt."
 
 * note 0..1 MS
-* note ^short = "Freitext zur Diagnose als Zusatzinformation."
+* note ^short = "Freitext zur Prozedur als Zusatzinformation."
 * note.author[x] 0..0
 * note.author[x] ^short = "Wird über recorder abgebildet."
 * note.time 0..0
