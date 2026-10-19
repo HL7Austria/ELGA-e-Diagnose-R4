@@ -13,14 +13,14 @@ Description: "Dieses AllergyIntolerance-Profil passt die AllergyIntolerance-Reso
 
 * insert AtEDiagAsserterRuleSet
 
-* extension contains AtReported named reported 0..1 MS
+* extension contains AtEdiagExtReported named reported 0..1 MS
 * extension[reported] ^short = "True wenn diese Allergie fremdberichtet ist."
 
-* extension contains AtElgaEdiagExtEnteredInError named entered-in-error 0..1 MS
+* extension contains AtEdiagExtEnteredInError named entered-in-error 0..1 MS
 * extension[entered-in-error] ^short = "Dokumentation des GDA der den Eintrag storniert hat."
 
 // referenz auf befund, laborbefund, etc. - analog zu Condition.evidence.detail
-* extension contains AtEdiagEvidence named evidence 0..* MS
+* extension contains AtEdiagExtEvidence named evidence 0..* MS
 * extension[evidence] ^short = "Verweis auf e-Befunde als medizinische Evidenz."
 
 * modifierExtension 0..0
@@ -91,7 +91,7 @@ Description: "Dieses AllergyIntolerance-Profil passt die AllergyIntolerance-Reso
 // https://hub.kbv.de/spaces/ALDOK1X0X0/pages/375456332/Weitere+m%C3%B6gliche+Inhalte#Weiterem%C3%B6glicheInhalte-ArtderReaktion%2FzeitlicherVerlaufderReaktion
 // codes noch aktualisieren/anders benennen
 // extension soll verpflichtend ausgefüllt werden
-* reaction.extension contains AtEdiagReactionTime named reactionTime 1..1 MS
+* reaction.extension contains AtEdiagExtReactionTime named reactionTime 1..1 MS
 * reaction.extension[reactionTime] ^short = "Zeitlicher Verlauf der Manifestation."
 
 * reaction.modifierExtension 0..0

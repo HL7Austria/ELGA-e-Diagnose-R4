@@ -1,6 +1,6 @@
-Extension: AtReported
-Id: at-elga-ediag-reported
-Title: "AT ELGA Reported (Fremdangabe)"
+Extension: AtEdiagExtReported
+Id: at-elga-ediag-ext-reported
+Title: "AT e-Diagnose Reported (Fremdangabe)"
 Description: "Kennzeichnet, ob eine Information fremdberichtet ist (z. B. vom Patienten oder Dritten)."
 Context: AtEdiagCondition, AtEdiagProcedure, AtEdiagAllergyIntolerance
 
