@@ -6,7 +6,7 @@ Usage: #example
 
 * extension[reported].valueBoolean = true
 
-* extension[recordedDate].valueDateTime = "2026-03-09T00:00:00+00:00"
+* extension[recordedDate].valueDateTime = "2026-03-09T09:53:00+00:00"
 
 * identifier[0].system = Canonical(AtEdiagBusinessIdentifier)
 * identifier[=].value = "1337"
