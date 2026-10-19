@@ -1,4 +1,4 @@
-Dieser Implementierungsleitfaden entstand durch die Arbeitsgruppe e-Diagnose. Die Arbeiten für den vorliegenden Leitfaden wurden von den Autoren gemäß dem Stand der Technik und mit größtmöglicher Sorgfalt erbracht.
+Dieser Implementierungsleitfaden wurde im Rahmen des Projekts e-Diagnose ausgearbeitet. Dabei wurden verschiedene Expert:innen eingebunden, die fachliche Konzeption der ELGA GmbH mit Vertreter:innen der ELGA-Systempartner (BMASGPK, Bundesländern und Sozialversicherung) weiterentwickelt und Vorarbeiten der ÖÄK, der ÖGAM und der ÖG Telemed berücksichtigt. Die Arbeiten für den vorliegenden Leitfaden wurden von den Autoren gemäß dem Stand der Technik und mit größtmöglicher Sorgfalt erbracht.
 
 ### Autoren
 
@@ -8,10 +8,7 @@ Dieser Implementierungsleitfaden entstand durch die Arbeitsgruppe e-Diagnose. Di
 | Emmanuel Helm | ELGA GmbH |
 | Gabriel Leonhartsberger | ELGA GmbH |
 
-
-
 ### Mitwirkende
-
 
 | Name[^1]            | Organisation                    |
 |---------------------|---------------------------------|

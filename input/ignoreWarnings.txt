@@ -7,11 +7,41 @@
 # This OID represents the bereichspezifische Personenkennzeichen (bPK)
 No definition could be found for URL value 'urn:oid:1.2.40.0.10.2.1.1.149'
 
+# This OID represents the social security number (SVNr)
+No definition could be found for URL value 'urn:oid:1.2.40.0.10.1.4.3.1'
+
+# This is a sample OID
+No definition could be found for URL value 'urn:oid:1.2.3.4.5'
+
+# This OID represents the Vertragspartnernummre (VPNr)
+No definition could be found for URL value 'urn:oid:1.2.40.0.10.1.4.3.2'
+
 # When moving terminologies to the Austrian e-Health Terminologyserver they will all get an OID
-The resource CodeSystem/at-ediag-business-identifier should have an OID assigned to cater for possible use with OID based terminology systems e.g. CDA usage (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/ig-guidance/oids.html)
+%should have an OID assigned to cater for possible use with OID based terminology systems e.g. CDA usage (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/ig-guidance/oids.html)
 
 # At the time of writing this IG no concepts are available. As soon as, the e-Diagnose-Fachanwendung starts the concepts will be added.
 When a CodeSystem has content = 'complete', it doesnt make sense for there to be no concepts defined
 
 # Errors related to terminologies which cannot be resolved because termgit.elga.gv.at cannot yet provide packages or be used as proper tx
 %https://termgit.elga.gv.at/%
+
+# As soon as terminologies are moved to Austrian e-Health Terminologyserver they're no longer a draft
+Reference to draft CodeSystem https://fhir.hl7.at/elga/ediag/r4/CodeSystem/at-ediag-reaction-time|0.1.0
+
+# For these resources no OIDs will be used
+%could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/ig-guidance/oids.html)
+
+# This is a R4 IG, hence, it does not make sense to add a dependency to a R5 IG
+The ImplementationGuide uses package ihe.iti.mhd#4.2.4 released on 2026-06-15, but the most recent appropriate version is 5.0.0. This reference is getting old and the more recent version should be considered
+
+# These examples do not have a .text element on purpose
+Constraint failed: dom-6: 'A resource should have narrative for robust management (text.`div`.exists())' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)
+
+# deprecated inherited artifacts
+The extension http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet|5.3.0 is deprecated with the note: 'Use additionalBinding extension or element instead'
+
+# There exists an inline example for RelatedPerson
+The Implementation Guide contains no explicitly linked examples for this profile
+
+# Definition of codesystem has been validated manually
+The value '< 416940007 |History of procedure (situation)| . 363589002 |Associated procedure (attribute)|' for the filter constraint can't be checked: Unknown operation on this server: POST /r4/ValueSet/$validate
