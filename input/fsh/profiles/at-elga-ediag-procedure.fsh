@@ -59,7 +59,7 @@ Description: "Dieses Procedure-Profil passt die Procedure-Resource für die Anfo
 )
 * recorder ^short = "GDA, der die Prozedur in der e-Diagnose erfasst bzw. dokumentiert hat."
 
-* asserter 0..1
+* asserter 0..1 MS
 * asserter only Reference(
     HL7ATCorePractitioner
     or HL7ATCorePractitionerRole
