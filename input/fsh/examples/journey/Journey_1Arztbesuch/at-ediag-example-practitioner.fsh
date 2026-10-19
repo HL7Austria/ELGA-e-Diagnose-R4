@@ -30,7 +30,7 @@ Usage: #example
 * address.line.extension[=].valueString = "8"
 * address.line.extension[+].url = "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-additionalLocator"
 * address.line.extension[=].valueString = "Stiege 2"
-* address.line.extension[+].url = "http://hl7.at/fhir/HL7ATCoreProfiles/4.0.1/StructureDefinition/at-core-ext-address-additionalInformation"
+* address.line.extension[+].url = "https://fhir.hl7.at/core/r4/StructureDefinition/at-core-ext-address-additionalInformation"
 * address.line.extension[=].valueString = "Barrierefreier Zugang"
 * address.city = "St. Wolfgang"
 * address.state = "Salzburg"
