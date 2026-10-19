@@ -10,18 +10,19 @@ Usage: #example
 * link[0].relation = #self
 * link[0].url = "https://example.org/fhir/Condition"
 
-* entry[0].fullUrl = "https://example.org/fhir/Condition/ConditionEntry01"
-* entry[0].resource = ConditionEntry01
-
-* entry[+].fullUrl = "https://example.org/fhir/Condition/ConditionEntry02"
-* entry[=].resource = ConditionEntry02
-
-* entry[+].fullUrl = "https://example.org/fhir/Condition/ConditionEntry03EnteredInError"
-* entry[=].resource = ConditionEntry03EnteredInError
+// Sortierung absteigend nach Erstellungsdatum (zuletzt erstellter Eintrag zuerst)
+* entry[0].fullUrl = "https://example.org/fhir/Condition/ConditionEntry06"
+* entry[0].resource = ConditionEntry06
 
 * entry[+].fullUrl = "https://example.org/fhir/Condition/ConditionEntry04"
 * entry[=].resource = ConditionEntry04
 
-* entry[+].fullUrl = "https://example.org/fhir/Condition/ConditionEntry06"
-* entry[=].resource = ConditionEntry06
+* entry[+].fullUrl = "https://example.org/fhir/Condition/ConditionEntry03EnteredInError"
+* entry[=].resource = ConditionEntry03EnteredInError
+
+* entry[+].fullUrl = "https://example.org/fhir/Condition/ConditionEntry02"
+* entry[=].resource = ConditionEntry02
+
+* entry[+].fullUrl = "https://example.org/fhir/Condition/ConditionEntry01"
+* entry[=].resource = ConditionEntry01
 
