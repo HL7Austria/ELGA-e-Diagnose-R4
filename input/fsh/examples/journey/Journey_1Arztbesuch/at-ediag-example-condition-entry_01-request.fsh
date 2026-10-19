@@ -9,7 +9,7 @@ Usage: #example
 // Die e-Diagnose-Fachanwendung löst diese auf und speichert die Diagnose als ConditionEntry01.
 * extension[reported].valueBoolean = true
 
-* identifier[0].system = Canonical(AtEdiagBusinessIdentifier)
+* identifier[0].system = Canonical(AtEdiagBusinessIdentifierCS)
 * identifier[=].value = "1234"
 
 * clinicalStatus = $condition-clinical#active

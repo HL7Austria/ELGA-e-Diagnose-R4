@@ -6,7 +6,7 @@ Usage: #example
 
 * extension[reported].valueBoolean = true
 
-* identifier[0].system = Canonical(AtEdiagBusinessIdentifier)
+* identifier[0].system = Canonical(AtEdiagBusinessIdentifierCS)
 * identifier[=].value = "1234"
 
 * clinicalStatus = $condition-clinical#active

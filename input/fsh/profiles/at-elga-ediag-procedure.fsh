@@ -41,7 +41,7 @@ Description: "Dieses Procedure-Profil passt die Procedure-Resource für die Anfo
 * category ^short = "Kategorisierungen von Prozeduren werden in der e-Diagnose nicht angewendet."
 
 * code 1..1 MS
-* code from AtEDiagProcedureCode (required)
+* code from AtEdiagProcedureCode (required)
 * code ^short = "Prozedurencode der durchgeführten Prozedur; Freitext ist nicht zulässig."
 * code.text 0..0
 * code.text ^short = "Die ursprüngliche textuelle Eingabe soll im Feld note.text dokumentiert werden."

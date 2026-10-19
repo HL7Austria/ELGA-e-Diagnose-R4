@@ -8,7 +8,7 @@ Usage: #example
 
 * extension[recordedDate].valueDateTime = "2026-03-09T09:53:00+00:00"
 
-* identifier[0].system = Canonical(AtEdiagBusinessIdentifier)
+* identifier[0].system = Canonical(AtEdiagBusinessIdentifierCS)
 * identifier[=].value = "1337"
 
 * status = #completed
