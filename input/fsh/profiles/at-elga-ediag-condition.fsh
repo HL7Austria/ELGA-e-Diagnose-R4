@@ -12,7 +12,7 @@ Description: "Dieses Condition-Profil passt die Condition-Resource für die Anfo
 * implicitRules 0..0
 
 * extension contains AtReported named reported 0..1 MS
-* extension[reported] ^short = "True wenn diese Allergie fremdberichtet ist."
+* extension[reported] ^short = "True wenn diese Diagnose fremdberichtet ist."
 
 * extension contains AtElgaEdiagExtEnteredInError named entered-in-error 0..1 MS
 * extension[entered-in-error] ^short = "Dokumentation des GDA der den Eintrag storniert hat."

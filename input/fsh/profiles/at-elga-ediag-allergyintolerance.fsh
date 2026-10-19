@@ -59,7 +59,7 @@ Description: "Dieses AllergyIntolerance-Profil passt die AllergyIntolerance-Reso
 * onset[x] ^short = "Für e-Diagnose ist insbesondere der Beginn der Reaktion relevant."
 
 * recordedDate 1..1 MS
-* recordedDate ^short = "Dokumentationsdatum"
+* recordedDate ^short = "Zeitpunkt der Dokumentation der Allergie oder Intoleranz."
 
 * recorder 1..1 MS
 * recorder only Reference(

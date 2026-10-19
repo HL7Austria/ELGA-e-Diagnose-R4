@@ -3,7 +3,7 @@ InstanceOf: SearchParameter
 Usage: #definition
 * name = "Procedure Recorder"
 * status = #active
-* description = "Erlaubt die Suche nach dem GDA, der die Diagnose in der e-Diagnose erfasst bzw. dokumentiert hat."
+* description = "Erlaubt die Suche nach dem GDA, der die Prozedur in der e-Diagnose erfasst bzw. dokumentiert hat."
 * code = #recorder
 * base = #Procedure
 * type = #reference

@@ -10,7 +10,7 @@ Description: "Dieses Procedure-Profil passt die Procedure-Resource für die Anfo
 * implicitRules 0..0
 
 * extension contains AtReported named reported 0..1 MS
-* extension[reported] ^short = "True wenn diese Allergie fremdberichtet ist."
+* extension[reported] ^short = "True wenn diese Prozedur fremdberichtet ist."
 
 * extension contains AtElgaEdiagExtEnteredInError named entered-in-error 0..1 MS
 * extension[entered-in-error] ^short = "Dokumentation des GDA der den Eintrag storniert hat."
@@ -66,7 +66,7 @@ Description: "Dieses Procedure-Profil passt die Procedure-Resource für die Anfo
     or HL7ATCorePatient
     or AtEdiagRelatedPerson
 )
-* asserter ^short = "Quelle der Information zur Allergie, z. B. Patient, behandelnde Person oder Dritter."
+* asserter ^short = "Quelle der Information zur Prozedur, z. B. Patient, behandelnde Person oder Dritter."
 
 * reasonCode 0..0
 * reasonCode ^short = "Begründung für Prozedur wird nicht codiert erfasst."
