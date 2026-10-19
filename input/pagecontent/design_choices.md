@@ -92,7 +92,7 @@ Die e-Diagnose-Fachanwendung hat nur für die folgenden Ressourcen Endpunkte fre
 - `/Procedure`
 - `/AllergyIntolerance`
 
-Alle Informationen, die sich auf `Patient`, `Practitioner`, `PractitionerRole`, `Organization`, `RelatedPerson`, `Device` beziehen, müssen über den Suchergebnisparameter [`_include`](https://hl7.org/fhir/R4/search.html#include) aufgelöst werden.
+Alle Informationen, die sich auf `Patient`, `Practitioner`, `PractitionerRole`, `Organization`, `Device` beziehen, müssen über den Suchergebnisparameter [`_include`](https://hl7.org/fhir/R4/search.html#include) aufgelöst werden.
 
 #### Summary-Liste
 
@@ -120,6 +120,12 @@ Basis bildet dabei jeweils `[base]/[Condition|Procedure|AllergyIntolerance]?_id=
 | `.report` | nicht zutreffend | `&_include=Procedure:report` | nicht zutreffend | 
 | `.extension:evidence` | nicht zutreffend | nicht zutreffend | `&_include=AllergyIntolerance:evidence` |
 {: .grid}
+
+### Angabe von Bezugspersonen (asserter)
+
+Als Quelle der Information zu Einträgen (asserter), z. B. Patient, behandelnde Person oder Dritter kann neben GDA oder dem Patienten auch eine Bezugsperson ([RelatedPerson-Profil](StructureDefinition-at-elga-ediag-relatedperson.html)) angegeben werden.
+
+Diese Informationen sind als `contained` Ressourcen in den Ressourcen für die Einträge anzugeben (siehe [Beispiel](Condition-ConditionEntryContainedRelatedPerson.html)).
 
 ### Optimistisches Locking
 
