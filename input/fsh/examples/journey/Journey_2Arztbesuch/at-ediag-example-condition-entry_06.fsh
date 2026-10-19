@@ -1,6 +1,6 @@
 Instance: ConditionEntry06
 InstanceOf: AtEdiagCondition
-Title: "Beispielinstanz einer Diagnose für die Summary"
+Title: "Beispielinstanz einer Diagnose für die Summary-Liste (Morbus Crohn)"
 Description: "Beispiel Diagnose, aktuelle Beschwerden des Patienten"
 Usage: #example
 

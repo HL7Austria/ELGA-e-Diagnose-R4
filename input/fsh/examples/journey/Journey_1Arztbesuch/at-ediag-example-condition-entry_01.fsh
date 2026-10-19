@@ -1,6 +1,6 @@
 Instance: ConditionEntry01
 InstanceOf: AtEdiagCondition
-Title: "Beispielinstanz einer Diagnose für die Summary-Liste"
+Title: "Beispielinstanz einer Diagnose für die Summary-Liste (Bluthochdruck)"
 Description: "Beispiel einer dauerhaften Diagnose"
 Usage: #example
 
