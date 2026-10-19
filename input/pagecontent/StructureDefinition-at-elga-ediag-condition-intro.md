@@ -1,4 +1,5 @@
-### Defintion
+### Definition
+
 Dokumentiert Diagnosen und klinisch relevante Gesundheitszustände einer Person, einschließlich Erkrankungen, Symptome, allgemeiner Zustandsbeschreibungen (Findings), familiärer Vorbelastungen sowie sonstiger gesundheitlich relevanter Probleme oder Risiken. Sie bildet eine fachliche Feststellung zu einem Gesundheitsaspekt ab und kann sowohl aktuelle als auch vergangene Zustände umfassen. 
 
 ### clinicalStatus und verificationStatus
@@ -18,4 +19,4 @@ Die Elemente `clinicalStatus` und `verificationStatus` stehen fachlich in engem 
 
 Im Sinne der [Designentscheidungen](design_choices.html#mustsupport-kennzeichnung-von-relevanten-elementen) wurden alle relevanten Elemente mit MustSupport gekennzeichnet. 
 
-In Bezug auf die verbotenen Elementen wird hervorgehoben, dass Freitext nur in `note.text` festgehalten werden darf. Für alle anderen verbotenen Elemente wird eine entsprechende Begründung angegeben.
+In Bezug auf die verbotenen Elemente wird hervorgehoben, dass Freitext nur in `note.text` festgehalten werden darf. Für alle anderen verbotenen Elemente wird eine entsprechende Begründung angegeben.
