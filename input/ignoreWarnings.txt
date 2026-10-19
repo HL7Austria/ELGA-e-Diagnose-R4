@@ -45,3 +45,9 @@ The Implementation Guide contains no explicitly linked examples for this profile
 
 # Definition of codesystem has been validated manually
 The value '< 416940007 |History of procedure (situation)| . 363589002 |Associated procedure (attribute)|' for the filter constraint can't be checked: Unknown operation on this server: POST /r4/ValueSet/$validate
+
+# Definition will follow as soon as concepts have been acknowledged
+HL7 Defined CodeSystems should ensure that every concept has a definition
+
+# Number of concepts is known
+The value set include has too many concepts to validate (79,394, more than the limit of 1,000), so each individual code has not been checked
