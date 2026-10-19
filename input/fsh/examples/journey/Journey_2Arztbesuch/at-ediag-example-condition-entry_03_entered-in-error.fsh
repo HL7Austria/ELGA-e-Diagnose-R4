@@ -8,7 +8,7 @@ Usage: #example
 // Eigene ID, da IG-Beispiele eindeutige IDs benötigen.
 * meta.versionId = "2"
 
-* extension[AtReported].valueBoolean = true
+* extension[reported].valueBoolean = true
 
 * identifier[0].system = Canonical(AtEdiagBusinessIdentifier)
 * identifier[=].value = "1236"

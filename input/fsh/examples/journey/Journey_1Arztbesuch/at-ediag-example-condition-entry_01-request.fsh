@@ -7,7 +7,7 @@ Usage: #example
 // POST /Condition
 // Übermittelte Diagnose: Patient und GDA als logische Referenzen.
 // Die e-Diagnose-Fachanwendung löst diese auf und speichert die Diagnose als ConditionEntry01.
-* extension[AtReported].valueBoolean = true
+* extension[reported].valueBoolean = true
 
 * identifier[0].system = Canonical(AtEdiagBusinessIdentifier)
 * identifier[=].value = "1234"

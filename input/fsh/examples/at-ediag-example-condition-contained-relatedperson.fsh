@@ -16,7 +16,7 @@ Usage: #example
 
 * contained[0] = RelatedPersonMotherInline
 
-* extension[AtReported].valueBoolean = true
+* extension[reported].valueBoolean = true
 
 * identifier[0].system = Canonical(AtEdiagBusinessIdentifier)
 * identifier[=].value = "1240"

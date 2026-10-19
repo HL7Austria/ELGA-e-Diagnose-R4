@@ -4,7 +4,7 @@ Title: "Beispielinstanz einer Diagnose für die Gesamtansicht"
 Description: "Beispiel Diagnose, aktuelle Beschwerden des Patienten"
 Usage: #example
 
-* extension[AtReported].valueBoolean = false
+* extension[reported].valueBoolean = false
 
 * identifier[0].system = Canonical(AtEdiagBusinessIdentifier)
 * identifier[=].value = "1238"

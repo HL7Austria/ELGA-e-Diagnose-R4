@@ -4,7 +4,7 @@ Title: "Beispielinstanz einer Diagnose für die Summary-Liste"
 Description: "Beispiel einer dauerhaften Diagnose"
 Usage: #example
 
-* extension[AtReported].valueBoolean = true
+* extension[reported].valueBoolean = true
 
 * identifier[0].system = Canonical(AtEdiagBusinessIdentifier)
 * identifier[=].value = "1234"

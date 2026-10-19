@@ -42,7 +42,7 @@ Usage: #example
 * reaction.manifestation[1].coding.code = #422400008
 * reaction.manifestation[1].coding.display = "Emesis"
 
-* reaction.extension[AtEdiagReactionTime].valueCodeableConcept = AtEdiagReactionTimeCS#lt6h "<6 Stunden"
+* reaction.extension[reactionTime].valueCodeableConcept = AtEdiagReactionTimeCS#lt6h "<6 Stunden"
 
 * reaction.note.text = "Hautausschlag und Erbrechen nach Penicillin-Einnahme"
 

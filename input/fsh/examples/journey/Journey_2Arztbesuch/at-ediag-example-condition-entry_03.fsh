@@ -6,7 +6,7 @@ Usage: #example
 
 * meta.versionId = "1"
 
-* extension[AtReported].valueBoolean = true
+* extension[reported].valueBoolean = true
 
 * identifier[0].system = Canonical(AtEdiagBusinessIdentifier)
 * identifier[=].value = "1236"
