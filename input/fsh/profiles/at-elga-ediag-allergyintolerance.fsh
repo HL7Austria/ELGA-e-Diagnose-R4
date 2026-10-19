@@ -73,7 +73,7 @@ Description: "Dieses AllergyIntolerance-Profil passt die AllergyIntolerance-Reso
     HL7ATCorePractitioner
     or HL7ATCorePractitionerRole
     or HL7ATCorePatient
-    or RelatedPerson
+    or AtEdiagRelatedPerson
 )
 * asserter ^short = "Quelle der Information zur Allergie, z. B. Patient, behandelnde Person oder Dritter."
 
