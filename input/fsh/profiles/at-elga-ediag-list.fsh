@@ -1,7 +1,7 @@
 Profile: AtEdiagList
 Parent: List
 Id: at-elga-ediag-list
-Title: "AT ELGA e-Diagnose Summary-Liste"
+Title: "AT e-Diagnose Summary-Liste"
 Description: "Dieses List-Profil passt die List-Resource für die Anforderungen der e-Diagnose an."
 
 * ^status = #active

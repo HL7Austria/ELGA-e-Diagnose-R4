@@ -1,7 +1,7 @@
 Profile: AtEdiagProcedure
 Parent: Procedure
 Id: at-elga-ediag-procedure
-Title: "AT ELGA e-Diagnose Procedure"
+Title: "AT e-Diagnose Procedure"
 Description: "Dieses Procedure-Profil passt die Procedure-Resource für die Anforderungen der e-Diagnose an."
 
 * ^status = #active
