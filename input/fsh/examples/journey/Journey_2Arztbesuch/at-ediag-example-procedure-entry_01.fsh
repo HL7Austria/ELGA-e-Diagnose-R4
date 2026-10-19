@@ -13,8 +13,8 @@ Usage: #example
 
 * status = #completed
 
-// Partial excision of large intestine
-* code = $cs-sct#27010001 "Partial excision of large intestine"
+// Partial resection of colon
+* code = $cs-sct#43075005 "Partial resection of colon"
 
 * subject = Reference(PatientExample)
   * identifier[0]
