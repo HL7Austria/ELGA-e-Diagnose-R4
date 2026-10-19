@@ -15,6 +15,9 @@ Description: "Dieses Procedure-Profil passt die Procedure-Resource für die Anfo
 * extension contains AtElgaEdiagExtEnteredInError named entered-in-error 0..1 MS
 * extension[entered-in-error] ^short = "Dokumentation des GDA der den Eintrag storniert hat."
 
+* extension contains ExtensionProcedure_Recorded named recordedDate 1..1 MS
+* extension[recordedDate] ^short = "Zeitpunkt der Dokumentation der Prozedur."
+
 * modifierExtension 0..0
 
 * insert AtEDiagIdentifierRuleSet
@@ -89,6 +92,6 @@ Description: "Dieses Procedure-Profil passt die Procedure-Resource für die Anfo
 * note.author[x] 0..0
 * note.author[x] ^short = "Wird über recorder abgebildet."
 * note.time 0..0
-* note.time ^short = "Wird über recordedDate abgebildet."
+* note.time ^short = "Wird über die recordedDate-Extension abgebildet."
 * note.text 1..1 MS
 * note.text ^maxLength = 500

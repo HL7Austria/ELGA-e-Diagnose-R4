@@ -6,6 +6,8 @@ Usage: #example
 
 * extension[reported].valueBoolean = true
 
+* extension[recordedDate].valueDateTime = "2026-03-09T00:00:00+00:00"
+
 * status = #completed
 
 // Partial excision of large intestine
