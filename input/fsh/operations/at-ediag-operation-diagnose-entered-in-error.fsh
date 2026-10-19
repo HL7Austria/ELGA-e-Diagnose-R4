@@ -4,7 +4,7 @@ Title: "e-Diagnose Operation $entered-in-error"
 Description: """Die `$entered-in-error`-Operation storniert einen bestimmten Eintrag in der e-Diagnose Fachanwendung."""
 Usage: #definition
 
-* id = "at-ediag-operation-diagnose-entered-in-error"
+* id = "at-ediag-operation-entry-entered-in-error"
 * name = "AtDiagDiagnoseEnteredInError"
 * status = #active
 * kind = #operation
@@ -50,7 +50,7 @@ Möchte der GDA einen Eintrag in der e-Diagnose Fachanwendung stornieren, muss d
 * parameter[=].type = #string
 
 * parameter[+]
-* parameter[=].name = #diagnose
+* parameter[=].name = #entry
 * parameter[=].use = #out
 * parameter[=].min = 1
 * parameter[=].max = "1"

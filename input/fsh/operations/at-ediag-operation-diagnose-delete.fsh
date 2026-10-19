@@ -4,7 +4,7 @@ Title: "e-Diagnose Operation $delete"
 Description: """Die `$delete`-Operation löscht einen bestimmten Eintrag aus der e-Diagnose Fachanwendung."""
 Usage: #definition
 
-* id = "at-ediag-operation-diagnose-delete"
+* id = "at-ediag-operation-entry-delete"
 * name = "AtDiagDiagnoseDelete"
 * status = #active
 * kind = #operation
@@ -42,7 +42,7 @@ Die Teilnehmerrechte können – abgesehen vom Widerspruch über die ELGA-Widers
 * instance = true   // Id von Instanz muss beim Aufruf bekannt sein
 
 * parameter[+]
-* parameter[=].name = #diagnose
+* parameter[=].name = #entry
 * parameter[=].use = #out
 * parameter[=].min = 1
 * parameter[=].max = "1"

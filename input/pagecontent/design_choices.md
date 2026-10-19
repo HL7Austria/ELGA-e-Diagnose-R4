@@ -7,7 +7,7 @@ Hintergrund ist die Versionierung der Summary-Liste: Jede Listenversion soll gen
 
 Um trotzdem eine Verknüpfung zwischen Einträgen herstellen zu können, kann der Business Identifier (siehe z. B. bei der [Condition.identifier:businessIdentifier](StructureDefinition-at-elga-ediag-condition-definitions.html#Condition.identifier:businessIdentifier)) von Einträgen verwendet werden. Ein Client kann diesen Identifier nutzen, um einzelne Einträge im Zuge einer Bearbeitung miteinander zu verknüpfen. Sollte dieser Identifier durch den Client nicht gesetzt werden, wird er von der Fachanwendung e-Diagnose vergeben.
 
-Davon unberührt sind die Operationen [`$entered-in-error`](OperationDefinition-at-ediag-operation-diagnose-entered-in-error.html) und [`$delete`](OperationDefinition-at-ediag-operation-diagnose-delete.html). Bei einer Stornierung ergänzt die e-Diagnose-Fachanwendung lediglich die Angaben zur Stornierung (GDA, Zeitpunkt, Grund); alle weiteren Informationen des Eintrags bleiben unverändert. Bei einer Löschung durch den ELGA-Teilnehmer wird der Eintrag als Ganzes entfernt.
+Davon unberührt sind die Operationen [`$entered-in-error`](OperationDefinition-at-ediag-operation-entry-entered-in-error.html) und [`$delete`](OperationDefinition-at-ediag-operation-entry-delete.html). Bei einer Stornierung ergänzt die e-Diagnose-Fachanwendung lediglich die Angaben zur Stornierung (GDA, Zeitpunkt, Grund); alle weiteren Informationen des Eintrags bleiben unverändert. Bei einer Löschung durch den ELGA-Teilnehmer wird der Eintrag als Ganzes entfernt.
 
 <a name="logische-referenzen"></a>
 ### Informationen über GDA und Patienten

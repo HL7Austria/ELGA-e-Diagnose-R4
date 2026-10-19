@@ -6,5 +6,5 @@ Usage: #example
 
 // Antwort auf POST /Condition/ConditionEntry05/$delete
 // Die Diagnose war nicht Teil der Summary-Liste, daher wird kein list-Parameter zurückgeliefert.
-* parameter[0].name = "diagnose"
+* parameter[0].name = "entry"
 * parameter[=].resource = ConditionEntry05

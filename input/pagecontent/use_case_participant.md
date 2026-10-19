@@ -14,13 +14,13 @@ Dieser Anwendungsfall erlaubt es einem ELGA-Teilnehmer, einzelne oder alle Eintr
 
 ##### Ablauf
 
-- Um einen Eintrag zu löschen, führt der ELGA-Teilnehmer über das Zugangsportal die [`$delete`-Operation](OperationDefinition-at-ediag-operation-diagnose-delete.html) auf (`POST /[Condition|Procedure|AllergyIntolerance]/[id]/$delete`) den zu löschenden Eintrag aus.
+- Um einen Eintrag zu löschen, führt der ELGA-Teilnehmer über das Zugangsportal die [`$delete`-Operation](OperationDefinition-at-ediag-operation-entry-delete.html) auf (`POST /[Condition|Procedure|AllergyIntolerance]/[id]/$delete`) den zu löschenden Eintrag aus.
 - Die e-Diagnose-Fachanwendung löscht den entsprechenden Eintrag.
 - Sollte der zu löschende Eintrag Teil der aktuellen Summary-Liste gewesen sein, erstellt die e-Diagnose-Fachanwendung eine neue Version der Summary-Liste ohne den gelöschten Eintrag.
 
 ##### Custom Operation
 
-[`$delete`](OperationDefinition-at-ediag-operation-diagnose-delete.html)
+[`$delete`](OperationDefinition-at-ediag-operation-entry-delete.html)
 
 ### Interaktionen auf Listenressourcen
 
