@@ -1,6 +1,6 @@
 ### Vollständiger Implementierungsleitfaden
 
-Der gesamte Implementierungsleitfaden kann [hier](full-ig.zip) heruntergeladen werden.
+Der gesamte Implementierungsleitfaden kann [hier](../full-ig.zip) heruntergeladen werden.
 
 ### NPM-Paket und Definitionen
 
