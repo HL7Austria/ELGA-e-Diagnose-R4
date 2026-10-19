@@ -6,3 +6,12 @@
 
 # This OID represents the bereichspezifische Personenkennzeichen (bPK)
 No definition could be found for URL value 'urn:oid:1.2.40.0.10.2.1.1.149'
+
+# When moving terminologies to the Austrian e-Health Terminologyserver they will all get an OID
+The resource CodeSystem/at-ediag-business-identifier should have an OID assigned to cater for possible use with OID based terminology systems e.g. CDA usage (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/ig-guidance/oids.html)
+
+# At the time of writing this IG no concepts are available. As soon as, the e-Diagnose-Fachanwendung starts the concepts will be added.
+When a CodeSystem has content = 'complete', it doesnt make sense for there to be no concepts defined
+
+# Errors related to terminologies which cannot be resolved because termgit.elga.gv.at cannot yet provide packages or be used as proper tx
+%https://termgit.elga.gv.at/%
