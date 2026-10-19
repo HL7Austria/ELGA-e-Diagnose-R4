@@ -6,6 +6,9 @@ Usage: #example
 
 * extension[reported].valueBoolean = true
 
+* identifier[0].system = Canonical(AtEdiagBusinessIdentifier)
+* identifier[=].value = "4711"
+
 * clinicalStatus = $cs-allergyintolerance-clinical#active
 
 * verificationStatus = $cs-allergyintolerance-verification#presumed

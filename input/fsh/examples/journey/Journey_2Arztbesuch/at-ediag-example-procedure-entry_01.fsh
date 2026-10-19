@@ -8,6 +8,9 @@ Usage: #example
 
 * extension[recordedDate].valueDateTime = "2026-03-09T00:00:00+00:00"
 
+* identifier[0].system = Canonical(AtEdiagBusinessIdentifier)
+* identifier[=].value = "1337"
+
 * status = #completed
 
 // Partial excision of large intestine
