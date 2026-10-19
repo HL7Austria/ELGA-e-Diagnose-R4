@@ -1,4 +1,4 @@
-### Defintion
+### Definition
 
 Die Summary-Liste ist ein zentraler Teil der e-Diagnose und umfasst sämtliche Conditions, Procedures oder AllergiesIntolerances-Einträge die durch eine:n GDA als relevant erachtet wurden. 
 

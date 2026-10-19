@@ -1,1 +1,1 @@
-Die Transaktionen im Rahmen der e-Diagnose werden im <!-- TODO Link zu Dev Portal --> beschrieben.
+Die Transaktionen im Rahmen der e-Diagnose werden im Rahmen des [Lösungsdesigns](https://developer.elga.gv.at/apis/ediag/use-cases/) beschrieben.

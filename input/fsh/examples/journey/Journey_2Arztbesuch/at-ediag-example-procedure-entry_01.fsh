@@ -6,10 +6,15 @@ Usage: #example
 
 * extension[reported].valueBoolean = true
 
+* extension[recordedDate].valueDateTime = "2026-03-09T09:53:00+00:00"
+
+* identifier[0].system = Canonical(AtEdiagBusinessIdentifierCS)
+* identifier[=].value = "1337"
+
 * status = #completed
 
-// Partial excision of large intestine
-* code = $cs-sct#27010001 "Partial excision of large intestine"
+// Partial resection of colon
+* code = $cs-sct#43075005 "Partial resection of colon"
 
 * subject = Reference(PatientExample)
   * identifier[0]

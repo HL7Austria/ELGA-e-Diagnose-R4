@@ -13,8 +13,7 @@ Die Teilnehmerrechte können – abgesehen vom Widerspruch über die ELGA-Widers
 ### Detaillierte Business-Logik
 
 1. Der Eintrag (Condition, Procedure oder AllergyIntolerance) wird anhand der übergebenen ID aus der e-Diagnose Fachanwendung gelöscht.
-2. Ist der Eintrag Teil der jeweiligen Summary-Liste, wird er auch aus der Summary-Liste entfernt.
-  1. Als `List.source` wird in diesem Fall der Patient angegeben.
+2. Ist der Eintrag Teil der jeweiligen Summary-Liste, wird er auch aus der Summary-Liste entfernt. Als Autor (`List.source`) der Summary-Liste wird der Patient dokumentiert.
 
 ### Validierung / Fehlerbehandlung
 

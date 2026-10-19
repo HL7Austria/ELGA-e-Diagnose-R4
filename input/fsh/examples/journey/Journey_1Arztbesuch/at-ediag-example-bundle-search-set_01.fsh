@@ -10,8 +10,9 @@ Usage: #example
 * link[0].relation = #self
 * link[0].url = "https://example.org/fhir/Condition"
 
-* entry[0].fullUrl = "https://example.org/fhir/Condition/ConditionEntry01"
-* entry[0].resource = ConditionEntry01
+// Sortierung absteigend nach Erstellungsdatum (zuletzt erstellter Eintrag zuerst)
+* entry[0].fullUrl = "https://example.org/fhir/Condition/ConditionEntry02"
+* entry[0].resource = ConditionEntry02
 
-* entry[1].fullUrl = "https://example.org/fhir/Condition/ConditionEntry02"
-* entry[1].resource = ConditionEntry02
+* entry[1].fullUrl = "https://example.org/fhir/Condition/ConditionEntry01"
+* entry[1].resource = ConditionEntry01

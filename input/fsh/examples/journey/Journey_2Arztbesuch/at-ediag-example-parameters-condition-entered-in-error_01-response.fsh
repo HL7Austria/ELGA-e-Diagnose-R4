@@ -5,7 +5,7 @@ Description: "Beispiel der Ausgabeparameter der $entered-in-error-Operation, nac
 Usage: #example
 
 // Antwort auf POST /Condition/ConditionEntry03/$entered-in-error
-* parameter[0].name = "diagnose"
+* parameter[0].name = "entry"
 * parameter[=].resource = ConditionEntry03EnteredInError
 
 // Die Diagnose war Teil der Summary-Liste, daher wird die neue Version der Liste (Version 4) mitgeliefert.

@@ -3,7 +3,7 @@ Id: at-ediag-condition-code
 Title: "AT e-Diagnose Condition Code"
 Description: "Value-Set für die Codierung von Diagnosen."
 * ^status = #draft
-* ^experimental = true
+* ^experimental = false
 
 * $cs-sct#122003
 * $cs-sct#127009

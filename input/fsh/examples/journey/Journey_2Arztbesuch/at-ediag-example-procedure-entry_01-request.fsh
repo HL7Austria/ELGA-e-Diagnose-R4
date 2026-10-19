@@ -9,10 +9,12 @@ Usage: #example
 // Die e-Diagnose-Fachanwendung löst diese auf und speichert die Prozedur als ProcedureEntry01.
 * extension[reported].valueBoolean = true
 
+* extension[recordedDate].valueDateTime = "2026-03-09T09:53:00+00:00"
+
 * status = #completed
 
-// Partial excision of large intestine
-* code = $cs-sct#27010001 "Partial excision of large intestine"
+// Partial resection of colon
+* code = $cs-sct#43075005 "Partial resection of colon"
 
 * subject
   * identifier[0]

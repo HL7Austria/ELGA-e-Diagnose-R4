@@ -1,8 +1,9 @@
-ValueSet: AtEdiagListCodeVS
-Id: at-ediag-list-code-vs
-Title: "ELGA AT e-Diagnose List Entry Code"
+ValueSet: AtEdiagListCode
+Id: at-ediag-list-code
+Title: "AT e-Diagnose List Code"
 Description: "ValueSet mit zulässigen Codes für Summary-Listen."
-* ^experimental = true
+* ^status = #draft
+* ^experimental = false
 
 // Problem list
 * $cs-loinc#11450-4

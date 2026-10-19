@@ -1,7 +1,7 @@
 CodeSystem: AtEdiagOperationOutcomeDetailsCS
-Id: at-ediag-codesystem-operationoutcome-details
-Title: "AT e-Diagnose OperationOutcome Details"
+Id: at-ediag-operationoutcome-details
+Title: "AT e-Diagnose OperationOutcome Details CS"
 Description: "Dieses Codesystem legt die möglichen Fehlercodes im Rahmen der e-Diagnose-Fachanwendung fest."
-* ^status = #active
+* ^status = #draft
 * ^experimental = false
 * ^caseSensitive = true

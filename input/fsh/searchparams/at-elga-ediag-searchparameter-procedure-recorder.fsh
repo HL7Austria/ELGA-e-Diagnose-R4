@@ -1,9 +1,11 @@
-Instance: at-elga-ediag-searchparameter-procedure-recorder
+Instance: AtEdiagProcedureRecorder
 InstanceOf: SearchParameter
+Title: "Procedure Recorder"
 Usage: #definition
-* name = "Procedure Recorder"
+* id = "at-elga-ediag-searchparameter-procedure-recorder"
+* name = "ProcedureRecorder"
 * status = #active
-* description = "Erlaubt die Suche nach dem GDA, der die Diagnose in der e-Diagnose erfasst bzw. dokumentiert hat."
+* description = "Erlaubt die Suche nach dem GDA, der die Prozedur in der e-Diagnose erfasst bzw. dokumentiert hat."
 * code = #recorder
 * base = #Procedure
 * type = #reference

@@ -1,7 +1,7 @@
 Instance: DeviceExample
 InstanceOf: Device
-Title: "Beispiel Device"
-Description: "Beispielinstanz eines Devices dass die Fachanwendung initial erstellt"
+Title: "Beispiel Device (e-Diagnose-Fachanwendung)"
+Description: "Beispielinstanz eines Devices, das die e-Diagnose-Fachanwendung repräsentiert"
 Usage: #example
 * type = $cs-sct#49062001 "Gerät"
 * text.status = #additional

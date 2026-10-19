@@ -1,8 +1,8 @@
-ValueSet: AtEdiagOperationOutcomeDetailsVS
+ValueSet: AtEdiagOperationOutcomeDetails
 Id: at-ediag-operationoutcome-details
-Title: "AT e-Diagnose OperationOutcome Details"
+Title: "AT e-Diagnose OperationOutcome Details VS"
 Description: "Value-Set mit den für e-Diagnose zulässigen detaillierten Fehlercodes."
-* ^status = #active
+* ^status = #draft
 * ^experimental = false
 
 * include codes from system AtEdiagOperationOutcomeDetailsCS

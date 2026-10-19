@@ -7,10 +7,7 @@ Usage: #example
 // POST /Condition
 // Übermittelte Diagnose: Patient und GDA als logische Referenzen.
 // Die e-Diagnose-Fachanwendung löst diese auf und speichert die Diagnose als ConditionEntry01.
-* extension[AtReported].valueBoolean = true
-
-* identifier[0].system = Canonical(AtEdiagBusinessIdentifier)
-* identifier[=].value = "1234"
+* extension[reported].valueBoolean = true
 
 * clinicalStatus = $condition-clinical#active
 
@@ -22,7 +19,7 @@ Usage: #example
     * system = "urn:oid:1.2.40.0.10.2.1.1.149"
     * value = "GH:oeLdSEb0l+8kSdJWjOYyYmnYki0="
 
-* recordedDate = "2026-03-03T00:00:00+00:00"
+* recordedDate = "2026-03-03T08:05:00+00:00"
 
 * recorder
   * identifier[0]

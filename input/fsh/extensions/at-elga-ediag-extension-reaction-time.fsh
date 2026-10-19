@@ -1,6 +1,6 @@
-Extension: AtEdiagReactionTime
-Id: at-elga-ediag-reaction-time
-Title: "AT ELGA Reaktionszeit"
+Extension: AtEdiagExtReactionTime
+Id: at-elga-ediag-ext-reaction-time
+Title: "AT e-Diagnose Reaktionszeit"
 Description: "Zeitlicher Verlauf der Manifestation (<6h, 6-24h, >24h, unknown)"
 
 * ^status = #active
@@ -8,3 +8,4 @@ Description: "Zeitlicher Verlauf der Manifestation (<6h, 6-24h, >24h, unknown)"
 * ^context.expression = "AllergyIntolerance.reaction"
 
 * value[x] only CodeableConcept
+* value[x] from AtEdiagReactionTime

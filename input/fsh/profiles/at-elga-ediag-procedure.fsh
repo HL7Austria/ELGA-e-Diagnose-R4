@@ -1,7 +1,7 @@
 Profile: AtEdiagProcedure
 Parent: Procedure
 Id: at-elga-ediag-procedure
-Title: "AT ELGA e-Diagnose Procedure"
+Title: "AT e-Diagnose Procedure"
 Description: "Dieses Procedure-Profil passt die Procedure-Resource für die Anforderungen der e-Diagnose an."
 
 * ^status = #active
@@ -9,11 +9,16 @@ Description: "Dieses Procedure-Profil passt die Procedure-Resource für die Anfo
 
 * implicitRules 0..0
 
-* extension contains AtReported named reported 0..1 MS
-* extension[reported] ^short = "True wenn diese Allergie fremdberichtet ist."
+* insert AtEDiagAsserterRuleSet
 
-* extension contains AtElgaEdiagExtEnteredInError named entered-in-error 0..1 MS
+* extension contains AtEdiagExtReported named reported 0..1 MS
+* extension[reported] ^short = "True wenn diese Prozedur fremdberichtet ist."
+
+* extension contains AtEdiagExtEnteredInError named entered-in-error 0..1 MS
 * extension[entered-in-error] ^short = "Dokumentation des GDA der den Eintrag storniert hat."
+
+* extension contains ExtensionProcedure_Recorded named recordedDate 1..1 MS
+* extension[recordedDate] ^short = "Zeitpunkt der Dokumentation der Prozedur."
 
 * modifierExtension 0..0
 
@@ -36,7 +41,7 @@ Description: "Dieses Procedure-Profil passt die Procedure-Resource für die Anfo
 * category ^short = "Kategorisierungen von Prozeduren werden in der e-Diagnose nicht angewendet."
 
 * code 1..1 MS
-* code from AtEDiagProcedureCode (required)
+* code from AtEdiagProcedureCode (required)
 * code ^short = "Prozedurencode der durchgeführten Prozedur; Freitext ist nicht zulässig."
 * code.text 0..0
 * code.text ^short = "Die ursprüngliche textuelle Eingabe soll im Feld note.text dokumentiert werden."
@@ -66,7 +71,7 @@ Description: "Dieses Procedure-Profil passt die Procedure-Resource für die Anfo
     or HL7ATCorePatient
     or AtEdiagRelatedPerson
 )
-* asserter ^short = "Quelle der Information zur Allergie, z. B. Patient, behandelnde Person oder Dritter."
+* asserter ^short = "Quelle der Information zur Prozedur, z. B. Patient, behandelnde Person oder Dritter."
 
 * reasonCode 0..0
 * reasonCode ^short = "Begründung für Prozedur wird nicht codiert erfasst."
@@ -85,10 +90,10 @@ Description: "Dieses Procedure-Profil passt die Procedure-Resource für die Anfo
 * complicationDetail ^short = "Komplikationen in Form von Referenzen werden in e-Diagnose nicht unterstützt."
 
 * note 0..1 MS
-* note ^short = "Freitext zur Diagnose als Zusatzinformation."
+* note ^short = "Freitext zur Prozedur als Zusatzinformation."
 * note.author[x] 0..0
 * note.author[x] ^short = "Wird über recorder abgebildet."
 * note.time 0..0
-* note.time ^short = "Wird über recordedDate abgebildet."
+* note.time ^short = "Wird über die recordedDate-Extension abgebildet."
 * note.text 1..1 MS
 * note.text ^maxLength = 500

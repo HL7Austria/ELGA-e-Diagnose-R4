@@ -1,12 +1,12 @@
 Instance: ConditionEntry02
 InstanceOf: AtEdiagCondition
-Title: "Beispielinstanz einer Diagnose für die Gesamtliste"
+Title: "Beispielinstanz einer Diagnose für die Gesamtansicht (Eitrige Angina)"
 Description: "Beispiel Diagnose, aktuelle Beschwerden des Patienten"
 Usage: #example
 
-* extension[AtReported].valueBoolean = false
+* extension[reported].valueBoolean = false
 
-* identifier[0].system = Canonical(AtEdiagBusinessIdentifier)
+* identifier[0].system = Canonical(AtEdiagBusinessIdentifierCS)
 * identifier[=].value = "1235"
 
 * clinicalStatus = $condition-clinical#active
@@ -19,7 +19,7 @@ Usage: #example
     * system = "urn:oid:1.2.40.0.10.2.1.1.149"
     * value = "GH:oeLdSEb0l+8kSdJWjOYyYmnYki0="
 
-* recordedDate = "2026-03-03T00:00:00+00:00"
+* recordedDate = "2026-03-03T08:06:00+00:00"
 
 * recorder = Reference(PractitionerExample)
   * identifier[0]

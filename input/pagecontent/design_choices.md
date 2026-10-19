@@ -7,7 +7,7 @@ Hintergrund ist die Versionierung der Summary-Liste: Jede Listenversion soll gen
 
 Um trotzdem eine Verknüpfung zwischen Einträgen herstellen zu können, kann der Business Identifier (siehe z. B. bei der [Condition.identifier:businessIdentifier](StructureDefinition-at-elga-ediag-condition-definitions.html#Condition.identifier:businessIdentifier)) von Einträgen verwendet werden. Ein Client kann diesen Identifier nutzen, um einzelne Einträge im Zuge einer Bearbeitung miteinander zu verknüpfen. Sollte dieser Identifier durch den Client nicht gesetzt werden, wird er von der Fachanwendung e-Diagnose vergeben.
 
-Davon unberührt sind die Operationen [`$entered-in-error`](OperationDefinition-at-ediag-operation-diagnose-entered-in-error.html) und [`$delete`](OperationDefinition-at-ediag-operation-diagnose-delete.html). Bei einer Stornierung ergänzt die e-Diagnose-Fachanwendung lediglich die Angaben zur Stornierung (GDA, Zeitpunkt, Grund); alle weiteren Informationen des Eintrags bleiben unverändert. Bei einer Löschung durch den ELGA-Teilnehmer wird der Eintrag als Ganzes entfernt.
+Davon unberührt sind die Operationen [`$entered-in-error`](OperationDefinition-at-ediag-operation-entry-entered-in-error.html) und [`$delete`](OperationDefinition-at-ediag-operation-entry-delete.html). Bei einer Stornierung ergänzt die e-Diagnose-Fachanwendung lediglich die Angaben zur Stornierung (GDA, Zeitpunkt, Grund); alle weiteren Informationen des Eintrags bleiben unverändert. Bei einer Löschung durch den ELGA-Teilnehmer wird der Eintrag als Ganzes entfernt.
 
 <a name="logische-referenzen"></a>
 ### Informationen über GDA und Patienten
@@ -92,7 +92,7 @@ Die e-Diagnose-Fachanwendung hat nur für die folgenden Ressourcen Endpunkte fre
 - `/Procedure`
 - `/AllergyIntolerance`
 
-Alle Informationen, die sich auf `Patient`, `Practitioner`, `PractitionerRole`, `Organization`, `RelatedPerson`, `Device` beziehen, müssen über den Suchergebnisparameter [`_include`](https://hl7.org/fhir/R4/search.html#include) aufgelöst werden.
+Alle Informationen, die sich auf `Patient`, `Practitioner`, `PractitionerRole`, `Organization`, `Device` beziehen, müssen über den Suchergebnisparameter [`_include`](https://hl7.org/fhir/R4/search.html#include) aufgelöst werden.
 
 #### Summary-Liste
 
@@ -121,8 +121,14 @@ Basis bildet dabei jeweils `[base]/[Condition|Procedure|AllergyIntolerance]?_id=
 | `.extension:evidence` | nicht zutreffend | nicht zutreffend | `&_include=AllergyIntolerance:evidence` |
 {: .grid}
 
-### Optimistisches Locking
+### Angabe von Bezugspersonen (asserter)
 
-Damit zwei unterschiedliche Clients nicht zur gleichen Zeit schreibend auf die e-Diagnose-Fachanwendung zugreifen können, wird auf das Konzept des [optimistischen Lockings](https://hl7.org/fhir/R4/http.html#concurrency) zurückgegriffen.
+Als Quelle der Information zu Einträgen (asserter), z. B. Patient, behandelnde Person oder Dritter kann neben GDA oder dem Patienten auch eine Bezugsperson ([RelatedPerson-Profil](StructureDefinition-at-elga-ediag-relatedperson.html)) angegeben werden.
+
+Diese Informationen sind als `contained` Ressourcen in den Ressourcen für die Einträge anzugeben (siehe [Beispiel](Condition-ConditionEntryContainedRelatedPerson.html)).
+
+### Nebenläufigkeit (Optimistic Locking)
+
+Damit zwei unterschiedliche Clients nicht zur gleichen Zeit schreibend auf die e-Diagnose-Fachanwendung zugreifen können, wird auf das Konzept des [Optimistic Lockings](https://hl7.org/fhir/R4/http.html#concurrency) zurückgegriffen.
 
 Für die e-Diagnose-Fachanwendung bedeutet das, dass beim [Abruf einer aktuellen Summary-Liste](use_case_read.html#aktuelle-summary-liste-abrufen) die List-Ressource im SearchSet-Bundle auch die aktuelle `List.meta.versionId` enthält. Diese wird von der e-Diagnose-Fachanwendung verwaltet. Beim Ausführen der [`$write`-Operation](use_case_write.html#summary-liste-aktualisieren-write) muss der Wert von `List.meta.versionId` als `If-Match`-Header mitgeschickt werden. Die e-Diagnose-Fachanwendung prüft in der Folge, ob der Wert des `If-Match`-Headers mit der gespeicherten `List.meta.versionId` der zu aktualisierenden Summary-Liste übereinstimmt. Nur im Falle einer Übereinstimmung wird die Summary-Liste am Server aktualisiert und die `List.meta.versionId` erhält einen neuen Wert.

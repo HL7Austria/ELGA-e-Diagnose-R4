@@ -1,6 +1,6 @@
 Dieses Kapitel beschreibt die schreibenden Zugriffe (mit Ausnahme der [Teilnehmerrechte](use_case_participant.html)) auf einzelne Einträge sowie auf die jeweiligen Summary-Listen der e-Diagnose-Fachanwendung.
 
-Die hier dargestellten technischen Anwendungsfälle ergänzen die fachlichen Anwendungsfälle ["Diagnosen schreiben"](https://dev.elga.gv.at/apis/ediag/use-cases/).
+Die hier dargestellten technischen Anwendungsfälle ergänzen die fachlichen Anwendungsfälle ["Diagnosen schreiben"](https://developer.elga.gv.at/apis/ediag/use-cases/assets/pdfs/UC_eDiag_02%20Diagnosen%20schreiben.pdf).
 
 ### Interaktionen auf Einzelressourcen
 
@@ -10,7 +10,7 @@ Dieser Anwendungsfall ermöglicht dem GDA das Erfassen eines neuen Eintrags in d
 
 ##### Ablauf
 
-1. Der GDA wählt die gewünschten Art des Eintrags (Condition, Procedure oder AllergyIntolerance) aus.
+1. Der GDA wählt die gewünschte Art des Eintrags (Condition, Procedure oder AllergyIntolerance) aus.
 2. Der GDA erstellt einen neuen Eintrag und erfasst die erforderlichen fachlichen Informationen.
 3. Der GDA führt ein `POST /[Condition|Procedure|AllergyIntolerance]` aus und übermittelt die neue Ressource an die e-Diagnose-Fachanwendung.
 4. Die e-Diagnose-Fachanwendung validiert die übermittelte Ressource.
@@ -27,14 +27,14 @@ Dieser Anwendungsfall erlaubt dem GDA die Stornierung eines Eintrags. Dabei ist 
 
 ##### Ablauf
 
-1. Um einen Eintrag zu stornieren, führt der GDA die [`$entered-in-error`-Operation](OperationDefinition-at-ediag-operation-diagnose-entered-in-error.html) auf (`POST /[Condition|Procedure|AllergyIntolerance]/[id]/$entered-in-error`) den zu stornierenden Eintrag aus.
+1. Um einen Eintrag zu stornieren, führt der GDA die [`$entered-in-error`-Operation](OperationDefinition-at-ediag-operation-entry-entered-in-error.html) auf (`POST /[Condition|Procedure|AllergyIntolerance]/[id]/$entered-in-error`) den zu stornierenden Eintrag aus.
 2. Optional kann der GDA einen Grund für die Stornierung angeben, der durch die Fachanwendung in den zu stornierenden Eintrag übernommen wird.
 3. Für den zu stornierenden Eintrag speichert die e-Diagnose-Fachanwendung, welcher GDA den Eintrag storniert hat sowie den Zeitpunkt der Stornierung.
 4. Sollte der zu stornierende Eintrag Teil der aktuellen Summary-Liste gewesen sein, erstellt die Fachanwendung eine neue Version der Summary-Liste ohne den stornierten Eintrag.
 
 ##### Custom Operation
 
-[`$entered-in-error`](OperationDefinition-at-ediag-operation-diagnose-entered-in-error.html)
+[`$entered-in-error`](OperationDefinition-at-ediag-operation-entry-entered-in-error.html)
 
 #### Eintrag in der Gesamtansicht bearbeiten
 

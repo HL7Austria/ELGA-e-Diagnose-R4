@@ -1,7 +1,7 @@
 Profile: AtEdiagCondition
 Parent: Condition
 Id: at-elga-ediag-condition
-Title: "AT ELGA e-Diagnose Condition"
+Title: "AT e-Diagnose Condition"
 Description: "Dieses Condition-Profil passt die Condition-Resource für die Anforderungen der e-Diagnose an."
 
 * ^status = #active
@@ -11,10 +11,12 @@ Description: "Dieses Condition-Profil passt die Condition-Resource für die Anfo
 
 * implicitRules 0..0
 
-* extension contains AtReported named reported 0..1 MS
-* extension[reported] ^short = "True wenn diese Allergie fremdberichtet ist."
+* insert AtEDiagAsserterRuleSet
 
-* extension contains AtElgaEdiagExtEnteredInError named entered-in-error 0..1 MS
+* extension contains AtEdiagExtReported named reported 0..1 MS
+* extension[reported] ^short = "True wenn diese Diagnose fremdberichtet ist."
+
+* extension contains AtEdiagExtEnteredInError named entered-in-error 0..1 MS
 * extension[entered-in-error] ^short = "Dokumentation des GDA der den Eintrag storniert hat."
 
 * modifierExtension 0..0
@@ -22,11 +24,11 @@ Description: "Dieses Condition-Profil passt die Condition-Resource für die Anfo
 * insert AtEDiagIdentifierRuleSet
 
 * clinicalStatus 1..1 MS
-* clinicalStatus from AtEdiagConditionClinicalStatusVS (required)
+* clinicalStatus from AtEdiagConditionClinicalStatus (required)
 * clinicalStatus ^short = "Status der Diagnose; mögliche Codes: active | inactive."
 
 * verificationStatus 0..1 MS
-* verificationStatus from AtEdiagConditionVerificationStatusVS (required)
+* verificationStatus from AtEdiagConditionVerificationStatus (required)
 * verificationStatus ^short = "Verifizierungsstatus der Diagnose, mögliche Codes: provisional | differential | refuted."
 
 * category 0..0

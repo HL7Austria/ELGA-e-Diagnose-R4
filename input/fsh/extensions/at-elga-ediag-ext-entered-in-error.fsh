@@ -1,8 +1,8 @@
-Extension: AtElgaEdiagExtEnteredInError
+Extension: AtEdiagExtEnteredInError
 Id: at-elga-ediag-ext-entered-in-error
-Title: "AT ELGA Entered In Error"
+Title: "AT e-Diagnose Entered In Error"
 Description: "Kennzeichnet, ob eine Information fehlerhaft eingegeben wurde."
-Context: AtEdiagCondition, AtEdiagProcedure, AtEdiagAllergyIntolerance
+Context: Condition, Procedure, AllergyIntolerance
 
 * value[x] 0..0
 * extension contains 

@@ -1,7 +1,7 @@
 Profile: AtEdiagRelatedPerson
 Parent: RelatedPerson
 Id: at-elga-ediag-relatedperson
-Title: "AT ELGA e-Diagnose RelatedPerson"
+Title: "AT e-Diagnose RelatedPerson"
     Description: "Dieses RelatedPerson-Profil passt die RelatedPerson-Resource für die Anforderungen der e-Diagnose an."
 
 * ^status = #active
