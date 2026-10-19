@@ -1,7 +1,8 @@
-Instance: at-elga-ediag-searchparameter-procedure-asserter
+Instance: ProcedureAsserter
 InstanceOf: SearchParameter
+Title: "Procedure Asserter"
 Usage: #definition
-* name = "Procedure Asserter"
+* id = "at-elga-ediag-searchparameter-procedure-asserter"
 * status = #active
 * description = "Erlaubt die Suche nach der Quelle der Information zur Prozedur, z. B. Patient, behandelnde Person oder Dritter."
 * code = #asserter

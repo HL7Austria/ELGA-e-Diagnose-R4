@@ -1,7 +1,8 @@
-Instance: at-elga-ediag-searchparameter-procedure-report
+Instance: ProcedureReport
 InstanceOf: SearchParameter
+Title: "Procedure Report"
 Usage: #definition
-* name = "Procedure Report"
+* id = "at-elga-ediag-searchparameter-procedure-report"
 * status = #active
 * description = "Erlaubt die Suche nach Verweisen auf e-Befunde als medizinische Evidenz."
 * code = #report
