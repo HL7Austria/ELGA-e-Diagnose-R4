@@ -29,7 +29,7 @@ Description: "Dieses List-Profil passt die List-Resource für die Anforderungen 
 * title ^short = "Die Liste hat keinen Titel."
 
 * code 1..1 MS
-* code from AtEdiagListCodeVS (required)
+* code from AtEdiagListCode (required)
 * code ^short = "Code, der den Typ der Liste beschreibt."
 
 * subject 1..1 MS
@@ -71,7 +71,7 @@ Description: "Dieses List-Profil passt die List-Resource für die Anforderungen 
 * entry.item.reference 1..1
 
 * emptyReason 0..1 MS
-* emptyReason from AtEdiagListEmptyReasonVS (required)
+* emptyReason from AtEdiagListEmptyReason (required)
 * emptyReason ^short = "Begründung, warum die Summary-Liste leer ist."
 
 Invariant: list-integrity

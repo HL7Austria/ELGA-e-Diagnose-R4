@@ -3,7 +3,7 @@ Id: at-ediag-allergyintolerance-code
 Title: "AT e-Diagnose AllergyIntolerance Code"
 Description: "Value-Set für die Codierung von Allergien und Intoleranzen."
 * ^status = #draft
-* ^experimental = true
+* ^experimental = false
 
 * include codes from valueset $vs-elga-wirkstoffe-ages
 * $cs-sct#432003

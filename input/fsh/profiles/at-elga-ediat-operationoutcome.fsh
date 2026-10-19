@@ -8,4 +8,4 @@ Description: "Dieses Profil gibt vor, welche Details im Rahmen der e-Diagnose im
 * . ^short = "AT ELGA e-Diagnose OperationOutcome"
 
 * issue
-  * details from AtEdiagOperationOutcomeDetailsVS (required)
+  * details from AtEdiagOperationOutcomeDetails (required)

@@ -28,11 +28,11 @@ Description: "Dieses AllergyIntolerance-Profil passt die AllergyIntolerance-Reso
 * insert AtEDiagIdentifierRuleSet
 
 * clinicalStatus 1..1 MS
-* clinicalStatus from AtEdiagAllergyIntoleranceClinicalStatusVS (required)
+* clinicalStatus from AtEdiagAllergyIntoleranceClinicalStatus (required)
 * clinicalStatus ^short = "Status der Allergie; mögliche Codes: active | resolved."
 
 * verificationStatus 1..1 MS
-* verificationStatus from AtEdiagAllergyIntoleranceVerificationStatusVS (required)
+* verificationStatus from AtEdiagAllergyIntoleranceVerificationStatus (required)
 * verificationStatus ^short = "Verifizierungsstatus der Allergie; mögliche Codes: unconfirmed | presumed | confirmed | refuted."
 
 * type 0..0

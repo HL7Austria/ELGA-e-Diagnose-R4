@@ -24,11 +24,11 @@ Description: "Dieses Condition-Profil passt die Condition-Resource für die Anfo
 * insert AtEDiagIdentifierRuleSet
 
 * clinicalStatus 1..1 MS
-* clinicalStatus from AtEdiagConditionClinicalStatusVS (required)
+* clinicalStatus from AtEdiagConditionClinicalStatus (required)
 * clinicalStatus ^short = "Status der Diagnose; mögliche Codes: active | inactive."
 
 * verificationStatus 0..1 MS
-* verificationStatus from AtEdiagConditionVerificationStatusVS (required)
+* verificationStatus from AtEdiagConditionVerificationStatus (required)
 * verificationStatus ^short = "Verifizierungsstatus der Diagnose, mögliche Codes: provisional | differential | refuted."
 
 * category 0..0

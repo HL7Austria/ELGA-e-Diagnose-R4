@@ -1,9 +1,9 @@
 CodeSystem: AtEdiagReactionTimeCS
-Id: at-ediag-codesystem-reaction-time-cs
-Title: "Reaktionszeit Codes"
+Id: at-ediag-reaction-time
+Title: "AT e-Diagnose Reaktionszeit CS"
 Description: "Zeitlicher Verlauf der Manifestation"
-* ^status = #active
-* ^experimental = true
+* ^status = #draft
+* ^experimental = false
 * ^caseSensitive = true
 
 // neue Namen für die Codes

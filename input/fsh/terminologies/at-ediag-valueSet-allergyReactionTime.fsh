@@ -1,8 +1,8 @@
-ValueSet: AtEdiagReactionTimeVS
-Id: at-ediag-reaction-time-vs
-Title: "AT e-Diagnose Reaction Time Value Set"
+ValueSet: AtEdiagReactionTime
+Id: at-ediag-reaction-time
+Title: "AT e-Diagnose Reaktionszeit VS"
 Description: "ValueSet mit zulässigen Ausprägungen der Reaktionszeit einer allergischen Reaktion."
-* ^status = #active
-* ^experimental = true
+* ^status = #draft
+* ^experimental = false
 
 * include codes from system AtEdiagReactionTimeCS
