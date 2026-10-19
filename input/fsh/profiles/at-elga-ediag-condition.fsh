@@ -11,6 +11,8 @@ Description: "Dieses Condition-Profil passt die Condition-Resource für die Anfo
 
 * implicitRules 0..0
 
+* insert AtEDiagAsserterRuleSet
+
 * extension contains AtReported named reported 0..1 MS
 * extension[reported] ^short = "True wenn diese Diagnose fremdberichtet ist."
 
