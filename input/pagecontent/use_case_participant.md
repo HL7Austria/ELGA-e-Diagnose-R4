@@ -1,3 +1,7 @@
+Dieses Kapitel beschreibt die Ausübung von Teilnehmerrechten auf einzelne Einträge sowie die jeweiligen Summary-Listen der e-Diagnose-Fachanwendung.
+
+Die hier dargestellten technischen Anwendungsfälle ergänzen die fachlichen Anwendungsfälle ["Teilnehmerrechte ausüben"](https://developer.elga.gv.at/apis/ediag/use-cases/assets/pdfs/UC_eDiag_03%20Teilnehmerrechte%20aus%C3%BCben.pdf).
+
 ### Anwendungskontext
 
 Die Teilnehmerrechte können – abgesehen vom Widerspruch über die ELGA-Widerspruchstelle (WIST) und der Unterstützung durch die ELGA-Ombudsstelle (OBST) – ausschließlich über das Zugangsportal gemäß § 23 Abs. 1 GTelG 2012 ausgeübt werden.

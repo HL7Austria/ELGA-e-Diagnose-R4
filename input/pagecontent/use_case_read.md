@@ -1,6 +1,6 @@
 Dieses Kapitel beschreibt die lesenden Zugriffe auf einzelne Einträge sowie die jeweiligen Summary-Listen der e-Diagnose-Fachanwendung.
 
-Die hier dargestellten technischen Anwendungsfälle ergänzen die fachlichen Anwendungsfälle ["Diagnosen lesen"](https://dev.elga.gv.at/apis/ediag/use-cases/).
+Die hier dargestellten technischen Anwendungsfälle ergänzen die fachlichen Anwendungsfälle ["Diagnosen lesen"](https://developer.elga.gv.at/apis/ediag/use-cases/assets/pdfs/UC_eDiag_01%20Diagnosen%20lesen.pdf).
 
 ### Verwendung von _include
 
