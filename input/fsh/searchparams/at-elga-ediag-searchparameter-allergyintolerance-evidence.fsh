@@ -3,6 +3,7 @@ InstanceOf: SearchParameter
 Title: "AllergyIntolerance Evidence"
 Usage: #definition
 * id = "at-elga-ediag-searchparameter-allergyintolerance-evidence"
+* name = "AllergyIntoleranceEvidence"
 * status = #active
 * description = "Erlaubt die Suche nach Verweisen auf e-Befunde als medizinische Evidenz."
 * code = #evidence
