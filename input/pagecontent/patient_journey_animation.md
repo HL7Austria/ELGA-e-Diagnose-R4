@@ -194,7 +194,7 @@
   <input class="sr" type="radio" name="pj-step" id="s4" aria-label="09.03.2026 Korrektur">
   <input class="sr" type="radio" name="pj-step" id="s5" aria-label="20.04.2026 Löschung">
 
-  <nav class="bar" aria-label="Zeitpunkt wählen">
+  <div role="navigation" class="bar" aria-label="Zeitpunkt wählen">
     <div class="nav">
       <span class="arrow off st on0" aria-hidden="true">&#8249;</span>
       <label class="arrow st on1" for="s0" title="Zurück: 03.03.2026 Initialisierung">&#8249;</label>
@@ -220,9 +220,9 @@
       <label class="arrow st on4" for="s5" title="Weiter: 20.04.2026 Löschung">&#8250;</label>
       <span class="arrow off st on5" aria-hidden="true">&#8250;</span>
     </div>
-  </nav>
+  </div>
 
-  <header>
+  <div class="journey-header">
     <p class="pj-title" role="heading" aria-level="2">Patient Journey Max Mustermann</p>
     <div class="legend">
       <span><i class="sw sw-g"></i>Gesamtansicht – alle Einträge</span>
@@ -230,7 +230,7 @@
       <span><i class="sw sw-n"></i>neu</span>
       <span><i class="sw sw-x"></i>storniert / gelöscht</span>
     </div>
-  </header>
+  </div>
 
   <div class="caption">
     <p class="st on0"><span class="d">03.03.2026</span><b>Initialisierung.</b> Die e-Diagnose Fachanwendung legt je Kategorie eine leere Summary-Liste an.</p>
@@ -272,7 +272,7 @@
   </div>
 
   <div class="cats">
-    <section class="cat">
+    <div class="cat">
       <p class="cat-t" role="heading" aria-level="3">Diagnosen</p>
       <div class="gesamt">
         <div class="field">
@@ -291,9 +291,9 @@
           <li class="tag void st on4 on5"><a href="Condition-ConditionEntry03EnteredInError.html"><span>Morbus Crohn (Code: Hyperthyreose)</span></a></li>
         </ul>
       </div>
-    </section>
+    </div>
 
-    <section class="cat">
+    <div class="cat">
       <p class="cat-t" role="heading" aria-level="3">Prozeduren</p>
       <div class="gesamt">
         <div class="field">
@@ -304,9 +304,9 @@
           </ul>
         </div>
       </div>
-    </section>
+    </div>
 
-    <section class="cat">
+    <div class="cat">
       <p class="cat-t" role="heading" aria-level="3">Allergien und Intoleranzen</p>
       <div class="gesamt">
         <div class="field">
@@ -317,10 +317,10 @@
           </ul>
         </div>
       </div>
-    </section>
+    </div>
   </div>
 
-  <section class="wire">
+  <div class="wire">
     <p class="wire-t" role="heading" aria-level="3">Datenaustausch in diesem Schritt</p>
     <div class="lanes"><span>Client &ndash; GDA-Software bzw. Zugangsportal</span><span>e-Diagnose Fachanwendung</span></div>
     <div class="msgs">
@@ -376,5 +376,5 @@
       <div class="msg res st on5"><code>200 Bundle</code><span class="t"><a href="Bundle-ConditionSearchSet03.html">5 Diagnosen</a>, ohne Candida-Balanitis</span></div>
       <p class="note st on5">wäre der Eintrag in der Summary-Liste: neue Listenversion ohne ihn, List.source = Patient</p>
     </div>
-  </section>
+  </div>
 </div>
