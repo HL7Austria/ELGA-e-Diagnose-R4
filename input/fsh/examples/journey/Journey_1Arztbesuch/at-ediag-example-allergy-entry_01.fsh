@@ -11,7 +11,7 @@ Usage: #example
 
 * clinicalStatus = $cs-allergyintolerance-clinical#active
 
-* verificationStatus = $cs-allergyintolerance-verification#presumed
+* verificationStatus = $cs-allergyintolerance-verification#confirmed
 
 * code.coding.system = $cs-medikation-ages-wirkstoffe
 * code.coding.code = #1708923
