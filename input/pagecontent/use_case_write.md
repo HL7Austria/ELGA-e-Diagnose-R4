@@ -18,7 +18,8 @@ Dieser Anwendungsfall ermöglicht dem GDA das Erfassen eines neuen Eintrags in d
 
 ##### Sequenzdiagramm 
 
-<div>{% include_relative plantuml/write_entry.svg %}</div>
+<div>{% include write_entry.svg %}</div>
+<br clear="all"/>
 
 #### Eintrag stornieren
 
@@ -76,7 +77,8 @@ Dieser Anwendungsfall kann pro Patient für jede der drei Summary-Listen maximal
 
 ##### Sequenzdiagramm
 
-<div>{% include_relative plantuml/write_confirm_empty_list.svg %}</div>
+<div>{% include write_confirm_empty_list.svg %}</div>
+<br clear="all"/>
 
 #### Summary-Liste aktualisieren ($write)
 
@@ -116,11 +118,13 @@ Die `$write`-Operation ist eine eigenständige Operation, die allerdings einen *
 
 ##### Sequenzdiagramm
 
-<div>{% include_relative plantuml/write_summary_list.svg %}</div>
+<div>{% include write_summary_list.svg %}</div>
+<br clear="all"/>
 
 ###### Alternativer Ablauf: Abgelehnte $write-Operation
 
-<div>{% include_relative plantuml/write_summary_list_error.svg %}</div>
+<div>{% include write_summary_list_error.svg %}</div>
+<br clear="all"/>
 
 #### Eintrag zur Summary-Liste hinzufügen
 
@@ -138,7 +142,8 @@ Dieser Anwendungsfall setzt voraus, dass der Eintrag, den der GDA der Summary-Li
 
 ##### Sequenzdiagramm
 
-<div>{% include_relative plantuml/write_summary_list_add_entry.svg %}</div>
+<div>{% include write_summary_list_add_entry.svg %}</div>
+<br clear="all"/>
 
 #### Eintrag aus Summary-Liste entfernen
 
@@ -152,7 +157,8 @@ Dieser Anwendungsfall erlaubt das entfernen eines Eintrags aus einer Summary-Lis
 
 ##### Sequenzdiagramm
 
-<div>{% include_relative plantuml/write_summary_list_remove_entry.svg %}</div>
+<div>{% include write_summary_list_remove_entry.svg %}</div>
+<br clear="all"/>
 
 #### Reihenfolge der Einträge in der Summary-Liste ändern
 
@@ -189,4 +195,5 @@ Daten bestehender Einträge können nicht im Sinne eines Updates (`PUT`) veränd
 
 ##### Sequenzdiagramm
 
-<div>{% include_relative plantuml/write_summary_list_edit_entry.svg %}</div>
+<div>{% include write_summary_list_edit_entry.svg %}</div>
+<br clear="all"/>

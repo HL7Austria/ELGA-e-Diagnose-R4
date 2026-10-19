@@ -52,7 +52,8 @@ Dieser Anwendungsfall dient dem Abruf der aktuellen Summary-Liste für eine Art 
 
 ##### Sequenzdiagramm 
 
-<div>{% include_relative plantuml/read_summary_list.svg %}</div>
+<div>{% include read_summary_list.svg %}</div>
+<br clear="all"/>
 
 #### Versionen einer Summary-Liste abrufen
 
@@ -74,4 +75,5 @@ Dieser Anwendungsfall dient der Anzeige aktueller und historischer Versionen der
 
 ##### Sequenzdiagramm 
 
-<div>{% include_relative plantuml/read_summary_list_history.svg %}</div>
+<div>{% include read_summary_list_history.svg %}</div>
+<br clear="all"/>
