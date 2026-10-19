@@ -238,7 +238,7 @@
     <p class="st on2"><span class="d">09.03.2026</span><b>2. Arztbesuch.</b> Morbus Crohn und partielle Resektion des Dickdarms werden in die Summary-Listen aufgenommen – Morbus Crohn allerdings irrtümlich mit dem Code für Hyperthyreose. Diarrhö und Candida-Balanitis kommen nur in die Gesamtansicht.</p>
     <p class="st on3"><span class="d">09.03.2026</span><b>Storno.</b> Die Ärztin bemerkt den falschen Code und storniert den Eintrag. Die Fachanwendung entfernt ihn selbst aus der Summary-Liste.</p>
     <p class="st on4"><span class="d">09.03.2026</span><b>Korrektur.</b> Die Ärztin erfasst Morbus Crohn korrekt und nimmt ihn in die Summary-Liste auf. Der stornierte Eintrag bleibt in der Gesamtansicht sichtbar.</p>
-    <p class="st on5"><span class="d">20.04.2026</span><b>Löschung durch den Patienten.</b> Max Mustermann löscht die Candida-Balanitis über das Portal aus seiner Gesamtansicht.</p>
+    <p class="st on5"><span class="d">20.04.2026</span><b>Löschung durch den Patienten.</b> Max Mustermann löscht die Candida-Balanitis über das Zugangsportal aus seiner Gesamtansicht.</p>
   </div>
 
   <div class="stories">
@@ -266,7 +266,7 @@
       <p>Stornierte Einträge bleiben Teil der Gesamtansicht. Der falsch codierte Eintrag ist daher in jedem Abruf aller Diagnosen enthalten – als storniert gekennzeichnet.</p>
     </div>
     <div class="story st on5">
-      <p>Am 20. April 2026 nimmt Herr Mustermann über das Portal Einsicht in seine e-Diagnose und ruft alle Diagnosen ab. Dabei sieht er, dass die im März dokumentierte Pilzinfektion in seiner Gesamtansicht aufscheint. Er möchte das nicht und <a href="use_case_participant.html#eintrag-löschen">löscht</a> den Eintrag.</p>
+      <p>Am 20. April 2026 nimmt Herr Mustermann über das Zugangsportal Einsicht in seine e-Diagnose und ruft alle Diagnosen ab. Dabei sieht er, dass die im März dokumentierte Pilzinfektion in seiner Gesamtansicht aufscheint. Er möchte das nicht und <a href="use_case_participant.html#eintrag-löschen">löscht</a> den Eintrag.</p>
       <p>Der Eintrag wird daraufhin aus der Gesamtansicht gelöscht. Wäre der Eintrag auch Bestandteil der Summary-Liste, würde er ebenfalls aus dieser entfernt; <code>List.source</code> wird in diesem Fall auf den Patienten gesetzt.</p>
     </div>
   </div>
@@ -322,7 +322,7 @@
 
   <section class="wire">
     <p class="wire-t" role="heading" aria-level="3">Datenaustausch in diesem Schritt</p>
-    <div class="lanes"><span>Client &ndash; GDA-Software bzw. ELGA-Portal</span><span>e-Diagnose Fachanwendung</span></div>
+    <div class="lanes"><span>Client &ndash; GDA-Software bzw. Zugangsportal</span><span>e-Diagnose Fachanwendung</span></div>
     <div class="msgs">
       <!-- 0 Initialisierung -->
       <div class="msg req st on0"><code>GET /List?code=http://loinc.org|11450-4&_include=List:item</code><span class="t">aktuelle Summary-Liste abrufen</span></div>
@@ -368,9 +368,9 @@
       <p class="note st on4">der stornierte Eintrag ist weiterhin Teil der Gesamtansicht</p>
 
       <!-- 5 Löschung -->
-      <div class="msg req st on5"><code>GET /Condition</code><span class="t">Gesamtansicht über das Portal abrufen</span></div>
+      <div class="msg req st on5"><code>GET /Condition</code><span class="t">Gesamtansicht über das Zugangsportal abrufen</span></div>
       <div class="msg res st on5"><code>200 Bundle</code><span class="t"><a href="Bundle-ConditionSearchSet02.html">6 Diagnosen</a>, inkl. storniertem Eintrag</span></div>
-      <div class="msg req st on5"><code>POST /Condition/[id]/$delete</code><span class="t">Candida-Balanitis, durch den ELGA-Teilnehmer über das Portal</span></div>
+      <div class="msg req st on5"><code>POST /Condition/[id]/$delete</code><span class="t">Candida-Balanitis, durch den ELGA-Teilnehmer über das Zugangsportal</span></div>
       <div class="msg res st on5"><code>200 OK</code><span class="t"><a href="Parameters-ConditionDeleteResponse01.html">Parameters</a>: diagnose = <a href="Condition-ConditionEntry05.html">gelöschter Eintrag</a> · Eintrag unwiderruflich gelöscht</span></div>
       <div class="msg req st on5"><code>GET /Condition</code><span class="t">Ergebnis prüfen</span></div>
       <div class="msg res st on5"><code>200 Bundle</code><span class="t"><a href="Bundle-ConditionSearchSet03.html">5 Diagnosen</a>, ohne Candida-Balanitis</span></div>

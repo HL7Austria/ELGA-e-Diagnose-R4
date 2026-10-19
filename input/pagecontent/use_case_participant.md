@@ -6,11 +6,11 @@ Die Teilnehmerrechte können – abgesehen vom Widerspruch über die ELGA-Widers
 
 #### Eintrag löschen
 
-Dieser Anwendungsfall erlaubt es einem ELGA-Teilnehmer, einzelne oder alle Einträge via ELGA-Portal unwiderruflich zu löschen. Dabei ist es irrelevant, ob ein zu löschender Eintrag Teil der jeweiligen Summary-Liste ist oder nicht. Sollte der Eintrag in der aktuellen Summary-Liste referenziert sein, erstellt die e-Diagnose-Fachanwendung eine neue Version der Summary-Liste ohne den gelöschten Eintrag.
+Dieser Anwendungsfall erlaubt es einem ELGA-Teilnehmer, einzelne oder alle Einträge via Zugangsportal unwiderruflich zu löschen. Dabei ist es irrelevant, ob ein zu löschender Eintrag Teil der jeweiligen Summary-Liste ist oder nicht. Sollte der Eintrag in der aktuellen Summary-Liste referenziert sein, erstellt die e-Diagnose-Fachanwendung eine neue Version der Summary-Liste ohne den gelöschten Eintrag.
 
 ##### Ablauf
 
-- Um einen Eintrag zu löschen, führt der ELGA-Teilnehmer über das Portal die [`$delete`-Operation](OperationDefinition-at-ediag-operation-diagnose-delete.html) auf (`POST /[Condition|Procedure|AllergyIntolerance]/[id]/$delete`) den zu löschenden Eintrag aus.
+- Um einen Eintrag zu löschen, führt der ELGA-Teilnehmer über das Zugangsportal die [`$delete`-Operation](OperationDefinition-at-ediag-operation-diagnose-delete.html) auf (`POST /[Condition|Procedure|AllergyIntolerance]/[id]/$delete`) den zu löschenden Eintrag aus.
 - Die e-Diagnose-Fachanwendung löscht den entsprechenden Eintrag.
 - Sollte der zu löschende Eintrag Teil der aktuellen Summary-Liste gewesen sein, erstellt die e-Diagnose-Fachanwendung eine neue Version der Summary-Liste ohne den gelöschten Eintrag.
 
@@ -27,7 +27,7 @@ Dieser Anwendungsfall beschreibt, wie ein ELGA-Teilnehmer einzelne Versionen ein
 ##### Ablauf
 
 1. Der ELGA-Teilnehmer ruft [alle Versionen einer Summary-Liste](use_case_read.html#versionen-einer-summary-liste-abrufen) ab.
-2. Um eine Version der Summary-Liste zu löschen, führt der ELGA-Teilnehmer über das Portal die [`$delete-history-version`-Operation](OperationDefinition-at-ediag-operation-list-delete-history-version.html) auf die zu löschende Summary-Listenversion aus.
+2. Um eine Version der Summary-Liste zu löschen, führt der ELGA-Teilnehmer über das Zugangsportal die [`$delete-history-version`-Operation](OperationDefinition-at-ediag-operation-list-delete-history-version.html) auf die zu löschende Summary-Listenversion aus.
 3. Die e-Diagnose-Fachanwendung löscht die entsprechende Summary-Listenversion.
 4. Wird die letzte Summary-Listenversion gelöscht, legt die e-Diagnose Fachanwendung eine neue Summary-Liste mit `List.emptyReason = nilknown` an.
  
