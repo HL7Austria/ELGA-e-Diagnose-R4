@@ -5,9 +5,6 @@ Description: "Beispiel der Eingabeparameter der $write-Operation, mit der Dr. Mu
 Usage: #example
 
 // POST /List/$write  ·  If-Match: W/"1"  (Ergebnis: Version 2)
-* parameter[0].name = "code"
-* parameter[=].valueCoding = $cs-loinc#48765-2
-
 * parameter[+].name = "list"
 * parameter[=].resource = AllergyList01Request
 
