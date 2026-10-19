@@ -4,7 +4,6 @@ Title: "Beispiel Patient"
 Description: "Beispielinstanz eines Patienten"
 Usage: #example
 
-* meta.profile = "http://hl7.at/fhir/HL7ATCoreProfiles/4.0.1/StructureDefinition/at-core-patient"
 * extension[0].valueCodeableConcept = $hl7-at-religionaustria#162 "Pastafarianismus"
 * extension[=].url = "http://hl7.org/fhir/StructureDefinition/patient-religion"
 * extension[+].extension.url = "code"
