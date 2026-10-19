@@ -44,7 +44,7 @@ Description: "Dieses List-Profil passt die List-Resource für die Anforderungen 
 
 * source 1..1 MS
 * source only Reference(HL7ATCorePractitioner or HL7ATCorePractitionerRole or HL7ATCorePatient or Device)
-* source ^short = "Person, die die Summary-Liste erstellt hat und für den Inhalt verantwortlich ist. Für die Fälle, in denen die e-Diagnose-Fachanwendung die Summary-Liste aktualisiert, ist ein Device zu referenzieren."
+* source ^short = "Person, die die Summary-Liste erstellt hat und für den Inhalt verantwortlich ist. Für die Initialisierung der e-Diagnose für einen Patienten wird die e-Diagnose-Fachanwendung als Device dokumentiert."
 
 * orderedBy 0..0
 * orderedBy ^short = "Die Reihenfolge der Einträge wird über die List.entries durch den Ersteller vorgegeben."

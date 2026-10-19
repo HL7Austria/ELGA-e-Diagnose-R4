@@ -13,7 +13,7 @@ Möchte der GDA einen Eintrag in der e-Diagnose Fachanwendung stornieren, muss d
   2. Als `[Condition|Procedure|AllergyIntolerance].extension[entered-in-error].extension[datetime]` wird  durch die e-Diagnose Fachanwendung das Datum und die Uhrzeit der Stornierung dokumentiert.
   3. Als `[Condition|Procedure|AllergyIntolerance].extension[entered-in-error].extension[reason]` wird der Grund für die Stornierung, der vom GDA angegeben werden **kann**, festgehalten.
 2. Alle weiteren Informationen des Eintrags bleiben unverändert erhalten.
-3. Ist der Eintrag Teil der jeweiligen Summary-Liste, wird er aus der Summary-Liste entfernt.
+3. Ist der Eintrag Teil der jeweiligen Summary-Liste, wird er aus der Summary-Liste entfernt. Als Autor (`List.source`) der Summary-Liste wird der GDA dokumentiert.
 
 ### Validierung / Fehlerbehandlung
 
